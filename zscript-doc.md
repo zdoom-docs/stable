@@ -2,7 +2,6 @@ Table of Conents
 ================
 
 * [Top-level](#top-level)
-
 * [Class definitions](#class-definitions)
 * [Enumeration definitions](#enumeration-definitions)
 * [Include directives](#include-directives)
