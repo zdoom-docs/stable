@@ -3,14 +3,18 @@ Table of Conents
 
 * [Top-level](#top-level)
 * [Class definitions](#class-definitions)
+* [Structure definitions](#structure-definitions)
 * [Enumeration definitions](#enumeration-definitions)
+* [Constant definitions](#constant-definitions)
 * [Include directives](#include-directives)
 
 Examples:
 
 * [Class headers](#examples-class-headers)
 * [Class definitions](#examples-class-definitions)
+* [Structure definitions](#examples-structure-definitions)
 * [Enumeration definitions](#examples-enumeration-definitions)
+* [Constant definitions](#examples-constant-definitions)
 * [Include directives](#examples-include-directives)
 
 Top-level
@@ -32,6 +36,8 @@ A class defines an object type within ZScript, and is most of what you'll be cre
 All classes inherit from other classes. The base class can be set within the class header, but if it is not the class will automatically inherit from Object.
 
 Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use the `new` expression to instantiate a new class object.
+
+Classes that inherit from Actor can replace other actors when spawned in maps, and can also be used freely in DECORATE. Actors have states, which will not be explained in this document as they are already well-documented on the ZDoom wiki.
 
 A class is formed with the syntax:
 
@@ -58,7 +64,7 @@ Class flags
 | `abstract`              | Cannot be instantiated with `new`. |
 | `ui`                    | Has UI scope. |
 | `play`                  | Has Play scope. |
-| `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works on objects which are descendants of Actor. |
+| `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works with descendants of Actor. |
 | `native`                | Class is from the engine. Do not use in user code. |
 | `version("ver")`        | Restricted to version *ver*. Do not use in user code. |
 
@@ -156,6 +162,20 @@ Structure contents are an optional list of various things logically contained wi
 - Enumeration definitions
 - Constant definitions
 
+Examples: Structure definitions
+-------------------------------
+
+Simple structure:
+
+```
+struct MyCoolStructure
+{
+   int x;
+   int y;
+   int z;
+}
+```
+
 Enumeration definitions
 =======================
 
@@ -202,6 +222,26 @@ enum MyCoolerEnum : int16
 };
 ```
 
+Constant definitions
+====================
+
+Constants are simple named values. They are created with the syntax:
+
+```
+const Name = value;
+```
+
+Constants are not assignable. Their type is inferred from their value, so if you wish for them to have a specific type, you must cast the value to that type.
+
+Examples: Constant definitions
+------------------------------
+
+Making an integer constant from a double:
+
+```
+const MyCoolInt = int(777.7777);
+```
+
 Include directives
 ==================
 
@@ -223,3 +263,101 @@ Basic includes:
 ```
 #include "zscript/MyCoolMod/MyCoolClasses.zsc"
 ```
+
+Types
+=====
+
+ZScript has several categories of types: Integer types, floating-point (decimal) types, strings, vectors, names, classes, et al. There are a wide variety of ways to use these types, as well as a wide variety of places they are used.
+
+Types determine what kind of value an object stores, how it acts within an expression, etc. All objects, constants and enumerations have a type. Argument lists use types to ensure a function is used properly.
+
+Integers
+-------------
+
+Integer types are basic integral numbers. They include:
+
+| Name     | Bits | Lowest value   | Highest value |
+| -------- |:----:| --------------:|:------------- |
+| `int8`   | 8    | -128           | 127           |
+| `uint8`  | 8    | 0              | 255           |
+| `int16`  | 16   | -32,768        | 32,767        |
+| `uint16` | 16   | 0              | 65,535        |
+| `int`    | 32   | -2,147,483,648 | 2,147,483,647 |
+| `uint`   | 32   | 0              | 4,294,967,296 |
+
+Floating-point types
+--------------------
+
+Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
+
+| Name     | Notes |
+| -------- | --- |
+| `float`  | Fastest floating-point type available on the platform. Limited use. |
+| `double` | 64-bit standard floating-point type. |
+
+Strings
+-------
+
+string
+
+Names
+-----
+
+name
+
+Vectors
+-------
+
+vector2
+vector3
+
+Other types
+-----------
+
+| Name        | Description |
+| ----------- | --- |
+| `bool`      | Holds one of two values: `true` or `false`. |
+| `sound`     | Similar to `int`, but holds a sound identifier. |
+| `textureid` | Similar to `int`, but holds a texture identifier. |
+| `color`     | A string which cannot be `null`. Holds the name or hex value of a color. |
+| `state`     | A reference to a state. Similar to `name`. |
+| `void`      | Holds no data. Nothing can be done with it. |
+
+Fixed-size arrays
+-----------------
+
+Type[Expr]
+
+Dynamic-size arrays
+-------------------
+
+array<Type>
+
+Maps
+----
+
+map<Type, Type>
+
+Class types
+-----------
+
+class
+class<DotId>
+
+User types
+----------
+
+Ident
+@Ident
+
+Read-only types
+---------------
+
+readonly<Ident>
+readonly<@Ident>
+
+Fully-specified types
+---------------------
+
+.DotId
+TypeList, Type
