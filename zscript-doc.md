@@ -29,32 +29,37 @@ Class definitions
 
 A class defines an object type within ZScript, and is most of what you'll be creating within the language.
 
-A class definition starts with a class header, followed by an opening brace, class content and a closing brace.
+All classes inherit from other classes. The base class can be set within the class header, but if it is not the class will automatically inherit from Object.
 
-Alternatively, you can follow the class header with a semicolon and the rest of the file will be considered class content. Note that with this syntax you cannot use include directives after the class header.
+Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use the `new` expression to instantiate a new class object.
 
-Classes all inherit from other classes. The base class can be set within the class header, though if it is not the class will automatically inherit from Object.
-
-Classes are subject to Scoping.
-
-Class headers
--------------
-
-The class header is formed as such:
+A class is formed with the syntax:
 
 ```
 class Name [: BaseClass] [Class flags...]
+{
+   [Class content...]
+}
 ```
 
-Class flags include:
+Or, alternatively, the rest of the file can be used as class content. Note that with this syntax you cannot use include directives afterward:
+
+```
+class Name [: BaseClass] [Class flags...];
+
+[Class content...]
+```
+
+Class flags
+-----------
 
 | Flag                    | Description |
 | ----------------------- | --- |
-| `abstract`              | Cannot be instantiated with new(). |
-| `native`                | Class is from the engine. Do not use in user code. |
+| `abstract`              | Cannot be instantiated with `new`. |
 | `ui`                    | Has UI scope. |
 | `play`                  | Has Play scope. |
 | `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works on objects which are descendants of Actor. |
+| `native`                | Class is from the engine. Do not use in user code. |
 | `version("ver")`        | Restricted to version *ver*. Do not use in user code. |
 
 Class content
@@ -111,6 +116,46 @@ int m_mymember;
 // end of file
 ```
 
+Structure definitions
+=====================
+
+A structure is an object type that does not inherit from Object and is not always a reference type, unlike classes. Structures are passed by-reference as arguments, however, and can be null when doing so.
+
+Structures are preferred for basic compound data types that do not need to be instanced and are often used as a way of generalizing code. They cannot be returned from functions.
+
+Structures are subject to Scoping, however their scope can be reset with the clearscope flag.
+
+A structure takes the form of:
+
+```
+struct Name [Structure flags...]
+{
+   [Structure content...]
+}
+```
+
+Optionally followed by a semicolon.
+
+Structure flags
+---------------
+
+| Flag             | Description |
+| ---------------- | --- |
+| `ui`             | Has UI scope. |
+| `play`           | Has Play scope. |
+| `clearscope`     | Clears the default scope. |
+| `native`         | Structure is from the engine. Do not use in user code. |
+| `version("ver")` | Restricted to version *ver*. Do not use in user code. |
+
+Structure content
+-----------------
+
+Structure contents are an optional list of various things logically contained within the structure, including:
+
+- Member declarations
+- Enumeration definitions
+- Constant definitions
+
 Enumeration definitions
 =======================
 
@@ -121,7 +166,7 @@ An enumeration definition takes the form:
 ```
 enum Name [: IntegerType]
 {
-   [Enumerator list]
+   [Enumerator...]
 }
 ```
 
