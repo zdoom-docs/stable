@@ -2,9 +2,17 @@ Table of Conents
 ================
 
 * [Top-level](#top-level)
+
 * [Class definitions](#class-definitions)
 * [Enumeration definitions](#enumeration-definitions)
 * [Include directives](#include-directives)
+
+Examples:
+
+* [Class headers](#examples-class-headers)
+* [Class definitions](#examples-class-definitions)
+* [Enumeration definitions](#examples-enumeration-definitions)
+* [Include directives](#examples-include-directives)
 
 Top-level
 =========
