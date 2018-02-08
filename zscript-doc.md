@@ -550,12 +550,12 @@ Binary expressions operate on two expressions, and are the most common kind of e
 | `a != b` | `true` if `a` is not equal to `b`. |
 | `a ~== b` | `true` if `a` is approximately equal to `b`. For strings this is a case-insensitive comparison, and for floats and vectors this checks if the difference between the two numbers is smaller than ε. |
 | `a && b` | `true` if `a` and `b` are both `true`. |
-| `a || b` | `true` if `a` or `b` is `true`. |
+| `a \|\| b` | `true` if `a` or `b` is `true`. |
 | `a is "b"` | `true` if `a` is the type, or a descendant of, `b`. |
 | `a <>= b` | Signed difference between `a` and `b`. |
 | `a & b` | Bitwise AND. |
 | `a ^ b` | Bitwise XOR. |
-| `a | b` | Bitwise OR. |
+| `a \| b` | Bitwise OR. |
 | `a::b` | Scope operator. Not implemented yet. |
 
 #### Assignment expressions
@@ -573,7 +573,7 @@ Assignment expressions are a subset of binary expressions which *are never const
 | `a <<= b` | Assigns `a << b` to `a`. |
 | `a >>= b` | Assigns `a >> b` to `a`. |
 | `a >>>= b` | Assigns `a >>> b` to `a`. |
-| `a |= b` | Assigns `a | b` to `a`. |
+| `a \|= b` | Assigns `a | b` to `a`. |
 | `a &= b` | Assigns `a & b` to `a`. |
 | `a ^= b` | Assigns `a ^ b` to `a`. |
 
