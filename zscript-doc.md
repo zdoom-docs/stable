@@ -584,20 +584,212 @@ The ternary expression is formed `a ? b : c`, and will evaluate to `b` if `a` is
 Statements
 ==========
 
-while
-until
-for
-if
-if-else
-do-while
-do-until
-switch
-continue
-break
-return
-multiassign-stmt
-local-var
-static array stmt
+All functions are made up of a list of *statements* enclosed with left and right braces, which in and of itself is a statement called a *compound statement*, or *block*.
+
+Compound statements
+-------------------
+
+A compound statement is formed as:
+
+```
+{
+   [Statement list...]
+}
+```
+
+Note that the statement list is optional, so an empty compound statement `{}` is entirely valid.
+
+Expression statements
+---------------------
+
+An expression statement is the single most common type of statement in just about any programming language. In ZScript, exactly like C and C++, an expression statement is simply formed with any expression followed by a semicolon. Function calls and variable assignments are expressions, for instance, so it is quite clear why they are common.
+
+Examples: Expression statements
+-------------------------------
+
+Some basic expressions:
+
+```
+myCoolFunction(5, 4);
+m_myCoolMember = 500;
+5 * 5; // does nothing of course, but valid
+```
+
+Conditional statements
+----------------------
+
+A conditional statement will, conditionally, choose a statement (or none) to execute. They work the same as in C and ACS.
+
+Examples: Conditional statements
+--------------------------------
+
+Simple conditional:
+
+```
+if(a)
+   b();
+```
+
+Simple conditional, with else statement and a block:
+
+```
+if(a)
+{
+   b();
+   c = d;
+}
+else
+   e = f;
+```
+
+Switch statements
+-----------------
+
+A switch statement takes an integer or name and selects a labeled statement to run. They work the sae as in C and ACS, though they accept `name` as well as `int` and enumeration types.
+
+Examples: Switch statements
+---------------------------
+
+A switch demonstrating fallthrough and default cases:
+
+```
+switch(a)
+{
+case 500: Console.printf("a is 500"); break;
+case 501: Console.printf("a is 501");
+case 502: Console.printf("a is 501 or 502"); break;
+default:
+   Console.printf("not sure what a is!");
+}
+```
+
+Loop statements
+---------------
+
+ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while `until` and `do until` do the inverse of `while` and `do while`.
+
+The `for` loop takes a limited statement and two optional expressions: The statement for when the loop begins (which is scoped to the loop,) one expression for checking if the loop should break, and one which is executed every time the loop iterates.
+
+The `while` loop simply takes one expression for checking if the loop should break, equivalent to `for(; a;)`.
+
+The `until` loop is equivalent to `while(!a)`.
+
+`do while` and `do until` will only check the expression after the first iteration is complete. The `do while` and `do until` loops is formed as such:
+
+```
+do
+   Statement
+while(a)
+
+do
+   Statement
+until(a)
+```
+
+Control flow statements
+-----------------------
+
+As in C, there are three control flow statements that manipulate where the program will execute statements next, which are available contextually. They are `continue`, `break` and `return`.
+
+`continue` is available in loop statements and will continue to the next iteration immediately.
+
+`break` is available in loop statements and switch statements, and will break out of the containing statement early.
+
+`return` is available in functions. If the function does not return any values, it may only be spelled `return;` and will simply exit the function early. If the function does return values, it takes a comma-separated list for each value returned.
+
+Examples: Control flow statements
+---------------------------------
+
+Use of `continue`:
+
+```
+for(int i = 0; i < 50; i++)
+{
+   if(i == 25) continue; // don't do anything on 25!
+
+   doThing(i);
+}
+```
+
+Use of `break`:
+
+```
+for(int i = 0; i < 50; i++)
+{
+   if(i == 25) break; // exit the loop at 25!
+
+   doThing(i);
+}
+```
+
+Use of `return` in various contexts:
+
+```
+void returnsNothing()
+{
+   if(m_thing != 50) return; // exit early if m_thing isn't 50.
+
+   doThing(m_thing);
+}
+
+int returnsInt()
+{
+   if(m_thing == 50)
+      return 50; // m_thing is 50, so return 50.
+
+   return 0; // must have a return eventually
+}
+
+int, int returnsTwoInts()
+{
+   return 1, 2; // returns 1 and 2.
+}
+```
+
+Local variable statements
+-------------------------
+
+Local variable statements are formed in one of 3 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the other two syntaxes use an explicit type, and initialization is optional.
+
+```
+Type a;
+Type a[Expression]; // alternate syntax for local array
+
+let a = b;
+Type a = b;
+Type a = {Expression list...}; // for fixed size array types
+Type a[Expression] = {Expression list...};
+```
+
+Multi-assignment statements
+---------------------------
+
+Expressions or functions that return multiple values can be assigned into multiple variables with the syntax:
+
+```
+[Expression list...] = Expression;
+```
+
+Examples: Multi-assign statements
+---------------------------------
+
+Getting the actor out of `A_SpawnItemEx`:
+
+```
+Actor mo;
+bool spawned;
+[spawned, mo] = A_SpawnItemEx("MyCoolActor");
+```
+
+Static array statements
+-----------------------
+
+Static arrays can be declared as normal as a statement.
+
+Null statements
+---------------
+
+A null statement does nothing, and is formed `;`. It is similar to an empty compound statement.
 
 API
 ===
