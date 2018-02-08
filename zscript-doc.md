@@ -72,6 +72,14 @@ class Name [: BaseClass] [Class flags...];
 [Class content...]
 ```
 
+If the class is defined within the same archive as the current file, then one can continue a class definition with the syntax:
+
+```
+extend class Name
+```
+
+In place of the class header.
+
 Class flags
 -----------
 
