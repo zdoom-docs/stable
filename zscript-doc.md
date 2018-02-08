@@ -6,10 +6,13 @@ Table of Conents
 * [Structure definitions](#structure-definitions)
 * [Enumeration definitions](#enumeration-definitions)
 * [Constant definitions](#constant-definitions)
+* [Static array definitions](#static-array-definitions)
 * [Include directives](#include-directives)
 * [Types](#types)
 * [Expressions and Operators](#expressions-and-operators)
 * [Statements](#statements)
+* [Member declarations](#member-declarations)
+* [Method definitions](#method-definitions)
 * [API](#api)
 
 Examples:
@@ -77,20 +80,6 @@ Class flags
 | `native`                | Class is from the engine. Do not use in user code. |
 | `version("ver")`        | Restricted to version *ver*. Do not use in user code. |
 
-Class content
--------------
-
-Class contents are an optional list of various things logically contained within the class, including:
-
-- Member declarations
-- Static array declarations
-- State definitions
-- Default definitions
-- Property definitions
-- Enumeration definitions
-- Structure definitions
-- Constant definitions
-
 Examples: Class headers
 -----------------------
 
@@ -131,6 +120,75 @@ int m_mymember;
 // end of file
 ```
 
+Class content
+-------------
+
+Class contents are an optional list of various things logically contained within the class, including:
+
+- Member declarations
+- Method definitions
+- Property definitions
+- Default blocks
+- State definitions
+- Enumeration definitions
+- Structure definitions
+- Constant definitions
+- Static array definitions
+
+Property definitions
+--------------------
+
+Property definitions are used within classes to define defaultable attributes on actors. They are not valid on classes not derived from Actor.
+
+When registered, a property will be available in the `default` block as `ClassName.PropertyName`. Properties can be given multiple members to initialize.
+
+Property definitions take the form `property Name: Member list...;`.
+
+Properties defined in ZScript are usable from DECORATE.
+
+Default blocks
+--------------
+
+Default blocks are used on classes derived from Actor to create an overridable list of defaults to properties, allowing for swift creation of flexible actor types.
+
+In DECORATE, this is everything that isn't in the `states` block, but in ZScript, for syntax flexibility purposes, it must be enclosed in a block with `default` at the beginning, formed:
+
+```
+default
+{
+   Default statement list...
+}
+```
+
+Default statements include flags and properties. Flags are the same as DECORATE, though sub-actor flags require their prefix, and can optionally be followed by a semicolon. Properties are the same as DECORATE, with a terminating semicolon required.
+
+State definitions
+-----------------
+
+These are the same as DECORATE, but states require terminating semicolons. Double quotes around `####` and `----` are no longer required.
+
+Examples: Property definitions
+------------------------------
+
+A class with some properties:
+
+```
+class MyCoolActor : Actor
+{
+   default
+   {
+      MyCoolActor.MyCoolMember 5000;
+      MyCoolActor.MyCoolMemberList 501, 502;
+   }
+
+   int m_myCoolMember;
+   int m_coolMember1, m_coolMember2;
+
+   property MyCoolMember: m_myCoolMember;
+   property MyCoolMemberList: m_coolMember1, m_coolMember2;
+}
+```
+
 Structure definitions
 =====================
 
@@ -168,6 +226,7 @@ Structure content
 Structure contents are an optional list of various things logically contained within the structure, including:
 
 - Member declarations
+- Method definitions
 - Enumeration definitions
 - Constant definitions
 
@@ -250,6 +309,11 @@ Making an integer constant from a double:
 ```
 const MyCoolInt = int(777.7777);
 ```
+
+Static array definitions
+=========================
+
+TODO
 
 Include directives
 ==================
@@ -339,7 +403,7 @@ Other types
 | `spriteid`   | Similar to `int`, but holds a sprite identifier. |
 | `state`      | A reference to an actor state. |
 | `statelabel` | The name of an actor state. Similar to `name`. |
-| `void`       | Alias for `None`. Unknown purpose. |
+<!--| `void`       | Alias for `None`. Unknown purpose. |-->
 
 Fixed-size arrays
 -----------------
@@ -789,12 +853,22 @@ bool spawned;
 Static array statements
 -----------------------
 
-Static arrays can be declared as normal as a statement.
+Static arrays can be defined normally as a statement.
 
 Null statements
 ---------------
 
 A null statement does nothing, and is formed `;`. It is similar to an empty compound statement.
+
+Member declarations
+===================
+
+TODO
+
+Method definitions
+==================
+
+TODO
 
 API
 ===
