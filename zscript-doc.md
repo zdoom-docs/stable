@@ -39,7 +39,7 @@ A class defines an object type within ZScript, and is most of what you'll be cre
 
 All classes inherit from other classes. The base class can be set within the class header, but if it is not the class will automatically inherit from Object.
 
-Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use the `new` expression to instantiate a new class object.
+Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use `new` to instantiate a new class object.
 
 Classes that inherit from Actor can replace other actors when spawned in maps, and can also be used freely in DECORATE. Actors have states, which will not be explained in this document as they are already well-documented on the ZDoom wiki.
 
@@ -373,85 +373,213 @@ A read-only type, as its name implies, may only be read from, and is effectively
 Expressions and Operators
 =========================
 
-Constant:
-StringConst (can be concatenated like C)
-IntConst
-UIntConst
-FloatConst
-NameConst
-False
-True
-Null
+Literals
+--------
 
-PrimExpr:
-Ident
-Super
-Constant
-Vector3Const (x, y)
-Vector2Const (x, y, z)
-ParenExpr (x)
-FuncCall
-(class<Iden>)(params)
-ArraySubscript
-MemberAccess
-PostIncr
-PostDecr
+Much like C or most other programming languages, ZScript has object literals, including string literals, integer literals, float literals, name literals, boolean literals, and the null pointer.
 
-UnaryExpr:
-PrimExpr
-Negate
-Positive
-PreIncr
-PreDecr
-BitNot
-LogNot
-Sizeof
-Alignof (why)
+### String literals
 
-BinExpr:
-UnaryExpr
-Add
-Sub
-Mul
-Div
-Mod
-Pow **
-CrossProduct cross
-DotProduct dot
-LSh
-RSh
-URSh >>>
-Concat ..
-Lt
-Gt
-LtEq
-GtEq
-Difference <>=
-Is
-Eq
-NEq
-ApproxEq ~== only works on floats, vecs strings - casecmp for strings, LT epsilon diff. for floats & vectors
-BitAnd
-BitXor
-BitOr
-LogAnd
-LogOr
-Assign
-AddAssign
-SubAssign
-MulAssign
-DivAssign
-ModAssign
-LShAssign
-RShAssign
-URShAssign
-OrAssign
-XorAssign
-Scope (x scope ui etc.) (why does this exist?)
+String literals take the same form as in C:
 
-TriExpr:
-BinExpr
-TernaryOp
+```
+"text here"
+```
+
+String literals have character escapes, which are formed with a backslash and a character. Character escapes include:
+
+| Spelling | Output |
+| -------- | --- |
+| `\"`     | A literal `"`. |
+| `\\`     | A literal `\`. |
+| `\` followed by newline | Concatenates the next line with this one. |
+
+String literals, also like C and C++, will be concatenated when put directly next to eachother. For example, this:
+
+```
+"text 1" "text 2"
+```
+
+Will be parsed as a single string literal with the text `"text 1text 2"`.
+
+### Name literals
+
+Name literals are similar to string literals, though they use apostrophes instead of quote marks:
+
+```
+'text here'
+```
+
+They do not concatenate like string literals, and do not have character escapes.
+
+### Integer literals
+
+Integer literals are formed similarly to C. They may take one of three forms, and be typed `uint` or `int` based on whether there is a `u` or `U` at the end or not.
+
+The parser also supports an optional `l`/`L` suffix as in C, though it does not actually do anything, and it is advised you do not use it for potential forward compatibility purposes.
+
+Integer literals can be in the basic base-10/decimal form:
+
+```
+1234567890 // int
+500u       // uint
+```
+
+Base-16/hexadecimal form, which may use upper- or lower-case decimals and `0x` prefix, depending on user preference:
+
+```
+0x123456789ABCDEF0
+0XaBcDeF0 // don't do this, please.
+0x7fff
+0x7FFFFFFF
+```
+
+And, base-8/octal form, prefixed with a `0`:
+
+```
+0777
+0414444
+```
+
+### Float literals
+
+Float literals, much like integer literals, are formed similarly to C, but they do not support hex-float notation. Float literals support exponent notation.
+
+The parser supports an optional `f`/`F` suffix as in C, though it does not actually do anything, and it is advised you do not use it for potential forward compatibility purposes.
+
+Float literals can be formed in a few ways:
+
+```
+0.5 //=> 0.5
+.5  //=> 0.5
+1.  //=> 1.0
+```
+
+And with exponents:
+
+```
+0.5e+2 //=> 50
+50e-2  //=> 0.5
+```
+
+### Boolean literals
+
+The two boolean literals are spelled `false` and `true`, and much like C, can decay to the integer literals `0` and `1`.
+
+### Null pointer
+
+The null pointer literal is spelled `null` and represents an object that does not exist in memory. Unlike C++, it is not equivalent to the integer literal `0`.
+
+Expressions
+-----------
+
+### Primary expressions
+
+Basic expressions, also known as primary expressions, can be one of:
+
+- An identifier for a constant or variable.
+- The `Super` keyword.
+- Any object literal.
+- A vector literal.
+- An expression in parentheses.
+
+Identifiers work as you expect, they reference a variable or constant. The `Super` keyword references the parent type or any member within it.
+
+#### Vector literals
+
+Vector literals are not under object literals as they are not constants in the same manner as other literals, since they contain expressions within them. As such, they are expressions, not proper value-based literals. They can be formed with:
+
+```
+(x, y)    //=> vector2, where x is not a vector2
+(x, y)    //=> vector3, where x *is* a vector2
+(x, y, z) //=> vector3
+```
+
+### Postfix expressions
+
+Postfix expressions are affixed at the end of an expression, and are used for a large variety of things, although the actual amount of postfix expressions is small:
+
+| Form | Description |
+| --- | --- |
+| `a([Argument list...])` | Function call. |
+| `Type(a)` | Type cast. |
+| `(class<Type>)(a)` | Class type reference cast. |
+| `a[b]` | Array access. |
+| `a.b` | Member access. |
+| `a++` | Post-increment. This increments (adds 1 to) the object after the expression is evaluated. |
+| `a--` | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
+
+### Unary expressions
+
+Unary expressions are affixed at the beginning of an expression. The simplest example of a unary expression is the negation operator, `-`, as in `-500`. Unary expressions include:
+
+| Form | Description |
+| --- | --- |
+| `-a` | Negation. |
+| `!a` | Logical negation, "not." |
+| `++a` | Pre-increment. This adds 1 to the object and evaluates as the resulting value. |
+| `--a` | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
+| `~a` | Bitwise negation. Flips all bits in an integer. |
+| `+a` | Affirmation. Does not actually do anything. |
+| `sizeof a` | Evaluates the size of the type of an expression. Unknown purpose. |
+| `alignof a` | Evaluates the alignment of the type of an expression. Unknown purpose. |
+
+### Binary expressions
+
+Binary expressions operate on two expressions, and are the most common kind of expression. They are used inline like regular math syntax, ie. `1 + 1`. Binary expressions include:
+
+| Form | Description |
+| --- | --- |
+| `a + b` | Addition. |
+| `a - b` | Subtraction. |
+| `a * b` | Multiplication. |
+| `a / b` | Division (quotient.) |
+| `a % b` | Division (remainder,) also known as "modulus." Unlike C, this works on floats, too. |
+| `a ** b` | Exponent/power of. |
+| `a << b` | Left bitwise shift. |
+| `a >> b` | Right bitwise shift. |
+| `a >>> b` | Right unsigned bitwise shift. |
+| `a cross b` | Vector cross-product. |
+| `a dot b` | Vector dot-product. |
+| `a .. b` | Concatenation, creates a string from two values. |
+| `a < b` | `true` if `a` is less than `b`. |
+| `a > b` | `true` if `a` is greater than `b`. |
+| `a <= b` | `true` if `a` is less than or equal to `b`. |
+| `a >= b` | `true` if `a` is greater than or equal to `b`. |
+| `a == b` | `true` if `a` is equal to `b`. |
+| `a != b` | `true` if `a` is not equal to `b`. |
+| `a ~== b` | `true` if `a` is approximately equal to `b`. For strings this is a case-insensitive comparison, and for floats and vectors this checks if the difference between the two numbers is smaller than ε. |
+| `a && b` | `true` if `a` and `b` are both `true`. |
+| `a || b` | `true` if `a` or `b` is `true`. |
+| `a is "b"` | `true` if `a` is the type, or a descendant of, `b`. |
+| `a <>= b` | Signed difference between `a` and `b`. |
+| `a & b` | Bitwise AND. |
+| `a ^ b` | Bitwise XOR. |
+| `a | b` | Bitwise OR. |
+| `a::b` | Scope operator. Not implemented yet. |
+
+#### Assignment expressions
+
+Assignment expressions are a subset of binary expressions which *are never constant expressions*. They assign a value to another value, as one might guess.
+
+| Form | Description |
+| --- | --- |
+| `a = b` | Assigns `b` to `a`. |
+| `a += b` | Assigns `a + b` to `a`. |
+| `a -= b` | Assigns `a - b` to `a`. |
+| `a *= b` | Assigns `a * b` to `a`. |
+| `a /= b` | Assigns `a / b` to `a`. |
+| `a %= b` | Assigns `a % b` to `a`. |
+| `a <<= b` | Assigns `a << b` to `a`. |
+| `a >>= b` | Assigns `a >> b` to `a`. |
+| `a >>>= b` | Assigns `a >>> b` to `a`. |
+| `a |= b` | Assigns `a | b` to `a`. |
+| `a &= b` | Assigns `a & b` to `a`. |
+| `a ^= b` | Assigns `a ^ b` to `a`. |
+
+### Ternary expression
+
+The ternary expression is formed `a ? b : c`, and will evaluate to `b` if `a` is `true`, or `c` if it is `false`.
 
 Statements
 ==========
