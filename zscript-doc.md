@@ -20,6 +20,11 @@ Examples:
 * [Enumeration definitions](#examples-enumeration-definitions)
 * [Constant definitions](#examples-constant-definitions)
 * [Include directives](#examples-include-directives)
+* [Expression statements](#examples-expression-statements)
+* [Conditional statements](#examples-conditional-statements)
+* [Switch statements](#examples-switch-statements)
+* [Control flow statements](#examples-control-flow-statements)
+* [Multi-assignment statements](#examples-multi-assignment-statements)
 
 Top-level
 =========
@@ -645,7 +650,7 @@ else
 Switch statements
 -----------------
 
-A switch statement takes an integer or name and selects a labeled statement to run. They work the sae as in C and ACS, though they accept `name` as well as `int` and enumeration types.
+A switch statement takes an integer or name and selects a labeled statement to run. They work the same as in C and ACS, though they accept `name` as well as `int` and enumeration types.
 
 Examples: Switch statements
 ---------------------------
@@ -674,7 +679,7 @@ The `while` loop simply takes one expression for checking if the loop should bre
 
 The `until` loop is equivalent to `while(!a)`.
 
-`do while` and `do until` will only check the expression after the first iteration is complete. The `do while` and `do until` loops is formed as such:
+`do while` and `do until` will only check the expression after the first iteration is complete. The `do while` and `do until` loops are formed as such:
 
 ```
 do
@@ -770,8 +775,8 @@ Expressions or functions that return multiple values can be assigned into multip
 [Expression list...] = Expression;
 ```
 
-Examples: Multi-assign statements
----------------------------------
+Examples: Multi-assignment statements
+-------------------------------------
 
 Getting the actor out of `A_SpawnItemEx`:
 
