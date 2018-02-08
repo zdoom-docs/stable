@@ -573,7 +573,7 @@ Assignment expressions are a subset of binary expressions which *are never const
 | `a <<= b` | Assigns `a << b` to `a`. |
 | `a >>= b` | Assigns `a >> b` to `a`. |
 | `a >>>= b` | Assigns `a >>> b` to `a`. |
-| `a \|= b` | Assigns `a | b` to `a`. |
+| `a \|= b` | Assigns `a \| b` to `a`. |
 | `a &= b` | Assigns `a & b` to `a`. |
 | `a ^= b` | Assigns `a ^ b` to `a`. |
 
