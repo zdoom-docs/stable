@@ -325,7 +325,21 @@ const MyCoolInt = int(777.7777);
 Static array definitions
 =========================
 
-TODO
+Similar to constants, static arrays are named values, but for an array. They are created with the syntax:
+
+```
+static const Type name[] = {
+   [Expression list...]
+};
+```
+
+Or:
+
+```
+static const Type[] name = {
+   [Expression list...]
+};
+```
 
 Include directives
 ==================
