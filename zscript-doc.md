@@ -370,6 +370,8 @@ ZScript has several categories of types: Integer types, floating-point (decimal)
 
 Types determine what kind of value an object stores, how it acts within an expression, etc. All objects, constants and enumerations have a type. Argument lists use types to ensure a function is used properly.
 
+Most basic types have methods attached to them, and some type names have symbols accessible from them. See the API section for more information.
+
 Integers
 -------------
 
@@ -409,7 +411,7 @@ The `name` type is an indexed string. While their contents are the same as a str
 Color
 -----
 
-The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`. There are 4 accessible members in `color`: `r`, `g`, `b`, and `a`, for each color channel.
+The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`.
 
 Vectors
 -------
@@ -998,33 +1000,237 @@ There are three scopes in ZScript: Play, UI, and Data (also known as "clearscope
 
 Here is a chart of data access possibilities for each scope:
 
-|                   | Data scope | Play scope | UI scope  |
-| ----------------- | ---------- | ---------- | --------- |
-| From Data context | Read/write | Read-only  | No access |
-| From Play context | Read/write | Read/write | No access |
-| From UI context   | Read/write | Read-only  | No access |
+|                   | Data scope | Play scope | UI scope   |
+| ----------------- | ---------- | ---------- | ---------- |
+| From Data context | Read/write | Read-only  | No access  |
+| From Play context | Read/write | Read/write | No access  |
+| From UI context   | Read/write | Read-only  | Read/write |
 
 API
 ===
 
+The ZScript API is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
+
+Global functions
+----------------
+
+```
+Type GetDefaultByType(TypeName);
+void SetRandomSeed(uint num);
+int Random(int min = 0, int max = 255);
+double FRandom(double min, double max);
+int RandomPick(int...);
+double FRandomPick(double...);
+int Random2(uint mask = uint.max);
+Type Min(Type n, Type minimum);
+Type Max(Type n, Type maximum);
+Type Clamp(Type n, Type minimum, Type maximum);
+Type Abs(Type n);
+double ATan2(double y, double x);
+double VectorAngle(double x, double y);
+Type New(class typename = ThisClass);
+```
+
+Array
+-----
+
+```
+struct Array<Type>
+{
+   void Copy(Array<Type> other);
+   void Move(Array<Type> other);
+   uint Find(Type item) const;
+   uint Push(Type item);
+   bool Pop();
+   void Delete(uint index, int count = 1);
+   void Insert(uint index, Type item);
+   void ShrinkToFit();
+   void Grow(uint amount);
+   void Resize(uint amount);
+   uint Reserve(uint amount);
+   uint Max() const;
+   uint Size() const;
+   void Clear();
+}
+```
+
+While ZScript does not have proper user-facing generics, `Array` is onesuch type that does have a type parameter. It mirrors the internal `TArray` type.
+
+- Copy
+  * Copies another array's contents into this array.
+
+- Move
+  * Moves another array's contents into this array.
+
+- Find
+  * Finds the index of `item` in the array, or `Size` if it couldn't be found.
+
+- Push
+  * Places `item` at the end of the array, calling `Grow` if necessary.
+
+- Pop
+  * Deletes the last item in the array. Returns `false` if there are no items in the array.
+
+- Delete
+  * Deletes `count` object(s) at `index`. Moves objects after them into their place.
+
+- Insert
+  * Inserts `item` at `index`. Moves objects after `index` to the right.
+
+- ShrinkToFit
+  * Shrinks the allocated array size `Max` to `Size`.
+
+- Grow
+  * Ensures the array can hold at least `amount` new members.
+
+- Resize
+  * Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
+
+- Reserve
+  * Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
+
+- Max
+  * Returns the allocated size of the array.
+
+- Size
+  * Returns the amount of objects in the array.
+
+- Clear
+  * Clears out the entire array.
+
+Color
+-----
+
+```
+struct Color
+{
+   uint8 r, g, b, a;
+}
+```
+
 String
 ------
 
-Replace
-Format
-AppendFormat
-Mid
-Left
-Truncate
-Remove
-CharAt
-CharCodeAt
-Filter
-IndexOf
-LastIndexOf
-ToUpper
-ToLower
-ToInt
-ToDouble
-Split
-Length
+```
+struct String
+{
+   static vararg String Format(String format, ...);
+
+   void Replace(String pattern, String replacement);
+   vararg void AppendFormat(String format, ...);
+   String Left(int len) const;
+   String Mid(int pos = 0, int len = int.max) const;
+   void Truncate(int newlen);
+   void Remove(int index, int amount);
+   String CharAt(int pos) const;
+   int CharCodeAt(int pos) const;
+   String Filter();
+   int IndexOf(String substr, int start = 0) const;
+   int LastIndexOf(String substr, int end = int.max) const;
+   void ToUpper();
+   void ToLower();
+   int ToInt(int base = 0) const;
+   double ToDouble() const;
+   void Split(out Array<String> tokens, String delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
+   uint Length() const;
+}
+```
+
+TextureID
+---------
+
+```
+struct TextureID
+{
+   bool IsValid() const;
+   bool IsNull() const;
+   bool Exists() const;
+   void SetInvalid();
+   void SetNull();
+}
+```
+
+Vector2/Vector3
+-------
+
+```
+struct Vector2
+{
+   double x, y;
+
+   double Length() const;
+   Vector2 Unit() const;
+}
+
+struct Vector3
+{
+   double x, y, z;
+
+   double Length() const;
+   Vector3 Unit() const;
+}
+```
+
+- Length
+  * Returns the length (magnitude) of the vector.
+
+- Unit
+  * Returns a normalized vector. Equivalent to `vec / vec.length()`.
+
+FixedArray
+----------
+
+Fixed-size arrays have a size method attached to them for convenience purposes.
+
+```
+struct FixedArray
+{
+   uint Size() const;
+}
+```
+
+StringTable
+-----------
+
+```
+struct StringTable
+{
+   static String Localize(String name, bool prefixed = true);
+}
+```
+
+Object
+------
+
+```
+class Object
+{
+   bool bDestroyed;
+
+   static String G_SkillName();
+   static int G_SkillProperty(int p);
+   static double G_SkillPropertyFloat(int p);
+   static vector3, int G_PickDeathmatchStart();
+   static vector3, int G_PickPlayerStart(int pnum, int flags = 0);
+
+   static void S_Sound(Sound sound_id, int channel, float volume = 1, float attenuation = ATTN_NORM);
+   static void S_PauseSound(bool notmusic, bool notsfx);
+   static void S_ResumeSound(bool notsfx);
+   static bool S_ChangeMusic(String music_name, int order = 0, bool looping = true, bool force = false);
+   static float S_GetLength(Sound sound_id);
+   static void SetMusicVolume(float vol);
+
+   static uint BAM(double angle);
+   static uint MSTime();
+
+   static vararg void ThrowAbortException(String format, ...);
+
+   class GetClass();
+   class GetParentClass();
+   String GetClassName();
+
+   virtualscope void Destroy();
+
+   virtual virtualscope void OnDestroy();
+}
+```
