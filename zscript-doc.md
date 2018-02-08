@@ -13,6 +13,9 @@ Table of Conents
 * [Statements](#statements)
 * [Member declarations](#member-declarations)
 * [Method definitions](#method-definitions)
+* [Concepts](#concepts)
+  * [Action scoping](#action-scoping)
+  * [Object scoping](#object-scoping)
 * [API](#api)
 
 Examples:
@@ -28,6 +31,7 @@ Examples:
 * [Switch statements](#examples-switch-statements)
 * [Control flow statements](#examples-control-flow-statements)
 * [Multi-assignment statements](#examples-multi-assignment-statements)
+* [Member declarations](#examples-member-declarations)
 
 Top-level
 =========
@@ -74,11 +78,11 @@ Class flags
 | Flag                    | Description |
 | ----------------------- | --- |
 | `abstract`              | Cannot be instantiated with `new`. |
-| `ui`                    | Has UI scope. |
-| `play`                  | Has Play scope. |
+| `ui`                    | Class has UI scope. |
+| `play`                  | Class has Play scope. |
 | `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works with descendants of Actor. |
 | `native`                | Class is from the engine. Do not use in user code. |
-| `version("ver")`        | Restricted to version *ver*. Do not use in user code. |
+| `version("ver")`        | Restricted to ZScript version *ver* or higher. Do not use in user code. |
 
 Examples: Class headers
 -----------------------
@@ -165,7 +169,7 @@ Default statements include flags and properties. Flags are the same as DECORATE,
 State definitions
 -----------------
 
-These are the same as DECORATE, but states require terminating semicolons. Double quotes around `####` and `----` are no longer required.
+These are the same as DECORATE, but states require terminating semicolons. Double quotes around `####` and `----` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
 
 Examples: Property definitions
 ------------------------------
@@ -196,7 +200,7 @@ A structure is an object type that does not inherit from Object and is not alway
 
 Structures are preferred for basic compound data types that do not need to be instanced and are often used as a way of generalizing code. They cannot be returned from functions.
 
-Structures are subject to Scoping, however their scope can be reset with the clearscope flag.
+Structures are subject to Scoping.
 
 A structure takes the form of:
 
@@ -214,11 +218,11 @@ Structure flags
 
 | Flag             | Description |
 | ---------------- | --- |
-| `ui`             | Has UI scope. |
-| `play`           | Has Play scope. |
-| `clearscope`     | Clears the default scope. |
+| `ui`             | Structure has UI scope. |
+| `play`           | Structure has Play scope. |
+| `clearscope`     | Structure has Data scope. Default. |
 | `native`         | Structure is from the engine. Do not use in user code. |
-| `version("ver")` | Restricted to version *ver*. Do not use in user code. |
+| `version("ver")` | Restricted to ZScript version *ver* or higher. Do not use in user code. |
 
 Structure content
 -----------------
@@ -863,12 +867,120 @@ A null statement does nothing, and is formed `;`. It is similar to an empty comp
 Member declarations
 ===================
 
-TODO
+Member declarations define data within a structure or class that can be accessed directly within methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+
+A member declaration is formed as so:
+
+```
+[Member declaration flags...] Type name;
+```
+
+Or, if you want multiple members with the same type and flags:
+
+```
+[Member declaration flags...] Type name[, name...];
+```
+
+Member declaration flags
+------------------------
+
+| Flag                   | Description |
+| ---------------------- | --- |
+| `private`              | Member is not visible to any class but this one. |
+| `protected`            | Member is not visible to any class but this one and any descendants of it. |
+| `ui`                   | Member has UI scope. |
+| `play`                 | Member has Play scope. |
+| `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
+| `transient`            | Member is not saved into save games. Required for Font members and recommended for other UI context members. |
+| `readonly`             | Member is not writable. |
+| `deprecated("reason")` | If accessed, a script warning will occur on load, with *reason* as the message. |
+| `native`               | Member is from the engine. Do not use in user code. |
+| `version("ver")`       | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+
+Examples: Member declarations
+-----------------------------
+
+Some basic member variables:
+
+```
+int m_myCoolInt;
+int m_coolInt1, m_coolInt2, m_coolInt3;
+int[10] m_coolIntArray;
+private int m_coolPrivateInt;
+protected meta int m_coolMetaInt;
+```
 
 Method definitions
 ==================
 
-TODO
+Method definitions define functions within a structure or class that can be accessed directly within other methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+
+Methods marked as `virtual` may have their functionality overridden by derived classes, and in those overrides one can use the `Super` keyword to call the parent function.
+
+Methods are formed as so:
+
+```
+[Method definition flags...] Type[, Type...] name([Argument list...]) [const]
+{
+   [Function body here]
+}
+```
+
+If `const` is placed after the function signature and before the function body, the method will not be allowed to modify any members in the object instance it's being called on.
+
+The keyword `void` can be used in place of a type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
+
+Method definition flags
+-----------------------
+
+| Flag                   | Description |
+| ---------------------- | --- |
+| `private`              | Method is not visible to any class but this one. |
+| `protected`            | Method is not visible to any class but this one and any descendants of it. |
+| `static`               | Function is not a method, but a global function without a `self` pointer. |
+| `ui`                   | Method has UI scope. |
+| `play`                 | Method has Play scope. |
+| `clearscope`           | Method has Data scope. |
+| `virtualscope`         | Method has scope of the type of the object it's being called on. |
+| `virtual`              | Method can be overridden in derived classes. |
+| `override`             | Method is overriding a base class' virtual method. |
+| `final`                | Virtual method cannot be further overridden from derived classes. |
+| `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons. |
+| `action(Scope)`        | Same as above, but has an action scope. See "Action Scoping" for more information. |
+| `deprecated("reason")` | When accessed, a script warning will occur on load, with *reason* as the message. |
+| `vararg`               | Method doesn't type-check arguments after `...`. Do not use in user code. |
+| `native`               | Method is from the engine. Do not use in user code. |
+| `version("ver")`       | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+
+Concepts
+========
+
+Action Scoping
+--------------
+
+On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map. The available scopes are:
+
+| Name      | Description |
+| --------- | --- |
+| `actor`   | Actions are called from an actual map object. |
+| `overlay` | Actions are called from a weapon overlay. |
+| `weapon`  | Actions are called from a weapon. |
+| `item`    | Actions are called from an inventory item. |
+
+Object Scoping
+--------------
+
+Most objects are subject to object scoping, which restricts the way data can be used in certain contexts. This is to ensure that the playsim does not get changed by the UI, for instance, or that the playsim doesn't read from the UI and break network synchronization. In other words, it is to prevent a multitude of errors that arise when data is modified or read from the wrong places.
+
+There are three scopes in ZScript: Play, UI, and Data (also known as "clearscope.") The Play scope is used for objects that are part of the game simulation and interact with the world in some way or another, while the UI scope is for objects that have no correlation with the world besides perhaps reading information from it. The Data scope is shared between the two, and must be used carefully.
+
+Here is a chart of data access possibilities for each scope:
+
+|                   | Data scope | Play scope | UI scope  |
+| ----------------- | ---------- | ---------- | --------- |
+| From Data context | Read/write | Read-only  | No access |
+| From Play context | Read/write | Read/write | No access |
+| From UI context   | Read/write | Read-only  | No access |
 
 API
 ===
