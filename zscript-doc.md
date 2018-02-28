@@ -1,5 +1,5 @@
-Table of Conents
-================
+Table of Contents
+=================
 
 * [Top-level](#top-level)
 * [Class definitions](#class-definitions)
@@ -17,6 +17,10 @@ Table of Conents
   * [Action scoping](#action-scoping)
   * [Object scoping](#object-scoping)
 * [API](#api)
+  * [Globals](#globals)
+  * [Type symbols](#type-symbols)
+  * [Built-in types](#built-in-types)
+  * [Drawing](#drawing)
 
 Examples:
 
@@ -83,14 +87,14 @@ In place of the class header.
 Class flags
 -----------
 
-| Flag                    | Description |
-| ----------------------- | --- |
-| `abstract`              | Cannot be instantiated with `new`. |
-| `ui`                    | Class has UI scope. |
-| `play`                  | Class has Play scope. |
+| Flag                    | Description                                                                  |
+|-------------------------|------------------------------------------------------------------------------|
+| `abstract`              | Cannot be instantiated with `new`.                                           |
+| `ui`                    | Class has UI scope.                                                          |
+| `play`                  | Class has Play scope.                                                        |
 | `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works with descendants of Actor. |
-| `native`                | Class is from the engine. Do not use in user code. |
-| `version("ver")`        | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+| `native`                | Class is from the engine. Do not use in user code.                           |
+| `version("ver")`        | Restricted to ZScript version *ver* or higher.                               |
 
 Examples: Class headers
 -----------------------
@@ -224,13 +228,13 @@ Optionally followed by a semicolon.
 Structure flags
 ---------------
 
-| Flag             | Description |
-| ---------------- | --- |
-| `ui`             | Structure has UI scope. |
-| `play`           | Structure has Play scope. |
-| `clearscope`     | Structure has Data scope. Default. |
-| `native`         | Structure is from the engine. Do not use in user code. |
-| `version("ver")` | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+| Flag             | Description                                                             |
+|------------------|-------------------------------------------------------------------------|
+| `ui`             | Structure has UI scope.                                                 |
+| `play`           | Structure has Play scope.                                               |
+| `clearscope`     | Structure has Data scope. Default.                                      |
+| `native`         | Structure is from the engine. Unusable in user code.                    |
+| `version("ver")` | Restricted to ZScript version *ver* or higher.                          |
 
 Structure content
 -----------------
@@ -344,7 +348,7 @@ static const Type[] name = {
 Include directives
 ==================
 
-Include directives include other files to be processed by the ZScript compiler, allowing you to orgnaize and separate code into different files. Their syntax is simple:
+Include directives include other files to be processed by the ZScript compiler, allowing you to organize and separate code into different files. Their syntax is simple:
 
 ```
 #include "filename"
@@ -370,7 +374,7 @@ ZScript has several categories of types: Integer types, floating-point (decimal)
 
 Types determine what kind of value an object stores, how it acts within an expression, etc. All objects, constants and enumerations have a type. Argument lists use types to ensure a function is used properly.
 
-Most basic types have methods attached to them, and some type names have symbols accessible from them. See the API section for more information.
+Most basic types have methods attached to them, and both integer and floating-point type names have symbols accessible from them. See the API section for more information.
 
 Integers
 -------------
@@ -378,7 +382,7 @@ Integers
 Integer types are basic integral numbers. They include:
 
 | Name     | Bits | Lowest value   | Highest value |
-| -------- |:----:| --------------:|:------------- |
+|----------|:----:|---------------:|:--------------|
 | `int8`   | 8    | -128           | 127           |
 | `uint8`  | 8    | 0              | 255           |
 | `int16`  | 16   | -32,768        | 32,767        |
@@ -391,12 +395,12 @@ Floating-point types
 
 Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
 
-| Name      | Notes |
-| --------  | --- |
-| `float`   | 32-bit in structures and classes, 64-bit otherwise. |
-| `double`  | 64-bit floating-point number. |
+| Name      | Notes                                                              |
+|-----------|--------------------------------------------------------------------|
+| `float`   | 32-bit in structures and classes, 64-bit otherwise.                |
+| `double`  | 64-bit floating-point number.                                      |
 | `float32` | 32-bit floating-point number. Not implemented correctly, unusable. |
-| `float64` | Alias for `double`. |
+| `float64` | Alias for `double`.                                                |
 
 Strings
 -------
@@ -423,15 +427,16 @@ Vectors can use many operators and even have special ones to themselves. See the
 Other types
 -----------
 
-| Name         | Description |
-| ------------ | --- |
-| `bool`       | Holds one of two values: `true` or `false`. |
-| `sound`      | Similar to `int`, but holds a sound identifier. |
+| Name         | Description                                       |
+|--------------|---------------------------------------------------|
+| `bool`       | Holds one of two values: `true` or `false`.       |
+| `sound`      | Similar to `int`, but holds a sound identifier.   |
 | `textureid`  | Similar to `int`, but holds a texture identifier. |
-| `spriteid`   | Similar to `int`, but holds a sprite identifier. |
-| `state`      | A reference to an actor state. |
-| `statelabel` | The name of an actor state. Similar to `name`. |
-<!--| `void`       | Alias for `None`. Unknown purpose. |-->
+| `spriteid`   | Similar to `int`, but holds a sprite identifier.  |
+| `state`      | A reference to an actor state.                    |
+| `statelabel` | The name of an actor state. Similar to `name`.    |
+
+<!--| `void` | Alias for `None`. Unknown purpose. |-->
 
 Fixed-size arrays
 -----------------
@@ -458,7 +463,7 @@ User types
 
 Any other identifier used as a type will resolve to a user class, structure or enumeration type.
 
-Identifiers prefixed with `@` are internal types which are not exposed to ZScript. Do not use this in user code.
+Identifiers prefixed with `@` are internal types which are not exposed to ZScript. This is not usable in user code.
 
 A type name that is within a specific scope can be accessed by prefixing it with a `.`. The type `.MyClass.MySubStructure` will resolve to the type `MySubStructure` contained within `MyClass`.
 
@@ -485,13 +490,13 @@ String literals take the same form as in C:
 
 String literals have character escapes, which are formed with a backslash and a character. Character escapes include:
 
-| Spelling | Output |
-| -------- | --- |
-| `\"`     | A literal `"`. |
-| `\\`     | A literal `\`. |
+| Spelling                | Output                                    |
+|-------------------------|-------------------------------------------|
+| `\"`                    | A literal `"`.                            |
+| `\\`                    | A literal `\`.                            |
 | `\` followed by newline | Concatenates the next line with this one. |
 
-String literals, also like C and C++, will be concatenated when put directly next to eachother. For example, this:
+String literals, also like C and C++, will be concatenated when put directly next to each other. For example, this:
 
 ```
 "text 1" "text 2"
@@ -596,30 +601,30 @@ Vector literals are not under object literals as they are not constants in the s
 
 Postfix expressions are affixed at the end of an expression, and are used for a large variety of things, although the actual amount of postfix expressions is small:
 
-| Form | Description |
-| --- | --- |
-| `a([Argument list...])` | Function call. |
-| `Type(a)` | Type cast. |
-| `(class<Type>)(a)` | Class type reference cast. |
-| `a[b]` | Array access. |
-| `a.b` | Member access. |
-| `a++` | Post-increment. This increments (adds 1 to) the object after the expression is evaluated. |
-| `a--` | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
+| Form                    | Description                                                                                      |
+|-------------------------|--------------------------------------------------------------------------------------------------|
+| `a([Argument list...])` | Function call.                                                                                   |
+| `Type(a)`               | Type cast.                                                                                       |
+| `(class<Type>)(a)`      | Class type reference cast.                                                                       |
+| `a[b]`                  | Array access.                                                                                    |
+| `a.b`                   | Member access.                                                                                   |
+| `a++`                   | Post-increment. This increments (adds 1 to) the object after the expression is evaluated.        |
+| `a--`                   | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
 
 ### Unary expressions
 
 Unary expressions are affixed at the beginning of an expression. The simplest example of a unary expression is the negation operator, `-`, as in `-500`. Unary expressions include:
 
-| Form | Description |
-| --- | --- |
-| `-a` | Negation. |
-| `!a` | Logical negation, "not." |
-| `++a` | Pre-increment. This adds 1 to the object and evaluates as the resulting value. |
-| `--a` | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
-| `~a` | Bitwise negation. Flips all bits in an integer. |
-| `+a` | Affirmation. Does not actually do anything. |
-| `sizeof a` | Evaluates the size of the type of an expression. Unknown purpose. |
-| `alignof a` | Evaluates the alignment of the type of an expression. Unknown purpose. |
+| Form        | Description                                                                           |
+|-------------|---------------------------------------------------------------------------------------|
+| `-a`        | Negation.                                                                             |
+| `!a`        | Logical negation, "not."                                                              |
+| `++a`       | Pre-increment. This adds 1 to the object and evaluates as the resulting value.        |
+| `--a`       | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
+| `~a`        | Bitwise negation. Flips all bits in an integer.                                       |
+| `+a`        | Affirmation. Does not actually do anything.                                           |
+| `sizeof a`  | Evaluates the size of the type of an expression. Unknown purpose.                     |
+| `alignof a` | Evaluates the alignment of the type of an expression. Unknown purpose.                |
 
 ### Binary expressions
 
@@ -659,20 +664,20 @@ Binary expressions operate on two expressions, and are the most common kind of e
 
 Assignment expressions are a subset of binary expressions which *are never constant expressions*. They assign a value to another value, as one might guess.
 
-| Form | Description |
-| --- | --- |
-| `a = b` | Assigns `b` to `a`. |
-| `a += b` | Assigns `a + b` to `a`. |
-| `a -= b` | Assigns `a - b` to `a`. |
-| `a *= b` | Assigns `a * b` to `a`. |
-| `a /= b` | Assigns `a / b` to `a`. |
-| `a %= b` | Assigns `a % b` to `a`. |
-| `a <<= b` | Assigns `a << b` to `a`. |
-| `a >>= b` | Assigns `a >> b` to `a`. |
+| Form       | Description               |
+|------------|---------------------------|
+| `a = b`    | Assigns `b` to `a`.       |
+| `a += b`   | Assigns `a + b` to `a`.   |
+| `a -= b`   | Assigns `a - b` to `a`.   |
+| `a *= b`   | Assigns `a * b` to `a`.   |
+| `a /= b`   | Assigns `a / b` to `a`.   |
+| `a %= b`   | Assigns `a % b` to `a`.   |
+| `a <<= b`  | Assigns `a << b` to `a`.  |
+| `a >>= b`  | Assigns `a >> b` to `a`.  |
 | `a >>>= b` | Assigns `a >>> b` to `a`. |
-| `a \|= b` | Assigns `a \| b` to `a`. |
-| `a &= b` | Assigns `a & b` to `a`. |
-| `a ^= b` | Assigns `a ^ b` to `a`. |
+| `a \|= b`  | Assigns `a \| b` to `a`.  |
+| `a &= b`   | Assigns `a & b` to `a`.   |
+| `a ^= b`   | Assigns `a ^ b` to `a`.   |
 
 ### Ternary expression
 
@@ -905,21 +910,23 @@ Or, if you want multiple members with the same type and flags:
 [Member declaration flags...] Type name[, name...];
 ```
 
+Note that the types Font and CVar are unserializable as members and must be marked transient.
+
 Member declaration flags
 ------------------------
 
-| Flag                   | Description |
-| ---------------------- | --- |
-| `private`              | Member is not visible to any class but this one. |
-| `protected`            | Member is not visible to any class but this one and any descendants of it. |
-| `ui`                   | Member has UI scope. |
-| `play`                 | Member has Play scope. |
+| Flag                   | Description                                                                                                         |
+|------------------------|---------------------------------------------------------------------------------------------------------------------|
+| `private`              | Member is not visible to any class but this one.                                                                    |
+| `protected`            | Member is not visible to any class but this one and any descendants of it.                                          |
+| `ui`                   | Member has UI scope.                                                                                                |
+| `play`                 | Member has Play scope.                                                                                              |
 | `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
-| `transient`            | Member is not saved into save games. Required for Font members and recommended for other UI context members. |
-| `readonly`             | Member is not writable. |
-| `deprecated("reason")` | If accessed, a script warning will occur on load, with *reason* as the message. |
-| `native`               | Member is from the engine. Do not use in user code. |
-| `version("ver")`       | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+| `transient`            | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
+| `readonly`             | Member is not writable.                                                                                             |
+| `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*.                      |
+| `native`               | Member is from the engine. Unusable in user code.                                                                   |
+| `version("ver")`       | Restricted to ZScript version *ver* or higher.                                                                      |
 
 Examples: Member declarations
 -----------------------------
@@ -957,24 +964,24 @@ The keyword `void` can be used in place of a type (or type list) to have a metho
 Method definition flags
 -----------------------
 
-| Flag                   | Description |
-| ---------------------- | --- |
-| `private`              | Method is not visible to any class but this one. |
-| `protected`            | Method is not visible to any class but this one and any descendants of it. |
-| `static`               | Function is not a method, but a global function without a `self` pointer. |
-| `ui`                   | Method has UI scope. |
-| `play`                 | Method has Play scope. |
-| `clearscope`           | Method has Data scope. |
-| `virtualscope`         | Method has scope of the type of the object it's being called on. |
-| `virtual`              | Method can be overridden in derived classes. |
-| `override`             | Method is overriding a base class' virtual method. |
-| `final`                | Virtual method cannot be further overridden from derived classes. |
-| `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons. |
+| Flag                   | Description                                                                        |
+|------------------------|------------------------------------------------------------------------------------|
+| `private`              | Method is not visible to any class but this one.                                   |
+| `protected`            | Method is not visible to any class but this one and any descendants of it.         |
+| `static`               | Function is not a method, but a global function without a `self` pointer.          |
+| `ui`                   | Method has UI scope.                                                               |
+| `play`                 | Method has Play scope.                                                             |
+| `clearscope`           | Method has Data scope.                                                             |
+| `virtualscope`         | Method has scope of the type of the object it's being called on.                   |
+| `virtual`              | Method can be overridden in derived classes.                                       |
+| `override`             | Method is overriding a base class' virtual method.                                 |
+| `final`                | Virtual method cannot be further overridden from derived classes.                  |
+| `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons.      |
 | `action(Scope)`        | Same as above, but has an action scope. See "Action Scoping" for more information. |
-| `deprecated("reason")` | When accessed, a script warning will occur on load, with *reason* as the message. |
-| `vararg`               | Method doesn't type-check arguments after `...`. Do not use in user code. |
-| `native`               | Method is from the engine. Do not use in user code. |
-| `version("ver")`       | Restricted to ZScript version *ver* or higher. Do not use in user code. |
+| `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*. |
+| `vararg`               | Method doesn't type-check arguments after `...`. Do not use in user code.          |
+| `native`               | Method is from the engine. Unusable in user code.                                  |
+| `version("ver")`       | Restricted to ZScript version *ver* or higher.                                     |
 
 Concepts
 ========
@@ -984,12 +991,12 @@ Action Scoping
 
 On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map. The available scopes are:
 
-| Name      | Description |
-| --------- | --- |
+| Name      | Description                                   |
+|-----------|-----------------------------------------------|
 | `actor`   | Actions are called from an actual map object. |
-| `overlay` | Actions are called from a weapon overlay. |
-| `weapon`  | Actions are called from a weapon. |
-| `item`    | Actions are called from an inventory item. |
+| `overlay` | Actions are called from a weapon overlay.     |
+| `weapon`  | Actions are called from a weapon.             |
+| `item`    | Actions are called from an inventory item.    |
 
 Object Scoping
 --------------
@@ -1001,7 +1008,7 @@ There are three scopes in ZScript: Play, UI, and Data (also known as "clearscope
 Here is a chart of data access possibilities for each scope:
 
 |                   | Data scope | Play scope | UI scope   |
-| ----------------- | ---------- | ---------- | ---------- |
+|-------------------|------------|------------|------------|
 | From Data context | Read/write | Read-only  | No access  |
 | From Play context | Read/write | Read/write | No access  |
 | From UI context   | Read/write | Read-only  | Read/write |
@@ -1011,8 +1018,10 @@ API
 
 The ZScript API is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
 
-Global functions
-----------------
+Globals
+-------
+
+### Global functions
 
 ```
 Type GetDefaultByType(TypeName);
@@ -1031,8 +1040,76 @@ double VectorAngle(double x, double y);
 Type New(class typename = ThisClass);
 ```
 
-Array
------
+### Global variables
+
+```
+readonly Array<class<Actor>> AllActorClasses;
+readonly Array<PlayerClass> PlayerClasses;
+readonly Array<PlayerSkin> PlayerSkins;
+readonly Array<Team> Teams;
+```
+
+TODO: wow there's really a lot of these oh god
+
+Type symbols
+------------
+
+Integer and floating-point types have symbols which can be accessed through `typename.name`. Here is a list of them.
+
+### Integer types
+
+- `Min`
+
+   Minimum value of type.
+- `Max`
+
+   Maximum value of type.
+
+### Floating-point types
+
+- `Min_Normal`
+
+   Minimum value of type.
+- `Max`
+
+   Maximum value of type.
+- `Epsilon`
+
+   ε value of type.
+- `NaN`
+
+   Not-a-Number value of type.
+- `Infinity`
+
+   ∞ value of type.
+- `Min_Denormal`
+
+   Minimum positive subnormal value of type.
+- `Dig`
+
+   Number of decimal digits in type.
+- `Min_Exp`
+
+   Minimum exponent bits value of type.
+- `Max_Exp`
+
+   Maximum exponent bits value of type.
+- `Mant_Dig`
+
+   Number of mantissa bits in type.
+- `Min_10_Exp`
+
+   Minimum exponent of type.
+- `Max_10_Exp`
+
+   Maximum exponent of type.
+
+Built-in types
+--------------
+
+### Array
+
+While ZScript does not have proper user-facing generics, `Array` is one such type that does have a type parameter. It mirrors the internal `TArray` type.
 
 ```
 struct Array<Type>
@@ -1054,52 +1131,50 @@ struct Array<Type>
 }
 ```
 
-While ZScript does not have proper user-facing generics, `Array` is onesuch type that does have a type parameter. It mirrors the internal `TArray` type.
+- `Copy`
 
-- Copy
-  * Copies another array's contents into this array.
+   Copies another array's contents into this array.
+- `Move`
 
-- Move
-  * Moves another array's contents into this array.
+   Moves another array's contents into this array.
+- `Find`
 
-- Find
-  * Finds the index of `item` in the array, or `Size` if it couldn't be found.
+   Finds the index of `item` in the array, or `Size` if it couldn't be found.
+- `Push`
 
-- Push
-  * Places `item` at the end of the array, calling `Grow` if necessary.
+   Places `item` at the end of the array, calling `Grow` if necessary.
+- `Pop`
 
-- Pop
-  * Deletes the last item in the array. Returns `false` if there are no items in the array.
+   Deletes the last item in the array. Returns `false` if there are no items in the array.
+- `Delete`
 
-- Delete
-  * Deletes `count` object(s) at `index`. Moves objects after them into their place.
+   Deletes `count` object(s) at `index`. Moves objects after them into their place.
+- `Insert`
 
-- Insert
-  * Inserts `item` at `index`. Moves objects after `index` to the right.
+   Inserts `item` at `index`. Moves objects after `index` to the right.
+- `ShrinkToFit`
 
-- ShrinkToFit
-  * Shrinks the allocated array size `Max` to `Size`.
+   Shrinks the allocated array size `Max` to `Size`.
+- `Grow`
 
-- Grow
-  * Ensures the array can hold at least `amount` new members.
+   Ensures the array can hold at least `amount` new members.
+- `Resize`
 
-- Resize
-  * Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
+   Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
+- `Reserve`
 
-- Reserve
-  * Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
+   Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
+- `Max`
 
-- Max
-  * Returns the allocated size of the array.
+   Returns the allocated size of the array.
+- `Size`
 
-- Size
-  * Returns the amount of objects in the array.
+   Returns the amount of objects in the array.
+- `Clear`
 
-- Clear
-  * Clears out the entire array.
+   Clears out the entire array.
 
-Color
------
+### Color
 
 ```
 struct Color
@@ -1108,8 +1183,18 @@ struct Color
 }
 ```
 
-String
-------
+### FixedArray
+
+Fixed-size arrays have a size method attached to them for convenience purposes.
+
+```
+struct FixedArray
+{
+   uint Size() const;
+}
+```
+
+### String
 
 ```
 struct String
@@ -1136,8 +1221,7 @@ struct String
 }
 ```
 
-TextureID
----------
+### TextureID
 
 ```
 struct TextureID
@@ -1150,8 +1234,7 @@ struct TextureID
 }
 ```
 
-Vector2/Vector3
--------
+### Vector2/Vector3
 
 ```
 struct Vector2
@@ -1171,33 +1254,12 @@ struct Vector3
 }
 ```
 
-- Length
-  * Returns the length (magnitude) of the vector.
+- `Length`
 
-- Unit
-  * Returns a normalized vector. Equivalent to `vec / vec.length()`.
+   Returns the length (magnitude) of the vector.
+- `Unit`
 
-FixedArray
-----------
-
-Fixed-size arrays have a size method attached to them for convenience purposes.
-
-```
-struct FixedArray
-{
-   uint Size() const;
-}
-```
-
-StringTable
------------
-
-```
-struct StringTable
-{
-   static String Localize(String name, bool prefixed = true);
-}
-```
+   Returns a normalized vector. Equivalent to `vec / vec.length()`.
 
 Object
 ------
@@ -1234,3 +1296,57 @@ class Object
    virtual virtualscope void OnDestroy();
 }
 ```
+
+Drawing
+-------
+
+### TexMan
+
+`TexMan`, the **Tex**ture **Man**ager, is used for loading, finding, replacing and getting information on textures.
+
+```
+struct TexMan
+{
+   static TextureID CheckForTexture(String name, int usetype, int flags = TexMan.TryAny);
+   static void ReplaceTextures(String from, String to, int flags);
+   static String GetName(TextureID tex);
+   static int, int GetSize(TextureID tex);
+   static Vector2 GetScaledSize(TextureID tex);
+   static Vector2 GetScaledOffset(TextureID tex);
+   static int CheckRealHeight(TextureID tex);
+   static void SetCameraToTexture(Actor viewpoint, String texture, double fov);
+}
+```
+
+- `CheckForTexture`
+
+   Returns a TextureID for the texture named `name`. `usetype` may be one of the following, which selects what kind of texture to find:
+
+   | Name                       | Description                                                    |
+   |----------------------------|----------------------------------------------------------------|
+   | `TexMan.Type_Any`          | Returns *any* kind of texture.                                 |
+   | `TexMan.Type_Wall`         | Returns any composited wall texture, ie. `STARTAN2`.           |
+   | `TexMan.Type_Flat`         | Returns any flat, ie. `FLOOR0_1`.                              |
+   | `TexMan.Type_Sprite`       | Returns a sprite, ie. `MEDIA0`.                                |
+   | `TexMan.Type_WallPatch`    | Returns an uncomposited patch, ie. `DOOR2_1`.                  |
+   | `TexMan.Type_Build`        | Returns a tile from a BUILD TILES entry.                       |
+   | `TexMan.Type_SkinSprite`   | Unknown.                                                       |
+   | `TexMan.Type_Decal`        | Returns a decal pic, ie. `BulletChip1`. (NEEDS VERIFICATION)   |
+   | `TexMan.Type_MiscPatch`    | Unknown.                                                       |
+   | `TexMan.Type_FontChar`     | Unknown.                                                       |
+   | `TexMan.Type_Override`     | Unknown.                                                       |
+   | `TexMan.Type_Autopage`     | Returns an automap background graphic. (NEEDS EXAMPLE)         |
+   | `TexMan.Type_SkinGraphic`  | Unknown.                                                       |
+   | `TexMan.Type_Null`         | Returns the null graphic. Ignores `name`. (NEEDS VERIFICATION) |
+   | `TexMan.Type_FirstDefined` | Unknown.                                                       |
+
+   `flags` may be any of the following combined (with the bitwise OR operator `|`:)
+
+   | Name                   | Description                                     |
+   |------------------------|-------------------------------------------------|
+   | `TexMan.TryAny`        | Default. Unknown.                               |
+   | `TexMan.Overridable`   | Unknown.                                        |
+   | `TexMan.ReturnFirst`   | Unknown.                                        |
+   | `TexMan.AllowSkins`    | Unknown.                                        |
+   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.  |
+   | `TexMan.DontCreate`    | Will never create a new texture when searching. |
