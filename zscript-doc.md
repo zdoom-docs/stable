@@ -1248,6 +1248,7 @@ struct Vector2
 struct Vector3
 {
    double x, y, z;
+   Vector2 xy;
 
    double Length() const;
    Vector3 Unit() const;
