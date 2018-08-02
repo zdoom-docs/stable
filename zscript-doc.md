@@ -93,7 +93,7 @@ Class flags
 | `ui`                    | Class has UI scope.                                                          |
 | `play`                  | Class has Play scope.                                                        |
 | `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works with descendants of Actor. |
-| `native`                | Class is from the engine. Do not use in user code.                           |
+| `native`                | Class is from the engine. Only usable internally.                            |
 | `version("ver")`        | Restricted to ZScript version *ver* or higher.                               |
 
 Examples: Class headers
@@ -409,7 +409,7 @@ Strings
 |-----------|:------------------:|
 | `string`  | Yes                |
 
-The `string` type is an immutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
+The `string` type is a mutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
 
 Names
 -----
@@ -1024,7 +1024,7 @@ Method definition flags
 | `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons.      |
 | `action(Scope)`        | Same as above, but has an action scope. See "Action Scoping" for more information. |
 | `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*. |
-| `vararg`               | Method doesn't type-check arguments after `...`. Do not use in user code.          |
+| `vararg`               | Method doesn't type-check arguments after `...`. Only usable internally.           |
 | `native`               | Method is from the engine. Only usable internally.                                 |
 | `version("ver")`       | Restricted to ZScript version *ver* or higher.                                     |
 
