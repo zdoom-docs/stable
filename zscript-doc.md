@@ -208,7 +208,7 @@ class MyCoolActor : Actor
 Structure definitions
 =====================
 
-A structure is an object type that does not inherit from Object and is not always a reference type, unlike classes. Structures are passed by-reference as arguments, however, and can be null when doing so.
+A structure is an object type that does not inherit from Object and is not always (though occasionally is) a reference type, unlike classes. Structures marked as `native` are passed by-reference as arguments, and `null` can be passed in their place. Non-native structures cannot be passed as arguments.
 
 Structures are preferred for basic compound data types that do not need to be instanced and are often used as a way of generalizing code. They cannot be returned from functions.
 
@@ -233,7 +233,7 @@ Structure flags
 | `ui`             | Structure has UI scope.                                                 |
 | `play`           | Structure has Play scope.                                               |
 | `clearscope`     | Structure has Data scope. Default.                                      |
-| `native`         | Structure is from the engine. Unusable in user code.                    |
+| `native`         | Structure is from the engine. Only usable internally.                   |
 | `version("ver")` | Restricted to ZScript version *ver* or higher.                          |
 
 Structure content
@@ -381,44 +381,61 @@ Integers
 
 Integer types are basic integral numbers. They include:
 
-| Name     | Bits | Lowest value   | Highest value |
-|----------|:----:|---------------:|:--------------|
-| `int8`   | 8    | -128           | 127           |
-| `uint8`  | 8    | 0              | 255           |
-| `int16`  | 16   | -32,768        | 32,767        |
-| `uint16` | 16   | 0              | 65,535        |
-| `int`    | 32   | -2,147,483,648 | 2,147,483,647 |
-| `uint`   | 32   | 0              | 4,294,967,296 |
+| Name     | Usable as argument | Bits | Lowest value   | Highest value |
+|----------|:------------------:|:----:|---------------:|:--------------|
+| `int`    | Yes                | 32   | -2,147,483,648 | 2,147,483,647 |
+| `uint`   | Yes                | 32   | 0              | 4,294,967,296 |
+| `int16`  | No                 | 16   | -32,768        | 32,767        |
+| `uint16` | No                 | 16   | 0              | 65,535        |
+| `int8`   | No                 | 8    | -128           | 127           |
+| `uint8`  | No                 | 8    | 0              | 255           |
 
 Floating-point types
 --------------------
 
 Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
 
-| Name      | Notes                                                              |
-|-----------|--------------------------------------------------------------------|
-| `float`   | 32-bit in structures and classes, 64-bit otherwise.                |
-| `double`  | 64-bit floating-point number.                                      |
-| `float32` | 32-bit floating-point number. Not implemented correctly, unusable. |
-| `float64` | Alias for `double`.                                                |
+| Name      | Usable as argument | Notes                                                              |
+|-----------|:------------------:|--------------------------------------------------------------------|
+| `double`  | Yes                | 64-bit floating-point number.                                      |
+| `float`   | Yes (64 bits)      | 32-bit in structures and classes, 64-bit otherwise.                |
+| `float64` | Yes                | Alias for `double`.                                                |
+| `float32` | No                 | 32-bit floating-point number. Not implemented correctly, unusable. |
 
 Strings
 -------
+
+| Name      | Usable as argument |
+|-----------|:------------------:|
+| `string`  | Yes                |
 
 The `string` type is an immutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
 
 Names
 -----
 
+| Name      | Usable as argument |
+|-----------|:------------------:|
+| `name`    | Yes                |
+
 The `name` type is an indexed string. While their contents are the same as a string, their actual value is merely an integer which can be compared far quicker than a string. Names are used for many internal purposes such as damage type names.
 
 Color
 -----
 
+| Name      | Usable as argument |
+|-----------|:------------------:|
+| `color`   | Yes                |
+
 The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`.
 
 Vectors
 -------
+
+| Name      | Usable as argument |
+|-----------|:------------------:|
+| `vector2` | Yes                |
+| `vector3` | Yes                |
 
 There are two vector types in ZScript, `vector2` and `vector3`, which hold two and three members, respectively. Their members can be accessed through `x`, `y` and (for `vector3`,) `z`. `vector3` can additionally get the X and Y components as a `vector2` with `xy`.
 
@@ -427,39 +444,61 @@ Vectors can use many operators and even have special ones to themselves. See the
 Other types
 -----------
 
-| Name         | Description                                       |
-|--------------|---------------------------------------------------|
-| `bool`       | Holds one of two values: `true` or `false`.       |
-| `sound`      | Similar to `int`, but holds a sound identifier.   |
-| `textureid`  | Similar to `int`, but holds a texture identifier. |
-| `spriteid`   | Similar to `int`, but holds a sprite identifier.  |
-| `state`      | A reference to an actor state.                    |
-| `statelabel` | The name of an actor state. Similar to `name`.    |
-
-<!--| `void` | Alias for `None`. Unknown purpose. |-->
+| Name         | Usable as argument | Description                                                     |
+|--------------|:------------------:|-----------------------------------------------------------------|
+| `bool`       | Yes                | Holds one of two values: `true` or `false`.                     |
+| `sound`      | Yes                | Similar to `int`, but holds a sound identifier.                 |
+| `textureid`  | Yes                | Similar to `int`, but holds a texture identifier.               |
+| `spriteid`   | Yes                | Similar to `int`, but holds a sprite identifier.                |
+| `state`      | Yes                | A reference to an actor state.                                  |
+| `statelabel` | Yes                | The name of an actor state. Similar to `name`.                  |
+| `void`       | No                 | Alias for `None`. Unknown purpose, likely implementation error. |
 
 Fixed-size arrays
 -----------------
+
+| Name         | Usable as argument |
+|--------------|:------------------:|
+| `type[size]` | No                 |
 
 Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional arrays are also supported.
 
 Dynamic-size arrays
 -------------------
 
+| Name          | Usable as argument |
+|---------------|:------------------:|
+| `array<Type>` | Yes                |
+
 Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional dynamic arrays are not supported.
 
 Maps
 ----
+
+| Name              | Usable as argument |
+|-------------------|:------------------:|
+| `map<Type, Type>` | No                 |
 
 Map types take the form `map<Type, Type>`. They are not yet implemented.
 
 Class type references
 ---------------------
 
+| Name          | Usable as argument |
+|---------------|:------------------:|
+| `class<Type>` | Yes                |
+| `class`       | Yes                |
+
 Class type references are used to describe a concrete *type* rather than an object. They simply take the form `class`, and can be restrained to descendants of a type with the syntax `class<Type>`.
 
 User types
 ----------
+
+| Name              | Usable as argument |
+|-------------------|:------------------:|
+| `ClassObject`     | Yes                |
+| `StructureObject` | No (unless native) |
+| `@Type`           | Yes (internally)   |
 
 Any other identifier used as a type will resolve to a user class, structure or enumeration type.
 
@@ -469,6 +508,10 @@ A type name that is within a specific scope can be accessed by prefixing it with
 
 Read-only types
 ---------------
+
+| Name             | Usable as argument |
+|------------------|:------------------:|
+| `readonly<Type>` | Yes                |
 
 A read-only type, as its name implies, may only be read from, and is effectively immutable. They take the form `readonly<Type>`.
 
@@ -747,7 +790,7 @@ else
 Switch statements
 -----------------
 
-A switch statement takes an integer or name and selects a labeled statement to run. They work the same as in C and ACS, though they accept `name` as well as `int` and enumeration types.
+A switch statement takes an expression of integer or name type and selects a labeled statement to run. They work the same as in C and ACS.
 
 Examples: Switch statements
 ---------------------------
@@ -925,7 +968,7 @@ Member declaration flags
 | `transient`            | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
 | `readonly`             | Member is not writable.                                                                                             |
 | `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*.                      |
-| `native`               | Member is from the engine. Unusable in user code.                                                                   |
+| `native`               | Member is from the engine. Only usable internally.                                                                  |
 | `version("ver")`       | Restricted to ZScript version *ver* or higher.                                                                      |
 
 Examples: Member declarations
@@ -961,6 +1004,8 @@ If `const` is placed after the function signature and before the function body, 
 
 The keyword `void` can be used in place of a type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
 
+Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
+
 Method definition flags
 -----------------------
 
@@ -980,7 +1025,7 @@ Method definition flags
 | `action(Scope)`        | Same as above, but has an action scope. See "Action Scoping" for more information. |
 | `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*. |
 | `vararg`               | Method doesn't type-check arguments after `...`. Do not use in user code.          |
-| `native`               | Method is from the engine. Unusable in user code.                                  |
+| `native`               | Method is from the engine. Only usable internally.                                 |
 | `version("ver")`       | Restricted to ZScript version *ver* or higher.                                     |
 
 Concepts
