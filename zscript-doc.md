@@ -1,6 +1,7 @@
 Table of Contents
 =================
 
+* [Versions](#versions)
 * [Top-level](#top-level)
 * [Class definitions](#class-definitions)
 * [Structure definitions](#structure-definitions)
@@ -37,10 +38,38 @@ Examples:
 * [Multi-assignment statements](#examples-multi-assignment-statements)
 * [Member declarations](#examples-member-declarations)
 
+Versions
+========
+
+A version directive may be placed at the very beginning of a ZScript file, the syntax being:
+
+```
+version "num"
+```
+
+Where `num` is the ZScript version to use. By default ZScript is `version "2.3"`, the original ZScript specification. This old version is not supported by this documentation and it is highly encouraged to always use the latest version of ZScript. The minimum version supported by this documentation is 2.4.
+
+Here is a list of differences between ZScript versions:
+
+Version 2.5
+
+- Added `Inventory::GetPowerupIcon`.
+- Added `class InterBackground`.
+- Added `struct PatchInfo`.
+- Added `class StatusScreen`.
+
+Version 3.3
+
+- Default parameters in overridden virtual functions are now an error.
+
+Version 3.4
+
+- Added "internal" keyword.
+
 Top-level
 =========
 
-A ZScript file can have one of several things at the top level of the file:
+A ZScript file can have one of several things at the top level of the file, following a version directive:
 
 - Class definitions
 - Structure definitions
@@ -345,6 +374,8 @@ static const Type[] name = {
 };
 ```
 
+Static arrays cannot be multi-dimensional, unlike normal arrays.
+
 Include directives
 ==================
 
@@ -427,7 +458,7 @@ Color
 |-----------|:------------------:|
 | `color`   | Yes                |
 
-The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`.
+The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`, or with either `color(R, G, B)` or `color(R, G, B, A)`.
 
 Vectors
 -------
@@ -967,6 +998,7 @@ Member declaration flags
 | `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
 | `transient`            | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
 | `readonly`             | Member is not writable.                                                                                             |
+| `internal`             | Member is only writable from `gzdoom.pk3`.                                                                          |
 | `deprecated("ver")`    | If accessed, a script warning will occur on load if the archive version is greater than *ver*.                      |
 | `native`               | Member is from the engine. Only usable internally.                                                                  |
 | `version("ver")`       | Restricted to ZScript version *ver* or higher.                                                                      |
