@@ -4,81 +4,69 @@ Table of Contents
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
-* [Translation Unit](#translation-unit)
-* [Versions](#versions)
-* [Top-level](#top-level)
-* [Class definitions](#class-definitions)
-   * [Class flags](#class-flags)
-   * [Examples: Class headers](#examples-class-headers)
-   * [Examples: Class definitions](#examples-class-definitions)
-   * [Class content](#class-content)
-   * [Property definitions](#property-definitions)
-   * [Default blocks](#default-blocks)
-   * [State definitions](#state-definitions)
-   * [Examples: Property definitions](#examples-property-definitions)
-* [Structure definitions](#structure-definitions)
-   * [Structure flags](#structure-flags)
-   * [Structure content](#structure-content)
-   * [Examples: Structure definitions](#examples-structure-definitions)
-* [Enumeration definitions](#enumeration-definitions)
-   * [Examples: Enumeration definitions](#examples-enumeration-definitions)
-* [Constant definitions](#constant-definitions)
-   * [Examples: Constant definitions](#examples-constant-definitions)
-* [Static array definitions](#static-array-definitions)
-* [Include directives](#include-directives)
-   * [Examples: Include directives](#examples-include-directives)
-* [Types](#types)
-   * [Integers](#integers)
-   * [Floating-point types](#floating-point-types)
-   * [Strings](#strings)
-   * [Names](#names)
-   * [Color](#color)
-   * [Vectors](#vectors)
-   * [Fixed-size arrays](#fixed-size-arrays)
-   * [Dynamic-size arrays](#dynamic-size-arrays)
-   * [Maps](#maps)
-   * [Class type references](#class-type-references)
-   * [User types](#user-types)
-   * [Read-only types](#read-only-types)
-   * [Other types](#other-types)
-* [Expressions and Operators](#expressions-and-operators)
-   * [Literals](#literals)
-      * [String literals](#string-literals)
-      * [Class type literals](#class-type-literals)
-      * [Name literals](#name-literals)
-      * [Integer literals](#integer-literals)
-      * [Float literals](#float-literals)
-      * [Boolean literals](#boolean-literals)
-      * [Null pointer](#null-pointer)
-   * [Expressions](#expressions)
-      * [Primary expressions](#primary-expressions)
-         * [Vector literals](#vector-literals)
-      * [Postfix expressions](#postfix-expressions)
-      * [Unary expressions](#unary-expressions)
-      * [Binary expressions](#binary-expressions)
-         * [Assignment expressions](#assignment-expressions)
-      * [Ternary expression](#ternary-expression)
-* [Statements](#statements)
-   * [Compound statements](#compound-statements)
-   * [Expression statements](#expression-statements)
-   * [Examples: Expression statements](#examples-expression-statements)
-   * [Conditional statements](#conditional-statements)
-   * [Examples: Conditional statements](#examples-conditional-statements)
-   * [Switch statements](#switch-statements)
-   * [Examples: Switch statements](#examples-switch-statements)
-   * [Loop statements](#loop-statements)
-   * [Control flow statements](#control-flow-statements)
-   * [Examples: Control flow statements](#examples-control-flow-statements)
-   * [Local variable statements](#local-variable-statements)
-   * [Multi-assignment statements](#multi-assignment-statements)
-   * [Examples: Multi-assignment statements](#examples-multi-assignment-statements)
-   * [Static array statements](#static-array-statements)
-   * [Null statements](#null-statements)
-* [Member declarations](#member-declarations)
-   * [Member declaration flags](#member-declaration-flags)
-   * [Examples: Member declarations](#examples-member-declarations)
-* [Method definitions](#method-definitions)
-   * [Method definition flags](#method-definition-flags)
+* [Language](#language)
+   * [Translation Unit](#translation-unit)
+   * [Versions](#versions)
+   * [Top-level](#top-level)
+   * [Class definitions](#class-definitions)
+      * [Class flags](#class-flags)
+      * [Class content](#class-content)
+      * [Property definitions](#property-definitions)
+      * [Default blocks](#default-blocks)
+      * [State definitions](#state-definitions)
+   * [Structure definitions](#structure-definitions)
+      * [Structure flags](#structure-flags)
+      * [Structure content](#structure-content)
+   * [Enumeration definitions](#enumeration-definitions)
+   * [Constant definitions](#constant-definitions)
+   * [Static array definitions](#static-array-definitions)
+   * [Include directives](#include-directives)
+   * [Types](#types)
+      * [Integers](#integers)
+      * [Floating-point types](#floating-point-types)
+      * [Strings](#strings)
+      * [Names](#names)
+      * [Color](#color)
+      * [Vectors](#vectors)
+      * [Fixed-size arrays](#fixed-size-arrays)
+      * [Dynamic-size arrays](#dynamic-size-arrays)
+      * [Maps](#maps)
+      * [Class type references](#class-type-references)
+      * [User types](#user-types)
+      * [Read-only types](#read-only-types)
+      * [Other types](#other-types)
+   * [Expressions and Operators](#expressions-and-operators)
+      * [Literals](#literals)
+         * [String literals](#string-literals)
+         * [Class type literals](#class-type-literals)
+         * [Name literals](#name-literals)
+         * [Integer literals](#integer-literals)
+         * [Float literals](#float-literals)
+         * [Boolean literals](#boolean-literals)
+         * [Null pointer](#null-pointer)
+      * [Expressions](#expressions)
+         * [Primary expressions](#primary-expressions)
+            * [Vector literals](#vector-literals)
+         * [Postfix expressions](#postfix-expressions)
+         * [Unary expressions](#unary-expressions)
+         * [Binary expressions](#binary-expressions)
+            * [Assignment expressions](#assignment-expressions)
+         * [Ternary expression](#ternary-expression)
+   * [Statements](#statements)
+      * [Compound statements](#compound-statements)
+      * [Expression statements](#expression-statements)
+      * [Conditional statements](#conditional-statements)
+      * [Switch statements](#switch-statements)
+      * [Loop statements](#loop-statements)
+      * [Control flow statements](#control-flow-statements)
+      * [Local variable statements](#local-variable-statements)
+      * [Multi-assignment statements](#multi-assignment-statements)
+      * [Static array statements](#static-array-statements)
+      * [Null statements](#null-statements)
+   * [Member declarations](#member-declarations)
+      * [Member declaration flags](#member-declaration-flags)
+   * [Method definitions](#method-definitions)
+      * [Method definition flags](#method-definition-flags)
 * [Concepts](#concepts)
    * [Action Scoping](#action-scoping)
    * [Object Scoping](#object-scoping)
@@ -100,20 +88,26 @@ Table of Contents
          * [Game state](#game-state)
          * [Client](#client)
          * [Players](#players)
-   * [Built-in types](#built-in-types)
-      * [Object](#object)
+   * [Built-in Types](#built-in-types)
       * [Array](#array)
       * [Color](#color-1)
       * [FixedArray](#fixedarray)
       * [String](#string)
       * [TextureID](#textureid)
       * [Vector2/Vector3](#vector2vector3)
+   * [Object](#object)
    * [Level Data](#level-data)
       * [Vertex](#vertex)
       * [Side](#side)
       * [Line](#line)
       * [Sector](#sector)
       * [SectorPortal](#sectorportal)
+      * [SectorEffect](#sectoreffect)
+      * [SectorAction](#sectoraction)
+      * [SecSpecial](#secspecial)
+      * [SecPlane](#secplane)
+      * [F3DFloor](#f3dfloor)
+      * [FColorMap](#fcolormap)
       * [SectorTagIterator](#sectortagiterator)
       * [LineIdIterator](#lineiditerator)
       * [LevelLocals](#levellocals)
@@ -127,7 +121,25 @@ Table of Contents
    * [Drawing](#drawing)
       * [Font](#font)
       * [BrokenLines](#brokenlines)
+      * [Shape2D](#shape2d)
       * [TexMan](#texman)
+      * [Screen](#screen)
+   * [Sound](#sound-1)
+      * [SeqNode](#seqnode)
+* [Examples](#examples)
+   * [Examples: Class headers](#examples-class-headers)
+   * [Examples: Class definitions](#examples-class-definitions)
+   * [Examples: Property definitions](#examples-property-definitions)
+   * [Examples: Structure definitions](#examples-structure-definitions)
+   * [Examples: Enumeration definitions](#examples-enumeration-definitions)
+   * [Examples: Constant definitions](#examples-constant-definitions)
+   * [Examples: Include directives](#examples-include-directives)
+   * [Examples: Expression statements](#examples-expression-statements)
+   * [Examples: Conditional statements](#examples-conditional-statements)
+   * [Examples: Switch statements](#examples-switch-statements)
+   * [Examples: Control flow statements](#examples-control-flow-statements)
+   * [Examples: Multi-assignment statements](#examples-multi-assignment-statements)
+   * [Examples: Member declarations](#examples-member-declarations)
 
 <!-- vim-markdown-toc -->
 
@@ -142,8 +154,11 @@ ZScript runs in a virtual machine much like ACS, although because it is *not* co
 
 In any case, here we are. This documentation will detail all aspects of ZScript, from the language and type system to the API and finer details. This document is distributed under the [CC0 public domain license](https://creativecommons.org/publicdomain/zero/1.0/legalcode) in the hope that it is useful reference and serves as a solid basis for further writings. This document was originally written by Alison Sanderson (Marrub.) Attribution is encouraged but not required.
 
+Language
+========
+
 Translation Unit
-================
+----------------
 
 Full ZScript files are referred to as "translation units." This terminology comes from the C standard, and refers simply to the entirety of a ZScript source file. ZScript files are looked for in lumps named `zscript` with any extension. The standard extension is `.txt`, but `.zsc` and `.zs` are common as well. The author of this documentation prefers `.zsc`.
 
@@ -152,7 +167,7 @@ The base translation unit `zscript` may start with a version directive, then fol
 All keywords and identifiers in ZScript are case insensitive.
 
 Versions
-========
+--------
 
 A version directive may be placed at the very beginning of a ZScript file, the syntax being:
 
@@ -160,31 +175,284 @@ A version directive may be placed at the very beginning of a ZScript file, the s
 version "num"
 ```
 
-Where `num` is the ZScript version to use. By default ZScript is `version "2.3"`, the original ZScript specification. This old version is not supported by this documentation and it is highly encouraged to always use the latest version of ZScript. The minimum version supported by this documentation is 2.4.
+Where `num` is the ZScript version to use. By default ZScript is `version "2.3"`, the original ZScript specification. This old version is not supported by this documentation and it is highly encouraged to always use the latest version of ZScript. The minimum version supported by this documentation is 3.0.
 
 Here is a list of differences between ZScript versions:
 
-Version 2.5
+Version 3.1
 
-- Added `Inventory::GetPowerupIcon`.
-- Added `class InterBackground`.
-- Added `struct PatchInfo`.
-- Added `class StatusScreen`.
+- Added `UserCmd`.
+- Added `PlayerPawn::CROUCHSPEED`.
+- Added `PlayerPawn::TURN180_TICKS`.
+- Added `PlayerPawn::FireWeapon`.
+- Added `PlayerPawn::FireWeaponAlt`.
+- Added `PlayerPawn::CheckWeaponFire`.
+- Added `PlayerPawn::CheckWeaponChange`.
+- Added `PlayerPawn::TickPSprites`.
+- Added `PlayerPawn::DeathThink`.
+- Added `PlayerPawn::CheckFOV`.
+- Added `PlayerPawn::CheckCheats`.
+- Added `PlayerPawn::CheckFrozen`.
+- Added `PlayerPawn::CrouchMove`.
+- Added `PlayerPawn::CheckCrouch`.
+- Added `PlayerPawn::ForwardThrust`.
+- Added `PlayerPawn::Bob`.
+- Added `PlayerPawn::TweakSpeeds`.
+- Added `PlayerPawn::MovePlayer`.
+- Added `PlayerPawn::CheckPitch`.
+- Added `PlayerPawn::CheckJump`.
+- Added `PlayerPawn::CheckMoveUpDown`.
+- Added `PlayerPawn::HandleMovement`.
+- Added `PlayerPawn::CheckUndoMorph`.
+- Added `PlayerPawn::CheckPoison`.
+- Added `PlayerPawn::CheckDegeneration`.
+- Added `PlayerPawn::CheckAirSupply`.
+- Added `PlayerPawn::PlayerThink`.
+- Added `PlayerPawn::CheckMusicChange`.
+- Added `PlayerPawn::CalcHeight`.
+- Added `PlayerPawn::CheckEnvironment`.
+- Added `PlayerPawn::CheckUse`.
+- Added `PlayerPawn::CheckWeaponButtons`.
+- Added `PlayerPawn::BestWeapon`.
+- Added `PlayerInfo::Cmd`.
+- Added `PlayerInfo::Original_Cmd`.
+- Added `PlayerInfo::IsTotallyFrozen`.
+- Added `PlayerInfo::Uncrouch`.
+- Added `ListMenuItemSlider::mDrawX`.
+- Added `SBarInfo::GetProtrusion`.
+- Added `Actor::ORIG_FRICTION`.
+- Added `Actor::ORIG_FRICTION_FACTOR`.
+- Added `Actor::CheckFakeFloorTriggers`.
+- Added `global LocalViewPitch`.
+- Added `LevelLocals::AllowRespawn`.
+- Added `LevelLocals::IsJumpingAllowed`.
+- Added `LevelLocals::IsCrouchingAllowed`.
+- Added `LevelLocals::IsFreelookAllowed`.
+- Added `LAF_OVERRIDEZ`.
+- Added `HarmonyStatusBar`.
+- Added `SVELight`.
+- Added `SVEFlagSpot*`.
+- Added override for `DoomStatusBar::DrawAutomapHUD`.
+- Added override for `SBarInfoWrapper::GetProtrusion`.
+- Added `offsetz` parameter to `Actor::LineAttack`.
+- Made `PlayerInfo::Cls` not `readonly`.
+
+Version 3.2
+
+- Added `+ZDOOMTRANS`.
+- Added `+DYNAMICLIGHT.ADDITIVE`.
+- Added `+DYNAMICLIGHT.SUBTRACTIVE`.
+- Added `+DYNAMICLIGHT.ATTENUATE`.
+- Added `FCheckPosition::PortalGroup`.
+- Added `Actor::FloatBobStrength`.
+- Added `Actor::CameraFOV`.
+- Added `Actor::RenderHidden`.
+- Added `Actor::RenderRequired`.
+- Added `Actor::CheckPortalTransition`.
+- Added `Actor::A_SoundVolume`.
+- Added `Font::CR_ICE`.
+- Added `Font::CR_FIRE`.
+- Added `Font::CR_SAPPHIRE`.
+- Added `Font::CR_TEAL`.
+- Added `Font::TEXTCOLOR_ICE`.
+- Added `Font::TEXTCOLOR_FIRE`.
+- Added `Font::TEXTCOLOR_SAPPHIRE`.
+- Added `Font::TEXTCOLOR_TEAL`.
+- Added `Thinker::STAT_USER`.
+- Added `Thinker::STAT_USER_MAX`.
+- Added `DropItem::Amount`.
+- Added `LevelLocals::GiveSecret`.
+- Added `String::IndexOf`.
+- Added `String::LastIndexOf`.
+- Added `String::ToUpper`.
+- Added `String::ToLower`.
+- Added `String::ToInt`.
+- Added `String::ToDouble`.
+- Added `Shader`.
+- Added `TEXTCOLOR_ICE`.
+- Added `TEXTCOLOR_FIRE`.
+- Added `TEXTCOLOR_SAPPHIRE`.
+- Added `TEXTCOLOR_TEAL`.
+- Added `ActorRenderFeatureFlag`.
+- Fixed `BlockLinesIterator::Create*` returning the wrong type.
+- Changed `Screen::SetCameraToTexture`'s `fov` parameter to `double`.
+
+Version 3.2.1
+
+- Added `GameInfoStruct::mSliderColor`.
+
+Version 3.2.2
+
+- Added `PlayerPawn::GetClassicFlight`.
+- Added `Actor::Warp`.
+- Added `TexMan::GetName`.
+- Added `CVar::GetBool`.
+- Added `CVar::SetBool`.
+- Added `Wads::CheckNumForFullName`.
+- Added `Wads::FindLump`.
+- Added `Wads::ReadLump`.
+- Added `Wads::FindLumpNamespace`.
+- Added `String::Remove`.
+- Added `String::Split`.
+- Added `LAF_TARGETISSOURCE`.
+- Added `LAF_ABSOFFSET`.
+- Added `LAF_ABSPOSITION`.
+- Added `EmptyTokenType`.
+- Added `offsetforward` and `offsetside` parameters for `Actor::LineAttack`.
+- Added `endIndex` parameter for `String::LastIndexOf`.
+- Made `Array::Find` be `const`.
+- Made `Array::Max` be `const`.
+
+Version 3.2.3
+
+- Made `Ceiling::CreateCeiling` be `static`.
+
+Version 3.2.4
+
+- Added `DMG_NO_PAIN`.
+
+Version 3.2.5
+
+- Added `Actor::CheckMove`.
+- Added `Screen::DrawLine`.
+- Added `LevelLocals::PixelStretch`.
+- Added `LevelLocals::Vec2Diff`.
+- Added `LevelLocals::Vec3Diff`.
+- Added `ECheckMoveFlags`.
+- Added `SKILLP_PlayerRespawn`.
+- Added `alpha2` parameter to `Actor::A_SetBlend`.
+- Changed `Thinker::Tics2Seconds`' logic.
 
 Version 3.3
 
 - Default parameters in overridden virtual functions are now an error.
+- Added `Inventory::AltHUDIcon`.
+- Added `StrifeDialogueNode::MenuClassName`.
+- Added `StrifeDialogueNode::UserData`.
+- Added `OptionMenuItemLabeledSubmenu`.
+- Added `OptionMenuItemCommand::mCloseOnSelect`.
+- Added `OptionMenuItemOptionBase::IsGrayed`.
+- Added `DynamicLight::SpotInnerAngle`.
+- Added `DynamicLight::SpotOuterAngle`.
+- Added `SpotLight* classes`.
+- Added `HudMessageBase`.
+- Added `BaseStatusBar::EHUDMSGLayer`.
+- Added `BaseStatusBar::DI_MIRROR`.
+- Added `BaseStatusBar::AttachMessage`.
+- Added `BaseStatusBar::DetachMessage`.
+- Added `BaseStatusBar::DetachMessageID`.
+- Added `BaseStatusBar::DetachAllMessages`.
+- Added `FLineTargetData`.
+- Added `Actor::FriendlySeeBlocks`.
+- Added `Actor::Distance2DSquared`.
+- Added `Actor::Distance3DSquared`.
+- Added `Actor::LineTrace`.
+- Added `Actor::GetRadiusDamage`.
+- Added `Actor::ACS_ScriptCall`.
+- Added `Screen::GetViewWindow`.
+- Added `Object::S_GetLength`.
+- Added `ETrace*`, `ELineTier`, `ELineTraceFlags`.
+- Added `TraceResults`.
+- Added `LineTracer`.
+- Added `LevelLocals::SkyTexture1`.
+- Added `LevelLocals::SkyTexture2`.
+- Added `LevelLocals::SkySpeed1`.
+- Added `LevelLocals::SkySpeed2`.
+- Added `LevelLocals::GetChecksum`.
+- Added `LevelLocals::ChangeSky`.
+- Added `SectorEffect::GetSector`.
+- Added `CHAN_LOOP`.
+- Added `Array` specialization for `Object`.
+- Added `WorldEvent::ActivatedLine`.
+- Added `WorldEvent::ShouldActivate`.
+- Added `StaticEventHandler::WorldLinePreActivated`.
+- Added `StaticEventHandler::WorldLineActivated`.
+- Added `StaticEventHandler::PostUiTick`.
+- Added `Sector::FloorData`.
+- Added `Sector::CeilingData`.
+- Added `Sector::LightingData`.
+- Added `ReverbEdit`.
+- Renamed `DynamicLight::ELightType::SpotLight` to `DummyLight`.
+- Made `Side::V1` be `clearscope`.
+- Made `Side::V2` be `clearscope`.
+- Made `SecPlane::ZatPoint` be `clearscope`.
+- Made `SecPlane::HeightDiff` be `const`.
+- Made `Weapon::CheckAmmo` and `Weapon::DepleteAmmo` be `virtual`.
+
+Version 3.3.1
+
+- Made `A_SetSize`'s `radius` parameter have a default.
+- Made all `DehInfo` members `readonly`.
+- Made all `State` members `readonly`.
+- Made `Side::Sector` and `Side::Linedef` be `readonly`.
+
+Version 3.3.2
+
+- Added `SPAC`.
+- Added `Line::Activate`.
+- Added `Line::RemoteActivate`.
 
 Version 3.4
 
-- Added "internal" keyword.
+- Added `Actor::OnGiveSecret`.
+- Added `LevelLocals::Vec2Offset`.
+- Added `LevelLocals::Vec2OffsetZ`.
+- Added `LevelLocals::Vec3Offset`.
+- Added `WorldEvent::ActivationType`.
+- Added `Line::ESide`.
+- Added `DTA_Desaturate`.
+- Added `DTA_Color`.
+- Added `DTA_FlipY`.
+- Added `DTA_SrcX`.
+- Added `DTA_SrcY`.
+- Added `DTA_SrcWidth`.
+- Added `DTA_SrcHeight`.
+- Added "`internal`" keyword.
+- Made `LevelLocals::SectorPortals` be `internal`.
+- Made `Sector::Portals` be `internal`.
+- Changed `PlayerPawn::ResetAirSupply`'s `playgasp` default to `true`.
+
+Version 3.5
+
+- Added `Menu::SetVideoMode`.
+- Added `DTA_LegacyRenderStyle`.
+- Added `Shape2D`.
+- Added `Screen::DrawShape`.
+- Added `MeansOfDeath` parameter to `Actor::Die`.
+- Replaced `ListMenuItemPlayerDisplay::mTranslation` with `mBaseColor` and `mAddColor`.
 
 Version 3.5.1
 
-- Deprecated `String.LastIndexOf`.
+- Added `String::RightIndexOf`.
+- Made `Actor::DeltaAngle` be `clearscope`.
+- Made `Actor::AbsAngle` be `clearscope`.
+- Made `Actor::AngleToVector` be `clearscope`.
+- Made `Actor::RotateVector` be `clearscope`.
+- Made `Actor::Normalize180` be `clearscope`.
+- Made `Actor::BobSin` be `clearscope`.
+- Made `Actor::GetDefaultSpeed` be `clearscope`.
+- Made `Actor::FindState` be `clearscope`.
+- Made `Actor::GetDropItems` be `clearscope`.
+- Deprecated `String::LastIndexOf`.
+
+Version 3.6
+
+- Added `Inventory::OnDrop`.
+- Added `GLTextureGLOptions`.
+- Added `Actor::A_CheckForResurrection`.
+- Added `Actor::A_RaiseSelf`.
+- Added `Actor::CanRaise`.
+- Added `Actor::Revive`.
+- Added `Screen::DrawThickLine`.
+- Added `LevelLocals::SphericalCoords`.
+- Added `StaticEventHandler::CheckReplacement`.
+- Added `StaticEventHandler::NewGame`.
+- Added `DMG_EXPLOSION`.
+- Added `TRF_SOLIDACTORS`, `TRF_BLOCKUSE`, and `TRF_BLOCKSELF`.
+- Made `StatusScreen::End` be `virtual`.
 
 Top-level
-=========
+---------
 
 A ZScript file can have one of several things at the top level of the file, following a version directive:
 
@@ -195,7 +463,7 @@ A ZScript file can have one of several things at the top level of the file, foll
 - Include directives
 
 Class definitions
-=================
+-----------------
 
 A class defines an object type within ZScript, and is most of what you'll be creating within the language.
 
@@ -203,7 +471,7 @@ All classes inherit from other classes. The base class can be set within the cla
 
 Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use `new` to instantiate a new class object.
 
-Classes that inherit from Actor can replace other actors when spawned in maps, and can also be used freely in DECORATE. Actors have states, which will not be explained in this document as they are already well-documented on the ZDoom wiki.
+Classes that inherit from Actor can replace other actors when spawned in maps, and can also be used freely in `DECORATE`. Actors have states, which will not be explained in this document as they are already well-documented on the ZDoom wiki.
 
 A class is formed with the syntax:
 
@@ -230,60 +498,18 @@ extend class Name
 
 In place of the class header.
 
-Class flags
------------
+### Class flags
 
 | Flag                    | Description                                                                  |
 | ----                    | -----------                                                                  |
 | `abstract`              | Cannot be instantiated with `new`.                                           |
-| `ui`                    | Class has UI scope.                                                          |
+| `native`                | Class is from the engine. Only usable internally.                            |
 | `play`                  | Class has Play scope.                                                        |
 | `replaces ReplaceClass` | Replaces ReplaceClass with this class. Only works with descendants of Actor. |
-| `native`                | Class is from the engine. Only usable internally.                            |
+| `ui`                    | Class has UI scope.                                                          |
 | `version("ver")`        | Restricted to ZScript version *ver* or higher.                               |
 
-Examples: Class headers
------------------------
-
-Various class headers:
-
-```
-class MyCoolObject // automatically inherits Object
-class MyCoolScopedObject play // has Play scope
-class MyCoolThinker : Thinker // inherits Thinker
-class MyCoolActor : Actor replaces OtherActor
-class MyCoolInterface abstract // can only be inherited
-```
-
-Examples: Class definitions
----------------------------
-
-Basic class definition with a member variable and member function:
-
-```
-class BasicClass
-{
-   int m_thing;
-
-   void changeThing()
-   {
-      m_thing = 500;
-   }
-}
-```
-
-Alternate syntax usage:
-
-```
-class TheWholeFileIsAClassOhNo;
-
-int m_mymember;
-
-// end of file
-```
-
-Class content
--------------
+### Class content
 
 Class contents are an optional list of various things logically contained within the class, including:
 
@@ -297,8 +523,7 @@ Class contents are an optional list of various things logically contained within
 - Constant definitions
 - Static array definitions
 
-Property definitions
---------------------
+### Property definitions
 
 Property definitions are used within classes to define defaultable attributes on actors. They are not valid on classes not derived from Actor.
 
@@ -306,14 +531,13 @@ When registered, a property will be available in the `default` block as `ClassNa
 
 Property definitions take the form `property Name: Member list...;`.
 
-Properties defined in ZScript are usable from DECORATE.
+Properties defined in ZScript are usable from `DECORATE`.
 
-Default blocks
---------------
+### Default blocks
 
 Default blocks are used on classes derived from Actor to create an overridable list of defaults to properties, allowing for swift creation of flexible actor types.
 
-In DECORATE, this is everything that isn't in the `states` block, but in ZScript, for syntax flexibility purposes, it must be enclosed in a block with `default` at the beginning, formed:
+In `DECORATE`, this is everything that isn't in the `states` block, but in ZScript, for syntax flexibility purposes, it must be enclosed in a block with `default` at the beginning, formed:
 
 ```
 default
@@ -322,37 +546,14 @@ default
 }
 ```
 
-Default statements include flags and properties. Flags are the same as DECORATE, though sub-actor flags require their prefix, and can optionally be followed by a semicolon. Properties are the same as DECORATE, with a terminating semicolon required.
+Default statements include flags and properties. Flags are the same as `DECORATE`, though sub-actor flags require their prefix, and can optionally be followed by a semicolon. Properties are the same as `DECORATE`, with a terminating semicolon required.
 
-State definitions
------------------
+### State definitions
 
-These are the same as DECORATE, but states that do not have function blocks require terminating semicolons. Double quotes around `####` and `----` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
-
-Examples: Property definitions
-------------------------------
-
-A class with some properties:
-
-```
-class MyCoolActor : Actor
-{
-   default
-   {
-      MyCoolActor.MyCoolMember 5000;
-      MyCoolActor.MyCoolMemberList 501, 502;
-   }
-
-   int m_myCoolMember;
-   int m_coolMember1, m_coolMember2;
-
-   property MyCoolMember: m_myCoolMember;
-   property MyCoolMemberList: m_coolMember1, m_coolMember2;
-}
-```
+These are the same as `DECORATE`, but states that do not have function blocks require terminating semicolons. Double quotes around `####` and `----` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
 
 Structure definitions
-=====================
+---------------------
 
 A structure is an object type that does not inherit from Object and is not always (though occasionally is) a reference type, unlike classes. Structures marked as `native` are passed by-reference as arguments, and `null` can be passed in their place. Non-native structures cannot be passed as arguments.
 
@@ -371,19 +572,17 @@ struct Name [Structure flags...]
 
 Optionally followed by a semicolon.
 
-Structure flags
----------------
+### Structure flags
 
 | Flag             | Description                                                             |
 | ----             | -----------                                                             |
-| `ui`             | Structure has UI scope.                                                 |
-| `play`           | Structure has Play scope.                                               |
 | `clearscope`     | Structure has Data scope. Default.                                      |
 | `native`         | Structure is from the engine. Only usable internally.                   |
+| `play`           | Structure has Play scope.                                               |
+| `ui`             | Structure has UI scope.                                                 |
 | `version("ver")` | Restricted to ZScript version *ver* or higher.                          |
 
-Structure content
------------------
+### Structure content
 
 Structure contents are an optional list of various things logically contained within the structure, including:
 
@@ -392,22 +591,8 @@ Structure contents are an optional list of various things logically contained wi
 - Enumeration definitions
 - Constant definitions
 
-Examples: Structure definitions
--------------------------------
-
-Simple structure:
-
-```
-struct MyCoolStructure
-{
-   int x;
-   int y;
-   int z;
-}
-```
-
 Enumeration definitions
-=======================
+-----------------------
 
 An enumeration is a list of named numbers, which by default will be incremental from 0. By default they decay to the type `int`, but the default decay type can be set manually.
 
@@ -424,36 +609,8 @@ Optionally followed by a semicolon.
 
 Enumerators can either be incremental (from the last enumerator or 0 if there is none) or explicitly set with the basic syntax `enumerator = value`. Enumerators must be followed by a comma unless it is the end of the list.
 
-Examples: Enumeration definitions
----------------------------------
-
-Basic enumeration:
-
-```
-enum MyCoolEnum
-{
-   A, // has value int(0)
-   B, // 1 ...
-   C, // 2 ...
-   D  // and 3
-}
-```
-
-Less trivial example:
-
-```
-enum MyCoolerEnum : int16
-{
-   A = 500, // has value int16(500)
-   B, // 501
-   C = 200,
-   D, // 201
-   E, // 202
-};
-```
-
 Constant definitions
-====================
+--------------------
 
 Constants are simple named values. They are created with the syntax:
 
@@ -463,17 +620,8 @@ const Name = value;
 
 Constants are not assignable. Their type is inferred from their value, so if you wish for them to have a specific type, you must cast the value to that type.
 
-Examples: Constant definitions
-------------------------------
-
-Making an integer constant from a double:
-
-```
-const MyCoolInt = int(777.7777);
-```
-
 Static array definitions
-=========================
+-------------------------
 
 Similar to constants, static arrays are named values, but for an array. They are created with the syntax:
 
@@ -494,7 +642,7 @@ static const Type[] name = {
 Static arrays cannot be multi-dimensional, unlike normal arrays.
 
 Include directives
-==================
+------------------
 
 Include directives include other files to be processed by the ZScript compiler, allowing you to organize and separate code into different files. Their syntax is simple:
 
@@ -506,17 +654,8 @@ Note that included filenames will conflict with other mods. If two mods have a f
 
 To avoid this, it is suggested to place your ZScript code under a uniquely named sub-folder.
 
-Examples: Include directives
-----------------------------
-
-Basic includes:
-
-```
-#include "zscript/MyCoolMod/MyCoolClasses.zsc"
-```
-
 Types
-=====
+-----
 
 ZScript has several categories of types: Integer types, floating-point (decimal) types, strings, vectors, names, classes, et al. There are a wide variety of ways to use these types, as well as a wide variety of places they are used.
 
@@ -524,8 +663,7 @@ Types determine what kind of value an object stores, how it acts within an expre
 
 Most basic types have methods attached to them, and both integer and floating-point type names have symbols accessible from them. See the API section for more information.
 
-Integers
--------------
+### Integers
 
 Integer types are basic integral numbers. They include:
 
@@ -538,8 +676,7 @@ Integer types are basic integral numbers. They include:
 | `int8`   | No                 | 8    | -128           | 127           |
 | `uint8`  | No                 | 8    | 0              | 255           |
 
-Floating-point types
---------------------
+### Floating-point types
 
 Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
 
@@ -550,8 +687,7 @@ Floating-point types hold exponents, generally represented as regular decimal nu
 | `float64` | Yes                | Alias for `double`.                                                |
 | `float32` | No                 | 32-bit floating-point number. Not implemented correctly, unusable. |
 
-Strings
--------
+### Strings
 
 | Name      | Usable as argument |
 | ----      | :----------------: |
@@ -559,8 +695,7 @@ Strings
 
 The `string` type is a mutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
 
-Names
------
+### Names
 
 | Name      | Usable as argument |
 | ----      | :----------------: |
@@ -568,8 +703,7 @@ Names
 
 The `name` type is an indexed string. While their contents are the same as a string, their actual value is merely an integer which can be compared far quicker than a string. Names are used for many internal purposes such as damage type names. Strings are implicitly casted to names.
 
-Color
------
+### Color
 
 | Name      | Usable as argument |
 | ----      | :----------------: |
@@ -577,8 +711,7 @@ Color
 
 The `color` type can be converted from a string using the X11RGB lump or a hex color in the format `#RRGGBB`, or with either `color(R, G, B)` or `color(R, G, B, A)`.
 
-Vectors
--------
+### Vectors
 
 | Name      | Usable as argument |
 | ----      | :----------------: |
@@ -589,8 +722,7 @@ There are two vector types in ZScript, `vector2` and `vector3`, which hold two a
 
 Vectors can use many operators and even have special ones to themselves. See the Expressions and Operators section for more information.
 
-Fixed-size arrays
------------------
+### Fixed-size arrays
 
 | Name         | Usable as argument |
 | ----         | :----------------: |
@@ -598,17 +730,29 @@ Fixed-size arrays
 
 Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional arrays are also supported.
 
-Dynamic-size arrays
--------------------
+### Dynamic-size arrays
 
 | Name          | Usable as argument |
 | ----          | :----------------: |
 | `array<Type>` | Yes                |
 
-Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional dynamic arrays are not supported.
+Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary number of `Type` elements, which can be accessed with the array access operator.
 
-Maps
-----
+Dynamic-sized arrays do not have their lifetime scoped to their current block, so:
+
+```
+for(int i = 0; i < 5; i++)
+{
+   array<int> a;
+   a.push(0);
+}
+```
+
+... will result in an array with 5 elements.
+
+Dynamically sized arrays also cannot store other dynamically sized arrays, or `struct` objects.
+
+### Maps
 
 | Name              | Usable as argument |
 | ----              | :----------------: |
@@ -616,8 +760,7 @@ Maps
 
 Map types take the form `map<Type, Type>`. They are not yet implemented.
 
-Class type references
----------------------
+### Class type references
 
 | Name          | Usable as argument |
 | ----          | :----------------: |
@@ -626,8 +769,7 @@ Class type references
 
 Class type references are used to describe a concrete *type* rather than an object. They simply take the form `class`, and can be restrained to descendants of a type with the syntax `class<Type>`. Strings are implicitly casted to class type references.
 
-User types
-----------
+### User types
 
 | Name                   | Usable as argument    |
 | ----                   | :----------------:    |
@@ -642,40 +784,37 @@ Identifiers prefixed with `@` are native pointers to objects and not necessarily
 
 A type name that is within a specific scope can be accessed by prefixing it with a `.`. The type `.MyClass.MySubStructure` will resolve to the type `MySubStructure` contained within `MyClass`.
 
-Read-only types
----------------
+### Read-only types
 
 | Name             | Usable as argument |
 | ----             | :----------------: |
 | `readonly<Type>` | Yes                |
 
-A read-only type, as its name implies, may only be read from, and is effectively immutable. They take the form `readonly<Type>`.
+A read-only type, as its name implies, may only be read from, and is effectively immutable. They take the form `readonly<Type>`. Do note that this is separate from the member declaration flag.
 
-Other types
------------
+### Other types
 
 | Name         | Usable as argument | Description                                                     |
 | ----         | :----------------: | -----------                                                     |
 | `bool`       | Yes                | Holds one of two values: `true` or `false`.                     |
 | `sound`      | Yes                | Holds a sound reference.                                        |
-| `textureid`  | Yes                | Holds a texture reference.                                      |
 | `spriteid`   | Yes                | Holds a sprite reference.                                       |
 | `state`      | Yes                | A reference to an actor state.                                  |
 | `statelabel` | Yes                | The name of an actor state.                                     |
+| `textureid`  | Yes                | Holds a texture reference.                                      |
 | `void`       | No                 | Alias for `None`. Unknown purpose, likely implementation error. |
 | `voidptr`    | No                 | A pointer to a real memory address. Implementation detail.      |
 
 Strings will implicitly convert to `sound` and `statelabel`.
 
 Expressions and Operators
-=========================
+-------------------------
 
-Literals
---------
+### Literals
 
 Much like C or most other programming languages, ZScript has object literals, including string literals, integer literals, float literals, name literals, boolean literals, and the null pointer.
 
-### String literals
+#### String literals
 
 String literals take the same form as in C:
 
@@ -685,23 +824,23 @@ String literals take the same form as in C:
 
 String literals have character escapes, which are formed with a backslash and a character. Character escapes include:
 
-| Spelling                | Output                                        |
-| --------                | ------                                        |
-| `\"`                    | A literal `"`.                                |
-| `\\`                    | A literal `\`.                                |
-| `\` followed by newline | Concatenates the next line with this one.     |
-| `\a`                    | Byte `0x07` (BEL - bell, anachronism.)        |
-| `\b`                    | Byte `0x08` (BS - backspace, anachronism.)    |
-| `\c`                    | Byte `0x1c` (TEXTCOLOR_ESCAPE.)               |
-| `\f`                    | Byte `0x0c` (FF - form feed, anachronism.)    |
-| `\n`                    | Byte `0x0a` (LF - new line.)                  |
-| `\t`                    | Byte `0x09` (HT - tab.)                       |
-| `\r`                    | Byte `0x0d` (CR - return.)                    |
-| `\v`                    | Byte `0x0b` (VT - vertical tab, anachronism.) |
-| `\?`                    | A literal `?` (obsolete anachronism.)         |
-| `\xnn`                  | Byte `0xnn`.                                  |
-| `\Xnn`                  | Byte `0xnn`.                                  |
-| `\nnn`                  | Byte `0nnn` (octal.)                          |
+| Spelling                | Output                                          |
+| --------                | ------                                          |
+| `\"`                    | A literal `"`.                                  |
+| `\\`                    | A literal `\`.                                  |
+| `\` followed by newline | Concatenates the next line with this one.       |
+| `\a`                    | Byte `0x07` (`BEL` - bell, anachronism.)        |
+| `\b`                    | Byte `0x08` (`BS` - backspace, anachronism.)    |
+| `\c`                    | Byte `0x1c` (`TEXTCOLOR_ESCAPE`.)               |
+| `\f`                    | Byte `0x0c` (`FF` - form feed, anachronism.)    |
+| `\n`                    | Byte `0x0a` (`LF` - new line.)                  |
+| `\t`                    | Byte `0x09` (`HT` - tab.)                       |
+| `\r`                    | Byte `0x0d` (`CR` - return.)                    |
+| `\v`                    | Byte `0x0b` (`VT` - vertical tab, anachronism.) |
+| `\?`                    | A literal `?` (obsolete anachronism.)           |
+| `\xnn`                  | Byte `0xnn`.                                    |
+| `\Xnn`                  | Byte `0xnn`.                                    |
+| `\nnn`                  | Byte `0nnn` (octal.)                            |
 
 To quote [cppreference](https://en.cppreference.com/w/cpp/language/escape), "of the octal escape sequences, `\0` is the most useful because it represents the terminating null character in null-terminated strings."
 
@@ -713,11 +852,11 @@ String literals, also like C and C++, will be concatenated when put directly nex
 
 Will be parsed as a single string literal with the text `"text 1text 2"`.
 
-### Class type literals
+#### Class type literals
 
 Class type literals take the same form as string literals, but do note that they are not the same.
 
-### Name literals
+#### Name literals
 
 Name literals are similar to string literals, though they use apostrophes instead of quote marks:
 
@@ -727,7 +866,7 @@ Name literals are similar to string literals, though they use apostrophes instea
 
 They do not concatenate like string literals, and do not have character escapes.
 
-### Integer literals
+#### Integer literals
 
 Integer literals are formed similarly to C. They may take one of three forms, and be typed `uint` or `int` based on whether there is a `u` or `U` at the end or not.
 
@@ -756,7 +895,7 @@ And, base-8/octal form, prefixed with a `0`:
 0414444
 ```
 
-### Float literals
+#### Float literals
 
 Float literals, much like integer literals, are formed similarly to C, but they do not support hex-float notation. Float literals support exponent notation.
 
@@ -777,18 +916,19 @@ And with exponents:
 50e-2  //=> 0.5
 ```
 
-### Boolean literals
+#### Boolean literals
 
 The two boolean literals are spelled `false` and `true`, and much like C, can decay to the integer literals `0` and `1`.
 
-### Null pointer
+#### Null pointer
 
 The null pointer literal is spelled `null` and represents an object that does not exist in memory. Like C, it is not equivalent to the integer literal `0`, and is more similar to C++'s `nullptr`.
 
-Expressions
------------
+### Expressions
 
-### Primary expressions
+Expressions contain literals or othersuch *expressions* of objects, including arithmetic and various conditions.
+
+#### Primary expressions
 
 Basic expressions, also known as primary expressions, can be one of:
 
@@ -800,7 +940,7 @@ Basic expressions, also known as primary expressions, can be one of:
 
 Identifiers work as you expect, they reference a variable or constant. The `Super` keyword references the parent type or any member within it.
 
-#### Vector literals
+##### Vector literals
 
 Vector literals are not under object literals as they are not constants in the same manner as other literals, since they contain expressions within them. As such, they are expressions, not proper value-based literals. They can be formed with:
 
@@ -812,7 +952,7 @@ Vector literals are not under object literals as they are not constants in the s
 
 All components must have type `double`.
 
-### Postfix expressions
+#### Postfix expressions
 
 Postfix expressions are affixed at the end of an expression, and are used for a large variety of things, although the actual amount of postfix expressions is small:
 
@@ -826,7 +966,7 @@ Postfix expressions are affixed at the end of an expression, and are used for a 
 | `a++`                   | Post-increment. This increments (adds 1 to) the object after the expression is evaluated.        |
 | `a--`                   | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
 
-### Unary expressions
+#### Unary expressions
 
 Unary expressions are affixed at the beginning of an expression. The simplest example of a unary expression is the negation operator, `-`, as in `-500`. Unary expressions include:
 
@@ -838,10 +978,10 @@ Unary expressions are affixed at the beginning of an expression. The simplest ex
 | `--a`       | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
 | `~a`        | Bitwise negation. Flips all bits in an integer.                                       |
 | `+a`        | Affirmation. Does not actually do anything.                                           |
-| `sizeof a`  | Evaluates the size of the type of an expression. Unknown purpose.                     |
 | `alignof a` | Evaluates the alignment of the type of an expression. Unknown purpose.                |
+| `sizeof a`  | Evaluates the size of the type of an expression. Unknown purpose.                     |
 
-### Binary expressions
+#### Binary expressions
 
 Binary expressions operate on two expressions, and are the most common kind of expression. They are used inline like regular math syntax, ie. `1 + 1`. Binary expressions include:
 
@@ -875,7 +1015,7 @@ Binary expressions operate on two expressions, and are the most common kind of e
 | `a \| b`    | Bitwise OR.                                                                       |
 | `a::b`      | Scope operator. Not implemented yet.                                              |
 
-#### Assignment expressions
+##### Assignment expressions
 
 Assignment expressions are a subset of binary expressions which *are never constant expressions*. They assign a value to another value, as one might guess.
 
@@ -894,17 +1034,16 @@ Assignment expressions are a subset of binary expressions which *are never const
 | `a &= b`   | Assigns `a & b` to `a`.   |
 | `a ^= b`   | Assigns `a ^ b` to `a`.   |
 
-### Ternary expression
+#### Ternary expression
 
 The ternary expression is formed `a ? b : c`, and will evaluate to `b` if `a` is `true`, or `c` if it is `false`.
 
 Statements
-==========
+----------
 
 All functions are made up of a list of *statements* enclosed with left and right braces, which in and of itself is a statement called a *compound statement*, or *block*.
 
-Compound statements
--------------------
+### Compound statements
 
 A compound statement is formed as:
 
@@ -916,73 +1055,19 @@ A compound statement is formed as:
 
 Note that the statement list is optional, so an empty compound statement `{}` is entirely valid.
 
-Expression statements
----------------------
+### Expression statements
 
 An expression statement is the single most common type of statement in just about any programming language. In ZScript, exactly like C and C++, an expression statement is simply formed with any expression followed by a semicolon. Function calls and variable assignments are expressions, for instance, so it is quite clear why they are common.
 
-Examples: Expression statements
--------------------------------
-
-Some basic expressions:
-
-```
-myCoolFunction(5, 4);
-m_myCoolMember = 500;
-5 * 5; // does nothing of course, but valid
-```
-
-Conditional statements
-----------------------
+### Conditional statements
 
 A conditional statement will, conditionally, choose a statement (or none) to execute. They work the same as in C and ACS.
 
-Examples: Conditional statements
---------------------------------
-
-Simple conditional:
-
-```
-if(a)
-   b();
-```
-
-Simple conditional, with else statement and a block:
-
-```
-if(a)
-{
-   b();
-   c = d;
-}
-else
-   e = f;
-```
-
-Switch statements
------------------
+### Switch statements
 
 A switch statement takes an expression of integer or name type and selects a labeled statement to run. They work the same as in C and ACS.
 
-Examples: Switch statements
----------------------------
-
-A switch demonstrating fall-through and default cases:
-
-```
-switch(a)
-{
-case 500: Console.printf("a is 500"); break;
-case 501: Console.printf("a is 501"); // falls through to next case
-case 502: Console.printf("a is 501 or 502"); break;
-default:
-   Console.printf("not sure what a is!");
-   // break is implied here
-}
-```
-
-Loop statements
----------------
+### Loop statements
 
 ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while `until` and `do until` do the inverse of `while` and `do while`.
 
@@ -1004,8 +1089,7 @@ do
 until(a)
 ```
 
-Control flow statements
------------------------
+### Control flow statements
 
 As in C, there are three control flow statements that manipulate where the program will execute statements next, which are available contextually. They are `continue`, `break` and `return`.
 
@@ -1015,8 +1099,2409 @@ As in C, there are three control flow statements that manipulate where the progr
 
 `return` is available in functions. If the function does not return any values, it may only be spelled `return;` and will simply exit the function early. If the function does return values, it takes a comma-separated list for each value returned.
 
-Examples: Control flow statements
----------------------------------
+### Local variable statements
+
+Local variable statements are formed in one of 3 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the other two syntaxes use an explicit type, and initialization is optional.
+
+```
+Type a;
+Type a[Expression]; // alternate syntax for local array
+
+let a = b;
+Type a = b;
+Type a = {Expression list...}; // for fixed size array types
+Type a[Expression] = {Expression list...};
+```
+
+### Multi-assignment statements
+
+Expressions or functions that return multiple values can be assigned into multiple variables with the syntax:
+
+```
+[Expression list...] = Expression;
+```
+
+### Static array statements
+
+Static arrays can be defined normally as a statement.
+
+### Null statements
+
+A null statement does nothing, and is formed `;`. It is similar to an empty compound statement.
+
+Member declarations
+-------------------
+
+Member declarations define data within a structure or class that can be accessed directly within methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+
+A member declaration is formed as so:
+
+```
+[Member declaration flags...] Type name;
+```
+
+Or, if you want multiple members with the same type and flags:
+
+```
+[Member declaration flags...] Type name[, name...];
+```
+
+Note that the types Font and CVar are unserializable as members and must be marked transient.
+
+### Member declaration flags
+
+| Flag                | Description                                                                                                         |
+| ----                | -----------                                                                                                         |
+| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than *ver*.                      |
+| `internal`          | Member is only writable from `gzdoom.pk3`.                                                                          |
+| `meta`              | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
+| `native`            | Member is from the engine. Only usable internally.                                                                  |
+| `play`              | Member has Play scope.                                                                                              |
+| `private`           | Member is not visible to any class but this one.                                                                    |
+| `protected`         | Member is not visible to any class but this one and any descendants of it.                                          |
+| `readonly`          | Member is not writable.                                                                                             |
+| `transient`         | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
+| `ui`                | Member has UI scope.                                                                                                |
+| `version("ver")`    | Restricted to ZScript version *ver* or higher.                                                                      |
+
+Method definitions
+------------------
+
+Method definitions define functions within a structure or class that can be accessed directly within other methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+
+Methods marked as `virtual` may have their functionality overridden by derived classes, and in those overrides one can use the `Super` keyword to call the parent function.
+
+Methods are formed as so:
+
+```
+[Method definition flags...] Type[, Type...] name([Argument list...]) [const]
+{
+   [Function body here]
+}
+```
+
+If `const` is placed after the function signature and before the function body, the method will not be allowed to modify any members in the object instance it's being called on.
+
+The keyword `void` can be used in place of a type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
+
+Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
+
+### Method definition flags
+
+| Flag                | Description                                                                                    |
+| ----                | -----------                                                                                    |
+| `action(scope)`     | Same as above, but has an action scope. See "Action Scoping" for more information.             |
+| `action`            | Method has implicit `owner` and `state` parameters, mostly useful on weapons.                  |
+| `clearscope`        | Method has Data scope.                                                                         |
+| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than *ver*. |
+| `final`             | Virtual method cannot be further overridden from derived classes.                              |
+| `native`            | Method is from the engine. Only usable internally.                                             |
+| `override`          | Method is overriding a base class' virtual method.                                             |
+| `play`              | Method has Play scope.                                                                         |
+| `private`           | Method is not visible to any class but this one.                                               |
+| `protected`         | Method is not visible to any class but this one and any descendants of it.                     |
+| `static`            | Function is not a method, but a global function without a `self` pointer.                      |
+| `ui`                | Method has UI scope.                                                                           |
+| `vararg`            | Method doesn't type-check arguments after `...`. Only usable internally.                       |
+| `version("ver")`    | Restricted to ZScript version *ver* or higher.                                                 |
+| `virtual`           | Method can be overridden in derived classes.                                                   |
+| `virtualscope`      | Method has scope of the type of the object it's being called on.                               |
+
+Concepts
+========
+
+Action Scoping
+--------------
+
+On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map. The available scopes are:
+
+| Name      | Description                                   |
+| ----      | -----------                                   |
+| `actor`   | Actions are called from an actual map object. |
+| `item`    | Actions are called from an inventory item.    |
+| `overlay` | Actions are called from a weapon overlay.     |
+| `weapon`  | Actions are called from a weapon.             |
+
+Object Scoping
+--------------
+
+Most objects are subject to object scoping, which restricts the way data can be used in certain contexts. This is to ensure that the playsim does not get changed by the UI, for instance, or that the playsim doesn't read from the UI and break network synchronization. In other words, it is to prevent a multitude of errors that arise when data is modified or read from the wrong places.
+
+There are three scopes in ZScript: Play, UI, and Data (also known as "clearscope.") The Play scope is used for objects that are part of the game simulation and interact with the world in some way or another, while the UI scope is for objects that have no correlation with the world besides perhaps reading information from it. The Data scope is shared between the two, and must be used carefully.
+
+Here is a chart of data access possibilities for each scope:
+
+|                   | Data scope | Play scope | UI scope   |
+| -                 | ---------- | ---------- | ---------- |
+| From Data context | Read/write | Read-only  | No access  |
+| From Play context | Read/write | Read/write | No access  |
+| From UI context   | Read/write | Read-only  | Read/write |
+
+Format String
+-------------
+
+A format string is a string that specifies the format of a conversion from arbitrary data to a contiguous character string. A format string contains normal characters and *conversion specifiers*. See [this page](https://en.cppreference.com/w/c/io/fprintf) for more information. Differences between C's `printf` and ZScript formats include:
+
+- Since there's no `char` type, `int` is used for `%c`.
+- `%s` also works for `name`.
+- No `%n` specifier.
+- An additional conversion specifier `%B` exists which converts a number to binary.
+- An additional conversion specifier `%H` exists which works like `%g` but automatically selects the smallest precision.
+
+API
+===
+
+The ZScript API is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
+
+Type symbols
+------------
+
+Integer and floating-point types have symbols which can be accessed through `typename.name`. Here is a list of them.
+
+### Integer types
+
+- `Max`
+
+   Maximum value of type.
+
+- `Min`
+
+   Minimum value of type.
+
+### Floating-point types
+
+- `Dig`
+
+   Number of decimal digits in type.
+
+- `Epsilon`
+
+   ε value of type.
+
+- `Infinity`
+
+   ∞ value of type.
+
+- `Mant_Dig`
+
+   Number of mantissa bits in type.
+
+- `Max`
+
+   Maximum value of type.
+
+- `Max_Exp`
+
+   Maximum exponent bits value of type.
+
+- `Max_10_Exp`
+
+   Maximum exponent of type.
+
+- `Min_Denormal`
+
+   Minimum positive subnormal value of type.
+
+- `Min_Exp`
+
+   Minimum exponent bits value of type.
+
+- `Min_Normal`
+
+   Minimum value of type.
+
+- `Min_10_Exp`
+
+   Minimum exponent of type.
+
+- `NaN`
+
+   Not-a-Number value of type.
+
+Globals
+-------
+
+### Global functions
+
+#### Class handling
+
+```
+Type GetDefaultByType(TypeName);
+Type New(class typename = ThisClass);
+```
+
+- `GetDefaultByType`
+
+   Gets the default value of any built-in type.
+
+- `New`
+
+   Typically spelled lowercase (`new`), creates an object with type `typename`. Defaults to using the class of the calling object.
+
+#### Random number generation
+
+All of these functions may have `[identifier]` between the function name and the argument list to specify a named RNG table to use.
+
+```
+double FRandom(double min, double max);
+double FRandomPick(double...);
+int    Random(int min = 0, int max = 255);
+int    Random2(uint mask = uint.max);
+int    RandomPick(int...);
+void   SetRandomSeed(uint num);
+```
+
+- `FRandom`
+
+   Returns a random float between `min` and `max`.
+
+- `FRandomPick`
+
+   Same as `RandomPick`, but with floats.
+
+- `Random`
+
+   Returns a random integer between `min` and `max`.
+
+- `Random2`
+
+   Returns a random integer value between `-mask` and `mask`. `mask` is used as a bit mask, so it is recommended to use a value of one less than a power of two (ie. 3, 7, 15, 31, 63, 127, 255...)
+
+- `RandomPick`
+
+   Returns one of the provided parameters randomly.
+
+- `SetRandomSeed`
+
+   Sets the seed of the RNG table to `num`.
+
+#### Math
+
+```
+Type   Abs(Type n);
+double ATan2(double y, double x);
+uint   BAM(double angle);
+Type   Clamp(Type n, Type minimum, Type maximum);
+Type   Max(Type n, Type maximum);
+Type   Min(Type n, Type minimum);
+double VectorAngle(double x, double y);
+```
+
+- `Abs`
+
+   Returns `|n|` (absolute of `n`.)
+
+- `ATan2`
+
+   Computes the arctangent of `y / x` using the arguments' signs to determine the correct quadrant.
+
+- `BAM`
+
+   Returns a byte angle of `angle` (`degrees * (0x40000000 / 90.0)`.)
+
+- `Clamp`
+
+   Returns `n` if `n` is more than `minimum` and less than `maximum`, or either of those values if it is not.
+
+- `Max`
+
+   Returns `n` if `n` is less than `maximum`, or `maximum`.
+
+- `Min`
+
+   Returns `n` if `n` is more than `minimum`, or `minimum`.
+
+- `VectorAngle`
+
+   Same as `ATan2`, but with arguments reversed.
+
+#### Game
+
+```
+string G_SkillName();
+int    G_SkillPropertyInt(int p);
+double G_SkillPropertyFloat(int p);
+
+vector3, int G_PickDeathmatchStart();
+vector3, int G_PickPlayerStart(int pnum, int flags = 0);
+```
+
+- `G_SkillName`
+
+   The name of the skill in play.
+
+- `G_SkillPropertyInt`
+
+   Returns a skill property. `p` may be:
+
+   | Name                   |
+   | ----                   |
+   | `SKILLP_ACSReturn`     |
+   | `SKILLP_AutoUseHealth` |
+   | `SKILLP_DisableCheats` |
+   | `SKILLP_EasyBossBrain` |
+   | `SKILLP_EasyKey`       |
+   | `SKILLP_FastMonsters`  |
+   | `SKILLP_Infight`       |
+   | `SKILLP_NoPain`        |
+   | `SKILLP_PlayerRespawn` |
+   | `SKILLP_RespawnLimit`  |
+   | `SKILLP_Respawn`       |
+   | `SKILLP_SlowMonsters`  |
+   | `SKILLP_SpawnFilter`   |
+
+- `G_SkillPropertyFloat`
+
+   Returns a skill property. `p` may be:
+
+   | Name                    |
+   | ----                    |
+   | `SKILLP_Aggressiveness` |
+   | `SKILLP_AmmoFactor`     |
+   | `SKILLP_ArmorFactor`    |
+   | `SKILLP_DamageFactor`   |
+   | `SKILLP_DropAmmoFactor` |
+   | `SKILLP_FriendlyHealth` |
+   | `SKILLP_HealthFactor`   |
+   | `SKILLP_MonsterHealth`  |
+
+- `G_PickDeathmatchStart`
+
+   Returns the position and angle of a random deathmatch start location.
+
+- `G_PickPlayerStart`
+
+   Returns the position and angle of a player start for player `pnum`. `flags` may be:
+
+   | Name                  | Description                                                  |
+   | ----                  | -----------                                                  |
+   | `PPS_FORCERANDOM`     | Always randomly picks a random player spawn for this player. |
+   | `PPS_NOBLOCKINGCHECK` | Does not check if an object is blocking the player spawn.    |
+
+#### Sound
+
+```
+void  SetMusicVolume(float vol);
+bool  S_ChangeMusic(string music_name, int order = 0, bool looping = true, bool force = false);
+float S_GetLength(sound sound_id);
+void  S_PauseSound(bool notmusic, bool notsfx);
+void  S_ResumeSound(bool notsfx);
+void  S_Sound(sound sound_id, int channel, float volume = 1, float attenuation = ATTN_NORM);
+```
+
+- `SetMusicVolume`
+
+   Sets the volume of the music relative to the user's volume. Range is 0-1, inclusive.
+
+- `S_ChangeMusic`
+
+   Changes the music to `music_name`. If `music_name` is `"*"`, the music will be set to the default music for this level. Will loop if `looping` is true. `force` will force the music to play even if a playlist (from the `playlist` console command) is playing.
+
+   `order` may mean something different based on the music format:
+
+   | Format                              | Meaning                                     |
+   | ------                              | -------                                     |
+   | Tracker music (`.mod`, `.xm`, etc.) | Specifies the order the song will start at. |
+   | Multi-track `.ogg`, `.flac`, etc.   | Specifies the track to begin playing at.    |
+   | Any other format                    | No meaning, will be ignored.                |
+
+- `S_GetLength`
+
+   Returns the length of a sound in seconds. **Potentially non-deterministic if all users in a networked game are not using the same sounds.**
+
+- `S_PauseSound`
+
+   Pauses music if `notmusic` is false and all game sounds if `notsfx` is false. Used for instance in the time stop powerup.
+
+- `S_ResumeSound`
+
+   Resumes playing music and, if `notsfx` is false, all game sounds as well.
+
+- `S_Sound`
+
+   Plays a sound (as defined in `SNDINFO`) from the calling object if it has world presence (is an actor or sector etc.)
+
+   `channel` may be:
+
+   | Name          | Description                                                        |
+   | ----          | -----------                                                        |
+   | `CHAN_AUTO`   | Automatically assigns the sound to a free channel (if one exists.) |
+   | `CHAN_BODY`   | For footsteps and generally anything else.                         |
+   | `CHAN_ITEM`   | For item pickups.                                                  |
+   | `CHAN_VOICE`  | For player grunts.                                                 |
+   | `CHAN_WEAPON` | For weapon noises.                                                 |
+   | `CHAN_5`      | Extra sound channel.                                               |
+   | `CHAN_6`      | Extra sound channel.                                               |
+   | `CHAN_7`      | Extra sound channel.                                               |
+
+   `channel` may also have the following flags OR'd onto it:
+
+   | Name               | Description                                                                       |
+   | ----               | -----------                                                                       |
+   | `CHAN_LISTENERZ`   | Sound ignores height entirely, playing at the listener's vertical position.       |
+   | `CHAN_LOOP`        | Continues playing the sound on loop until it is stopped manually.                 |
+   | `CHAN_MAYBE_LOCAL` | Does not play sound to other players if the silent pickup compat flag is enabled. |
+   | `CHAN_NOPAUSE`     | Does not pause in menus or when `S_PauseSound` is called.                         |
+   | `CHAN_NOSTOP`      | Does not start a new sound if the channel is already playing something.           |
+   | `CHAN_UI`          | Does not record sound in savegames/demos.                                         |
+
+   Additionally, `CHAN_PICKUP` is equivalent to `CHAN_ITEM | CHAN_MAYBE_LOCAL`.
+
+   `attenuation` determines the dropoff distance of the sound. The higher the value, the quicker it fades. Constants include:
+
+   | Name          | Value   | Description                                                                         |
+   | ----          | -----   | -----------                                                                         |
+   | `ATTN_IDLE`   | `1.001` | Uses Doom's default sound attenuation.                                              |
+   | `ATTN_NONE`   | `0`     | Does not drop off at all, plays throughout the whole map.                           |
+   | `ATTN_NORM`   | `1`     | Drops off using the `close_dist` and `clipping_dist` defined in `SNDINFO`. Default. |
+   | `ATTN_STATIC` | `3`     | Drops off quickly, at around 512 units.                                             |
+
+#### System
+
+```
+uint MSTime();
+vararg void ThrowAbortException(string format, ...);
+```
+
+- `MSTime`
+
+   Returns the number of milliseconds since the engine was started. **Not deterministic.**
+
+- `ThrowAbortException`
+
+   Kills the VM and ends the game (without exiting) with a formatted error.
+
+### Global variables
+
+These variables are accessible in any context and are not bound by any specific object.
+
+#### Static info
+
+```
+readonly array<class<Actor>> AllActorClasses;
+readonly array<PlayerClass>  PlayerClasses;
+readonly array<PlayerSkin>   PlayerSkins;
+readonly array<Team>         Teams;
+
+play     DehInfo             DEH;
+readonly GameInfoStruct      GameInfo;
+readonly FOptionMenuSettings OptionMenuSettings;
+readonly textureid           SkyFlatNum;
+readonly Weapon              WP_NOCHANGE;
+```
+
+- `AllActorClasses`
+
+   As the name implies, an array of every actor class type reference.
+
+- `PlayerClasses`
+
+   An array of all player classes as defined in `MAPINFO`/GameInfo and `KEYCONF`.
+
+- `PlayerSkins`
+
+   An array of all player skins as defined in `SKININFO` and `S_SKIN`.
+
+- `Teams`
+
+   An array of all teams. Maximum index is `Team.Max`.
+
+- `DEH`
+
+   TODO
+
+- `GameInfo`
+
+   TODO
+
+- `OptionMenuSettings`
+
+   TODO
+
+- `SkyFlatNum`
+
+   The texture ID for sky flats. `F_SKY1` by default in Doom.
+
+- `WP_NOCHANGE`
+
+   A constant denoting that the weapon the player is currently holding shouldn't be switched from.
+
+#### Game state
+
+```
+readonly bool        AutomapActive;
+readonly bool        DemoPlayback;
+play     uint        GameAction;
+readonly int         GameState;
+readonly int         GameTic;
+readonly uint8       GlobalFreeze;
+play     LevelLocals Level;
+
+int ValidCount;
+```
+
+- `AutomapActive`
+
+   `true` if the automap is currently open on the client. **Not deterministic.**
+
+- `DemoPlayback`
+
+   User is watching a demo.
+
+- `GameAction`
+
+   Current global game action. May be one of:
+
+   | Name                  | Description          |
+   | ----                  | -----------          |
+   | `ga_autoloadgame`     | Don't use this.      |
+   | `ga_autosave`         | Creates an autosave. |
+   | `ga_completed`        | Don't use this.      |
+   | `ga_fullconsole`      | Don't use this.      |
+   | `ga_loadgamehideicon` | Don't use this.      |
+   | `ga_loadgameplaydemo` | Don't use this.      |
+   | `ga_loadgame`         | Don't use this.      |
+   | `ga_loadlevel`        | Don't use this.      |
+   | `ga_newgame2`         | Don't use this.      |
+   | `ga_newgame`          | Don't use this.      |
+   | `ga_nothing`          | Does nothing.        |
+   | `ga_playdemo`         | Don't use this.      |
+   | `ga_recordgame`       | Don't use this.      |
+   | `ga_savegame`         | Don't use this.      |
+   | `ga_screenshot`       | Takes a screenshot.  |
+   | `ga_slideshow`        | Don't use this.      |
+   | `ga_togglemap`        | Toggles the automap. |
+   | `ga_worlddone`        | Don't use this.      |
+
+- `GameState`
+
+   Current global game state. May be one of:
+
+   | Name              | Description                                          |
+   | ----              | -----------                                          |
+   | `GS_DEMOSCREEN`   | Inside a level but watching a demo in the main menu. |
+   | `GS_FINALE`       | Reading a cluster end text or at the end sequence.   |
+   | `GS_FULLCONSOLE`  | Outside of a level, console only.                    |
+   | `GS_HIDECONSOLE`  | Outside of a level, console hidden (ie. main menu.)  |
+   | `GS_INTERMISSION` | Inbetween levels.                                    |
+   | `GS_LEVEL`        | Inside a level.                                      |
+   | `GS_STARTUP`      | Game not yet initialized.                            |
+   | `GS_TITLELEVEL`   | Watching a `TITLEMAP` in the main menu.              |
+
+- `GameTic`
+
+   Number of game tics passed since engine initialization. **Not deterministic.**
+
+- `GlobalFreeze`
+
+   TODO: I have no idea what the difference between this and `Level.Frozen` is.
+
+- `Level`
+
+   All level info as defined in LevelLocals.
+
+- `ValidCount`
+
+   Don't use this.
+
+#### Client
+
+```
+KeyBindings AutomapBindings;
+KeyBindings Bindings;
+
+readonly Font BigFont;
+readonly int  CleanHeight;
+readonly int  CleanHeight_1;
+readonly int  CleanWidth;
+readonly int  CleanWidth_1;
+readonly int  CleanXFac;
+readonly int  CleanXFac_1;
+readonly int  CleanYFac;
+readonly int  CleanYFac_1;
+readonly Font ConFont;
+readonly Font IntermissionFont;
+readonly Font SmallFont;
+readonly Font SmallFont2;
+
+ui float         BackbuttonAlpha;
+ui int           BackbuttonTime;
+ui int           MenuActive;
+ui BaseStatusBar StatusBar;
+
+int LocalViewPitch;
+```
+
+- `AutomapBindings`
+
+   TODO
+
+- `Bindings`
+
+   TODO
+
+- `BigFont`
+
+   The `bigfont` for the current game.
+
+- `CleanHeight`
+
+   The current screen height divided by `CleanYFac`. **Not deterministic.**
+
+- `CleanHeight_1`
+
+   The current screen height divided by `CleanYFac_1`. **Not deterministic.**
+
+- `CleanWidth`
+
+   The current screen width divided by `CleanXFac`. **Not deterministic.**
+
+- `CleanWidth_1`
+
+   The current screen width divided by `CleanYFac_1`. **Not deterministic.**
+
+- `CleanXFac`
+
+   Integral scaling factor for horizontal positions to scale from 320x200 to the current virtual resolution. **Not deterministic.**
+
+- `CleanXFac_1`
+
+   Integral scaling factor for horizontal positions to scale from 320x200 to the current virtual resolution, accounting for aspect ratio differences. **Not deterministic.**
+
+- `CleanYFac`
+
+   Integral scaling factor for vertical positions to scale from 320x200 to the current virtual resolution. **Not deterministic.**
+
+- `CleanYFac_1`
+
+   Integral scaling factor for vertical positions to scale from 320x200 to the current virtual resolution, accounting for aspect ratio differences. **Not deterministic.**
+
+- `ConFont`
+
+   The console font.
+
+- `IntermissionFont`
+
+   The font used in intermission screens.
+
+- `SmallFont`
+
+   The `smallfnt` for the current game.
+
+- `SmallFont2`
+
+   The alternate `smallfnt`.
+
+- `BackbuttonAlpha`
+
+   Alpha of the back button in menus.
+
+- `BackbuttonTime`
+
+   The time until the back button starts fading out in menus.
+
+- `MenuActive`
+
+   The current active menu state. One of:
+
+   | Name             | Description                                                    |
+   | ----             | -----------                                                    |
+   | `Menu.Off`       | No active menu.                                                |
+   | `Menu.OnNoPause` | Menu is opened, but the game is not paused.                    |
+   | `Menu.On`        | Menu is open, game is paused.                                  |
+   | `Menu.WaitKey`   | Menu is opened, waiting for a key for a controls menu binding. |
+
+- `StatusBar`
+
+   TODO
+
+- `LocalViewPitch`
+
+   The pitch angle (in degrees) of `ConsolePlayer`'s view. **Not deterministic.**
+
+
+#### Players
+
+```
+readonly int        ConsolePlayer;
+readonly bool       Multiplayer;
+readonly int        Net_Arbitrator;
+readonly bool       PlayerInGame[MAXPLAYERS];
+play     PlayerInfo Players[MAXPLAYERS];
+```
+
+- `ConsolePlayer`
+
+   Number of the player running the client. **Not deterministic.**
+
+- `Multiplayer`
+
+   Game is networked.
+
+- `Net_Arbitrator`
+
+   Number of the player who initiated or currently hosts the game.
+
+- `PlayerInGame`
+
+   `true` if the player is currently in-game.
+
+- `Players`
+
+   PlayerInfo structs for each player.
+
+Built-in Types
+--------------
+
+### Array
+
+While ZScript does not have proper user-facing generics, `Array` is one such type that does have a type parameter. It mirrors the internal `TArray` type.
+
+```
+struct Array<Type>
+{
+   void Clear();
+   void Copy(array<Type> other);
+   void Delete(uint index, int count = 1);
+   uint Find(Type item) const;
+   void Grow(uint amount);
+   void Insert(uint index, Type item);
+   uint Max() const;
+   void Move(array<Type> other);
+   bool Pop();
+   uint Push(Type item);
+   uint Reserve(uint amount);
+   void Resize(uint amount);
+   void ShrinkToFit();
+   uint Size() const;
+}
+```
+
+- `Clear`
+
+   Clears out the entire array.
+
+- `Copy`
+
+   Copies another array's contents into this array.
+
+- `Delete`
+
+   Deletes `count` object(s) at `index`. Moves objects after them into their place.
+
+- `Find`
+
+   Finds the index of `item` in the array, or `Size` if it couldn't be found.
+
+- `Grow`
+
+   Ensures the array can hold at least `amount` new members.
+
+- `Insert`
+
+   Inserts `item` at `index`. Moves objects after `index` to the right.
+
+- `Max`
+
+   Returns the allocated size of the array.
+
+- `Move`
+
+   Moves another array's contents into this array.
+
+- `Pop`
+
+   Deletes the last item in the array. Returns `false` if there are no items in the array.
+
+- `Push`
+
+   Places `item` at the end of the array, calling `Grow` if necessary.
+
+- `Reserve`
+
+   Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
+
+- `Resize`
+
+   Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
+
+- `ShrinkToFit`
+
+   Shrinks the allocated array size `Max` to `Size`.
+
+- `Size`
+
+   Returns the amount of objects in the array.
+
+### Color
+
+Colors simply store red, green, blue and alpha components. Each component has a range 0 to 255, inclusive.
+
+```
+struct Color
+{
+   uint8 r, g, b, a;
+}
+```
+
+### FixedArray
+
+Fixed-size arrays have a size method attached to them for convenience purposes.
+
+```
+struct FixedArray
+{
+   uint Size() const;
+}
+```
+
+- `Size`
+
+   Returns the size of the array. This is a compile-time constant.
+
+### String
+
+```
+struct String
+{
+   static vararg string Format(string format, ...);
+
+   vararg void AppendFormat(string format, ...);
+
+   string CharAt(int pos) const;
+   int    CharCodeAt(int pos) const;
+   string Filter();
+   int    IndexOf(string substr, int start = 0) const;
+   string Left(int len) const;
+   uint   Length() const;
+   string Mid(int pos = 0, int len = int.max) const;
+   void   Remove(int index, int amount);
+   void   Replace(string pattern, string replacement);
+   int    RightIndexOf(string substr, int end = int.max) const;
+   void   Split(out array<string> tokens, string delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
+   double ToDouble() const;
+   int    ToInt(int base = 0) const;
+   void   ToLower();
+   void   ToUpper();
+   void   Truncate(int newlen);
+
+   deprecated("3.5.1") int LastIndexOf(string substr, int end = int.max) const;
+}
+```
+
+- `Format`
+
+   Creates a string using a format string and any amount of arguments.
+
+- `AppendFormat`
+
+   Works like `Format`, but appends the result to the string.
+
+- `CharAt`
+
+   Returns the character at `pos` as a new string.
+
+- `CharCodeAt`
+
+   Returns the character at `pos` as an integer.
+
+- `Filter`
+
+   Replaces escape sequences in a string with escaped characters as a new string.
+
+- `IndexOf`
+
+   Returns the first index of `substr` starting from the left at `start`.
+
+- `Left`
+
+   Returns the first `len` characters as a new string.
+
+- `Length`
+
+   Returns the number of characters in this string.
+
+- `Mid`
+
+   Returns `len` characters starting at `pos` as a new string.
+
+- `Remove`
+
+   Removes `amount` characters starting at `index` in place.
+
+- `Replace`
+
+   Replaces all instances of `pattern` with `replacement` in place.
+
+- `RightIndexOf`
+
+   Returns the first index of `substr` starting from the right at `end`.
+
+- `Split`
+
+   Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be either `TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or discard empty strings found while splitting.
+
+- `ToDouble`
+
+   Interprets the string as a double precision floating point number.
+
+- `ToInt`
+
+   Interprets the string as a base `base` integer, guessing the base if it is `0`.
+
+- `ToLower`
+
+   Converts all characters in the string to lowercase in place.
+
+- `ToUpper`
+
+   Converts all characters in the string to uppercase in place.
+
+- `Truncate`
+
+   Truncates the string to `len` characters in place.
+
+- `LastIndexOf`
+
+   Broken. Use `RightIndexOf` instead.
+
+### TextureID
+
+Texture IDs can be explicitly converted to integers, but not the other way around. You can add and subtract integers with a `textureid`, however. (This only works with the integer on the right hand side.)
+
+```
+struct TextureID
+{
+   bool Exists() const;
+   bool IsNull() const;
+   bool IsValid() const;
+   void SetInvalid();
+   void SetNull();
+}
+```
+
+- `Exists`
+
+   Checks if the texture exists within the texture manager at all.
+
+- `IsNull`
+
+   Checks if the texture is the null index (`0`.)
+
+- `IsValid`
+
+   Checks if the texture index is not the invalid index (`-1`.)
+
+- `SetInvalid`
+
+   Sets the texture index to `-1`.
+
+- `SetNull`
+
+   Sets the texture index to `0`.
+
+   The proper way to zero-initialize a `textureid` is:
+
+   ```
+   textureid tex;
+   tex.SetNull();
+   ```
+
+### Vector2/Vector3
+
+```
+struct Vector2
+{
+   double x, y;
+
+   double  Length() const;
+   vector2 Unit() const;
+}
+
+struct Vector3
+{
+   double x, y, z;
+   vector2 xy;
+
+   double  Length() const;
+   vector3 Unit() const;
+}
+```
+
+- `Length`
+
+   Returns the length (magnitude) of the vector.
+
+- `Unit`
+
+   Returns a normalized vector. Equivalent to `vec / vec.length()`.
+
+Object
+------
+
+The base class of all `class` types.
+
+```
+class Object
+{
+   bool bDestroyed;
+
+   class  GetClass();
+   string GetClassName();
+   class  GetParentClass();
+
+   virtualscope void Destroy();
+
+   virtual virtualscope void OnDestroy();
+}
+```
+
+- `bDestroyed`
+
+   This object wants to be destroyed but has not yet been garbage collected.
+
+- `GetClass`
+
+   Returns the class type of this object.
+
+- `GetClassName`
+
+   Returns a string representation of the class type of this object.
+
+- `GetParentClass`
+
+   Returns the class type of this object's parent class.
+
+- `Destroy`
+
+   Destroys this object. Do not use the object after calling this. References to it will be invalidated.
+
+- `OnDestroy`
+
+   Called when the object is collected by the garbage collector. **Not deterministic.**
+
+Level Data
+----------
+
+### Vertex
+
+```
+struct Vertex play
+{
+   readonly vector2 p;
+}
+```
+
+- `p`
+
+   The point this object represents.
+
+### Side
+
+Also known as a "sidedef." One of the textured sides of a line. Each sidedef has three portions: Upper, middle, and lower. The middle texture is special as it can have transparency.
+
+The three portions of a sidedef can be referred to with:
+
+| Name          | Description         |
+| ----          | -----------         |
+| `Side.Top`    | The upper portion.  |
+| `Side.Mid`    | The middle portion. |
+| `Side.Bottom` | The lower portion.  |
+
+```
+struct Side play
+{
+   readonly Line   Linedef;
+   readonly Sector Sector;
+
+   uint8 Flags;
+   int16 Light;
+
+   int Index();
+
+   clearscope Vertex V1();
+   clearscope Vertex V2();
+
+   textureid GetTexture(int which);
+   double    GetTextureXOffset(int which);
+   double    GetTextureYOffset(int which);
+   double    GetTextureXScale(int which);
+   double    GetTextureYScale(int which);
+
+   void SetTexture(int which, textureid tex);
+   void SetTextureXOffset(int which, double offset);
+   void SetTextureYOffset(int which, double offset);
+   void SetTextureXScale(int which, double scale);
+   void SetTextureYScale(int which, double scale);
+
+   void AddTextureXOffset(int which, double delta);
+   void AddTextureYOffset(int which, double delta);
+
+   void MultiplyTextureXScale(int which, double delta);
+   void MultiplyTextureYScale(int which, double delta);
+
+   double GetUDMFFloat(name nm);
+   int    GetUDMFInt(name nm);
+   string GetUDMFString(name nm);
+}
+```
+
+- `Linedef`
+
+   The line this side belongs to.
+
+- `Sector`
+
+   The sector this side belongs to.
+
+- `Flags`
+
+   Any combination of the following bit flags:
+
+   | Name                   | Description                                                                 |
+   | ----                   | -----------                                                                 |
+   | `WALLF_ABSLIGHTING`    | Light is absolute instead of relative to the sector.                        |
+   | `WALLF_CLIP_MIDTEX`    | Clips the middle texture when it goes under the floor or above the ceiling. |
+   | `WALLF_LIGHT_FOG`      | The wall's lighting will ignore fog effects.                                |
+   | `WALLF_NOAUTODECALS`   | Don't attach decals to this surface.                                        |
+   | `WALLF_NOFAKECONTRAST` | Disables the "fake contrast" effect for this side.                          |
+   | `WALLF_POLYOBJ`        | This sidedef belongs to a polyobject.                                       |
+   | `WALLF_SMOOTHLIGHTING` | Applies a unique contrast at all angles.                                    |
+   | `WALLF_WRAP_MIDTEX`    | Repeats the middle texture infinitely on the vertical axis.                 |
+
+- `Light`
+
+   The light level of this side. Relative to the sector lighting unless `WALLF_ABSLIGHTING`.
+
+- `Index`
+
+   Returns the index of this side.
+
+- `V1`, `V2`
+
+   Returns the start and end points of this sidedef, respectively.
+
+- `GetTexture`, `SetTexture`
+
+   Gets or sets the texture of one portion of the sidedef.
+
+- `GetTextureXOffset`, `SetTextureXOffset`, `AddTextureXOffset`
+
+   Gets, sets or adds to the texture portion's horizontal offset.
+
+- `GetTextureYOffset`, `SetTextureYOffset`, `AddTextureYOffset`
+
+   Gets, sets or adds to the texture portion's vertical offset.
+
+- `GetTextureXScale`, `SetTextureXScale`, `MultiplyTextureXScale`
+
+   Gets, sets or multiplies the texture portion's horizontal scale.
+
+- `GetTextureYScale`, `SetTextureYScale`, `MultiplyTextureYScale`
+
+   Gets, sets or multiplies the texture portion's vertical scale.
+
+- `GetUDMFFloat`, `GetUDMFInt`, `GetUDMFString`
+
+   Gets a named UDMF property attached to this sidedef.
+
+### Line
+
+Also known as a "linedef." A line segment with two sides and two vertices.
+
+```
+struct Line play
+{
+   readonly Sector  BackSector, FrontSector;
+   readonly double  BBox[4];
+   readonly vector2 Delta;
+   readonly Side    Sidedef[2];
+   readonly Vertex  V1, V2;
+
+   readonly uint PortalIndex;
+   readonly uint PortalTransferred;
+
+   double Alpha;
+   uint   Flags;
+   int    ValidCount;
+
+   uint Activation;
+   int  Args[5];
+   int  LockNumber;
+   int  Special;
+
+   int Index();
+
+   bool Activate(Actor activator, int side, int type);
+   bool RemoteActivate(Actor activator, int side, int type, vector3 pos);
+
+   Line GetPortalDestination();
+   bool IsLinePortal();
+   bool IsVisualPortal();
+
+   double GetUDMFFloat(name nm);
+   int    GetUDMFInt(name nm);
+   string GetUDMFString(name nm);
+}
+```
+
+- `BackSector`, `FrontSector`
+
+   The sector of the front and back sides of this line.
+
+- `BBox`
+
+   The top, bottom, left and right of the line, respective to array index.
+
+- `Delta`
+
+   Equivalent to `V2 - V1`.
+
+- `V1`, `V2`
+
+   Returns the start and end points of this line segment, respectively.
+
+- `Sidedef`
+
+   The front and back sides of this line, 0 and 1 respectively. The aliases `Line.Front` and `Line.Back` are provided as well.
+
+- `PortalIndex`
+
+   TODO
+
+- `PortalTransferred`
+
+   TODO
+
+- `Alpha`
+
+   Alpha of the middle texture on both sides.
+
+- `Flags`
+
+   Any combination of the following bit flags:
+
+   | Name                     | Description                                                                       |
+   | ----                     | -----------                                                                       |
+   | `ML_3DMIDTEX_IMPASS`     | Middle texture will collide with projectiles and allow them to pass through.      |
+   | `ML_3DMIDTEX`            | Middle texture can be collided with and walked on as if it were a thin sector.    |
+   | `ML_ADDTRANS`            | Middle textures are drawn with additive translucency on both sides.               |
+   | `ML_BLOCKEVERYTHING`     | Line blocks everything.                                                           |
+   | `ML_BLOCKHITSCAN`        | Line blocks hitscans.                                                             |
+   | `ML_BLOCKING`            | Line is solid and blocks everything but projectiles and hitscans.                 |
+   | `ML_BLOCKMONSTERS`       | Line blocks non-flying monsters.                                                  |
+   | `ML_BLOCKPROJECTILE`     | Line blocks projectiles.                                                          |
+   | `ML_BLOCKSIGHT`          | Line blocks line of sight.                                                        |
+   | `ML_BLOCKUSE`            | Line blocks use actions.                                                          |
+   | `ML_BLOCK_FLOATERS`      | Line blocks flying monsters.                                                      |
+   | `ML_BLOCK_PLAYERS`       | Line blocks players.                                                              |
+   | `ML_CHECKSWITCHRANGE`    | Checks the activator's vertical position as well as horizontal before activating. |
+   | `ML_CLIP_MIDTEX`         | Applies `WALLF_CLIP_MIDTEX` to both sides.                                        |
+   | `ML_DONTDRAW`            | Never shown on the automap.                                                       |
+   | `ML_DONTPEGBOTTOM`       | Lower texture is un-pegged on both sides.                                         |
+   | `ML_DONTPEGTOP`          | Upper texture is un-pegged on both sides.                                         |
+   | `ML_FIRSTSIDEONLY`       | Special can only be activated from the front side.                                |
+   | `ML_MAPPED`              | Always shown on the automap.                                                      |
+   | `ML_MONSTERSCANACTIVATE` | Monsters may activate this line.                                                  |
+   | `ML_RAILING`             | Line is a railing that can be jumped over.                                        |
+   | `ML_REPEAT_SPECIAL`      | Special may be activated multiple times.                                          |
+   | `ML_SECRET`              | Line will be shown as one-sided on the automap.                                   |
+   | `ML_SOUNDBLOCK`          | Blocks sound propogation after two lines with this flag.                          |
+   | `ML_TWOSIDED`            | Line has a back side.                                                             |
+   | `ML_WRAP_MIDTEX`         | Applies `WALLF_WRAP_MIDTEX` to both sides.                                        |
+   | `ML_ZONEBOUNDARY`        | Reverb zone boundary.                                                             |
+
+- `ValidCount`
+
+   Don't use this.
+
+- `Activation`
+
+   TODO
+
+- `Args`
+
+   Arguments of the line's special action.
+
+- `LockNumber`
+
+   TODO
+
+- `Special`
+
+   Number of the special action to be executed when this line is activated.
+
+- `Index`
+
+   Returns the index of this line.
+
+- `Activate`
+
+   TODO
+
+- `RemoteActivate`
+
+   TODO
+
+- `GetPortalDestination`
+
+   TODO
+
+- `IsLinePortal`
+
+   TODO
+
+- `IsVisualPortal`
+
+   TODO
+
+- `GetUDMFFloat`, `GetUDMFInt`, `GetUDMFString`
+
+   Gets a named UDMF property attached to this linedef.
+
+### Sector
+
+TODO
+
+```
+struct Sector play
+{
+   readonly FColormap ColorMap;
+   readonly color     SpecialColors[5];
+
+   Actor SoundTarget;
+
+   int16 Special;
+   int16 LightLevel;
+   int16 SeqType;
+
+   int  Sky;
+   name SeqName;
+
+   readonly vector2 CenterSpot;
+
+   int   ValidCount;
+   Actor ThingList;
+
+   double Friction, MoveFactor;
+   int TerrainNum[2];
+
+   SectorEffect FloorData;
+   SectorEffect CeilingData;
+   SectorEffect LightingData;
+
+   uint8 SoundTraversed;
+   int8  StairLock;
+   int   PrevSec;
+   int   NextSec;
+
+   readonly array<Line> Lines;
+
+   readonly @SecPlane FloorPlane;
+   readonly @SecPlane CeilingPlane;
+
+   readonly Sector HeightSec;
+
+   uint BottomMap, MidMap, TopMap;
+
+   double Gravity;
+   name   DamageType;
+   int    DamageAmount;
+   int16  DamageInterval;
+   int16  LeakyDamage;
+
+   readonly uint16 ZoneNumber;
+
+   uint   Flags;
+   uint16 MoreFlags;
+
+   SectorAction SecActTarget;
+
+   internal uint Portals[2];
+   readonly int  PortalGroup;
+
+   readonly int SectorNum;
+
+   int Index();
+
+   double, Sector, F3DFloor NextHighestCeilingAt(double x, double y, double bottomz, double topz, int flags = 0);
+   double, Sector, F3DFloor NextLowestFloorAt(double x, double y, double z, int flags = 0, double steph = 0);
+
+   void RemoveForceField();
+
+   static Sector PointInSector(vector2 pt);
+
+   bool   PlaneMoving(int pos);
+   int    GetFloorLight();
+   int    GetCeilingLight();
+   Sector GetHeightSec();
+   void   TransferSpecial(Sector model);
+   void   GetSpecial(out SecSpecial spec);
+   void   SetSpecial(SecSpecial spec);
+   int    GetTerrain(int pos);
+   void   CheckPortalPlane(int plane);
+
+   double, Sector HighestCeilingAt(vector2 a);
+   double, Sector LowestFloorAt(vector2 a);
+   double, double GetFriction(int plane);
+
+   void   SetXOffset(int pos, double o);
+   void   AddXOffset(int pos, double o);
+   double GetXOffset(int pos);
+   void   SetYOffset(int pos, double o);
+   void   AddYOffset(int pos, double o);
+   double GetYOffset(int pos, bool addbase = true);
+   void   SetXScale(int pos, double o);
+   double GetXScale(int pos);
+   void   SetYScale(int pos, double o);
+   double GetYScale(int pos);
+   void   SetAngle(int pos, double o);
+   double GetAngle(int pos, bool addbase = true);
+   void   SetBase(int pos, double y, double o);
+   void   SetAlpha(int pos, double o);
+   double GetAlpha(int pos);
+   int    GetFlags(int pos);
+   int    GetVisFlags(int pos);
+   void   ChangeFlags(int pos, int and, int or);
+   int    GetPlaneLight(int pos);
+   void   SetPlaneLight(int pos, int level);
+   void   SetColor(color c, int desat = 0);
+   void   SetFade(color c);
+   void   SetFogDensity(int dens);
+   double GetGlowHeight(int pos);
+   color  GetGlowColor(int pos);
+   void   SetGlowHeight(int pos, double height);
+   void   SetGlowColor(int pos, color color);
+   void   SetSpecialColor(int pos, color color);
+
+   textureid GetTexture(int pos);
+   void      SetTexture(int pos, textureid tex, bool floorclip = true);
+   double    GetPlaneTexZ(int pos);
+   void      SetPlaneTexZ(int pos, double val, bool dirtify = false);
+   void      ChangeLightLevel(int newval);
+   void      SetLightLevel(int newval);
+   int       GetLightLevel();
+   void      AdjustFloorClip();
+   bool      IsLinked(Sector other, bool ceiling);
+
+   bool    PortalBlocksView(int plane);
+   bool    PortalBlocksSight(int plane);
+   bool    PortalBlocksMovement(int plane);
+   bool    PortalBlocksSound(int plane);
+   bool    PortalIsLinked(int plane);
+   void    ClearPortal(int plane);
+   double  GetPortalPlaneZ(int plane);
+   vector2 GetPortalDisplacement(int plane);
+   int     GetPortalType(int plane);
+   int     GetOppositePortalGroup(int plane);
+   double  CenterFloor();
+   double  CenterCeiling();
+   bool    TriggerSectorActions(Actor thing, int activation);
+
+   int MoveFloor(double speed, double dest, int crush, int direction, bool hexencrush, bool instant = false);
+   int MoveCeiling(double speed, double dest, int crush, int direction, bool hexencrush);
+
+   Sector NextSpecialSector(int type, Sector prev);
+
+   double, Vertex FindLowestFloorSurrounding();
+   double, Vertex FindHighestFloorSurrounding();
+   double, Vertex FindNextHighestFloor();
+   double, Vertex FindNextLowestFloor();
+   double, Vertex FindLowestCeilingSurrounding();
+   double, Vertex FindHighestCeilingSurrounding();
+   double, Vertex FindNextLowestCeiling();
+   double, Vertex FindNextHighestCeiling();
+
+   double FindShortestTextureAround();
+   double FindShortestUpperAround();
+   Sector FindModelFloorSector(double floordestheight);
+   Sector FindModelCeilingSector(double floordestheight);
+   int    FindMinSurroundingLight(int max);
+
+   double, Vertex FindLowestCeilingPoint();
+   double, Vertex FindHighestFloorPoint();
+
+   void SetEnvironment(string env);
+   void SetEnvironmentID(int envnum);
+
+   SeqNode StartSoundSequenceID(int chan, int sequence, int type, int modenum, bool nostop = false);
+   SeqNode StartSoundSequence(int chan, name seqname, int modenum);
+   SeqNode CheckSoundSequence(int chan);
+   void StopSoundSequence(int chan);
+   bool IsMakingLoopingSound();
+
+   bool IsSecret();
+   bool WasSecret();
+   void ClearSecret();
+
+   double GetUDMFFloat(name nm);
+   int    GetUDMFInt(name nm);
+   string GetUDMFString(name nm);
+}
+```
+
+TODO
+
+### SectorPortal
+
+TODO
+
+### SectorEffect
+
+TODO
+
+### SectorAction
+
+TODO
+
+### SecSpecial
+
+TODO
+
+### SecPlane
+
+TODO
+
+```
+struct SecPlane play
+{
+   double  D;
+   double  NegiC;
+   vector3 Normal;
+
+   void   ChangeHeight(double hdiff);
+   double GetChangedHeight(double hdiff) const;
+   double HeightDiff(double oldd, double newd = 0.0) const;
+   bool   IsEqual(SecPlane other) const;
+   bool   IsSlope() const;
+   int    PointOnSide(vector3 pos) const;
+   double PointToDist(vector2 xy, double z) const;
+   double ZAtPointDist(vector2 v, double dist) const;
+
+   clearscope double ZAtPoint(vector2 v) const;
+}
+```
+
+- `D`
+
+   TODO
+
+- `NegiC`
+
+   TODO
+
+- `Normal`
+
+   TODO
+
+- `ChangeHeight`
+
+   TODO
+
+- `GetChangedHeight`
+
+   TODO
+
+- `HeightDiff`
+
+   TODO
+
+- `IsEqual`
+
+   TODO
+
+- `IsSlope`
+
+   TODO
+
+- `PointOnSide`
+
+   TODO
+
+- `PointToDist`
+
+   TODO
+
+- `ZAtPointDist`
+
+   TODO
+
+- `ZAtPoint`
+
+   TODO
+
+### F3DFloor
+
+Currently empty. Does not expose any information.
+
+### FColorMap
+
+Describes the coloring of a sector.
+
+```
+struct FColorMap
+{
+   uint8 BlendFactor;
+   uint8 Desaturation;
+   color FadeColor;
+   color LightColor;
+}
+```
+
+- `BlendFactor`
+
+   TODO: "This is for handling Legacy-style colormaps which use a different formula to calculate how the color affects lighting."
+
+- `Desaturation`
+
+   How much to desaturate colors in this sector. Range is 0 to 255, inclusive.
+
+- `FadeColor`
+
+   The color of fog in this sector. None if all components are 0.
+
+- `LightColor`
+
+   The color of the sector. Default if all components are 0.
+
+### SectorTagIterator
+
+TODO
+
+### LineIdIterator
+
+Iterates over line indices with a specified tag.
+
+```
+class LineIdIterator
+{
+   static LineIdIterator Create(int tag);
+
+   int Next();
+}
+```
+
+- `Create`
+
+   Creates a new iterator over lines with tag `tag`.
+
+- `Next`
+
+   Returns the index of the current line and advances the iterator. Returns -1 when the list is exhausted.
+
+### LevelLocals
+
+Most map-relative data is stored in this structure.
+
+```
+struct LevelLocals
+{
+   // Map data
+   array<Line>   Lines;
+   array<Sector> Sectors;
+   array<Side>   Sides;
+
+   internal array<SectorPortal> SectorPortals;
+   readonly array<Vertex>       Vertexes;
+
+   // Stats
+   int Found_Items;
+   int Found_Secrets;
+   int Killed_Monsters;
+   int Total_Items;
+   int Total_Monsters;
+   int Total_Secrets;
+
+   // Time
+   readonly int MapTime;
+   readonly int ParTime;
+   readonly int StartTime;
+   readonly int SuckTime;
+   readonly int Time;
+   readonly int TotalTime;
+
+   // Map sequencing
+   readonly int    Cluster;
+   readonly int    ClusterFlags;
+   readonly string LevelName;
+   readonly int    LevelNum;
+   readonly string MapName;
+
+   string NextMap;
+   string NextSecretMap;
+
+   readonly int MapType;
+
+   // Music
+   readonly string Music;
+   readonly int    MusicOrder;
+
+   // Sky
+   readonly textureid SkyTexture1;
+   readonly textureid SkyTexture2;
+
+   float SkySpeed1;
+   float SkySpeed2;
+
+   // Physics
+   play double AirControl
+   play double AirFriction;
+   play int    AirSupply;
+   play double Gravity;
+
+   // State
+   bool AllMap;
+   bool Frozen;
+
+   // Static info
+   string F1Pic;
+
+   readonly bool   ActOwnSpecial;
+   readonly bool   AllowRespawn;
+   readonly bool   CheckSwitchRange;
+   readonly int    FogDensity;
+   readonly bool   Infinite_Flight;
+   readonly bool   MissilesActivateImpact;
+   readonly bool   MonsterFallingDamage;
+   readonly bool   MonstersTelefrag;
+   readonly bool   NoInventoryBar;
+   readonly bool   NoMonsters;
+   readonly bool   No_Dlg_Freeze;
+   readonly int    OutsideFogDensity;
+   readonly float  PixelStretch;
+   readonly bool   PolyGrind;
+   readonly int    SkyFog;
+   readonly bool   SndSeqTotalCtrl;
+   readonly double TeamDamage;
+
+   double GetUDMFFloat(int type, int index, name key);
+   int    GetUDMFInt(int type, int index, name key);
+   string GetUDMFString(int type, int index, name key);
+
+   bool ExecuteSpecial(int special, Actor activator, Line linedef, bool lineside, int arg1 = 0, int arg2 = 0, int arg3 = 0, int arg4 = 0, int arg5 = 0);
+
+   void   ChangeSky(textureid sky1, textureid sky2);
+   string FormatMapName(int mapnamecolor);
+   string GetChecksum() const;
+   void   SetInterMusic(string nextmap);
+   string TimeFormatted(bool totals = false);
+
+   bool IsCrouchingAllowed() const;
+   bool IsFreelookAllowed() const;
+   bool IsJumpingAllowed() const;
+
+   static void GiveSecret(Actor activator, bool printmsg = true, bool playsound = true);
+   static void RemoveAllBots(bool fromlist);
+   static void StartSlideshow(name whichone = 'none');
+   static void WorldDone();
+
+   static clearscope vector3 SphericalCoords(vector3 viewpoint, vector3 targetPos, vector2 viewAngles = (0, 0), bool absolute = false);
+   static clearscope vector2 Vec2Diff(vector2 v1, vector2 v2);
+   static clearscope vector2 Vec2Offset(vector2 pos, vector2 dir, bool absolute = false);
+   static clearscope vector3 Vec2OffsetZ(vector2 pos, vector2 dir, double atz, bool absolute = false);
+   static clearscope vector3 Vec3Diff(vector3 v1, vector3 v2);
+   static clearscope vector3 Vec3Offset(vector3 pos, vector3 dir, bool absolute = false);
+}
+```
+
+TODO
+
+Players
+-------
+
+### PlayerInfo
+
+TODO
+
+### PlayerClass
+
+A player class as defined in either `MAPINFO`/GameInfo or `KEYCONF`.
+
+```
+struct PlayerClass
+{
+   uint         Flags;
+   array<int>   Skins;
+   class<Actor> Type;
+
+   bool CheckSkin(int skin);
+   void EnumColorsets(out array<int> data);
+   name GetColorsetName(int setnum);
+}
+```
+
+- `Flags`
+
+   Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript, but its value is `1` if you need to check for that.
+
+- `Skins`
+
+   Skin indices available to this player class.
+
+- `Type`
+
+   The class type reference for this player class.
+
+- `CheckSkin`
+
+   Checks if `skin` is in `Skins`.
+
+- `EnumColorsets`
+
+   TODO
+
+- `GetColorsetName`
+
+   TODO
+
+### PlayerSkin
+
+A player skin as defined in `SKININFO` or `S_SKIN`.
+
+```
+struct PlayerSkin
+{
+   int     CrouchSprite;
+   string  Face;
+   uint8   Gender;
+   int     NameSpc;
+   bool    OtherGame;
+   uint8   Range0End;
+   uint8   Range0Start;
+   vector2 Scale;
+   string  SkinName;
+   int     Sprite;
+}
+```
+
+- `CrouchSprite`
+
+   The crouching sprite ID for this skin.
+
+- `Face`
+
+   Prefix for statusbar face graphics.
+
+- `Gender`
+
+   Default gender of the skin. May be one of the following:
+
+   | Name             | Value | Description                 |
+   | ----             | :---: | -----------                 |
+   | `GENDER_FEMALE`  | `1`   | Feminine.                   |
+   | `GENDER_MALE`    | `0`   | Masculine.                  |
+   | `GENDER_NEUTRAL` | `2`   | Neutral.                    |
+   | `GENDER_OTHER`   | `3`   | Other (robot, zombie, etc.) |
+
+- `NameSpc`
+
+   If this skin was defined in S_SKIN, this is the lump ID of the marker itself.
+
+- `OtherGame`
+
+   The player skin is made for another game and needs to be color remapped differently.
+
+- `Range0End`
+
+   The end index of the translation range to be used for changing the player sprite's color.
+
+- `Range0Start`
+
+   The beginning index of the translation range to be used for changing the player sprite's color.
+
+- `Scale`
+
+   The scaling factor used for the player sprite.
+
+- `SkinName`
+
+   Name of the skin.
+
+- `Sprite`
+
+   The sprite ID for this skin.
+
+### Team
+
+A team as defined in `TEAMINFO`.
+
+```
+struct Team
+{
+   const Max;
+   const NoTeam;
+
+   string mName;
+}
+```
+
+- `Max`
+
+   The maximum number of teams.
+
+- `NoTeam`
+
+   A constant index for a player with no team.
+
+- `mName`
+
+   The name of the team.
+
+Weapons
+-------
+
+### Weapon
+
+TODO
+
+Drawing
+-------
+
+### Font
+
+A font as defined in `FONTDEFS` or a ZDoom or bitmap font file.
+
+```
+struct Font
+{
+   static Font FindFont(name fontname);
+   static int  FindFontColor(name color);
+   static Font GetFont(name fontname);
+
+   int    GetCharWidth(int code);
+   string GetCursor();
+   int    GetHeight();
+   int    StringWidth(string code);
+
+   BrokenLines BreakLines(string text, int maxlen);
+}
+```
+
+- `FindFont`
+
+   Gets a font as defined in `FONTDEFS`.
+
+- `FindFontColor`
+
+   Returns the color range enumeration for a named color.
+
+- `GetFont`
+
+   Gets a font either as defined in `FONTDEFS` or a ZDoom/bitmap font.
+
+- `GetCharWidth`
+
+   Returns the width in pixels of a character code.
+
+- `GetCursor`
+
+   Returns the string used as a blinking cursor graphic for this font.
+
+- `GetHeight`
+
+   Returns the line height of the font.
+
+- `StringWidth`
+
+   Returns the width in pixels of the string.
+
+- `BreakLines`
+
+   Breaks `text` up into a `BrokenLines` structure according to the screen and clip region, as well as appropriately accounting for a maximum width in pixels of `maxlen`.
+
+### BrokenLines
+
+A container representing an array of lines of text that have been broken up to fit the screen and clipping region.
+
+```
+class BrokenLines
+{
+   int    Count();
+   string StringAt(int line);
+   int    StringWidth(int line);
+}
+```
+
+- `Count`
+
+   Returns the amount of lines in this container.
+
+- `StringAt`
+
+   Returns the text of line `line`.
+
+- `StringWidth`
+
+   Returns the width (in pixels) of line `line`.
+
+### Shape2D
+
+Represents an arbitrary polygonal 2D shape.
+
+```
+class Shape2D
+{
+   void Clear(int which = C_Verts | C_Coords | C_Indices);
+   void PushCoord(vector2 c);
+   void PushTriangle(int a, int b, int c);
+   void PushVertex(vector2 v);
+}
+```
+
+- `Clear`
+
+   Clears data out of a shape. Uses these as a bit flag:
+
+   | Name                | Description                 |
+   | ----                | -----------                 |
+   | `Shape2D.C_Coords`  | Clears texture coordinates. |
+   | `Shape2D.C_Indices` | Clears vertex indices.      |
+   | `Shape2D.C_Verts`   | Clears vertices.            |
+
+- `PushCoord`
+
+   Pushes a texture coordinate into the shape buffer.
+
+- `PushTriangle`
+
+   Pushes the indices of a triangle into the shape buffer.
+
+- `PushVertex`
+
+   Pushes a vertex into the shape buffer.
+
+### TexMan
+
+The **Tex**ture **Man**ager is used for loading, finding, replacing and getting information on textures.
+
+```
+struct TexMan
+{
+   static textureid CheckForTexture(string name, int usetype, int flags = TexMan.TryAny);
+   static int       CheckRealHeight(textureid tex);
+   static string    GetName(textureid tex);
+   static vector2   GetScaledOffset(textureid tex);
+   static vector2   GetScaledSize(textureid tex);
+   static int, int  GetSize(textureid tex);
+   static void      ReplaceTextures(string from, string to, int flags);
+   static void      SetCameraToTexture(Actor viewpoint, string texture, double fov);
+}
+```
+
+- `CheckForTexture`
+
+   Returns a `textureid` for the texture named `name`. `usetype` may be one of the following, which selects what kind of texture to find:
+
+   | Name                       | Description                                                    |
+   | ----                       | -----------                                                    |
+   | `TexMan.Type_Any`          | Returns any kind of texture.                                   |
+   | `TexMan.Type_Autopage`     | Returns an automap background graphic. (TODO: needs example)   |
+   | `TexMan.Type_Build`        | Returns a tile from a BUILD TILES entry.                       |
+   | `TexMan.Type_Decal`        | Unknown. (TODO)                                                |
+   | `TexMan.Type_FirstDefined` | Unknown. (TODO)                                                |
+   | `TexMan.Type_Flat`         | Returns any flat, ie. `FLOOR0_1`.                              |
+   | `TexMan.Type_FontChar`     | Unknown. (TODO)                                                |
+   | `TexMan.Type_MiscPatch`    | Unknown. (TODO)                                                |
+   | `TexMan.Type_Null`         | Returns the null graphic. Ignores `name`.                      |
+   | `TexMan.Type_Override`     | Unknown. (TODO)                                                |
+   | `TexMan.Type_SkinGraphic`  | Unknown. (TODO)                                                |
+   | `TexMan.Type_SkinSprite`   | Unknown. (TODO)                                                |
+   | `TexMan.Type_Sprite`       | Returns a sprite, ie. `MEDIA0`.                                |
+   | `TexMan.Type_WallPatch`    | Returns an uncomposited patch, ie. `DOOR2_1`.                  |
+   | `TexMan.Type_Wall`         | Returns any composited wall texture, ie. `STARTAN2`.           |
+
+   `flags` may be any of the following combined (with the bitwise OR operator `|`:)
+
+   | Name                   | Description                                     |
+   | ----                   | -----------                                     |
+   | `TexMan.AllowSkins`    | Unknown. (TODO)                                 |
+   | `TexMan.DontCreate`    | Will never create a new texture when searching. |
+   | `TexMan.Overridable`   | Unknown. (TODO)                                 |
+   | `TexMan.ReturnFirst`   | Unknown. (TODO)                                 |
+   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.  |
+   | `TexMan.TryAny`        | Default. Unknown. (TODO)                        |
+
+- `CheckRealHeight`
+
+   TODO
+
+- `GetName`
+
+   Returns the original name of a `textureid`.
+
+- `GetScaledOffset`
+
+   TODO
+
+- `GetScaledSize`
+
+   TODO
+
+- `GetSize`
+
+   Returns the width and height of a `textureid`.
+
+- `ReplaceTextures`
+
+   Replaces textures named `from` with `to` within the map. `flags` may be used to filter out certain textures from being replaced:
+
+   | Name                 | Description                          |
+   | ----                 | -----------                          |
+   | `TexMan.NOT_BOTTOM`  | Filters out linedef bottom textures. |
+   | `TexMan.NOT_CEILING` | Filters out ceiling flats.           |
+   | `TexMan.NOT_FLAT`    | Filters out any flat texture.        |
+   | `TexMan.NOT_FLOOR`   | Filters out floor flats.             |
+   | `TexMan.NOT_MIDDLE`  | Filters out linedef middle textures. |
+   | `TexMan.NOT_TOP`     | Filters out linedef upper textures.  |
+   | `TexMan.NOT_WALL`    | Filters out any linedef texture.     |
+
+- `SetCameraToTexture`
+
+   Sets the camera texture (as defined in `ANIMDEFS`) `texture` to the viewpoint of `viewpoint` with a fov of `fov`.
+
+### Screen
+
+Functions for drawing various things to the screen.
+
+```
+struct Screen
+{
+   static vararg void DrawChar(Font font, int normalcolor, double x, double y, int character, ...);
+   static vararg void DrawShape(textureid tex, bool animate, Shape2D s, ...);
+   static vararg void DrawText(Font font, int normalcolor, double x, double y, string text, ...);
+   static vararg void DrawTexture(textureid tex, bool animate, double x, double y, ...);
+
+   static void Clear(int left, int top, int right, int bottom, color cr, int palcolor = -1);
+   static void Dim(color cr, double amount, int x, int y, int w, int h);
+   static void DrawFrame(int x, int y, int w, int h);
+   static void DrawLine(int x0, int y0, int x1, int y1, color color);
+   static void DrawThickLine(int x0, int y0, int x1, int y1, double thickness, color color);
+
+   static double GetAspectRatio();
+   static int GetHeight();
+   static int GetWidth();
+   static color PaletteColor(int index);
+   static vector2, vector2 VirtualToRealCoords(vector2 pos, vector2 size, vector2 vsize, bool vbottom = false, bool handleaspect = true);
+
+   static void ClearClipRect();
+   static int, int, int, int GetClipRect();
+   static int, int, int, int GetViewWindow();
+   static void SetClipRect(int x, int y, int w, int h);
+}
+```
+
+TODO
+
+Sound
+-----
+
+### SeqNode
+
+A sound sequence (`SNDSEQ`) node.
+
+```
+class SeqNode
+{
+   static name GetSequenceSlot(int sequence, int type);
+   static void MarkPrecacheSounds(int sequence, int type);
+
+   void AddChoice(int seqnum, int type);
+   bool AreModesSame(name n, int mode1);
+   bool AreModesSameID(int sequence, int type, int mode1);
+   name GetSequenceName();
+}
+```
+
+- `GetSequenceSlot`
+
+   TODO
+
+- `MarkPrecacheSounds`
+
+   TODO
+
+- `AddChoice`
+
+   TODO
+
+- `AreModesSame`
+
+   TODO
+
+- `AreModesSameID`
+
+   TODO
+
+- `GetSequenceName`
+
+   TODO
+
+Examples
+========
+
+## Examples: Class headers
+
+Various class headers:
+
+```
+class MyCoolObject // automatically inherits Object
+class MyCoolScopedObject play // has Play scope
+class MyCoolThinker : Thinker // inherits Thinker
+class MyCoolActor : Actor replaces OtherActor
+class MyCoolInterface abstract // can only be inherited
+```
+
+## Examples: Class definitions
+
+Basic class definition with a member variable and member function:
+
+```
+class BasicClass
+{
+   int m_thing;
+
+   void changeThing()
+   {
+      m_thing = 500;
+   }
+}
+```
+
+Alternate syntax usage:
+
+```
+class TheWholeFileIsAClassOhNo;
+
+int m_mymember;
+
+// end of file
+```
+
+## Examples: Property definitions
+
+A class with some properties:
+
+```
+class MyCoolActor : Actor
+{
+   default
+   {
+      MyCoolActor.MyCoolMember 5000;
+      MyCoolActor.MyCoolMemberList 501, 502;
+   }
+
+   int m_myCoolMember;
+   int m_coolMember1, m_coolMember2;
+
+   property MyCoolMember: m_myCoolMember;
+   property MyCoolMemberList: m_coolMember1, m_coolMember2;
+}
+```
+
+## Examples: Structure definitions
+
+Simple structure:
+
+```
+struct MyCoolStructure
+{
+   int x;
+   int y;
+   int z;
+}
+```
+
+## Examples: Enumeration definitions
+
+Basic enumeration:
+
+```
+enum MyCoolEnum
+{
+   A, // has value int(0)
+   B, // 1 ...
+   C, // 2 ...
+   D  // and 3
+}
+```
+
+Less trivial example:
+
+```
+enum MyCoolerEnum : int16
+{
+   A = 500, // has value int16(500)
+   B, // 501
+   C = 200,
+   D, // 201
+   E, // 202
+};
+```
+
+## Examples: Constant definitions
+
+Making an integer constant from a double:
+
+```
+const MyCoolInt = int(777.7777);
+```
+
+## Examples: Include directives
+
+Basic includes:
+
+```
+#include "zscript/MyCoolMod/MyCoolClasses.zsc"
+```
+
+## Examples: Expression statements
+
+Some basic expressions:
+
+```
+myCoolFunction(5, 4);
+m_myCoolMember = 500;
+5 * 5; // does nothing of course, but valid
+```
+
+## Examples: Conditional statements
+
+Simple conditional:
+
+```
+if(a)
+   b();
+```
+
+Simple conditional, with else statement and a block:
+
+```
+if(a)
+{
+   b();
+   c = d;
+}
+else
+   e = f;
+```
+
+## Examples: Switch statements
+
+A switch demonstrating fall-through and default cases:
+
+```
+switch(a)
+{
+case 500: Console.printf("a is 500"); break;
+case 501: Console.printf("a is 501"); // falls through to next case
+case 502: Console.printf("a is 501 or 502"); break;
+default:
+   Console.printf("not sure what a is!");
+   // break is implied here
+}
+```
+
+## Examples: Control flow statements
 
 Use of `continue`:
 
@@ -1064,32 +3549,7 @@ int, int returnsTwoInts()
 }
 ```
 
-Local variable statements
--------------------------
-
-Local variable statements are formed in one of 3 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the other two syntaxes use an explicit type, and initialization is optional.
-
-```
-Type a;
-Type a[Expression]; // alternate syntax for local array
-
-let a = b;
-Type a = b;
-Type a = {Expression list...}; // for fixed size array types
-Type a[Expression] = {Expression list...};
-```
-
-Multi-assignment statements
----------------------------
-
-Expressions or functions that return multiple values can be assigned into multiple variables with the syntax:
-
-```
-[Expression list...] = Expression;
-```
-
-Examples: Multi-assignment statements
--------------------------------------
+## Examples: Multi-assignment statements
 
 Getting the actor out of `A_SpawnItemEx`:
 
@@ -1099,54 +3559,7 @@ bool spawned;
 [spawned, mo] = A_SpawnItemEx("MyCoolActor");
 ```
 
-Static array statements
------------------------
-
-Static arrays can be defined normally as a statement.
-
-Null statements
----------------
-
-A null statement does nothing, and is formed `;`. It is similar to an empty compound statement.
-
-Member declarations
-===================
-
-Member declarations define data within a structure or class that can be accessed directly within methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
-
-A member declaration is formed as so:
-
-```
-[Member declaration flags...] Type name;
-```
-
-Or, if you want multiple members with the same type and flags:
-
-```
-[Member declaration flags...] Type name[, name...];
-```
-
-Note that the types Font and CVar are unserializable as members and must be marked transient.
-
-Member declaration flags
-------------------------
-
-| Flag                | Description                                                                                                         |
-| ----                | -----------                                                                                                         |
-| `private`           | Member is not visible to any class but this one.                                                                    |
-| `protected`         | Member is not visible to any class but this one and any descendants of it.                                          |
-| `ui`                | Member has UI scope.                                                                                                |
-| `play`              | Member has Play scope.                                                                                              |
-| `meta`              | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
-| `transient`         | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
-| `readonly`          | Member is not writable.                                                                                             |
-| `internal`          | Member is only writable from `gzdoom.pk3`.                                                                          |
-| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than *ver*.                      |
-| `native`            | Member is from the engine. Only usable internally.                                                                  |
-| `version("ver")`    | Restricted to ZScript version *ver* or higher.                                                                      |
-
-Examples: Member declarations
------------------------------
+## Examples: Member declarations
 
 Some basic member variables:
 
@@ -1157,1724 +3570,3 @@ int[10] m_coolIntArray;
 private int m_coolPrivateInt;
 protected meta int m_coolMetaInt;
 ```
-
-Method definitions
-==================
-
-Method definitions define functions within a structure or class that can be accessed directly within other methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
-
-Methods marked as `virtual` may have their functionality overridden by derived classes, and in those overrides one can use the `Super` keyword to call the parent function.
-
-Methods are formed as so:
-
-```
-[Method definition flags...] Type[, Type...] name([Argument list...]) [const]
-{
-   [Function body here]
-}
-```
-
-If `const` is placed after the function signature and before the function body, the method will not be allowed to modify any members in the object instance it's being called on.
-
-The keyword `void` can be used in place of a type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
-
-Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
-
-Method definition flags
------------------------
-
-| Flag                | Description                                                                                    |
-| ----                | -----------                                                                                    |
-| `private`           | Method is not visible to any class but this one.                                               |
-| `protected`         | Method is not visible to any class but this one and any descendants of it.                     |
-| `static`            | Function is not a method, but a global function without a `self` pointer.                      |
-| `ui`                | Method has UI scope.                                                                           |
-| `play`              | Method has Play scope.                                                                         |
-| `clearscope`        | Method has Data scope.                                                                         |
-| `virtualscope`      | Method has scope of the type of the object it's being called on.                               |
-| `virtual`           | Method can be overridden in derived classes.                                                   |
-| `override`          | Method is overriding a base class' virtual method.                                             |
-| `final`             | Virtual method cannot be further overridden from derived classes.                              |
-| `action`            | Method has implicit `owner` and `state` parameters, mostly useful on weapons.                  |
-| `action(Scope)`     | Same as above, but has an action scope. See "Action Scoping" for more information.             |
-| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than *ver*. |
-| `vararg`            | Method doesn't type-check arguments after `...`. Only usable internally.                       |
-| `native`            | Method is from the engine. Only usable internally.                                             |
-| `version("ver")`    | Restricted to ZScript version *ver* or higher.                                                 |
-
-Concepts
-========
-
-Action Scoping
---------------
-
-On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map. The available scopes are:
-
-| Name      | Description                                   |
-| ----      | -----------                                   |
-| `actor`   | Actions are called from an actual map object. |
-| `overlay` | Actions are called from a weapon overlay.     |
-| `weapon`  | Actions are called from a weapon.             |
-| `item`    | Actions are called from an inventory item.    |
-
-Object Scoping
---------------
-
-Most objects are subject to object scoping, which restricts the way data can be used in certain contexts. This is to ensure that the playsim does not get changed by the UI, for instance, or that the playsim doesn't read from the UI and break network synchronization. In other words, it is to prevent a multitude of errors that arise when data is modified or read from the wrong places.
-
-There are three scopes in ZScript: Play, UI, and Data (also known as "clearscope.") The Play scope is used for objects that are part of the game simulation and interact with the world in some way or another, while the UI scope is for objects that have no correlation with the world besides perhaps reading information from it. The Data scope is shared between the two, and must be used carefully.
-
-Here is a chart of data access possibilities for each scope:
-
-|                   | Data scope | Play scope | UI scope   |
-| -                 | ---------- | ---------- | ---------- |
-| From Data context | Read/write | Read-only  | No access  |
-| From Play context | Read/write | Read/write | No access  |
-| From UI context   | Read/write | Read-only  | Read/write |
-
-Format String
--------------
-
-A format string is a string that specifies the format of a conversion from arbitrary data to a contiguous character string. A format string contains normal characters and *conversion specifiers*. See [this page](https://en.cppreference.com/w/c/io/fprintf) for more information. Differences between C's `printf` and ZScript formats include:
-
-- Since there's no `char` type, `int` is used for `%c`.
-- `%s` also works for `name`.
-- No `%n` specifier.
-- An additional conversion specifier `%B` exists which converts a number to binary.
-- An additional conversion specifier `%H` exists which works like `%g` but automatically selects the smallest precision.
-
-API
-===
-
-The ZScript API is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
-
-Type symbols
-------------
-
-Integer and floating-point types have symbols which can be accessed through `typename.name`. Here is a list of them.
-
-### Integer types
-
-- `Min`
-
-   Minimum value of type.
-
-- `Max`
-
-   Maximum value of type.
-
-### Floating-point types
-
-- `Min_Normal`
-
-   Minimum value of type.
-
-- `Max`
-
-   Maximum value of type.
-
-- `Epsilon`
-
-   ε value of type.
-
-- `NaN`
-
-   Not-a-Number value of type.
-
-- `Infinity`
-
-   ∞ value of type.
-
-- `Min_Denormal`
-
-   Minimum positive subnormal value of type.
-
-- `Dig`
-
-   Number of decimal digits in type.
-
-- `Min_Exp`
-
-   Minimum exponent bits value of type.
-
-- `Max_Exp`
-
-   Maximum exponent bits value of type.
-
-- `Mant_Dig`
-
-   Number of mantissa bits in type.
-
-- `Min_10_Exp`
-
-   Minimum exponent of type.
-
-- `Max_10_Exp`
-
-   Maximum exponent of type.
-
-Globals
--------
-
-### Global functions
-
-#### Class handling
-
-```
-Type New(class typename = ThisClass);
-Type GetDefaultByType(TypeName);
-```
-
-- `New`
-
-   Typically spelled lowercase (`new`), creates an object with type `typename`. Defaults to using the class of the calling object.
-
-- `GetDefaultByType`
-
-   Gets the default value of any built-in type.
-
-#### Random number generation
-
-All of these functions may have `[identifier]` between the function name and the argument list to specify a named RNG table to use.
-
-```
-int Random(int min = 0, int max = 255);
-int Random2(uint mask = uint.max);
-int RandomPick(int...);
-double FRandom(double min, double max);
-double FRandomPick(double...);
-void SetRandomSeed(uint num);
-```
-
-- `Random`
-
-   Returns a random integer between `min` and `max`.
-
-- `Random2`
-
-   Returns a random integer value between `-mask` and `mask`. `mask` is used as a bit mask, so it is recommended to use a value of one less than a power of two (ie. 3, 7, 15, 31, 63, 127, 255...)
-
-- `RandomPick`
-
-   Returns one of the provided parameters randomly.
-
-- `FRandom`
-
-   Returns a random float between `min` and `max`.
-
-- `FRandomPick`
-
-   Same as `RandomPick`, but with floats.
-
-- `SetRandomSeed`
-
-   Sets the seed of the RNG table to `num`.
-
-#### Math
-
-```
-Type Min(Type n, Type minimum);
-Type Max(Type n, Type maximum);
-Type Clamp(Type n, Type minimum, Type maximum);
-Type Abs(Type n);
-double ATan2(double y, double x);
-double VectorAngle(double x, double y);
-uint BAM(double angle);
-```
-
-- `Min`
-
-   Returns `n` if `n` is more than `minimum`, or `minimum`.
-
-- `Max`
-
-   Returns `n` if `n` is less than `maximum`, or `maximum`.
-
-- `Clamp`
-
-   Returns `n` if `n` is more than `minimum` and less than `maximum`, or either of those values if it is not.
-
-- `Abs`
-
-   Returns `|n|` (absolute of `n`.)
-
-- `ATan2`
-
-   Computes the arctangent of `y / x` using the arguments' signs to determine the correct quadrant.
-
-- `VectorAngle`
-
-   Same as `ATan2`, but with arguments reversed.
-
-- `BAM`
-
-   Returns a byte angle of `angle` (`degrees * (0x40000000 / 90.0)`.)
-
-#### Game
-
-```
-string G_SkillName();
-int G_SkillPropertyInt(int p);
-double G_SkillPropertyFloat(int p);
-vector3, int G_PickDeathmatchStart();
-vector3, int G_PickPlayerStart(int pnum, int flags = 0);
-```
-
-- `G_SkillName`
-
-   The name of the skill in play.
-
-- `G_SkillPropertyInt`
-
-   Returns a skill property. `p` may be:
-
-   | Name                   |
-   | ----                   |
-   | `SKILLP_FastMonsters`  |
-   | `SKILLP_Respawn`       |
-   | `SKILLP_RespawnLimit`  |
-   | `SKILLP_DisableCheats` |
-   | `SKILLP_AutoUseHealth` |
-   | `SKILLP_SpawnFilter`   |
-   | `SKILLP_EasyBossBrain` |
-   | `SKILLP_ACSReturn`     |
-   | `SKILLP_NoPain`        |
-   | `SKILLP_EasyKey`       |
-   | `SKILLP_SlowMonsters`  |
-   | `SKILLP_Infight`       |
-   | `SKILLP_PlayerRespawn` |
-
-- `G_SkillPropertyFloat`
-
-   Returns a skill property. `p` may be:
-
-   | Name                    |
-   | ----                    |
-   | `SKILLP_AmmoFactor`     |
-   | `SKILLP_DropAmmoFactor` |
-   | `SKILLP_ArmorFactor`    |
-   | `SKILLP_HealthFactor`   |
-   | `SKILLP_DamageFactor`   |
-   | `SKILLP_Aggressiveness` |
-   | `SKILLP_MonsterHealth`  |
-   | `SKILLP_FriendlyHealth` |
-
-- `G_PickDeathmatchStart`
-
-   Returns the position and angle of a random deathmatch start location.
-
-- `G_PickPlayerStart`
-
-   Returns the position and angle of a player start for player `pnum`. `flags` may be:
-
-   | Name                  | Description                                                  |
-   | ----                  | -----------                                                  |
-   | `PPS_FORCERANDOM`     | Always randomly picks a random player spawn for this player. |
-   | `PPS_NOBLOCKINGCHECK` | Does not check if an object is blocking the player spawn.    |
-
-#### Sound
-
-```
-void S_Sound(sound sound_id, int channel, float volume = 1, float attenuation = ATTN_NORM);
-void S_PauseSound(bool notmusic, bool notsfx);
-void S_ResumeSound(bool notsfx);
-bool S_ChangeMusic(string music_name, int order = 0, bool looping = true, bool force = false);
-float S_GetLength(sound sound_id);
-void SetMusicVolume(float vol);
-```
-
-- `S_Sound`
-
-   Plays a sound (as defined in SNDINFO) from the calling object if it has world presence (is an actor or sector etc.)
-
-   `channel` may be:
-
-   | Name          | Description                                                        |
-   | ----          | -----------                                                        |
-   | `CHAN_AUTO`   | Automatically assigns the sound to a free channel (if one exists.) |
-   | `CHAN_WEAPON` | For weapon noises.                                                 |
-   | `CHAN_VOICE`  | For player grunts.                                                 |
-   | `CHAN_ITEM`   | For item pickups.                                                  |
-   | `CHAN_BODY`   | For footsteps and generally anything else.                         |
-   | `CHAN_5`      | Extra sound channel.                                               |
-   | `CHAN_6`      | Extra sound channel.                                               |
-   | `CHAN_7`      | Extra sound channel.                                               |
-
-   `channel` may also have the following flags OR'd onto it:
-
-   | Name               | Description                                                                       |
-   | ----               | -----------                                                                       |
-   | `CHAN_LISTENERZ`   | Sound ignores height entirely, playing at the listener's vertical position.       |
-   | `CHAN_MAYBE_LOCAL` | Does not play sound to other players if the silent pickup compat flag is enabled. |
-   | `CHAN_UI`          | Does not record sound in savegames/demos.                                         |
-   | `CHAN_NOPAUSE`     | Does not pause in menus or when `S_PauseSound` is called.                         |
-   | `CHAN_LOOP`        | Continues playing the sound on loop until it is stopped manually.                 |
-   | `CHAN_NOSTOP`      | Does not start a new sound if the channel is already playing something.           |
-
-   Additionally, `CHAN_PICKUP` is equivalent to `CHAN_ITEM | CHAN_MAYBE_LOCAL`.
-
-   `attenuation` determines the dropoff distance of the sound. The higher the value, the quicker it fades. Constants include:
-
-   | Name          | Value   | Description                                                                       |
-   | ----          | -----   | -----------                                                                       |
-   | `ATTN_NONE`   | `0`     | Does not drop off at all, plays throughout the whole map.                         |
-   | `ATTN_NORM`   | `1`     | Drops off using the `close_dist` and `clipping_dist` defined in SNDINFO. Default. |
-   | `ATTN_IDLE`   | `1.001` | Uses Doom's default sound attenuation.                                            |
-   | `ATTN_STATIC` | `3`     | Drops off quickly, at around 512 units.                                           |
-
-- `S_PauseSound`
-
-   Pauses music if `notmusic` is false and all game sounds if `notsfx` is false. Used for instance in the time stop powerup.
-
-- `S_ResumeSound`
-
-   Resumes playing music and, if `notsfx` is false, all game sounds as well.
-
-#### System
-
-```
-uint MSTime();
-vararg void ThrowAbortException(string format, ...);
-```
-
-- `MSTime`
-
-   Returns the number of milliseconds since the engine was started. **Not deterministic.**
-
-- `ThrowAbortException`
-
-   Kills the VM and ends the game (without exiting) with a formatted error.
-
-### Global variables
-
-These variables are accessible in any context and are not bound by any specific object.
-
-#### Static info
-
-```
-readonly array<class<Actor>> AllActorClasses;
-readonly array<Team> Teams;
-readonly array<PlayerClass> PlayerClasses;
-readonly array<PlayerSkin> PlayerSkins;
-
-play DehInfo DEH;
-readonly GameInfoStruct GameInfo;
-readonly textureid SkyFlatNum;
-readonly FOptionMenuSettings OptionMenuSettings;
-readonly Weapon WP_NOCHANGE;
-```
-
-- `AllActorClasses`
-
-   As the name implies, an array of every actor class type reference.
-
-- `Teams`
-
-   An array of all teams. Maximum index is `Team.Max`.
-
-- `PlayerClasses`
-
-   An array of all player classes as defined in MAPINFO/GameInfo and KEYCONF.
-
-- `PlayerSkins`
-
-   An array of all player skins as defined in SKININFO and S_SKIN.
-
-- `DEH`
-
-   TODO
-
-- `GameInfo`
-
-   TODO
-
-- `SkyFlatNum`
-
-   The texture ID for sky flats. `F_SKY1` by default in Doom.
-
-- `OptionMenuSettings`
-
-   TODO
-
-- `WP_NOCHANGE`
-
-   A constant denoting that the weapon the player is currently holding shouldn't be switched from.
-
-#### Game state
-
-```
-int ValidCount;
-readonly bool AutomapActive;
-play uint GameAction;
-readonly int GameState;
-readonly int GameTic;
-readonly bool DemoPlayback;
-readonly uint8 GlobalFreeze;
-play LevelLocals Level;
-```
-
-- `ValidCount`
-
-   Don't use this.
-
-- `AutomapActive`
-
-   `true` if the automap is currently open on the client. **Not deterministic.**
-
-- `GameAction`
-
-   Current global game action. May be one of:
-
-   | Name                  | Description          |
-   | ----                  | -----------          |
-   | `ga_nothing`          | Does nothing.        |
-   | `ga_loadlevel`        | Don't use this.      |
-   | `ga_newgame`          | Don't use this.      |
-   | `ga_newgame2`         | Don't use this.      |
-   | `ga_recordgame`       | Don't use this.      |
-   | `ga_loadgame`         | Don't use this.      |
-   | `ga_loadgamehideicon` | Don't use this.      |
-   | `ga_loadgameplaydemo` | Don't use this.      |
-   | `ga_autoloadgame`     | Don't use this.      |
-   | `ga_savegame`         | Don't use this.      |
-   | `ga_autosave`         | Creates an autosave. |
-   | `ga_playdemo`         | Don't use this.      |
-   | `ga_completed`        | Don't use this.      |
-   | `ga_slideshow`        | Don't use this.      |
-   | `ga_worlddone`        | Don't use this.      |
-   | `ga_screenshot`       | Takes a screenshot.  |
-   | `ga_togglemap`        | Toggles the automap. |
-   | `ga_fullconsole`      | Don't use this.      |
-
-- `GameState`
-
-   Current global game state. May be one of:
-
-   | Name              | Description                                          |
-   | ----              | -----------                                          |
-   | `GS_LEVEL`        | Inside a level.                                      |
-   | `GS_INTERMISSION` | Inbetween levels.                                    |
-   | `GS_FINALE`       | Reading a cluster end text or at the end sequence.   |
-   | `GS_DEMOSCREEN`   | Inside a level but watching a demo in the main menu. |
-   | `GS_FULLCONSOLE`  | Outside of a level, console only.                    |
-   | `GS_HIDECONSOLE`  | Outside of a level, console hidden (ie. main menu.)  |
-   | `GS_STARTUP`      | Game not yet initialized.                            |
-   | `GS_TITLELEVEL`   | Watching a TITLEMAP in the main menu.                |
-
-- `GameTic`
-
-   Number of game tics passed since engine initialization. **Not deterministic.**
-
-- `DemoPlayback`
-
-   Watching a demo.
-
-- `GlobalFreeze`
-
-   TODO: I have no idea what the difference between this and `Level.Frozen` is.
-
-- `Level`
-
-   All level info as defined in LevelLocals.
-
-#### Client
-
-```
-KeyBindings Bindings;
-KeyBindings AutomapBindings;
-readonly Font SmallFont;
-readonly Font SmallFont2;
-readonly Font BigFont;
-readonly Font ConFont;
-readonly Font IntermissionFont;
-readonly int CleanXFac;
-readonly int CleanYFac;
-readonly int CleanWidth;
-readonly int CleanHeight;
-readonly int CleanXFac_1;
-readonly int CleanYFac_1;
-readonly int CleanWidth_1;
-readonly int CleanHeight_1;
-ui int MenuActive;
-ui int BackbuttonTime;
-ui float BackbuttonAlpha;
-ui BaseStatusBar StatusBar;
-int LocalViewPitch;
-```
-
-- `Bindings`
-
-   TODO
-
-- `AutomapBindings`
-
-   TODO
-
-- `SmallFont`
-
-   The `smallfnt` for the current game.
-
-- `SmallFont2`
-
-   The alternate `smallfnt`.
-
-- `BigFont`
-
-   The `bigfont` for the current game.
-
-- `ConFont`
-
-   The console font.
-
-- `IntermissionFont`
-
-   The font used in intermission screens.
-
-- `CleanXFac`
-
-   TODO
-
-- `CleanYFac`
-
-   TODO
-
-- `CleanWidth`
-
-   TODO
-
-- `CleanHeight`
-
-   TODO
-
-- `CleanXFac_1`
-
-   TODO
-
-- `CleanYFac_1`
-
-   TODO
-
-- `CleanWidth_1`
-
-   TODO
-
-- `CleanHeight_1`
-
-   TODO
-
-- `MenuActive`
-
-   The current active menu state. One of:
-
-   | Name             | Description                                                    |
-   | ----             | -----------                                                    |
-   | `Menu.Off`       | No active menu.                                                |
-   | `Menu.On`        | Menu is open, game is paused.                                  |
-   | `Menu.OnNoPause` | Menu is opened, but the game is not paused.                    |
-   | `Menu.WaitKey`   | Menu is opened, waiting for a key for a controls menu binding. |
-
-- `BackbuttonTime`
-
-   The time until the back button starts fading out in menus.
-
-- `BackbuttonAlpha`
-
-   Alpha of the back button in menus.
-
-- `StatusBar`
-
-   TODO
-
-- `LocalViewPitch`
-
-   The pitch angle (in degrees) of `ConsolePlayer`'s view. **Not deterministic.**
-
-
-#### Players
-
-```
-readonly bool Multiplayer;
-readonly int ConsolePlayer;
-readonly int Net_Arbitrator;
-play PlayerInfo Players[MAXPLAYERS];
-readonly bool PlayerInGame[MAXPLAYERS];
-```
-
-- `Multiplayer`
-
-   Game is networked.
-
-- `ConsolePlayer`
-
-   Number of the player running the client. **Not deterministic.**
-
-- `Net_Arbitrator`
-
-   Number of the player who initiated the game.
-
-- `Players`
-
-   PlayerInfo structs for each player.
-
-- `PlayerInGame`
-
-   `true` if the player is currently in-game.
-
-Built-in types
---------------
-
-### Object
-
-The base class of all `class` types.
-
-```
-class Object
-{
-   bool bDestroyed;
-
-   class GetClass();
-   class GetParentClass();
-   string GetClassName();
-
-   virtualscope void Destroy();
-
-   virtual virtualscope void OnDestroy();
-}
-```
-
-- `bDestroyed`
-
-   This object wants to be destroyed but has not yet been garbage collected.
-
-- `GetClass`
-
-   Returns the class type of this object.
-
-- `GetParentClass`
-
-   Returns the class type of this object's parent class.
-
-- `GetClassName`
-
-   Returns a string representation of the class type of this object.
-
-- `Destroy`
-
-   Destroys this object. Do not use the object after calling this. References to it will be invalidated.
-
-- `OnDestroy`
-
-   Called when the object is collected by the garbage collector. **Not deterministic.**
-
-### Array
-
-While ZScript does not have proper user-facing generics, `Array` is one such type that does have a type parameter. It mirrors the internal `TArray` type.
-
-```
-struct Array<Type>
-{
-   void Copy(array<Type> other);
-   void Move(array<Type> other);
-   uint Find(Type item) const;
-   uint Push(Type item);
-   bool Pop();
-   void Delete(uint index, int count = 1);
-   void Insert(uint index, Type item);
-   void ShrinkToFit();
-   void Grow(uint amount);
-   void Resize(uint amount);
-   uint Reserve(uint amount);
-   uint Max() const;
-   uint Size() const;
-   void Clear();
-}
-```
-
-- `Copy`
-
-   Copies another array's contents into this array.
-
-- `Move`
-
-   Moves another array's contents into this array.
-
-- `Find`
-
-   Finds the index of `item` in the array, or `Size` if it couldn't be found.
-
-- `Push`
-
-   Places `item` at the end of the array, calling `Grow` if necessary.
-
-- `Pop`
-
-   Deletes the last item in the array. Returns `false` if there are no items in the array.
-
-- `Delete`
-
-   Deletes `count` object(s) at `index`. Moves objects after them into their place.
-
-- `Insert`
-
-   Inserts `item` at `index`. Moves objects after `index` to the right.
-
-- `ShrinkToFit`
-
-   Shrinks the allocated array size `Max` to `Size`.
-
-- `Grow`
-
-   Ensures the array can hold at least `amount` new members.
-
-- `Resize`
-
-   Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
-
-- `Reserve`
-
-   Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
-
-- `Max`
-
-   Returns the allocated size of the array.
-
-- `Size`
-
-   Returns the amount of objects in the array.
-
-- `Clear`
-
-   Clears out the entire array.
-
-### Color
-
-Colors simply store red, green, blue and alpha components.
-
-```
-struct Color
-{
-   uint8 r, g, b, a;
-}
-```
-
-### FixedArray
-
-Fixed-size arrays have a size method attached to them for convenience purposes.
-
-```
-struct FixedArray
-{
-   uint Size() const;
-}
-```
-
-- `Size`
-
-   Returns the size of the array. This is a compile-time constant.
-
-### String
-
-```
-struct String
-{
-   static vararg string Format(string format, ...);
-
-   vararg void AppendFormat(string format, ...);
-   void Replace(string pattern, string replacement);
-   string Left(int len) const;
-   string Mid(int pos = 0, int len = int.max) const;
-   void Truncate(int newlen);
-   void Remove(int index, int amount);
-   string CharAt(int pos) const;
-   int CharCodeAt(int pos) const;
-   string Filter();
-   int IndexOf(string substr, int start = 0) const;
-   deprecated("3.5.1") int LastIndexOf(string substr, int end = int.max) const;
-   int RightIndexOf(string substr, int end = int.max) const;
-   void ToUpper();
-   void ToLower();
-   int ToInt(int base = 0) const;
-   double ToDouble() const;
-   void Split(out array<string> tokens, string delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
-   uint Length() const;
-}
-```
-
-- `Format`
-
-   Creates a string using a format string and any amount of arguments.
-
-- `Replace`
-
-   Replaces all instances of `pattern` with `replacement` in place.
-
-- `AppendFormat`
-
-   Works like `Format`, but appends the result to the string.
-
-- `Left`
-
-   Returns the first `len` characters as a new string.
-
-- `Mid`
-
-   Returns `len` characters starting at `pos` as a new string.
-
-- `Truncate`
-
-   Truncates the string to `len` characters in place.
-
-- `Remove`
-
-   Removes `amount` characters starting at `index` in place.
-
-- `CharAt`
-
-   Returns the character at `pos` as a new string.
-
-- `CharCodeAt`
-
-   Returns the character at `pos` as an integer.
-
-- `Filter`
-
-   Replaces escape sequences in a string with escaped characters as a new string.
-
-- `IndexOf`
-
-   Returns the first index of `substr` starting from the left at `start`.
-
-- `LastIndexOf`
-
-   Broken. Use `RightIndexOf` instead.
-
-- `RightIndexOf`
-
-   Returns the first index of `substr` starting from the right at `end`.
-
-- `ToUpper`
-
-   Converts all characters in the string to uppercase in place.
-
-- `ToLower`
-
-   Converts all characters in the string to lowercase in place.
-
-- `ToInt`
-
-   Interprets the string as a base `base` integer, guessing the base if it is `0`.
-
-- `ToDouble`
-
-   Interprets the string as a double precision floating point number.
-
-- `Split`
-
-   Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be either `TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or discard empty strings found while splitting.
-
-### TextureID
-
-Texture IDs can be explicitly converted to integers, but not the other way around. You can add and subtract integers with a `textureid`, however. (This only works with the integer on the right hand side.)
-
-```
-struct TextureID
-{
-   bool IsValid() const;
-   bool IsNull() const;
-   bool Exists() const;
-   void SetInvalid();
-   void SetNull();
-}
-```
-
-- `IsValid`
-
-   Checks if the texture index is not the invalid index (`-1`.)
-
-- `IsNull`
-
-   Checks if the texture is the null index (`0`.)
-
-- `Exists`
-
-   Checks if the texture exists within the texture manager at all.
-
-- `SetInvalid`
-
-   Sets the texture index to `-1`.
-
-- `SetNull`
-
-   Sets the texture index to `0`.
-
-   The proper way to zero-initialize a `textureid` is:
-
-   ```
-   textureid tex;
-   tex.SetNull();
-   ```
-
-### Vector2/Vector3
-
-```
-struct Vector2
-{
-   double x, y;
-
-   double Length() const;
-   vector2 Unit() const;
-}
-
-struct Vector3
-{
-   double x, y, z;
-   vector2 xy;
-
-   double Length() const;
-   vector3 Unit() const;
-}
-```
-
-- `Length`
-
-   Returns the length (magnitude) of the vector.
-
-- `Unit`
-
-   Returns a normalized vector. Equivalent to `vec / vec.length()`.
-
-Level Data
-----------
-
-### Vertex
-
-```
-struct Vertex play
-{
-   readonly vector2 p;
-}
-```
-
-- `p`
-
-   The point this object represents.
-
-### Side
-
-Also known as a "sidedef." One of the textured sides of a line. Each sidedef has three portions: Upper, middle, and lower. The middle texture is special as it can have transparency.
-
-The three portions of a sidedef can be referred to with:
-
-| Name          | Description         |
-| ----          | -----------         |
-| `Side.Top`    | The upper portion.  |
-| `Side.Mid`    | The middle portion. |
-| `Side.Bottom` | The lower portion.  |
-
-```
-struct Side play
-{
-   readonly Sector Sector;
-   readonly Line   Linedef;
-
-   int16 Light;
-   uint8 Flags;
-
-   int Index();
-
-   clearscope Vertex V1();
-   clearscope Vertex V2();
-
-   textureid GetTexture(int which);
-   double GetTextureXOffset(int which);
-   double GetTextureYOffset(int which);
-   double GetTextureXScale(int which);
-   double GetTextureYScale(int which);
-
-   void SetTexture(int which, textureid tex);
-   void SetTextureXOffset(int which, double offset);
-   void SetTextureYOffset(int which, double offset);
-   void SetTextureXScale(int which, double scale);
-   void SetTextureYScale(int which, double scale);
-
-   void AddTextureXOffset(int which, double delta);
-   void AddTextureYOffset(int which, double delta);
-
-   void MultiplyTextureXScale(int which, double delta);
-   void MultiplyTextureYScale(int which, double delta);
-
-   int GetUDMFInt(name nm);
-   double GetUDMFFloat(name nm);
-   string GetUDMFString(name nm);
-}
-```
-
-- `Sector`
-
-   The sector this side belongs to.
-
-- `Linedef`
-
-   The line this side belongs to.
-
-- `Light`
-
-   The light level of this side.
-
-- `Flags`
-
-   Any combination of the following bit flags:
-
-   | Name                   | Description                                                                 |
-   | ----                   | -----------                                                                 |
-   | `WALLF_ABSLIGHTING`    | Light is absolute instead of relative to the sector.                        |
-   | `WALLF_NOAUTODECALS`   | Don't attach decals to this surface.                                        |
-   | `WALLF_NOFAKECONTRAST` | Disables the "fake contrast" effect for this side.                          |
-   | `WALLF_SMOOTHLIGHTING` | Applies a unique contrast at all angles.                                    |
-   | `WALLF_CLIP_MIDTEX`    | Clips the middle texture when it goes under the floor or above the ceiling. |
-   | `WALLF_WRAP_MIDTEX`    | Repeats the middle texture infinitely on the vertical axis.                 |
-   | `WALLF_POLYOBJ`        | This sidedef belongs to a polyobject.                                       |
-   | `WALLF_LIGHT_FOG`      | The wall's lighting will ignore fog effects.                                |
-
-- `Index`
-
-   Returns the index of this side.
-
-- `V1`, `V2`
-
-   Returns the start and end points of this sidedef, respectively.
-
-- `GetTexture`, `SetTexture`
-
-   Gets or sets the texture of one portion of the sidedef.
-
-- `GetTextureXOffset`, `SetTextureXOffset`, `AddTextureXOffset`
-
-   Gets, sets or adds to the texture portion's horizontal offset.
-
-- `GetTextureYOffset`, `SetTextureYOffset`, `AddTextureYOffset`
-
-   Gets, sets or adds to the texture portion's vertical offset.
-
-- `GetTextureXScale`, `SetTextureXScale`, `MultiplyTextureXScale`
-
-   Gets, sets or multiplies the texture portion's horizontal scale.
-
-- `GetTextureYScale`, `SetTextureYScale`, `MultiplyTextureYScale`
-
-   Gets, sets or multiplies the texture portion's vertical scale.
-
-- `GetUDMFInt`, `GetUDMFFloat`, `GetUDMFString`
-
-   Gets a named UDMF property attached to this sidedef.
-
-### Line
-
-Also known as a "linedef." A line segment with two sides and two vertices.
-
-```
-struct Line
-{
-   readonly Vertex  V1, V2;
-   readonly vector2 Delta;
-   readonly Side    Sidedef[2];
-   readonly double  BBox[4];
-   readonly Sector  FrontSector;
-   readonly Sector  BackSector;
-
-   readonly uint PortalIndex;
-   readonly uint PortalTransferred;
-
-   int    ValidCount;
-   uint   Flags;
-   double Alpha;
-
-   uint Activation;
-   int  LockNumber;
-   int  Special;
-   int  Args[5];
-
-   int Index();
-
-   bool Activate(Actor activator, int side, int type);
-   bool RemoteActivate(Actor activator, int side, int type, vector3 pos);
-
-   bool IsLinePortal();
-   bool IsVisualPortal();
-   Line GetPortalDestination();
-
-   int GetUDMFInt(name nm);
-   double GetUDMFFloat(name nm);
-   string GetUDMFString(name nm);
-}
-```
-
-- `V1`, `V2`
-
-   Returns the start and end points of this line segment, respectively.
-
-- `Delta`
-
-   Equivalent to `V2 - V1`.
-
-- `Sidedef`
-
-   The front and back sides of this line, 0 and 1 respectively. The aliases `Line.Front` and `Line.Back` are provided as well.
-
-- `BBox`
-
-   The top, bottom, left and right of the line, respective to array index.
-
-- `FrontSector`, `BackSector`
-
-   The sector of the front and back sides of this line.
-
-- `PortalIndex`
-
-   TODO
-
-- `PortalTransferred`
-
-   TODO
-
-- `ValidCount`
-
-   Don't use this.
-
-- `Flags`
-
-   Any combination of the following bit flags:
-
-   | Name                     | Description                                                                       |
-   | ----                     | -----------                                                                       |
-   | `ML_BLOCKING`            | Line is solid and blocks everything but projectiles and hitscans.                 |
-   | `ML_BLOCKMONSTERS`       | Line blocks non-flying monsters.                                                  |
-   | `ML_BLOCKPROJECTILE`     | Line blocks projectiles.                                                          |
-   | `ML_BLOCKHITSCAN`        | Line blocks hitscans.                                                             |
-   | `ML_BLOCK_FLOATERS`      | Line blocks flying monsters.                                                      |
-   | `ML_BLOCK_PLAYERS`       | Line blocks players.                                                              |
-   | `ML_BLOCKEVERYTHING`     | Line blocks everything.                                                           |
-   | `ML_BLOCKUSE`            | Line blocks use actions.                                                          |
-   | `ML_BLOCKSIGHT`          | Line blocks line of sight.                                                        |
-   | `ML_TWOSIDED`            | Line has a back side.                                                             |
-   | `ML_CLIP_MIDTEX`         | Applies `WALLF_CLIP_MIDTEX` to both sides.                                        |
-   | `ML_WRAP_MIDTEX`         | Applies `WALLF_WRAP_MIDTEX` to both sides.                                        |
-   | `ML_DONTPEGTOP`          | Upper texture is un-pegged on both sides.                                         |
-   | `ML_DONTPEGBOTTOM`       | Lower texture is un-pegged on both sides.                                         |
-   | `ML_ADDTRANS`            | Middle textures are drawn with additive translucency on both sides.               |
-   | `ML_SECRET`              | Line will be shown as one-sided on the automap.                                   |
-   | `ML_DONTDRAW`            | Never shown on the automap.                                                       |
-   | `ML_MAPPED`              | Always shown on the automap.                                                      |
-   | `ML_SOUNDBLOCK`          | Blocks sound propogation after two lines with this flag.                          |
-   | `ML_ZONEBOUNDARY`        | Unknown. (TODO)                                                                   |
-   | `ML_REPEAT_SPECIAL`      | Special may be activated multiple times.                                          |
-   | `ML_MONSTERSCANACTIVATE` | Monsters may activate this line.                                                  |
-   | `ML_CHECKSWITCHRANGE`    | Checks the activator's vertical position as well as horizontal before activating. |
-   | `ML_RAILING`             | Unknown. (TODO)                                                                   |
-   | `ML_3DMIDTEX`            | Middle texture can be collided with and walked on as if it were a thin sector.    |
-   | `ML_3DMIDTEX_IMPASS`     | Unknown. (TODO)                                                                   |
-   | `ML_FIRSTSIDEONLY`       | Unknown. (TODO)                                                                   |
-
-- `Alpha`
-
-   Alpha of the middle texture on both sides.
-
-- `Activation`
-
-   TODO
-
-- `LockNumber`
-
-   TODO
-
-- `Special`
-
-   Number of the special action to be executed when this line is activated.
-
-- `Args`
-
-   Arguments of the line's special action.
-
-- `Index`
-
-   Returns the index of this line.
-
-- `Activate`
-
-   TODO
-
-- `RemoteActivate`
-
-   TODO
-
-- `IsLinePortal`
-
-   TODO
-
-- `IsVisualPortal`
-
-   TODO
-
-- `GetPortalDestination`
-
-   TODO
-
-- `GetUDMFInt`, `GetUDMFFloat`, `GetUDMFString`
-
-   Gets a named UDMF property attached to this linedef.
-
-### Sector
-
-TODO
-
-### SectorPortal
-
-TODO
-
-### SectorTagIterator
-
-TODO
-
-### LineIdIterator
-
-Iterates over line indices with a specified tag.
-
-```
-class LineIdIterator
-{
-   static LineIdIterator Create(int tag);
-
-   int Next();
-}
-```
-
-- `Create`
-
-   Creates a new iterator over lines with tag `tag`.
-
-- `Next`
-
-   Returns the index of the current line and advances the iterator. Returns -1 when the list is exhausted.
-
-### LevelLocals
-
-TODO
-
-```
-struct LevelLocals
-{
-   // Map data
-   array<Sector> Sectors;
-   array<Line>   Lines;
-   array<Side>   Sides;
-
-   readonly array<Vertex>       Vertexes;
-   internal array<SectorPortal> SectorPortals;
-
-   // Stats
-   int Total_Secrets;
-   int Found_Secrets;
-   int Total_Items;
-   int Found_Items;
-   int Total_Monsters;
-   int Killed_Monsters;
-
-   // Time
-   readonly int Time;
-   readonly int MapTime;
-   readonly int TotalTime;
-   readonly int StartTime;
-   readonly int ParTime;
-   readonly int SuckTime;
-
-   // Map sequencing
-   readonly int    Cluster;
-   readonly int    ClusterFlags;
-   readonly int    LevelNum;
-   readonly string LevelName;
-   readonly string MapName;
-
-   string NextMap;
-   string NextSecretMap;
-
-   readonly int MapType;
-
-   // Music
-   readonly string Music;
-   readonly int    MusicOrder;
-
-   // Sky
-   readonly textureid SkyTexture1;
-   readonly textureid SkyTexture2;
-
-   float SkySpeed1;
-   float SkySpeed2;
-
-   // Physics
-   play double Gravity;
-   play double AirControl
-   play double AirFriction;
-   play int    AirSupply;
-
-   // State
-   bool AllMap;
-   bool Frozen;
-
-   // Static info
-   string F1Pic;
-   readonly double TeamDamage;
-   readonly bool   NoInventoryBar;
-   readonly bool   MonstersTelefrag;
-   readonly bool   ActOwnSpecial;
-   readonly bool   SndSeqTotalCtrl;
-   readonly bool   MissilesActivateImpact;
-   readonly bool   MonsterFallingDamage;
-   readonly bool   CheckSwitchRange;
-   readonly bool   PolyGrind;
-   readonly bool   NoMonsters;
-   readonly bool   AllowRespawn;
-   readonly bool   Infinite_Flight;
-   readonly bool   No_Dlg_Freeze;
-   readonly int    FogDensity;
-   readonly int    OutsideFogDensity;
-   readonly int    SkyFog;
-   readonly float  PixelStretch;
-
-   string GetUDMFString(int type, int index, name key);
-   int GetUDMFInt(int type, int index, name key);
-   double GetUDMFFloat(int type, int index, name key);
-
-   bool ExecuteSpecial(int special, Actor activator, Line linedef, bool lineside, int arg1 = 0, int arg2 = 0, int arg3 = 0, int arg4 = 0, int arg5 = 0);
-
-   void SetInterMusic(string nextmap);
-   string FormatMapName(int mapnamecolor);
-   string GetChecksum() const;
-   void ChangeSky(textureid sky1, textureid sky2);
-   string TimeFormatted(bool totals = false);
-
-   bool IsJumpingAllowed() const;
-   bool IsCrouchingAllowed() const;
-   bool IsFreelookAllowed() const;
-
-   static void GiveSecret(Actor activator, bool printmsg = true, bool playsound = true);
-   static void StartSlideshow(name whichone = 'none');
-   static void WorldDone();
-   static void RemoveAllBots(bool fromlist);
-
-   static clearscope vector2 Vec2Diff(vector2 v1, vector2 v2);
-   static clearscope vector3 Vec3Diff(vector3 v1, vector3 v2);
-   static clearscope vector3 SphericalCoords(vector3 viewpoint, vector3 targetPos, vector2 viewAngles = (0, 0), bool absolute = false);
-   static clearscope vector2 Vec2Offset(vector2 pos, vector2 dir, bool absolute = false);
-   static clearscope vector3 Vec2OffsetZ(vector2 pos, vector2 dir, double atz, bool absolute = false);
-   static clearscope vector3 Vec3Offset(vector3 pos, vector3 dir, bool absolute = false);
-}
-```
-
-Players
--------
-
-### PlayerInfo
-
-TODO
-
-### PlayerClass
-
-A player class as defined in either MAPINFO/GameInfo or KEYCONF.
-
-```
-struct PlayerClass
-{
-   class<Actor> Type;
-   uint         Flags;
-   array<int>   Skins;
-
-   bool CheckSkin(int skin);
-   void EnumColorsets(out array<int> data);
-   name GetColorsetName(int setnum);
-}
-```
-
-- `Type`
-
-   The class type reference for this player class.
-
-- `Flags`
-
-   Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript, but its value is `1` if you need to check for that.
-
-- `Skins`
-
-   Skin indices available to this player class.
-
-- `CheckSkin`
-
-   Checks if `skin` is in `Skins`.
-
-- `EnumColorsets`
-
-   TODO
-
-- `GetColorsetName`
-
-   TODO
-
-### PlayerSkin
-
-A player skin as defined in SKININFO or S_SKIN.
-
-```
-struct PlayerSkin
-{
-   string  SkinName;
-   string  Face;
-   uint8   Gender;
-   uint8   Range0Start;
-   uint8   Range0End;
-   bool    OtherGame;
-   vector2 Scale;
-   int     Sprite;
-   int     CrouchSprite;
-   int     NameSpc;
-}
-```
-
-- `SkinName`
-
-   Name of the skin.
-
-- `Face`
-
-   Prefix for statusbar face graphics.
-
-- `Gender`
-
-   Default gender of the skin (0 for male, 1 for female, 2 for other.)
-
-- `Range0Start`
-
-   The beginning of the translation range to be used for changing the player sprite's color.
-
-- `Range0End`
-
-   The end of the translation range to be used for changing the player sprite's color.
-
-- `OtherGame`
-
-   The player skin is made for another game and needs to be color remapped differently.
-
-- `Scale`
-
-   The scaling factor used for the player sprite.
-
-- `Sprite`
-
-   The sprite ID for this skin.
-
-- `CrouchSprite`
-
-   The crouching sprite ID for this skin.
-
-- `NameSpc`
-
-   If this skin was defined in S_SKIN, this refers to the marker lump itself.
-
-### Team
-
-A team as defined in TEAMINFO.
-
-```
-struct Team
-{
-   const NoTeam;
-   const Max;
-
-   string mName;
-}
-```
-
-- `NoTeam`
-
-   A constant index for a player with no team.
-
-- `Max`
-
-   The maximum number of teams.
-
-- `mName`
-
-   The name of the team.
-
-Weapons
--------
-
-### Weapon
-
-TODO
-
-Drawing
--------
-
-### Font
-
-A font as defined in FONTDEFS or a ZDoom or bitmap font file.
-
-```
-struct Font
-{
-   static int FindFontColor(name color);
-   static Font FindFont(name fontname);
-   static Font GetFont(name fontname);
-
-   int GetCharWidth(int code);
-   int StringWidth(string code);
-   int GetHeight();
-   string GetCursor();
-   BrokenLines BreakLines(string text, int maxlen);
-}
-```
-
-- `FindFontColor`
-
-   Returns the color range enumeration for a named color.
-
-- `FindFont`
-
-   Gets a font as defined in FONTDEFS.
-
-- `GetFont`
-
-   Gets a font either as defined in FONTDEFS or a ZDoom/bitmap font.
-
-- `GetCharWidth`
-
-   Returns the width in pixels of a character code.
-
-- `StringWidth`
-
-   Returns the width in pixels of the string.
-
-- `GetHeight`
-
-   Returns the line height of the font.
-
-- `GetCursor`
-
-   Returns the string used as a blinking cursor graphic for this font.
-
-- `BreakLines`
-
-   Breaks `text` up into a `BrokenLines` structure according to the screen and clip region, as well as appropriately accounting for a maximum width in pixels of `maxlen`.
-
-### BrokenLines
-
-A container representing an array of lines of text that have been broken up to fit the screen and clipping region.
-
-```
-class BrokenLines
-{
-   int Count();
-   int StringWidth(int line);
-   string StringAt(int line);
-}
-```
-
-- `Count`
-
-   Returns the amount of lines in this container.
-
-- `StringWidth`
-
-   Returns the width (in pixels) of line `line`.
-
-- `StringAt`
-
-   Returns the text of line `line`.
-
-### TexMan
-
-The **Tex**ture **Man**ager is used for loading, finding, replacing and getting information on textures.
-
-```
-struct TexMan
-{
-   static textureid CheckForTexture(string name, int usetype, int flags = TexMan.TryAny);
-   static void ReplaceTextures(string from, string to, int flags);
-   static string GetName(textureid tex);
-   static int, int GetSize(textureid tex);
-   static vector2 GetScaledSize(textureid tex);
-   static vector2 GetScaledOffset(textureid tex);
-   static int CheckRealHeight(textureid tex);
-   static void SetCameraToTexture(Actor viewpoint, string texture, double fov);
-}
-```
-
-- `CheckForTexture`
-
-   Returns a `textureid` for the texture named `name`. `usetype` may be one of the following, which selects what kind of texture to find:
-
-   | Name                       | Description                                                    |
-   | ----                       | -----------                                                    |
-   | `TexMan.Type_Any`          | Returns any kind of texture.                                   |
-   | `TexMan.Type_Wall`         | Returns any composited wall texture, ie. `STARTAN2`.           |
-   | `TexMan.Type_Flat`         | Returns any flat, ie. `FLOOR0_1`.                              |
-   | `TexMan.Type_Sprite`       | Returns a sprite, ie. `MEDIA0`.                                |
-   | `TexMan.Type_WallPatch`    | Returns an uncomposited patch, ie. `DOOR2_1`.                  |
-   | `TexMan.Type_Build`        | Returns a tile from a BUILD TILES entry.                       |
-   | `TexMan.Type_SkinSprite`   | Unknown. (TODO)                                                |
-   | `TexMan.Type_Decal`        | Unknown. (TODO)                                                |
-   | `TexMan.Type_MiscPatch`    | Unknown. (TODO)                                                |
-   | `TexMan.Type_FontChar`     | Unknown. (TODO)                                                |
-   | `TexMan.Type_Override`     | Unknown. (TODO)                                                |
-   | `TexMan.Type_Autopage`     | Returns an automap background graphic. (TODO: needs example)   |
-   | `TexMan.Type_SkinGraphic`  | Unknown. (TODO)                                                |
-   | `TexMan.Type_Null`         | Returns the null graphic. Ignores `name`.                      |
-   | `TexMan.Type_FirstDefined` | Unknown. (TODO)                                                |
-
-   `flags` may be any of the following combined (with the bitwise OR operator `|`:)
-
-   | Name                   | Description                                     |
-   | ----                   | -----------                                     |
-   | `TexMan.TryAny`        | Default. Unknown. (TODO)                        |
-   | `TexMan.Overridable`   | Unknown. (TODO)                                 |
-   | `TexMan.ReturnFirst`   | Unknown. (TODO)                                 |
-   | `TexMan.AllowSkins`    | Unknown. (TODO)                                 |
-   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.  |
-   | `TexMan.DontCreate`    | Will never create a new texture when searching. |
-
-- `ReplaceTextures`
-
-   Replaces textures named `from` with `to` within the map. `flags` may be used to filter out certain textures from being replaced:
-
-   | Name                 | Description                          |
-   | ----                 | -----------                          |
-   | `TexMan.NOT_BOTTOM`  | Filters out linedef bottom textures. |
-   | `TexMan.NOT_MIDDLE`  | Filters out linedef middle textures. |
-   | `TexMan.NOT_TOP`     | Filters out linedef upper textures.  |
-   | `TexMan.NOT_FLOOR`   | Filters out floor flats.             |
-   | `TexMan.NOT_CEILING` | Filters out ceiling flats.           |
-   | `TexMan.NOT_WALL`    | Filters out any linedef texture.     |
-   | `TexMan.NOT_FLAT`    | Filters out any flat texture.        |
-
-- `GetName`
-
-   Returns the original name of a `textureid`.
-
-- `GetSize`
-
-   Returns the width and height of a `textureid`.
-
-- `GetScaledSize`
-
-   TODO
-
-- `GetScaledOffset`
-
-   TODO
-
-- `CheckRealHeight`
-
-   TODO
-
-- `SetCameraToTexture`
-
-   Sets the camera texture (as defined in ANIMDEFS) `texture` to the viewpoint of `viewpoint` with a fov of `fov`.
