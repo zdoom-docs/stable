@@ -1010,7 +1010,7 @@ class Object
 
 - `OnDestroy`
 
-   Called when the object is collected by the garbage collector. **Not deterministic.**
+   Called just before the object is collected by the garbage collector. **Not deterministic** unless the object is linked into the thinker list. Not all `Thinker`s are, so be careful when overriding this. Any `Actor` will generally be safe.
 
 ### Thinker
 
