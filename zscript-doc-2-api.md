@@ -162,13 +162,13 @@ Global Functions
 ### Class Handling
 
 ```
-Type GetDefaultByType(TypeName);
+Type GetDefaultByType(class<Actor> type);
 Type New(class typename = ThisClass);
 ```
 
 - `GetDefaultByType`
 
-   Gets the default value of any built-in type.
+   Returns an object containing the default values for each member of the `Actor` type provided as they would be set in `BeginPlay`. **Note that the return value cannot be serialized and if stored must be marked as `transient`.** The returned object is a pseudo-object which is stored only in-memory.
 
 - `New`
 

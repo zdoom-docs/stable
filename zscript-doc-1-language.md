@@ -737,7 +737,7 @@ The syntax for an argument list is:
 Expression $[ , Expression]$...
 ```
 
-Function calls may name arguments which have defaults with the syntax `Identifier: Expression`, possibly skipping over other defaulted arguments. After the first named defaultable argument, all other arguments must be named as well.
+Function calls may name arguments which have defaults with the syntax `Identifier : Expression`, possibly skipping over other defaulted arguments. After the first named defaultable argument, all other arguments must be named as well.
 
 ### Unary expressions
 
