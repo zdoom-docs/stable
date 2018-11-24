@@ -56,7 +56,7 @@ Concepts
 Action Scoping
 --------------
 
-On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map. The available scopes are:
+On classes derived from Actor, states and methods can be scoped to a certain subset of uses. This is mainly to differentiate actions which take place in inventory items and weapons, and actions which take place in the actual game map, for disambiguating the `self` pointer usage. The available scopes are:
 
 | Name      | Description                                   |
 | ----      | -----------                                   |
@@ -64,6 +64,15 @@ On classes derived from Actor, states and methods can be scoped to a certain sub
 | `item`    | Actions are called from an inventory item.    |
 | `overlay` | Actions are called from a weapon overlay.     |
 | `weapon`  | Actions are called from a weapon.             |
+
+These can be defined either in the `states` block header as-is, or in `Actor`'s `DefaultStateUsage` property with the following bit flags:
+
+| Name          | Scope     |
+| ----          | -----     |
+| `SUF_ACTOR`   | `actor`   |
+| `SUF_ITEM`    | `item`    |
+| `SUF_OVERLAY` | `overlay` |
+| `SUF_WEAPON`  | `weapon`  |
 
 Object Scoping
 --------------
@@ -96,7 +105,7 @@ Sprite
 
 A sprite is stored in two numbers: the *sprite ID* (represented by the `spriteid` type or sometimes `int`) and the *sprite frame* (represented by an `int` or `uint8` usually.) The rotation is generally irrelevant as only the `0` (front rotation) frame is used in most contexts. The sprite frame is, unlike the file and state block representations, not a character, but an integer. The number `0` for instance represents the letter `A`, `1` to `B`, etc.
 
-For more information on sprites and rotations, please refer to [the Doom Wiki article on sprites](https://doomwiki.org/wiki/Sprite).
+For more information on sprites and rotations, please refer to [the relevant Doom Wiki article](https://doomwiki.org/wiki/Sprite).
 
 Game Tick
 ---------
@@ -114,6 +123,8 @@ The Doom engine, as long as it has existed and into every faithful-enough port o
 - The game is rendered.
 
    All information from the *current* game tick is rendered. This usually happens more often than the game is actually ticked. In ZDoom, Eternity Engine, and some other ports, the information is interpolated between the last and current game tick when there is extra time available to give smoother rendering.
+
+For more information on ticks, please refer to [the relevant Doom Wiki article](https://doomwiki.org/wiki/Tic).
 
 Interpolation
 -------------

@@ -325,6 +325,15 @@ Integer types are basic integral numbers. They include:
 | `int8`   | No                 | 8    | -128           | 127           |
 | `uint8`  | No                 | 8    | 0              | 255           |
 
+Some types have aliases as well:
+
+| Name     | Aliases  |
+| ----     | -------  |
+| `sbyte`  | `int8`   |
+| `byte`   | `uint8`  |
+| `short`  | `int16`  |
+| `ushort` | `uint16` |
+
 ## Floating-point types
 
 Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
@@ -795,14 +804,13 @@ Or, if you want multiple members with the same type and flags:
 [Member declaration flags...] Type name[, name...];
 ```
 
-Note that the types `Font` and `CVar` are unserializable as members and must be marked transient.
-
 ## Member declaration flags
 
 | Flag                | Description                                                                                                         |
 | ----                | -----------                                                                                                         |
 | `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than `ver`.                      |
 | `internal`          | Member is only writable from the base resource archive (`gzdoom.pk3`.)                                              |
+| `latent`            | Does nothing. Purpose unknown.                                                                                      |
 | `meta`              | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
 | `native`            | Member is from the engine. Only usable internally.                                                                  |
 | `play`              | Member has Play scope.                                                                                              |

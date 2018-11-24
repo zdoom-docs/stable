@@ -36,7 +36,8 @@ Table of Contents
       * [State](#state)
       * [StringTable](#stringtable)
    * [Globals](#globals)
-      * [DehInfo](#dehinfo)
+      * [DEHInfo](#dehinfo)
+      * [FOptionMenuSettings](#foptionmenusettings)
       * [GameInfoStruct](#gameinfostruct)
       * [LevelLocals](#levellocals)
    * [Level Data](#level-data)
@@ -410,7 +411,7 @@ readonly array<PlayerClass>  PlayerClasses;
 readonly array<PlayerSkin>   PlayerSkins;
 readonly array<Team>         Teams;
 
-play     DehInfo             DEH;
+play     DEHInfo             DEH;
 readonly GameInfoStruct      GameInfo;
 readonly FOptionMenuSettings OptionMenuSettings;
 readonly textureid           SkyFlatNum;
@@ -443,7 +444,7 @@ readonly Weapon              WP_NOCHANGE;
 
 - `OptionMenuSettings`
 
-   TODO
+   Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block and `MAPINFO`/GameInfo.
 
 - `SkyFlatNum`
 
@@ -1198,13 +1199,13 @@ struct State
    readonly uint16 TicRange;
    readonly uint8  UseFlags;
 
-   readonly bool   bCANRAISE;
-   readonly bool   bDEHACKED;
-   readonly uint16 bFAST;
-   readonly bool   bFULLBRIGHT;
-   readonly bool   bNODELAY;
-   readonly bool   bSAMEFRAME;
-   readonly uint16 bSLOW;
+   readonly bool bCANRAISE;
+   readonly bool bDEHACKED;
+   readonly bool bFAST;
+   readonly bool bFULLBRIGHT;
+   readonly bool bNODELAY;
+   readonly bool bSAMEFRAME;
+   readonly bool bSLOW;
 
    int DistanceTo(State other);
    bool ValidateSpriteFrame();
@@ -1230,32 +1231,29 @@ struct State
    The number of game ticks this state lasts.
 
 - `Misc1`
-
-   TODO
-
 - `Misc2`
 
-   TODO
+   Primarily used in DeHackEd compatibility. Don't use this.
 
 - `TicRange`
 
-   TODO
+   The maximum amount of tics to add for random tic durations, or `0` if the duration is not random. For example, `TNT1 A random(5, 7)` would have a `Tics` value of `5` and a `TicRange` of `2`.
 
 - `UseFlags`
 
-   TODO
+   The scope of this state. See *Action Scoping*. Can have any of the `DefaultStateUsage` flags.
 
 - `bCANRAISE`
 
-   State has the `CANRAISE` flag, allowing `A_VileChase` to target this actor for healing.
+   State has the `CANRAISE` flag, allowing `A_VileChase` to target this actor for healing without entering an infinitely long state.
 
 - `bDEHACKED`
 
-   TODO
+   `true` if the state has been modified by DeHackEd.
 
 - `bFAST`
 
-   TODO
+   State has the `FAST` flag, halving the duration when fast monsters is enabled.
 
 - `bFULLBRIGHT`
 
@@ -1267,23 +1265,23 @@ struct State
 
 - `bSAMEFRAME`
 
-   TODO
+   `true` if the state's frame is to be kept from the last frame used, i.e., is `#`.
 
 - `bSLOW`
 
-   TODO
+   State has the `SLOW` flag, doubling the duration when slow monsters is enabled.
 
 - `DistanceTo`
 
-   TODO
+   Returns the offset between this state and `other` in the global frame table. Only works if both states are owned by the same actor.
 
 - `ValidateSpriteFrame`
 
-   TODO
+   Returns `true` if the sprite frame actually exists.
 
 - `GetSpriteTexture`
 
-   TODO
+   Returns the texture, if the texture should be flipped horizontally, and scaling of this state's sprite. Scaling will return `scale` unless `skin` is nonzero. `skin` determines the player skin used.
 
 ### StringTable
 
@@ -1303,12 +1301,12 @@ struct StringTable
 Globals
 -------
 
-### DehInfo
+### DEHInfo
 
 Static DeHackEd information.
 
 ```
-struct DehInfo
+struct DEHInfo
 {
    readonly int    BFGCells;
    readonly int    BlueAC;
@@ -1343,7 +1341,59 @@ struct DehInfo
 
    Overrides generic freezing deaths if not zero, making all actors act as if they had the `NOICEDEATH` flag.
 
+### FOptionMenuSettings
+
+Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block and `MAPINFO`/GameInfo.
+
+```
+struct FOptionMenuSettings
+{
+   int mTitleColor;
+   int mFontColor;
+   int mFontColorValue;
+   int mFontColorMore;
+   int mFontColorHeader;
+   int mFontColorHighlight;
+   int mFontColorSelection;
+   int mLineSpacing;
+}
+```
+
+- `mTitleColor`
+
+   TODO
+
+- `mFontColor`
+
+   TODO
+
+- `mFontColorValue`
+
+   TODO
+
+- `mFontColorMore`
+
+   TODO
+
+- `mFontColorHeader`
+
+   TODO
+
+- `mFontColorHighlight`
+
+   TODO
+
+- `mFontColorSelection`
+
+   TODO
+
+- `mLineSpacing`
+
+   The spacing in virtual pixels between two lines in an `OptionMenu`.
+
 ### GameInfoStruct
+
+Static information from `MAPINFO`/GameInfo.
 
 ```
 struct GameInfoStruct
@@ -1976,6 +2026,42 @@ TODO
 ### SecSpecial
 
 TODO
+
+```
+struct SecSpecial play
+{
+   int   DamageAmount;
+   int16 DamageInterval;
+   name  DamageType;
+   int   Flags;
+   int16 LeakyDamage;
+   int16 Special;
+}
+```
+
+- `DamageAmount`
+
+   TODO
+
+- `DamageInterval`
+
+   TODO
+
+- `DamageType`
+
+   TODO
+
+- `Flags`
+
+   TODO
+
+- `LeakyDamage`
+
+   TODO
+
+- `Special`
+
+   TODO
 
 ### SecPlane
 
