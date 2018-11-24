@@ -19,6 +19,7 @@ Table of Contents
    * [Examples: Enumeration definitions](#examples-enumeration-definitions)
    * [Examples: Constant definitions](#examples-constant-definitions)
    * [Examples: Include directives](#examples-include-directives)
+   * [Examples: Function argument lists](#examples-function-argument-lists)
    * [Examples: Expression statements](#examples-expression-statements)
    * [Examples: Conditional statements](#examples-conditional-statements)
    * [Examples: Switch statements](#examples-switch-statements)
@@ -247,6 +248,35 @@ Basic includes:
 
 ```
 #include "zscript/MyCoolMod/MyCoolClasses.zsc"
+```
+
+## Examples: Function argument lists
+
+With the function:
+
+```
+void fn(int one, int two, int a = 0, int b = 0);
+```
+
+One could do the following:
+
+```
+fn(4, 5);
+fn(5, 6, 7);
+fn(6, 7, 8, 9);
+```
+
+Or using named default arguments:
+
+```
+fn(5, 6, a: 7);
+fn(6, 7, b: 8);
+fn(7, 8, a: 9, b: 10);
+
+// equivalent to:
+fn(5, 6, 7);
+// (no equivalent, must use above)
+fn(7, 8, 9, 10);
 ```
 
 ## Examples: Expression statements

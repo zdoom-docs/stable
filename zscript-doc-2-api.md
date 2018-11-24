@@ -16,6 +16,7 @@ Table of Contents
       * [Sound](#sound)
       * [System](#system)
    * [Global Variables](#global-variables)
+      * [Constants](#constants)
       * [Static Info](#static-info)
       * [Game State](#game-state)
       * [Client](#client)
@@ -71,6 +72,12 @@ Table of Contents
       * [TexMan](#texman)
    * [Sounds](#sounds)
       * [SeqNode](#seqnode)
+   * [Intermission Screens](#intermission-screens)
+      * [WBPlayerStruct](#wbplayerstruct)
+      * [WBStartStruct](#wbstartstruct)
+      * [InterBackground](#interbackground)
+      * [PatchInfo](#patchinfo)
+      * [StatusScreen](#statusscreen)
 
 <!-- vim-markdown-toc -->
 
@@ -78,6 +85,8 @@ API
 ===
 
 The ZScript API is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
+
+Note to authors: Capitalization is normalized within this documentation to encourage consistent code, and does not follow ZScript's original capitalization exactly. Similarly, argument names in methods are sometimes renamed. Note well that *arguments with defaults MAY NOT be renamed* as they are part of the API.
 
 Type Symbols
 ============
@@ -309,11 +318,11 @@ vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
 ```
 void  SetMusicVolume(float vol);
-bool  S_ChangeMusic(string music_name, int order = 0, bool looping = true, bool force = false);
-float S_GetLength(sound sound_id);
+bool  S_ChangeMusic(string name, int order = 0, bool looping = true, bool force = false);
+float S_GetLength(sound id);
 void  S_PauseSound(bool notmusic, bool notsfx);
 void  S_ResumeSound(bool notsfx);
-void  S_Sound(sound sound_id, int channel, float volume = 1, float attenuation = ATTN_NORM);
+void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_NORM);
 ```
 
 - `SetMusicVolume`
@@ -402,6 +411,42 @@ Global Variables
 ----------------
 
 These variables are accessible in any context and are not bound by any specific object.
+
+### Constants
+
+```
+const MAXPLAYERNAME;
+const MAXPLAYERS;
+
+const DEFMELEERANGE;
+const MISSILERANGE;
+const PLAYERMISSILERANGE;
+const SAWRANGE;
+```
+
+- `MAXPLAYERNAME`
+
+   The maximum length of a player name.
+
+- `MAXPLAYERS`
+
+   The maximum amount of players in game.
+
+- `DEFMELEERANGE`
+
+   The range where melee will be used for monsters, and the range for the player's melee attacks.
+
+- `MISSILERANGE`
+
+   The maximum range for monster missile/hit-scan attacks.
+
+- `PLAYERMISSILERANGE`
+
+   The maximum range for player missile/hit-scan attacks.
+
+- `SAWRANGE`
+
+   The range of Doom's Chainsaw weapon.
 
 ### Static Info
 
@@ -693,7 +738,7 @@ struct Array<Type>
 {
    void Clear();
    void Copy(array<Type> other);
-   void Delete(uint index, int count = 1);
+   void Delete(uint index, int deletecount = 1);
    uint Find(Type item) const;
    void Grow(uint amount);
    void Insert(uint index, Type item);
@@ -792,6 +837,8 @@ struct FixedArray
 
 ### String
 
+Strings have many methods attached to them for manipulating text.
+
 ```
 struct String
 {
@@ -802,13 +849,13 @@ struct String
    string CharAt(int pos) const;
    int    CharCodeAt(int pos) const;
    string Filter();
-   int    IndexOf(string substr, int start = 0) const;
+   int    IndexOf(string substr, int startIndex = 0) const;
    string Left(int len) const;
    uint   Length() const;
    string Mid(int pos = 0, int len = int.Max) const;
    void   Remove(int index, int amount);
    void   Replace(string pattern, string replacement);
-   int    RightIndexOf(string substr, int end = int.Max) const;
+   int    RightIndexOf(string substr, int endIndex = int.Max) const;
    void   Split(out array<string> tokens, string delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
    double ToDouble() const;
    int    ToInt(int base = 0) const;
@@ -816,7 +863,7 @@ struct String
    void   ToUpper();
    void   Truncate(int newlen);
 
-   deprecated("3.5.1") int LastIndexOf(string substr, int end = int.Max) const;
+   deprecated("3.5.1") int LastIndexOf(string substr, int endIndex = int.Max) const;
 }
 ```
 
@@ -939,6 +986,8 @@ struct TextureID
    ```
 
 ### Vector2/Vector3
+
+Vectors have builtin methods and `Vector3` in particular has a swizzle operator.
 
 ```
 struct Vector2
@@ -1415,6 +1464,8 @@ struct GameInfoStruct
 }
 ```
 
+TODO
+
 ### LevelLocals
 
 Most map-relative data is stored in this structure.
@@ -1536,6 +1587,8 @@ Level Data
 ----------
 
 ### Vertex
+
+A point in world space.
 
 ```
 struct Vertex play
@@ -2854,5 +2907,305 @@ class SeqNode
 - `GetSequenceName`
 
    TODO
+
+Intermission Screens
+--------------------
+
+For legacy reasons, many intermission-related things may be prefixed with `WI` or `WB`. The abbreviation `WI` means *World Intermission* (the intermission screen was originally called "World Map" by Tom Hall) and `WB` meaning *World Buffer*, as this data was originally buffered into a specific memory address for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver). (Author's Note: I am not actually sure if this naming scheme is documented anywhere else, as even source port developers I asked didn't know about it. Feel free to disseminate this information, it was an original research.)
+
+### WBPlayerStruct
+
+Information for each individual player for a `StatusScreen`.
+
+```
+struct WBPlayerStruct
+{
+   int SItems;
+   int SKills;
+   int SSecret;
+   int STime;
+
+   int FragCount;
+   int Frags[MAXPLAYERS];
+}
+```
+
+- `SItems`
+
+   The number of items this player acquired.
+
+- `SKills`
+
+   The number of monsters this player killed.
+
+- `SSecret`
+
+   The number of secrets this player found.
+
+- `STime`
+
+   The time this player finished the level at, in ticks. (This is the same for all players.)
+
+- `FragCount`
+
+   The total amount of frags this player scored against all players.
+
+- `Frags`
+
+   The number of frags this player scored against each other player.
+
+### WBStartStruct
+
+Information passed into the `StatusScreen` class when an intermission starts.
+
+```
+struct WBStartStruct
+{
+   WBPlayerStruct Plyr[MAXPLAYERS];
+   int            PNum;
+
+   int Finished_Ep;
+   int Next_Ep;
+
+   string Current;
+   string Next;
+   string NextName;
+
+   textureid LName0;
+   textureid LName1;
+
+   int MaxFrags;
+   int MaxItems;
+   int MaxKills;
+   int MaxSecret;
+
+   int ParTime;
+   int SuckTime;
+   int TotalTime;
+}
+```
+
+- `Plyr`
+
+   The `WBPlayerStruct` for each player.
+
+- `PNum`
+
+   The index of the player to show stats for.
+
+- `Finished_Ep`
+
+   The cluster of the finished map, minus one.
+
+- `Next_Ep`
+
+   The cluster of the next map, minus one.
+
+- `Current`
+
+   The name of the map that was finished.
+
+- `Next`
+
+   The name of the next map.
+
+- `NextName`
+
+   The printable name of the next map.
+
+- `LName0`
+
+   Texture ID of the level name of the map that was finished.
+
+- `LName1`
+
+   Texture ID of the level name of the map being entered.
+
+- `MaxFrags`
+
+   Unknown purpose, not actually used by any part of the engine.
+
+- `MaxItems`
+
+   The maximum number of acquired items in the map.
+
+- `MaxKills`
+
+   The maximum number of killed monsters in the map.
+
+- `MaxSecret`
+
+   The maximum number of found secrets in the map.
+
+- `ParTime`
+
+   The par time of the map, in ticks.
+
+- `SuckTime`
+
+   The suck time of the map, in minutes.
+
+- `TotalTime`
+
+   The total time for the whole game, in ticks.
+
+### InterBackground
+
+TODO
+
+```
+class InterBackground play
+{
+   static InterBackground Create(WBStartStruct wbs);
+
+   virtual void DrawBackground(int curstate, bool drawsplat, bool pointeron);
+   virtual bool LoadBackground(bool isenterpic);
+   virtual void UpdateAnimatedBack();
+}
+```
+
+- `Create`
+
+   TODO
+
+- `DrawBackground`
+
+   TODO
+
+- `LoadBackground`
+
+   TODO
+
+- `UpdateAnimatedBack`
+
+   TODO
+
+### PatchInfo
+
+Either a patch or string depending on external configurations.
+
+```
+struct PatchInfo play
+{
+   int       mColor;
+   Font      mFont;
+   textureid mPatch;
+
+   void Init(GIFont gifont);
+}
+```
+
+- `mColor`
+
+   The color of the font, if this is a string.
+
+- `mFont`
+
+   The font, if this is a string, or `null`.
+
+- `mPatch`
+
+   The patch, if this is a patch, or an invalid texture.
+
+- `Init`
+
+   Initializes the structure. If `gifont.Color` is `'Null'`, and `gifont.FontName` is a valid patch, `mPatch` will be set accordingly. Otherwise, if the font has a color or the patch is invalid, `gifont.FontName` is used to set `mFont` (or it is defaulted to `BigFont`.)
+
+### StatusScreen
+
+TODO
+
+```
+class StatusScreen abstract play
+{
+   const NG_STATSY;
+   const SHOWNEXTLOCDELAY;
+   const SP_STATSX;
+   const SP_STATSY;
+   const SP_TIMEX;
+   const SP_TIMEY;
+   const TITLEY;
+
+   InterBackground BG;
+   WBPlayerStruct  Plrs[MAXPLAYERS];
+   WBStartStruct   WBS;
+
+   int   AccelerateStage;
+   int   BCnt;
+   int   Cnt;
+   int   Cnt_Deaths[MAXPLAYERS];
+   int   Cnt_Frags [MAXPLAYERS];
+   int   Cnt_Items [MAXPLAYERS];
+   int   Cnt_Kills [MAXPLAYERS];
+   int   Cnt_Par;
+   int   Cnt_Pause;
+   int   Cnt_Secret[MAXPLAYERS];
+   int   Cnt_Time;
+   int   Cnt_Total_Time;
+   int   CurState;
+   int   DoFrags;
+   int   Me;
+   int   NG_State;
+   bool  NoAutoStartMap;
+   bool  PlayerReady[MAXPLAYERS];
+   int   Player_Deaths[MAXPLAYERS];
+   bool  SNL_PointerOn;
+   int   SP_State;
+   float ShadowAlpha;
+   int   Total_Deaths;
+   int   Total_Frags;
+
+   PatchInfo Entering;
+   PatchInfo Finished;
+   PatchInfo MapName;
+
+   textureid Items;
+   textureid Kills;
+   textureid P_Secret;
+   textureid Par;
+   textureid Secret;
+   textureid Sucks;
+   textureid Timepic;
+
+   string LNameTexts[2];
+
+   int  DrawCharPatch(Font fnt, int charcode, int x, int y, int translation = Font.CR_UNTRANSLATED, bool nomove = false);
+   void DrawEL();
+   int  DrawLF();
+   int  DrawName(int y, textureid tex, string levelname);
+   int  DrawNum(Font fnt, int x, int y, int n, int digits, bool leadingzeros = true, int translation = Font.CR_UNTRANSLATED);
+   int  DrawPatchText(int y, PatchInfo pinfo, string stringname);
+   void DrawPercent(Font fnt, int x, int y, int p, int b, bool show_total = true, int color = Font.CR_UNTRANSLATED);
+   void DrawTime(int x, int y, int t, bool no_sucks = false);
+
+   bool AutoSkip();
+
+   virtual void Drawer();
+   virtual void End();
+   virtual void Start(WBStartStruct wbs_);
+   virtual void StartMusic();
+   virtual void Ticker();
+
+   protected virtual void DrawNoState();
+   protected virtual void DrawShowNextLoc();
+   protected virtual void DrawStats();
+   protected virtual void InitNoState();
+   protected virtual void InitShowNextLoc();
+   protected virtual void InitStats();
+   protected virtual void UpdateNoState();
+   protected virtual void UpdateShowNextLoc();
+   protected virtual void UpdateStats();
+
+   protected void CheckForAccelerate();
+   protected int  FragSum(int playernum);
+
+   static int, int, int GetPlayerWidths();
+   static color GetRowColor(PlayerInfo player, bool highlight);
+   static void  GetSortedPlayers(in out array<int> sorted, bool teamplay);
+   static void  PlaySound(sound snd);
+}
+```
+
+TODO
 
 <!-- EOF -->
