@@ -4,6 +4,7 @@ Table of Contents
 <!-- vim-markdown-toc GFM -->
 
 * [Language](#language)
+* [Reading This Document](#reading-this-document)
 * [Translation Unit](#translation-unit)
 * [Versions](#versions)
 * [Top-level](#top-level)
@@ -12,6 +13,8 @@ Table of Contents
    * [Class content](#class-content)
    * [Property definitions](#property-definitions)
    * [Default blocks](#default-blocks)
+      * [Default flag](#default-flag)
+      * [Default property](#default-property)
    * [State definitions](#state-definitions)
 * [Structure definitions](#structure-definitions)
    * [Structure flags](#structure-flags)
@@ -34,6 +37,8 @@ Table of Contents
    * [User types](#user-types)
    * [Read-only types](#read-only-types)
    * [Other types](#other-types)
+   * [Variable name](#variable-name)
+   * [Array size](#array-size)
 * [Expressions and Operators](#expressions-and-operators)
    * [Literals](#literals)
       * [String literals](#string-literals)
@@ -47,6 +52,7 @@ Table of Contents
       * [Primary expressions](#primary-expressions)
          * [Vector literals](#vector-literals)
       * [Postfix expressions](#postfix-expressions)
+         * [Argument list](#argument-list)
       * [Unary expressions](#unary-expressions)
       * [Binary expressions](#binary-expressions)
          * [Assignment expressions](#assignment-expressions)
@@ -65,6 +71,7 @@ Table of Contents
 * [Member declarations](#member-declarations)
    * [Member declaration flags](#member-declaration-flags)
 * [Method definitions](#method-definitions)
+   * [Method argument list](#method-argument-list)
    * [Method definition flags](#method-definition-flags)
 
 <!-- vim-markdown-toc -->
@@ -79,6 +86,21 @@ This documentation serves as an introduction to and informal specification of th
 ZScript runs in a virtual machine much like ACS, although because it is *not* compiled to bytecode and uses an object-oriented structure, the virtual machine is far more complex, and also therefore quite a bit slower. ZScript may only be read from source files by the engine, which has several benefits as well as detriments. It is the opinion of the author that this is a bad solution, but the author will refrain from going on a several-paragraph tirade about why bytecode is always better than source, even if it is an optional component.
 
 In any case, here we are. This documentation will detail all aspects of ZScript, from the language and type system to the API and finer details. This document is distributed under the [CC0 public domain license](https://creativecommons.org/publicdomain/zero/1.0/legalcode) in the hope that it is useful reference and serves as a solid basis for further writings. This document was originally written by Alison Sanderson (Marrub.) Attribution is encouraged but not required.
+
+Reading This Document
+=====================
+
+This document's syntaxes are written in a specific way to be easy to read but still close enough to a formal syntax that, for instance, someone writing a parser could do so off of this document. Here is a legend describing all syntax element spellings:
+
+| Spelling      | Meaning                                                                                                   |
+| --------      | -------                                                                                                   |
+| Keyword       | Any keyword with spaces around it is spelled as-is.                                                       |
+| Symbol        | Any symbol with spaces around it is spelled as-is, the whitespace is only for clarity and may be omitted. |
+| `Syntax`      | A syntax element defined by this document. Spelled as according to its grammar.                           |
+| `Syntax...`   | A syntax element of which there may be any amount of. Spelled as according to its grammar.                |
+| `Syntax{N}`   | A syntax element of which there may be exactly N amount of. Spelled as according to its grammar.          |
+| `$[` and `]$` | An optional syntax element, which may be omitted by the user.                                             |
+| `"text"`      | Any string literal, contents do not necessarily have to be what is inside unless explicitly stated.       |
 
 Translation Unit
 ================
@@ -125,38 +147,42 @@ Classes that inherit from Actor can replace other actors when spawned in maps, a
 A class is formed with the syntax:
 
 ```
-class Name [: BaseClass] [Class flags...]
+class Identifier $[ : Base-class]$ $[Class-flags...]$
 {
-   [Class content...]
+   $[Class-content...]$
 }
 ```
 
-Or, alternatively, the rest of the file can be used as class content. Note that with this syntax you cannot use include directives afterward:
+`Base-class` in this context is an `Identifier`.
+
+Alternatively, the rest of the file can be used as class content. Note that with this syntax you cannot use include directives afterward:
 
 ```
-class Name [: BaseClass] [Class flags...];
+class Identifier $[ : Base-class]$ $[Class-flags...]$ ;
 
-[Class content...]
+$[Class-content...]$
 ```
 
 If the class is defined within the same archive as the current file, then one can continue a class definition with the syntax:
 
 ```
-extend class Name
+extend class Identifier
 ```
 
 In place of the class header.
 
 ## Class flags
 
-| Flag                    | Description                                                                    |
-| ----                    | -----------                                                                    |
-| `abstract`              | Cannot be instantiated with `new`.                                             |
-| `native`                | Class is from the engine. Only usable internally.                              |
-| `play`                  | Class has Play scope.                                                          |
-| `replaces ReplaceClass` | Replaces `ReplaceClass` with this class. Only works with descendants of Actor. |
-| `ui`                    | Class has UI scope.                                                            |
-| `version("ver")`        | Restricted to ZScript version `ver` or higher.                                 |
+| Flag                     | Description                                                                       |
+| ----                     | -----------                                                                       |
+| `abstract`               | Cannot be instantiated with `new`.                                                |
+| `native`                 | Class is from the engine. Only usable internally.                                 |
+| `play`                   | Class has Play scope.                                                             |
+| `replaces Replace-class` | Replaces `Replace-class` with this class. Only works with descendants of `Actor`. |
+| `ui`                     | Class has UI scope.                                                               |
+| `version ( "ver" )`      | Restricted to ZScript version `ver` or higher.                                    |
+
+`Replace-class` in this context is an `Identifier` denoting a class which inherits `Actor`.
 
 ## Class content
 
@@ -178,7 +204,7 @@ Property definitions are used within classes to define defaultable attributes on
 
 When registered, a property will be available in the `default` block as `ClassName.PropertyName`. Properties can be given multiple members to initialize.
 
-Property definitions take the form `property Name: Member list...;`.
+Property definitions take the form `property Identifier : Member $[ , Member]$... ;` (where `Member` is an identifier naming any member in the current class.)
 
 Properties defined in ZScript are usable from `DECORATE`.
 
@@ -191,15 +217,81 @@ In `DECORATE`, this is everything that isn't in the `states` block, but in ZScri
 ```
 default
 {
-   Default statement list...
+   $[Default-statement...]$
 }
 ```
 
-Default statements include flags and properties. Flags are the same as `DECORATE`, though sub-actor flags require their prefix, and can optionally be followed by a semicolon. Properties are the same as `DECORATE`, with a terminating semicolon required.
+Default statements include either flags or properties:
+
+### Default flag
+
+Default flags are formed either:
+
+```
++ Identifier $[ ; ]$
+- Identifier $[ ; ]$
+```
+
+The former will enable the flag on this actor, the latter will disable it.
+
+### Default property
+
+Default properties are formed as:
+
+```
+Identifier $[ . Identifier]$... Expression ;
+```
+
+Note that all properties *except for* `DamageFunction` require `Expression` to be a constant expression.
 
 ## State definitions
 
-These are the same as `DECORATE`, but states that do not have function blocks require terminating semicolons. Double quotes around `###` and `----` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
+These are the same as `DECORATE`, but states that do not have function blocks require terminating semicolons. Double quotes around `#` and `-` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
+
+A state definition block has the syntax:
+
+```
+states $[ ( Scope ) ]$
+{
+   $[State-or-label...]$
+}
+```
+
+State-or-label either defines a state label or a state itself, with the syntax of:
+
+```
+Identifier :
+Char{4} Char... Number-or-random $[State-option...]$ State-func
+```
+
+Where `Char` is any ASCII character, `Number-or-random` is one of:
+
+```
+Number
+random ( Number , Number )
+```
+
+`State-option` is one of:
+
+```
+bright
+fast
+slow
+nodelay
+canraise
+offset ( Number , Number )
+light ( String $[ , String]$... )
+```
+
+And finally, `State-func` is one of:
+
+```
+;
+Identifier ( Argument-list ) ;
+{ $[Statement...]$ }
+```
+
+The first will attach no action function to the state. The second will attach the specified action function with the specified arguments, and the third will create an anonymous action function and attach it.
 
 Structure definitions
 =====================
@@ -213,9 +305,9 @@ Structures are subject to Scoping.
 A structure takes the form of:
 
 ```
-struct Name [Structure flags...]
+struct Identifier $[Structure-flags...]$
 {
-   [Structure content...]
+   $[Structure-content...]$
 }
 ```
 
@@ -223,13 +315,13 @@ Optionally followed by a semicolon.
 
 ## Structure flags
 
-| Flag             | Description                                                             |
-| ----             | -----------                                                             |
-| `clearscope`     | Structure has Data scope. Default.                                      |
-| `native`         | Structure is from the engine. Only usable internally.                   |
-| `play`           | Structure has Play scope.                                               |
-| `ui`             | Structure has UI scope.                                                 |
-| `version("ver")` | Restricted to ZScript version `ver` or higher.                          |
+| Flag                | Description                                           |
+| ----                | -----------                                           |
+| `clearscope`        | Structure has Data scope. Default.                    |
+| `native`            | Structure is from the engine. Only usable internally. |
+| `play`              | Structure has Play scope.                             |
+| `ui`                | Structure has UI scope.                               |
+| `version ( "ver" )` | Restricted to ZScript version `ver` or higher.        |
 
 ## Structure content
 
@@ -248,15 +340,21 @@ An enumeration is a list of named numbers, which by default will be incremental 
 An enumeration definition takes the form:
 
 ```
-enum Name [: IntegerType]
+enum Identifier $[ : Integer-type]$
 {
-   [Enumerator...]
+   $[Enumerator $[ , Enumerator]$... $[ , ]$]$
 }
 ```
 
-Optionally followed by a semicolon.
+Optionally followed by a semicolon. `Integer-type` in this context is any valid integral type name.
 
-Enumerators can either be incremental (from the last enumerator or 0 if there is none) or explicitly set with the basic syntax `enumerator = value`. Enumerators must be followed by a comma unless it is the end of the list.
+Enumerators can either be incremental (from the last enumerator or 0 if there is none) or explicitly set with the syntax `Identifier = Expression`. Enumerators must be followed by a comma unless it is the end of the list.
+
+Enumerator syntax is:
+
+```
+Identifier $[ = Expression]$
+```
 
 Constant definitions
 ====================
@@ -264,7 +362,7 @@ Constant definitions
 Constants are simple named values. They are created with the syntax:
 
 ```
-const Name = value;
+const Identifier = Expression ;
 ```
 
 Constants are not assignable. Their type is inferred from their value, so if you wish for them to have a specific type, you must cast the value to that type.
@@ -275,20 +373,10 @@ Static array definitions
 Similar to constants, static arrays are named values, but for an array. They are created with the syntax:
 
 ```
-static const Type name[] = {
-   [Expression list...]
-};
+static const Type Variable-name = { $[Expression $[ , Expression]$...]$ } ;
 ```
 
-Or:
-
-```
-static const Type[] name = {
-   [Expression list...]
-};
-```
-
-Static arrays cannot be multi-dimensional, unlike normal arrays.
+Static arrays cannot be multi-dimensional, unlike normal fixed-size arrays.
 
 Include directives
 ==================
@@ -347,25 +435,25 @@ Floating-point types hold exponents, generally represented as regular decimal nu
 
 ## Strings
 
-| Name      | Usable as argument |
-| ----      | :----------------: |
-| `string`  | Yes                |
+| Name     | Usable as argument |
+| ----     | :----------------: |
+| `string` | Yes                |
 
 The `string` type is a mutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
 
 ## Names
 
-| Name      | Usable as argument |
-| ----      | :----------------: |
-| `name`    | Yes                |
+| Name   | Usable as argument |
+| ----   | :----------------: |
+| `name` | Yes                |
 
 The `name` type is an indexed string. While their contents are the same as a string, their actual value is merely an integer which can be compared far quicker than a string. Names are used for many internal purposes such as damage type names. Strings are implicitly cast to names.
 
 ## Color
 
-| Name      | Usable as argument |
-| ----      | :----------------: |
-| `color`   | Yes                |
+| Name    | Usable as argument |
+| ----    | :----------------: |
+| `color` | Yes                |
 
 The `color` type can be converted from a string using the `X11RGB` lump or a hex color in the format `#RRGGBB`, or with either `color(R, G, B)` or `color(A, R, G, B)`.
 
@@ -382,17 +470,17 @@ Vectors can use many operators and even have special ones to themselves. See the
 
 ## Fixed-size arrays
 
-| Name         | Usable as argument |
-| ----         | :----------------: |
-| `Type[size]` | No                 |
+| Name              | Usable as argument |
+| ----              | :----------------: |
+| `Type Array-size` | No                 |
 
-Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional arrays are also supported.
+Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional arrays are also supported. Note that this kind of type can also be declared in variable names themselves.
 
 ## Dynamic-size arrays
 
-| Name          | Usable as argument |
-| ----          | :----------------: |
-| `array<Type>` | Yes                |
+| Name             | Usable as argument |
+| ----             | :----------------: |
+| `array < Type >` | Yes                |
 
 Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary number of `Type` elements, which can be accessed with the array access operator.
 
@@ -408,45 +496,45 @@ for(int i = 0; i < 5; i++)
 
 Will result in an array with 5 elements.
 
-Dynamically sized arrays also cannot store other dynamically sized arrays, or `struct` objects.
+Dynamically sized arrays also cannot store other dynamically sized arrays, or user-defined `struct` objects.
 
 ## Maps
 
-| Name              | Usable as argument |
-| ----              | :----------------: |
-| `map<Type, Type>` | No                 |
+| Name                  | Usable as argument |
+| ----                  | :----------------: |
+| `map < Type , Type >` | No                 |
 
 Map types take the form `map<Type, Type>`. They are not yet implemented.
 
 ## Class type references
 
-| Name          | Usable as argument |
-| ----          | :----------------: |
-| `class<Type>` | Yes                |
-| `class`       | Yes                |
+| Name             | Usable as argument |
+| ----             | :----------------: |
+| `class < Type >` | Yes                |
+| `class`          | Yes                |
 
 Class type references are used to describe a concrete *type* rather than an object. They simply take the form `class`, and can be restrained to descendants of a type with the syntax `class<Type>`. Strings are implicitly cast to class type references.
 
 ## User types
 
-| Name                   | Usable as argument |
-| ----                   | :----------------: |
-| Any class object       | Yes                |
-| `native struct` object | Yes                |
-| User `struct` object   | No                 |
-| `@Type`                | Yes                |
+| Name                         | Usable as argument |
+| ----                         | :----------------: |
+| Any class object             | Yes                |
+| Native `struct` object       | Yes                |
+| User-defined `struct` object | No                 |
+| `@ Type`                     | Yes                |
 
 Any other identifier used as a type will resolve to a user class, structure or enumeration type.
 
-Identifiers prefixed with `@` are native pointers to objects (as opposed to objects placed directly in the structure's data.) This is not usable in user code.
+Types prefixed with `@` are native pointers to objects (as opposed to objects placed directly in the structure's data.) This is not usable in user code.
 
 A type name that is within a specific scope can be accessed by prefixing it with a `.`. The type `.MyClass.MySubStructure` will resolve to the type `MySubStructure` contained within `MyClass`.
 
 ## Read-only types
 
-| Name             | Usable as argument |
-| ----             | :----------------: |
-| `readonly<Type>` | Yes                |
+| Name                | Usable as argument |
+| ----                | :----------------: |
+| `readonly < Type >` | Yes                |
 
 A read-only type, as its name implies, may only be read from, and is effectively immutable. They take the form `readonly<Type>`. Do note that this is separate from the member declaration flag.
 
@@ -464,6 +552,24 @@ A read-only type, as its name implies, may only be read from, and is effectively
 | `voidptr`    | No                 | A pointer to a real memory address. Implementation detail.      |
 
 Strings will implicitly convert to `sound` and `statelabel`.
+
+## Variable name
+
+Variable names can have an array's size on them, instead of on the type, or none. Variable names are formed as either:
+
+```
+Identifier
+Identifier Array-size
+```
+
+## Array size
+
+Array sizes can be multi-dimensional or automatically sized, so all of the following syntaxes are available:
+
+```
+[ ]
+[ Expression ] $[Array-size...]$
+```
 
 Expressions and Operators
 =========================
@@ -496,8 +602,7 @@ String literals have character escapes, which are formed with a backslash and a 
 | `\r`                    | Byte `0x0d` (`CR` - return.)                    |
 | `\v`                    | Byte `0x0b` (`VT` - vertical tab, anachronism.) |
 | `\?`                    | A literal `?` (obsolete anachronism.)           |
-| `\xnn`                  | Byte `0xnn`.                                    |
-| `\Xnn`                  | Byte `0xnn`.                                    |
+| `\xnn` or `\Xnn`        | Byte `0xnn`.                                    |
 | `\nnn`                  | Byte `0nnn` (octal.)                            |
 
 To quote [cppreference](https://en.cppreference.com/w/cpp/language/escape), "of the octal escape sequences, `\0` is the most useful because it represents the terminating null character in null-terminated strings."
@@ -603,26 +708,36 @@ Identifiers work as you expect, they reference a variable or constant. The `Supe
 Vector literals are not under object literals as they are not constants in the same manner as other literals, since they contain expressions within them. As such, they are expressions, not proper value-based literals. They can be formed with:
 
 ```
-(x, y)    //=> vector2, where x is not a vector2
-(x, y)    //=> vector3, where x *is* a vector2
-(x, y, z) //=> vector3
+( X , Y )     //=> vector2, where X is not a vector2
+( X , Y )     //=> vector3, where X *is* a vector2
+( X , Y , Z ) //=> vector3
 ```
 
-All components must have type `double`.
+All components must have type `double`, except in the second grammar where `X` is `vector2`.
 
 ### Postfix expressions
 
 Postfix expressions are affixed at the end of an expression, and are used for a large variety of things, although the actual amount of postfix expressions is small:
 
-| Form                    | Description                                                                                      |
-| ----                    | -----------                                                                                      |
-| `a([Argument list...])` | Function call.                                                                                   |
-| `Type(a)`               | Type cast.                                                                                       |
-| `(class<Type>)(a)`      | Class type reference cast.                                                                       |
-| `a[b]`                  | Array access.                                                                                    |
-| `a.b`                   | Member access.                                                                                   |
-| `a++`                   | Post-increment. This increments (adds 1 to) the object after the expression is evaluated.        |
-| `a--`                   | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
+| Form                       | Description                                                                                      |
+| ----                       | -----------                                                                                      |
+| `A ( $[Argument-list]$ )`  | Function call.                                                                                   |
+| `Type ( A )`               | Type cast.                                                                                       |
+| `( class < Type > ) ( A )` | Class type reference cast.                                                                       |
+| `A [ B ]`                  | Array access.                                                                                    |
+| `A.B`                      | Member access.                                                                                   |
+| `A++`                      | Post-increment. This increments (adds 1 to) the object after the expression is evaluated.        |
+| `A--`                      | Post-decrement. This decrements (subtracts 1 from) the object after the expression is evaluated. |
+
+#### Argument list
+
+The syntax for an argument list is:
+
+```
+Expression $[ , Expression]$...
+```
+
+Function calls may name arguments which have defaults with the syntax `Identifier: Expression`, possibly skipping over other defaulted arguments. After the first named defaultable argument, all other arguments must be named as well.
 
 ### Unary expressions
 
@@ -630,14 +745,14 @@ Unary expressions are affixed at the beginning of an expression. The simplest ex
 
 | Form        | Description                                                                           |
 | ----        | -----------                                                                           |
-| `-a`        | Negation.                                                                             |
-| `!a`        | Logical negation, "not."                                                              |
-| `++a`       | Pre-increment. This adds 1 to the object and evaluates as the resulting value.        |
-| `--a`       | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
-| `~a`        | Bitwise negation. Flips all bits in an integer.                                       |
-| `+a`        | Affirmation. Does not actually do anything.                                           |
-| `alignof a` | Evaluates the alignment of the type of an expression. Unknown purpose.                |
-| `sizeof a`  | Evaluates the size of the type of an expression. Unknown purpose.                     |
+| `- A`       | Negation.                                                                             |
+| `! A`       | Logical negation, "not."                                                              |
+| `++ A`      | Pre-increment. This adds 1 to the object and evaluates as the resulting value.        |
+| `-- A`      | Pre-decrement. This subtracts 1 from the object and evaluates as the resulting value. |
+| `~ A`       | Bitwise negation. Flips all bits in an integer.                                       |
+| `+ A`       | Affirmation. Does not actually do anything.                                           |
+| `alignof A` | Evaluates the alignment of the type of an expression. Unknown purpose.                |
+| `sizeof A`  | Evaluates the size of the type of an expression. Unknown purpose.                     |
 
 ### Binary expressions
 
@@ -645,33 +760,33 @@ Binary expressions operate on two expressions, and are the most common kind of e
 
 | Form        | Description                                                                       |
 | ----        | -----------                                                                       |
-| `a + b`     | Addition.                                                                         |
-| `a - b`     | Subtraction.                                                                      |
-| `a * b`     | Multiplication.                                                                   |
-| `a / b`     | Division quotient.                                                                |
-| `a % b`     | Division remainder, also known as "modulus." Unlike C, this works on floats, too. |
-| `a ** b`    | Exponent ("power of.")                                                            |
-| `a << b`    | Left bitwise shift.                                                               |
-| `a >> b`    | Right bitwise shift.                                                              |
-| `a >>> b`   | Right unsigned bitwise shift.                                                     |
-| `a cross b` | Vector cross-product.                                                             |
-| `a dot b`   | Vector dot-product.                                                               |
-| `a .. b`    | Concatenation, creates a string from two values.                                  |
-| `a < b`     | `true` if `a` is less than `b`.                                                   |
-| `a > b`     | `true` if `a` is greater than `b`.                                                |
-| `a <= b`    | `true` if `a` is less than or equal to `b`.                                       |
-| `a >= b`    | `true` if `a` is greater than or equal to `b`.                                    |
-| `a == b`    | `true` if `a` is equal to `b`.                                                    |
-| `a != b`    | `true` if `a` is not equal to `b`.                                                |
-| `a ~== b`   | `true` if `a` is approximately equal to `b`. For strings this is a case-insensitive comparison, for floats and vectors this checks if the difference between the two is smaller than ε. |
-| `a && b`    | `true` if `a` and `b` are both `true`.                                            |
-| `a \|\| b`  | `true` if `a` or `b` is `true`.                                                   |
-| `a is "b"`  | `true` if `a`'s type is equal to or a descendant of `b`.                          |
-| `a <>= b`   | Signed difference between `a` and `b`.                                            |
-| `a & b`     | Bitwise AND.                                                                      |
-| `a ^ b`     | Bitwise XOR.                                                                      |
-| `a \| b`    | Bitwise OR.                                                                       |
-| `a::b`      | Scope operator. Not implemented yet.                                              |
+| `A + B`     | Addition.                                                                         |
+| `A - B`     | Subtraction.                                                                      |
+| `A * B`     | Multiplication.                                                                   |
+| `A / B`     | Division quotient.                                                                |
+| `A % B`     | Division remainder, also known as "modulus." Unlike C, this works on floats, too. |
+| `A ** B`    | Exponent ("power of.")                                                            |
+| `A << B`    | Left bitwise shift.                                                               |
+| `A >> B`    | Right bitwise shift.                                                              |
+| `A >>> B`   | Right unsigned bitwise shift.                                                     |
+| `A cross B` | Vector cross-product.                                                             |
+| `A dot B`   | Vector dot-product.                                                               |
+| `A .. B`    | Concatenation, creates a string from two values.                                  |
+| `A < B`     | `true` if `A` is less than `B`.                                                   |
+| `A > B`     | `true` if `A` is greater than `B`.                                                |
+| `A <= B`    | `true` if `A` is less than or equal to `B`.                                       |
+| `A >= B`    | `true` if `A` is greater than or equal to `B`.                                    |
+| `A == B`    | `true` if `A` is equal to `B`.                                                    |
+| `A != B`    | `true` if `A` is not equal to `B`.                                                |
+| `A ~== B`   | `true` if `A` is approximately equal to `B`. For strings this is a case-insensitive comparison, for floats and vectors this checks if the difference between the two is smaller than ε. |
+| `A && B`    | `true` if `A` and `B` are both `true`.                                            |
+| `A \|\| B`  | `true` if `A` or `B` is `true`.                                                   |
+| `A is "B"`  | `true` if `A`'s type is equal to or a descendant of `B`.                          |
+| `A <>= B`   | Signed difference between `A` and `B`.                                            |
+| `A & B`     | Bitwise AND.                                                                      |
+| `A ^ B`     | Bitwise XOR.                                                                      |
+| `A \| B`    | Bitwise OR.                                                                       |
+| `A :: B`    | Scope operator. Not implemented yet.                                              |
 
 #### Assignment expressions
 
@@ -679,22 +794,22 @@ Assignment expressions are a subset of binary expressions which *are never const
 
 | Form       | Description               |
 | ----       | -----------               |
-| `a = b`    | Assigns `b` to `a`.       |
-| `a += b`   | Assigns `a + b` to `a`.   |
-| `a -= b`   | Assigns `a - b` to `a`.   |
-| `a *= b`   | Assigns `a * b` to `a`.   |
-| `a /= b`   | Assigns `a / b` to `a`.   |
-| `a %= b`   | Assigns `a % b` to `a`.   |
-| `a <<= b`  | Assigns `a << b` to `a`.  |
-| `a >>= b`  | Assigns `a >> b` to `a`.  |
-| `a >>>= b` | Assigns `a >>> b` to `a`. |
-| `a \|= b`  | Assigns `a \| b` to `a`.  |
-| `a &= b`   | Assigns `a & b` to `a`.   |
-| `a ^= b`   | Assigns `a ^ b` to `a`.   |
+| `A = B`    | Assigns `B` to `A`.       |
+| `A += B`   | Assigns `A + B` to `A`.   |
+| `A -= B`   | Assigns `A - B` to `A`.   |
+| `A *= B`   | Assigns `A * B` to `A`.   |
+| `A /= B`   | Assigns `A / B` to `A`.   |
+| `A %= B`   | Assigns `A % B` to `A`.   |
+| `A <<= B`  | Assigns `A << B` to `A`.  |
+| `A >>= B`  | Assigns `A >> B` to `A`.  |
+| `A >>>= B` | Assigns `A >>> B` to `A`. |
+| `A \|= B`  | Assigns `A \| B` to `A`.  |
+| `A &= B`   | Assigns `A & B` to `A`.   |
+| `A ^= B`   | Assigns `A ^ B` to `A`.   |
 
 ### Ternary expression
 
-The ternary expression is formed `a ? b : c`, and will evaluate to `b` if `a` is `true`, or `c` if it is `false`.
+The ternary expression is formed `A ? B : C`, and will evaluate to `B` if `A` is `true`, or `C` if it is `false`.
 
 Statements
 ==========
@@ -707,7 +822,7 @@ A compound statement is formed as:
 
 ```
 {
-   [Statement list...]
+   $[Statement...]$
 }
 ```
 
@@ -717,58 +832,97 @@ Note that the statement list is optional, so an empty compound statement `{}` is
 
 An expression statement is the single most common type of statement in just about any programming language. In ZScript, exactly like C and C++, an expression statement is simply formed with any expression followed by a semicolon. Function calls and variable assignments are expressions, for instance, so it is quite clear why they are common.
 
+Their syntax is:
+
+```
+Expression ;
+```
+
 ## Conditional statements
 
-A conditional statement will, conditionally, choose a statement (or none) to execute. They work the same as in C and ACS.
+A conditional statement will, conditionally, choose a statement (or none) to execute. They work the same as in C and ACS:
+
+```
+if ( Expression ) Statement $[ else Statement]$
+```
 
 ## Switch statements
 
-A switch statement takes an expression of integer or name type and selects a labeled statement to run. They work the same as in C and ACS.
+A switch statement takes an expression of integer or name type and selects a labeled statement to run. They work the same as in C and ACS:
+
+```
+switch ( Expression ) Statement
+```
 
 ## Loop statements
 
 ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while `until` and `do until` do the inverse of `while` and `do while`.
 
-The `for` loop takes a limited statement and two optional expressions: The statement for when the loop begins (which is scoped to the loop,) one expression for checking if the loop should break, and one which is executed every time the loop iterates.
+The `for` loop takes a limited statement and two optional expressions: The statement for when the loop begins (which is scoped to the loop,) one expression for checking if the loop should break, and one which is executed every time the loop iterates. Its syntax is:
+
+```
+for ( $[Expression-or-Local-variable-statement]$ ; $[Expression]$ ; $[Expression]$ ) Statement
+```
 
 The `while` loop simply takes one expression for checking if the loop should break, equivalent to `for(; a;)`.
 
-The `until` loop is equivalent to `while(!a)`.
+The `until` loop is equivalent to `while(!a)`. Their syntax are:
+
+```
+while ( Expression ) Statement
+until ( Expression ) Statement
+```
 
 `do while` and `do until` will only check the expression after the first iteration is complete. The `do while` and `do until` loops are formed as such:
 
 ```
 do
    Statement
-while(a) // unlike C, you don't need a semicolon here
+while ( Expression ) // unlike C, you don't need a semicolon here
 
 do
    Statement
-until(a)
+until ( Expression )
 ```
 
 ## Control flow statements
 
 As in C, there are three control flow statements that manipulate where the program will execute statements next, which are available contextually. They are `continue`, `break` and `return`.
 
-`continue` is available in loop statements and will continue to the next iteration immediately.
+`continue` is available in loop statements and will continue to the next iteration immediately:
 
-`break` is available in loop statements and switch statements, and will break out of the containing statement early.
+```
+continue ;
+```
 
-`return` is available in functions. If the function does not return any values, it may only be spelled `return;` and will simply exit the function early. If the function does return values, it takes a comma-separated list for each value returned.
+`break` is available in loop statements and switch statements, and will break out of the containing statement early:
+
+```
+break ;
+```
+
+`return` is available in functions. If the function does not return any values, it may only be spelled `return;` and will simply exit the function early. If the function does return values, it takes a comma-separated list for each value returned:
+
+```
+return $[Expression $[ , Expression]$...]$ ;
+```
 
 ## Local variable statements
 
-Local variable statements are formed in one of 3 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the other two syntaxes use an explicit type, and initialization is optional.
+Local variable statements are formed in one of 2 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the regular syntax uses an explicit type, and initialization is optional.
+
+Variables' syntax are one of:
 
 ```
-Type a;
-Type a[Expression]; // alternate syntax for local array
+Variable-name
+Variable-name = Expression
+```
 
-let a = b;
-Type a = b;
-Type a = {Expression list...}; // for fixed size array types
-Type a[Expression] = {Expression list...};
+And local variable statements have the syntax of either:
+
+```
+let Identifier = Expression ;
+Type Variable $[ , Variable]$... ;
 ```
 
 ## Multi-assignment statements
@@ -776,8 +930,10 @@ Type a[Expression] = {Expression list...};
 Expressions or functions that return multiple values can be assigned into multiple variables with the syntax:
 
 ```
-[Expression list...] = Expression;
+[ Expression $[ , Expression]$... ] = Expression ;
 ```
+
+Note that the surrounding brackets are literal and not an optional element.
 
 ## Static array statements
 
@@ -795,31 +951,25 @@ Member declarations define data within a structure or class that can be accessed
 A member declaration is formed as so:
 
 ```
-[Member declaration flags...] Type name;
-```
-
-Or, if you want multiple members with the same type and flags:
-
-```
-[Member declaration flags...] Type name[, name...];
+$[Member-declaration-flags...]$ Type Variable-name $[ , Variable-name]$... ;
 ```
 
 ## Member declaration flags
 
-| Flag                | Description                                                                                                         |
-| ----                | -----------                                                                                                         |
-| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than `ver`.                      |
-| `internal`          | Member is only writable from the base resource archive (`gzdoom.pk3`.)                                              |
-| `latent`            | Does nothing. Purpose unknown.                                                                                      |
-| `meta`              | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
-| `native`            | Member is from the engine. Only usable internally.                                                                  |
-| `play`              | Member has Play scope.                                                                                              |
-| `private`           | Member is not visible to any class but this one.                                                                    |
-| `protected`         | Member is not visible to any class but this one and any descendants of it.                                          |
-| `readonly`          | Member is not writable.                                                                                             |
-| `transient`         | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
-| `ui`                | Member has UI scope.                                                                                                |
-| `version("ver")`    | Restricted to ZScript version `ver` or higher.                                                                      |
+| Flag                   | Description                                                                                                         |
+| ----                   | -----------                                                                                                         |
+| `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`.                      |
+| `internal`             | Member is only writable from the base resource archive (`gzdoom.pk3`.)                                              |
+| `latent`               | Does nothing. Purpose unknown.                                                                                      |
+| `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
+| `native`               | Member is from the engine. Only usable internally.                                                                  |
+| `play`                 | Member has Play scope.                                                                                              |
+| `private`              | Member is not visible to any class but this one.                                                                    |
+| `protected`            | Member is not visible to any class but this one and any descendants of it.                                          |
+| `readonly`             | Member is not writable.                                                                                             |
+| `transient`            | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
+| `ui`                   | Member has UI scope.                                                                                                |
+| `version ( "ver" )`    | Restricted to ZScript version `ver` or higher.                                                                      |
 
 Method definitions
 ==================
@@ -831,37 +981,48 @@ Methods marked as `virtual` may have their functionality overridden by derived c
 Methods are formed as so:
 
 ```
-[Method definition flags...] Type[, Type...] name([Argument list...]) [const]
+$[Method-definition-flags...]$ Type $[ , Type]$... Identifier ( $[Method-argument-list]$ ) $[ const ]$
 {
-   [Function body here]
+   $[Statement...]$
 }
 ```
 
 If `const` is placed after the function signature and before the function body, the method will not be allowed to modify any members in the object instance it's being called on.
 
-The keyword `void` can be used in place of a type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
+The keyword `void` can be used in place of the return type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
 
 Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
 
+## Method argument list
+
+Method arguments must all have a name and type, and optionally the last arguments in the list may have a default value. The syntax is:
+
+```
+Type Variable-name $[ , Method-argument-list]$
+Type Variable-name = Expression $[ , Method-argument-list]$
+```
+
+Or, the entire list may simply be `void` or empty.
+
 ## Method definition flags
 
-| Flag                | Description                                                                                    |
-| ----                | -----------                                                                                    |
-| `action(scope)`     | Same as `action`, but has a specified action scope. See "Action Scoping" for more information. |
-| `action`            | Method has implicit `owner` and `state` parameters, mostly useful on weapons.                  |
-| `clearscope`        | Method has Data scope.                                                                         |
-| `deprecated("ver")` | If accessed, a script warning will occur on load if the archive version is greater than `ver`. |
-| `final`             | Virtual method cannot be further overridden from derived classes.                              |
-| `native`            | Method is from the engine. Only usable internally.                                             |
-| `override`          | Method is overriding a base class' virtual method.                                             |
-| `play`              | Method has Play scope.                                                                         |
-| `private`           | Method is not visible to any class but this one.                                               |
-| `protected`         | Method is not visible to any class but this one and any descendants of it.                     |
-| `static`            | Function is not a method, but a global function without a `self` pointer.                      |
-| `ui`                | Method has UI scope.                                                                           |
-| `vararg`            | Method doesn't type-check arguments after `...`. Only usable internally.                       |
-| `version("ver")`    | Restricted to ZScript version `ver` or higher.                                                 |
-| `virtual`           | Method can be overridden in derived classes.                                                   |
-| `virtualscope`      | Method has scope of the type of the object it's being called on.                               |
+| Flag                   | Description                                                                                    |
+| ----                   | -----------                                                                                    |
+| `action ( Scope )`     | Same as `action`, but has a specified action scope. See "Action Scoping" for more information. |
+| `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons.                  |
+| `clearscope`           | Method has Data scope.                                                                         |
+| `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`. |
+| `final`                | Virtual method cannot be further overridden from derived classes.                              |
+| `native`               | Method is from the engine. Only usable internally.                                             |
+| `override`             | Method is overriding a base class' virtual method.                                             |
+| `play`                 | Method has Play scope.                                                                         |
+| `private`              | Method is not visible to any class but this one.                                               |
+| `protected`            | Method is not visible to any class but this one and any descendants of it.                     |
+| `static`               | Function is not a method, but a global function without a `self` pointer.                      |
+| `ui`                   | Method has UI scope.                                                                           |
+| `vararg`               | Method doesn't type-check arguments after `...`. Only usable internally.                       |
+| `version ( "ver" )`    | Restricted to ZScript version `ver` or higher.                                                 |
+| `virtual`              | Method can be overridden in derived classes.                                                   |
+| `virtualscope`         | Method has scope of the type of the object it's being called on.                               |
 
 <!-- EOF -->
