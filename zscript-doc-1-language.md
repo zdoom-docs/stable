@@ -73,6 +73,7 @@ Table of Contents
 * [Method definitions](#method-definitions)
    * [Method argument list](#method-argument-list)
    * [Method definition flags](#method-definition-flags)
+      * [Action functions](#action-functions)
 
 <!-- vim-markdown-toc -->
 
@@ -993,6 +994,8 @@ The keyword `void` can be used in place of the return type (or type list) to hav
 
 Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
 
+All methods which are not `static` have an implicit `self` parameter which refers to this object, although if you wish to refer to a member of `self`, you do not need to reference it directly, as it is already implicitly in scope.
+
 ## Method argument list
 
 Method arguments must all have a name and type, and optionally the last arguments in the list may have a default value. The syntax is:
@@ -1009,7 +1012,7 @@ Or, the entire list may simply be `void` or empty.
 | Flag                   | Description                                                                                    |
 | ----                   | -----------                                                                                    |
 | `action ( Scope )`     | Same as `action`, but has a specified action scope. See "Action Scoping" for more information. |
-| `action`               | Method has implicit `owner` and `state` parameters, mostly useful on weapons.                  |
+| `action`               | Method has implicit `invoker` and `stateinfo` parameters. See below for more info.             |
 | `clearscope`           | Method has Data scope.                                                                         |
 | `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`. |
 | `final`                | Virtual method cannot be further overridden from derived classes.                              |
@@ -1024,5 +1027,17 @@ Or, the entire list may simply be `void` or empty.
 | `version ( "ver" )`    | Restricted to ZScript version `ver` or higher.                                                 |
 | `virtual`              | Method can be overridden in derived classes.                                                   |
 | `virtualscope`         | Method has scope of the type of the object it's being called on.                               |
+
+### Action functions
+
+ZScript includes an extra method type for descendents of `Actor` called *actions*, which are intended to be run from actor states and give extra information to the function. Action functions change the meaning of the `self` parameter and pass in `invoker` and `stateinfo` parameters as well. `stateinfo` refers to the `State` which this action was called from. Here is a chart for the meanings of the `self` and `invoker` variables under each scope:
+
+| Scope     | `self` meaning                                                  | `invoker` meaning |
+| -----     | --------------                                                  | ----------------- |
+| None      | The actor this function operates on, ambiguous in some contexts | State owner       |
+| `actor`   | The actor                                                       | The actor         |
+| `item`    | Item owner                                                      | Item itself       |
+| `overlay` | Weapon owner                                                    | Weapon itself     |
+| `weapon`  | Weapon owner                                                    | Weapon itself     |
 
 <!-- EOF -->

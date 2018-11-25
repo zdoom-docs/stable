@@ -303,7 +303,7 @@ vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
 - `G_PickDeathmatchStart`
 
-   Returns the position and angle of a random deathmatch start location.
+   Returns the position and angle of a random death-match start location.
 
 - `G_PickPlayerStart`
 
@@ -331,7 +331,7 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
 
 - `S_ChangeMusic`
 
-   Changes the music to `music_name`. If `music_name` is `"*"`, the music will be set to the default music for this level. Will loop if `looping` is `true`. `force` will force the music to play even if a playlist (from the `playlist` console command) is playing.
+   Changes the music to `name`. If `name` is `"*"`, the music will be set to the default music for this level. Will loop if `looping` is `true`. `force` will force the music to play even if a playlist (from the `playlist` console command) is playing.
 
    `order` may mean something different based on the music format:
 
@@ -1464,7 +1464,61 @@ struct GameInfoStruct
 }
 ```
 
-TODO
+- `Armor2Percent`
+
+   TODO
+
+- `ArmorIcon1`
+
+   TODO
+
+- `ArmorIcon2`
+
+   TODO
+
+- `BackpackType`
+
+   TODO
+
+- `GameType`
+
+   TODO
+
+- `GibFactor`
+
+   TODO
+
+- `InfoPages`
+
+   TODO
+
+- `IntermissionCounter`
+
+   TODO
+
+- `NoRandomPlayerClass`
+
+   TODO
+
+- `mBackButton`
+
+   TODO
+
+- `mSliderColor`
+
+   TODO
+
+- `mStatScreenEnteringFont`
+
+   TODO
+
+- `mStatScreenFinishedFont`
+
+   TODO
+
+- `mStatScreenMapNameFont`
+
+   TODO
 
 ### LevelLocals
 
@@ -1580,8 +1634,310 @@ struct LevelLocals
    static clearscope vector3 Vec3Offset(vector3 pos, vector3 dir, bool absolute = false);
 }
 ```
+- `Lines`
 
-TODO
+   TODO
+
+- `Sectors`
+
+   TODO
+
+- `Sides`
+
+   TODO
+
+- `SectorPortals`
+
+   TODO
+
+- `Vertexes`
+
+   TODO
+
+- `Found_Items`
+
+   TODO
+
+- `Found_Secrets`
+
+   TODO
+
+- `Killed_Monsters`
+
+   TODO
+
+- `Total_Items`
+
+   TODO
+
+- `Total_Monsters`
+
+   TODO
+
+- `Total_Secrets`
+
+   TODO
+
+- `MapTime`
+
+   TODO
+
+- `ParTime`
+
+   TODO
+
+- `StartTime`
+
+   TODO
+
+- `SuckTime`
+
+   TODO
+
+- `Time`
+
+   TODO
+
+- `TotalTime`
+
+   TODO
+
+- `Cluster`
+
+   TODO
+
+- `ClusterFlags`
+
+   TODO
+
+- `LevelName`
+
+   TODO
+
+- `LevelNum`
+
+   TODO
+
+- `MapName`
+
+   TODO
+
+- `NextMap`
+
+   TODO
+
+- `NextSecretMap`
+
+   TODO
+
+- `MapType`
+
+   TODO
+
+- `Music`
+
+   TODO
+
+- `MusicOrder`
+
+   TODO
+
+- `SkyTexture1`
+
+   TODO
+
+- `SkyTexture2`
+
+   TODO
+
+- `SkySpeed1`
+
+   TODO
+
+- `SkySpeed2`
+
+   TODO
+
+- `AirControl
+`
+
+   TODO
+
+- `AirSupply`
+
+   TODO
+
+- `Gravity`
+
+   TODO
+
+- `AllMap`
+
+   TODO
+
+- `Frozen`
+
+   TODO
+
+- `F1Pic`
+
+   TODO
+
+- `ActOwnSpecial`
+
+   TODO
+
+- `AllowRespawn`
+
+   TODO
+
+- `CheckSwitchRange`
+
+   TODO
+
+- `FogDensity`
+
+   TODO
+
+- `Infinite_Flight`
+
+   TODO
+
+- `MissilesActivateImpact`
+
+   TODO
+
+- `MonsterFallingDamage`
+
+   TODO
+
+- `MonstersTelefrag`
+
+   TODO
+
+- `NoInventoryBar`
+
+   TODO
+
+- `NoMonsters`
+
+   TODO
+
+- `No_Dlg_Freeze`
+
+   TODO
+
+- `OutsideFogDensity`
+
+   TODO
+
+- `PixelStretch`
+
+   TODO
+
+- `PolyGrind`
+
+   TODO
+
+- `SkyFog`
+
+   TODO
+
+- `SndSeqTotalCtrl`
+
+   TODO
+
+- `TeamDamage`
+
+   TODO
+
+- `GetUDMFFloat`
+
+   TODO
+
+- `GetUDMFInt`
+
+   TODO
+
+- `GetUDMFString`
+
+   TODO
+
+- `ExecuteSpecial`
+
+   TODO
+
+- `ChangeSky`
+
+   TODO
+
+- `FormatMapName`
+
+   TODO
+
+- `GetChecksum`
+
+   TODO
+
+- `SetInterMusic`
+
+   TODO
+
+- `TimeFormatted`
+
+   TODO
+
+- `IsCrouchingAllowed`
+
+   TODO
+
+- `IsFreelookAllowed`
+
+   TODO
+
+- `IsJumpingAllowed`
+
+   TODO
+
+- `GiveSecret`
+
+   TODO
+
+- `RemoveAllBots`
+
+   TODO
+
+- `StartSlideshow`
+
+   TODO
+
+- `WorldDone`
+
+   TODO
+
+- `SphericalCoords`
+
+   TODO
+
+- `Vec2Diff`
+
+   TODO
+
+- `Vec2Offset`
+
+   TODO
+
+- `Vec2OffsetZ`
+
+   TODO
+
+- `Vec3Diff`
+
+   TODO
+
+- `Vec3Offset`
+
+   TODO
 
 Level Data
 ----------
@@ -2045,7 +2401,557 @@ struct Sector play
 }
 ```
 
-TODO
+- `ColorMap`
+
+   TODO
+
+- `SpecialColors`
+
+   TODO
+
+- `SoundTarget`
+
+   TODO
+
+- `Special`
+
+   TODO
+
+- `LightLevel`
+
+   TODO
+
+- `SeqType`
+
+   TODO
+
+- `Sky`
+
+   TODO
+
+- `SeqName`
+
+   TODO
+
+- `CenterSpot`
+
+   TODO
+
+- `ValidCount`
+
+   TODO
+
+- `ThingList`
+
+   TODO
+
+- `Friction`
+
+   TODO
+
+- `MoveFactor`
+
+   TODO
+
+- `TerrainNum`
+
+   TODO
+
+- `FloorData`
+
+   TODO
+
+- `CeilingData`
+
+   TODO
+
+- `LightingData`
+
+   TODO
+
+- `SoundTraversed`
+
+   TODO
+
+- `StairLock`
+
+   TODO
+
+- `PrevSec`
+
+   TODO
+
+- `NextSec`
+
+   TODO
+
+- `Lines`
+
+   TODO
+
+- `FloorPlane`
+
+   TODO
+
+- `CeilingPlane`
+
+   TODO
+
+- `HeightSec`
+
+   TODO
+
+- `BottomMap`
+
+   TODO
+
+- `MidMap`
+
+   TODO
+
+- `TopMap`
+
+   TODO
+
+- `Gravity`
+
+   TODO
+
+- `DamageType`
+
+   TODO
+
+- `DamageAmount`
+
+   TODO
+
+- `DamageInterval`
+
+   TODO
+
+- `LeakyDamage`
+
+   TODO
+
+- `ZoneNumber`
+
+   TODO
+
+- `Flags`
+
+   TODO
+
+- `MoreFlags`
+
+   TODO
+
+- `SecActTarget`
+
+   TODO
+
+- `Portals`
+
+   TODO
+
+- `PortalGroup`
+
+   TODO
+
+- `SectorNum`
+
+   TODO
+
+- `Index`
+
+   TODO
+
+- `NextHighestCeilingAt`
+
+   TODO
+
+- `NextLowestFloorAt`
+
+   TODO
+
+- `RemoveForceField`
+
+   TODO
+
+- `PointInSector`
+
+   TODO
+
+- `PlaneMoving`
+
+   TODO
+
+- `GetFloorLight`
+
+   TODO
+
+- `GetCeilingLight`
+
+   TODO
+
+- `GetHeightSec`
+
+   TODO
+
+- `TransferSpecial`
+
+   TODO
+
+- `GetSpecial`
+
+   TODO
+
+- `SetSpecial`
+
+   TODO
+
+- `GetTerrain`
+
+   TODO
+
+- `CheckPortalPlane`
+
+   TODO
+
+- `HighestCeilingAt`
+
+   TODO
+
+- `LowestFloorAt`
+
+   TODO
+
+- `GetFriction`
+
+   TODO
+
+- `SetXOffset`
+
+   TODO
+
+- `AddXOffset`
+
+   TODO
+
+- `GetXOffset`
+
+   TODO
+
+- `SetYOffset`
+
+   TODO
+
+- `AddYOffset`
+
+   TODO
+
+- `GetYOffset`
+
+   TODO
+
+- `SetXScale`
+
+   TODO
+
+- `GetXScale`
+
+   TODO
+
+- `SetYScale`
+
+   TODO
+
+- `GetYScale`
+
+   TODO
+
+- `SetAngle`
+
+   TODO
+
+- `GetAngle`
+
+   TODO
+
+- `SetBase`
+
+   TODO
+
+- `SetAlpha`
+
+   TODO
+
+- `GetAlpha`
+
+   TODO
+
+- `GetFlags`
+
+   TODO
+
+- `GetVisFlags`
+
+   TODO
+
+- `ChangeFlags`
+
+   TODO
+
+- `GetPlaneLight`
+
+   TODO
+
+- `SetPlaneLight`
+
+   TODO
+
+- `SetColor`
+
+   TODO
+
+- `SetFade`
+
+   TODO
+
+- `SetFogDensity`
+
+   TODO
+
+- `GetGlowHeight`
+
+   TODO
+
+- `GetGlowColor`
+
+   TODO
+
+- `SetGlowHeight`
+
+   TODO
+
+- `SetGlowColor`
+
+   TODO
+
+- `SetSpecialColor`
+
+   TODO
+
+- `GetTexture`
+
+   TODO
+
+- `SetTexture`
+
+   TODO
+
+- `GetPlaneTexZ`
+
+   TODO
+
+- `SetPlaneTexZ`
+
+   TODO
+
+- `ChangeLightLevel`
+
+   TODO
+
+- `SetLightLevel`
+
+   TODO
+
+- `GetLightLevel`
+
+   TODO
+
+- `AdjustFloorClip`
+
+   TODO
+
+- `IsLinked`
+
+   TODO
+
+- `PortalBlocksView`
+
+   TODO
+
+- `PortalBlocksSight`
+
+   TODO
+
+- `PortalBlocksMovement`
+
+   TODO
+
+- `PortalBlocksSound`
+
+   TODO
+
+- `PortalIsLinked`
+
+   TODO
+
+- `ClearPortal`
+
+   TODO
+
+- `GetPortalPlaneZ`
+
+   TODO
+
+- `GetPortalDisplacement`
+
+   TODO
+
+- `GetPortalType`
+
+   TODO
+
+- `GetOppositePortalGroup`
+
+   TODO
+
+- `CenterFloor`
+
+   TODO
+
+- `CenterCeiling`
+
+   TODO
+
+- `TriggerSectorActions`
+
+   TODO
+
+- `MoveFloor`
+
+   TODO
+
+- `MoveCeiling`
+
+   TODO
+
+- `NextSpecialSector`
+
+   TODO
+
+- `FindLowestFloorSurrounding`
+
+   TODO
+
+- `FindHighestFloorSurrounding`
+
+   TODO
+
+- `FindNextHighestFloor`
+
+   TODO
+
+- `FindNextLowestFloor`
+
+   TODO
+
+- `FindLowestCeilingSurrounding`
+
+   TODO
+
+- `FindHighestCeilingSurrounding`
+
+   TODO
+
+- `FindNextLowestCeiling`
+
+   TODO
+
+- `FindNextHighestCeiling`
+
+   TODO
+
+- `FindShortestTextureAround`
+
+   TODO
+
+- `FindShortestUpperAround`
+
+   TODO
+
+- `FindModelFloorSector`
+
+   TODO
+
+- `FindModelCeilingSector`
+
+   TODO
+
+- `FindMinSurroundingLight`
+
+   TODO
+
+- `FindLowestCeilingPoint`
+
+   TODO
+
+- `FindHighestFloorPoint`
+
+   TODO
+
+- `SetEnvironment`
+
+   TODO
+
+- `SetEnvironmentID`
+
+   TODO
+
+- `StartSoundSequenceID`
+
+   TODO
+
+- `StartSoundSequence`
+
+   TODO
+
+- `CheckSoundSequence`
+
+   TODO
+
+- `StopSoundSequence`
+
+   TODO
+
+- `IsMakingLoopingSound`
+
+   TODO
+
+- `IsSecret`
+
+   TODO
+
+- `WasSecret`
+
+   TODO
+
+- `ClearSecret`
+
+   TODO
+
+- `GetUDMFFloat`
+
+   TODO
+
+- `GetUDMFInt`
+
+   TODO
+
+- `GetUDMFString`
+
+   TODO
 
 ### SectorPortal
 
@@ -2572,7 +3478,7 @@ struct Console
 
 - `HideConsole`
 
-   Hides the console if it is open and `gamestate` is not `GS_FULLCONSOLE`.
+   Hides the console if it is open and `GameState` is not `GS_FULLCONSOLE`.
 
 - `MidPrint`
 
@@ -3051,7 +3957,7 @@ struct WBStartStruct
 
 ### InterBackground
 
-TODO
+A class containing an animated intermission background.
 
 ```
 class InterBackground play
@@ -3113,7 +4019,16 @@ struct PatchInfo play
 
 ### StatusScreen
 
-TODO
+The base class for intermission status screens. Any status screen used by `MAPINFO`/GameInfo must be derived from this class.
+
+Status screens have four stages:
+
+- `StatCount`, where the stats are counted and displayed.
+- `ShowNextLoc`, where the next map is shown as "ENTERING (map name)" and in episodic maps, the world map.
+- `NoState`, at the very end of this process, where the last frame is drawn and the intermission is exited.
+- `LeavingIntermission`, which is used only to signify that all stages are done and the status screen has been exited.
+
+These are provided as constants in `StatusScreen`. The starting stage is `StatCount`.
 
 ```
 class StatusScreen abstract play
@@ -3134,9 +4049,9 @@ class StatusScreen abstract play
    int   BCnt;
    int   Cnt;
    int   Cnt_Deaths[MAXPLAYERS];
-   int   Cnt_Frags [MAXPLAYERS];
-   int   Cnt_Items [MAXPLAYERS];
-   int   Cnt_Kills [MAXPLAYERS];
+   int   Cnt_Frags[MAXPLAYERS];
+   int   Cnt_Items[MAXPLAYERS];
+   int   Cnt_Kills[MAXPLAYERS];
    int   Cnt_Par;
    int   Cnt_Pause;
    int   Cnt_Secret[MAXPLAYERS];
@@ -3206,6 +4121,300 @@ class StatusScreen abstract play
 }
 ```
 
-TODO
+- `NG_STATSY`
+
+   TODO
+
+- `SHOWNEXTLOCDELAY`
+
+   TODO
+
+- `SP_STATSX`
+
+   TODO
+
+- `SP_STATSY`
+
+   TODO
+
+- `SP_TIMEX`
+
+   TODO
+
+- `SP_TIMEY`
+
+   TODO
+
+- `TITLEY`
+
+   The Y position (in 320x200 pixels) to draw the top of the "finished" and "entering" texts. Used by `DrawEL` and `DrawLF`.
+
+- `BG`
+
+   The `InterBackground` object for this intermission, set by `Start` with the initial `WBS` object.
+
+- `Plrs`
+
+   The value of `WBS.Plyr` when `Start` was called. Usually not changed, so essentially equivalent to `WBS.Plyr`.
+
+- `WBS`
+
+   The `WBStartStruct` passed to this class via the `Start` function.
+
+- `AccelerateStage`
+
+   Used to signify to the current stage that it should go quicker or be skipped entirely.
+
+- `BCnt`
+
+   TODO
+
+- `Cnt`
+
+   TODO
+
+- `Cnt_Deaths`
+
+   TODO
+
+- `Cnt_Frags`
+
+   TODO
+
+- `Cnt_Items`
+
+   TODO
+
+- `Cnt_Kills`
+
+   TODO
+
+- `Cnt_Par`
+
+   TODO
+
+- `Cnt_Pause`
+
+   TODO
+
+- `Cnt_Secret`
+
+   TODO
+
+- `Cnt_Time`
+
+   TODO
+
+- `Cnt_Total_Time`
+
+   TODO
+
+- `CurState`
+
+   The current stage the intermission is in.
+
+- `DoFrags`
+
+   TODO
+
+- `Me`
+
+   The value of `WBS.PNum` when `Start` was called. Usually not changed, so essentially equivalent to `WBS.PNum`.
+
+- `NG_State`
+
+   TODO
+
+- `NoAutoStartMap`
+
+   TODO
+
+- `PlayerReady`
+
+   Used in networked games to signify when each player is ready to continue to the next map. Set by `CheckForAccelerate`.
+
+- `Player_Deaths`
+
+   TODO
+
+- `SNL_PointerOn`
+
+   TODO
+
+- `SP_State`
+
+   Used in single-player status screens during the `StatCount` stage for indicating the current round of statistics to count up.
+
+- `ShadowAlpha`
+
+   TODO
+
+- `Total_Deaths`
+
+   TODO
+
+- `Total_Frags`
+
+   TODO
+
+- `Entering`
+
+   TODO
+
+- `Finished`
+
+   TODO
+
+- `MapName`
+
+   TODO
+
+- `Items`
+
+   The "ITEMS" (default `WIOSTI`) graphic.
+
+- `Kills`
+
+   The "KILLS" (default `WIOSTK`) graphic.
+
+- `P_Secret`
+
+   The "SECRET" (default `WISCRT2`) graphic.
+
+- `Par`
+
+   The "PAR" (default `WIPAR`) graphic.
+
+- `Secret`
+
+   The "SCRT" (default `WIOSTS`) graphic.
+
+- `Sucks`
+
+   The "SUCKS" (default `WISUCKS`) graphic.
+
+- `Timepic`
+
+   The "TIME" (default `WITIME`) graphic.
+
+- `LNameTexts`
+
+   TODO
+
+- `DrawCharPatch`
+
+   TODO
+
+- `DrawEL`
+
+   TODO
+
+- `DrawLF`
+
+   TODO
+
+- `DrawName`
+
+   TODO
+
+- `DrawNum`
+
+   TODO
+
+- `DrawPatchText`
+
+   TODO
+
+- `DrawPercent`
+
+   TODO
+
+- `DrawTime`
+
+   TODO
+
+- `AutoSkip`
+
+   TODO
+
+- `Drawer`
+
+   Called by `WI_Drawer`, which is called every frame when `GameState` is `GS_INTERMISSION`.
+
+- `End`
+
+   Called when the intermission should end. Default behaviour is to set `CurState` to `LeavingIntermission` and remove bots in death-match. Generally, `Level.WorldDone` should be called directly after this.
+
+- `Start`
+
+   Called by `WI_Start` after the `WBStartStruct` is populated, sounds are stopped and the screen blend is set to black. Sets up initial values and runs `InitStats`.
+
+- `StartMusic`
+
+   Called in the first tick by `Ticker` to set the intermission music.
+
+- `Ticker`
+
+   Called by `WI_Ticker`, which is called every game tick when `GameState` is `GS_INTERMISSION`.
+
+- `DrawNoState`
+
+   Called by `Drawer` when `CurState` is `NoState` or any other non-state.
+
+- `DrawShowNextLoc`
+
+   Called by `Drawer` when `CurState` is `ShowNextLoc` and, by default, `DrawNoState` after setting `SNL_PointerOn` to `true`.
+
+- `DrawStats`
+
+   Called by `Drawer` directly after drawing the animated background when `CurState` is `StatCount`.
+
+- `InitNoState`
+
+   Called by `UpdateShowNextLoc` to initiate the `NoState` stage.
+
+- `InitShowNextLoc`
+
+   Called by `UpdateStats` to initiate the `ShowNextLoc` stage.
+
+- `InitStats`
+
+   Called by `Start` to initiate the `StatCount` stage.
+
+- `UpdateNoState`
+
+   Called by `Ticker` when `CurState` is `NoState` or any other non-state. Exits the intermission by calling `End` and `Level.WorldDone` when appropriate.
+
+- `UpdateShowNextLoc`
+
+   Called by `Ticker` when `CurState` is `ShowNextLoc`. Runs `InitNoState` when appropriate and alternates `SNL_PointerOn`.
+
+- `UpdateStats`
+
+   Called by `Ticker` when `CurState` is `StatCount`. Runs `InitShowNextLoc` when appropriate.
+
+- `CheckForAccelerate`
+
+   Updates the values of `AccelerateStage` and `PlayerReady` according to each player's inputs.
+
+- `FragSum`
+
+   Returns the number of frags player `playernum` has accumulated against all currently in-game players. This is different from `WBPlayerStruct.FragCount` because it is counted dynamically, i.e. if a player leaves the count will be changed. This is only useful for game modes where frags do not count as score.
+
+- `GetPlayerWidths`
+
+   TODO
+
+- `GetRowColor`
+
+   TODO
+
+- `GetSortedPlayers`
+
+   TODO
+
+- `PlaySound`
+
+   Plays a UI sound at full volume using `S_Sound`.
 
 <!-- EOF -->
