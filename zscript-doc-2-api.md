@@ -3301,7 +3301,7 @@ Weapons
 
 ### PSprite
 
-A **P**layer **Sprite**, paradoxically, is not the player themself, but the sprite *within their view*, such as their weapon. PSprites are arbitrarily layered by number, somewhat similar to HUDMessages. They are drawn ordered from lowest to highest.
+A **P**layer **Sprite**, paradoxically, is not the player themself, but the sprite *within their view*, such as their weapon. PSprites are arbitrarily layered by number, somewhat similar to `HUDMessage`s. They are drawn ordered from lowest to highest.
 
 The predefined layers are:
 
@@ -4426,7 +4426,7 @@ File system
 
 The `Wads` group of functions allow you to access the virtual file system by reading from loaded archives. Note that all archive operations are **not deterministic** unless all users have the exact same files loaded. This is generally fine even if they are not exactly the same, but be careful to not do things which may collide with what another mod is doing.
 
-As a summary of how the virtual file system works, files of various kinds are loaded from *archives* into a structure of *lumps* and *namespaces*. The term *lump* in this document refers to any file object loaded from an archive which has its name truncated to 8 characters and its extension stripped, and the term *file* refers to any actual file within a real folder structure. Archives which have real folder structures are referred to in this document as *resource archives* or *resources*. The other two types of supported archives are *Doom Wad* (commonly just "Wad") and *Blood* `RFF` files. The latter is useless. The former, *Doom Wads*, are most commonly used for maps, map sets, older mods and all commercially available games including Doom, Heretic &al. The currently supported resource archive file types include `PKZIP` (`.zip`, `.pk3`, `.pkz`), 7-Zip (`.7z`, `.pk7`), and folders.
+As a summary of how the virtual file system works, files of various kinds are loaded from *archives* into a structure of *lumps* and *namespaces*. The term *lump* in this document refers to any file object loaded from an archive which has its name truncated to 8 characters and its extension stripped, and the term *file* refers to any actual file within a real folder structure. Archives which have real folder structures are referred to in this document as *resource archives* or *resources*. The other two types of supported archives are *Doom Wad* (commonly just "Wad") and *Blood* `RFF` files. The latter is useless. The former, *Doom Wads*, are most commonly used for maps, map sets, older mods and all commercially available games including Doom, Heretic &al. The currently supported resource archive file types include `PKZIP` (`.zip`, `.pk3`, `.pkz`), 7-Zip (`.7z`, `.pk7`), BUILD `GRP` (`.grp`), Quake `PAK` (`.pak`), and folders. Single files can also be loaded as archives, containing only themselves.
 
 In short:
 
