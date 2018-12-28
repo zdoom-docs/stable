@@ -403,101 +403,101 @@ Here is a list of differences between ZScript versions:
 
 ## Version 3.1
 
-- Added `UserCmd`.
-- Added `PlayerPawn::CROUCHSPEED`.
-- Added `PlayerPawn::TURN180_TICKS`.
-- Added `PlayerPawn::FireWeapon`.
-- Added `PlayerPawn::FireWeaponAlt`.
-- Added `PlayerPawn::CheckWeaponFire`.
-- Added `PlayerPawn::CheckWeaponChange`.
-- Added `PlayerPawn::TickPSprites`.
-- Added `PlayerPawn::DeathThink`.
-- Added `PlayerPawn::CheckFOV`.
-- Added `PlayerPawn::CheckCheats`.
-- Added `PlayerPawn::CheckFrozen`.
-- Added `PlayerPawn::CrouchMove`.
-- Added `PlayerPawn::CheckCrouch`.
-- Added `PlayerPawn::ForwardThrust`.
-- Added `PlayerPawn::Bob`.
-- Added `PlayerPawn::TweakSpeeds`.
-- Added `PlayerPawn::MovePlayer`.
-- Added `PlayerPawn::CheckPitch`.
-- Added `PlayerPawn::CheckJump`.
-- Added `PlayerPawn::CheckMoveUpDown`.
-- Added `PlayerPawn::HandleMovement`.
-- Added `PlayerPawn::CheckUndoMorph`.
-- Added `PlayerPawn::CheckPoison`.
-- Added `PlayerPawn::CheckDegeneration`.
-- Added `PlayerPawn::CheckAirSupply`.
-- Added `PlayerPawn::PlayerThink`.
-- Added `PlayerPawn::CheckMusicChange`.
-- Added `PlayerPawn::CalcHeight`.
-- Added `PlayerPawn::CheckEnvironment`.
-- Added `PlayerPawn::CheckUse`.
-- Added `PlayerPawn::CheckWeaponButtons`.
-- Added `PlayerPawn::BestWeapon`.
-- Added `PlayerInfo::Cmd`.
-- Added `PlayerInfo::Original_Cmd`.
-- Added `PlayerInfo::IsTotallyFrozen`.
-- Added `PlayerInfo::Uncrouch`.
-- Added `ListMenuItemSlider::mDrawX`.
-- Added `SBarInfo::GetProtrusion`.
-- Added `Actor::ORIG_FRICTION`.
-- Added `Actor::ORIG_FRICTION_FACTOR`.
 - Added `Actor::CheckFakeFloorTriggers`.
-- Added `global LocalViewPitch`.
+- Added `Actor::ORIG_FRICTION_FACTOR`.
+- Added `Actor::ORIG_FRICTION`.
+- Added `HarmonyStatusBar`.
+- Added `LAF_OVERRIDEZ`.
 - Added `LevelLocals::AllowRespawn`.
-- Added `LevelLocals::IsJumpingAllowed`.
 - Added `LevelLocals::IsCrouchingAllowed`.
 - Added `LevelLocals::IsFreelookAllowed`.
-- Added `LAF_OVERRIDEZ`.
-- Added `HarmonyStatusBar`.
-- Added `SVELight`.
+- Added `LevelLocals::IsJumpingAllowed`.
+- Added `ListMenuItemSlider::mDrawX`.
+- Added `LocalViewPitch`.
+- Added `PlayerInfo::Cmd`.
+- Added `PlayerInfo::IsTotallyFrozen`.
+- Added `PlayerInfo::Original_Cmd`.
+- Added `PlayerInfo::Uncrouch`.
+- Added `PlayerPawn::BestWeapon`.
+- Added `PlayerPawn::Bob`.
+- Added `PlayerPawn::CROUCHSPEED`.
+- Added `PlayerPawn::CalcHeight`.
+- Added `PlayerPawn::CheckAirSupply`.
+- Added `PlayerPawn::CheckCheats`.
+- Added `PlayerPawn::CheckCrouch`.
+- Added `PlayerPawn::CheckDegeneration`.
+- Added `PlayerPawn::CheckEnvironment`.
+- Added `PlayerPawn::CheckFOV`.
+- Added `PlayerPawn::CheckFrozen`.
+- Added `PlayerPawn::CheckJump`.
+- Added `PlayerPawn::CheckMoveUpDown`.
+- Added `PlayerPawn::CheckMusicChange`.
+- Added `PlayerPawn::CheckPitch`.
+- Added `PlayerPawn::CheckPoison`.
+- Added `PlayerPawn::CheckUndoMorph`.
+- Added `PlayerPawn::CheckUse`.
+- Added `PlayerPawn::CheckWeaponButtons`.
+- Added `PlayerPawn::CheckWeaponChange`.
+- Added `PlayerPawn::CheckWeaponFire`.
+- Added `PlayerPawn::CrouchMove`.
+- Added `PlayerPawn::DeathThink`.
+- Added `PlayerPawn::FireWeaponAlt`.
+- Added `PlayerPawn::FireWeapon`.
+- Added `PlayerPawn::ForwardThrust`.
+- Added `PlayerPawn::HandleMovement`.
+- Added `PlayerPawn::MovePlayer`.
+- Added `PlayerPawn::PlayerThink`.
+- Added `PlayerPawn::TURN180_TICKS`.
+- Added `PlayerPawn::TickPSprites`.
+- Added `PlayerPawn::TweakSpeeds`.
+- Added `SBarInfo::GetProtrusion`.
 - Added `SVEFlagSpot*`.
+- Added `SVELight`.
+- Added `UserCmd`.
+- Added `offsetz` parameter to `Actor::LineAttack`.
 - Added override for `DoomStatusBar::DrawAutomapHUD`.
 - Added override for `SBarInfoWrapper::GetProtrusion`.
-- Added `offsetz` parameter to `Actor::LineAttack`.
 - Made `PlayerInfo::Cls` not `readonly`.
 
 ## Version 3.2
 
-- Added `+ZDOOMTRANS`.
 - Added `+DYNAMICLIGHT.ADDITIVE`.
-- Added `+DYNAMICLIGHT.SUBTRACTIVE`.
 - Added `+DYNAMICLIGHT.ATTENUATE`.
-- Added `FCheckPosition::PortalGroup`.
-- Added `Actor::FloatBobStrength`.
+- Added `+DYNAMICLIGHT.SUBTRACTIVE`.
+- Added `+ZDOOMTRANS`.
+- Added `Actor::A_SoundVolume`.
 - Added `Actor::CameraFOV`.
+- Added `Actor::CheckPortalTransition`.
+- Added `Actor::FloatBobStrength`.
 - Added `Actor::RenderHidden`.
 - Added `Actor::RenderRequired`.
-- Added `Actor::CheckPortalTransition`.
-- Added `Actor::A_SoundVolume`.
-- Added `Font::CR_ICE`.
+- Added `ActorRenderFeatureFlag`.
+- Added `DropItem::Amount`.
+- Added `FCheckPosition::PortalGroup`.
 - Added `Font::CR_FIRE`.
+- Added `Font::CR_ICE`.
 - Added `Font::CR_SAPPHIRE`.
 - Added `Font::CR_TEAL`.
-- Added `Font::TEXTCOLOR_ICE`.
 - Added `Font::TEXTCOLOR_FIRE`.
+- Added `Font::TEXTCOLOR_ICE`.
 - Added `Font::TEXTCOLOR_SAPPHIRE`.
 - Added `Font::TEXTCOLOR_TEAL`.
-- Added `Thinker::STAT_USER`.
-- Added `Thinker::STAT_USER_MAX`.
-- Added `DropItem::Amount`.
 - Added `LevelLocals::GiveSecret`.
+- Added `Shader`.
 - Added `String::IndexOf`.
 - Added `String::LastIndexOf`.
-- Added `String::ToUpper`.
-- Added `String::ToLower`.
-- Added `String::ToInt`.
 - Added `String::ToDouble`.
-- Added `Shader`.
-- Added `TEXTCOLOR_ICE`.
+- Added `String::ToInt`.
+- Added `String::ToLower`.
+- Added `String::ToUpper`.
 - Added `TEXTCOLOR_FIRE`.
+- Added `TEXTCOLOR_ICE`.
 - Added `TEXTCOLOR_SAPPHIRE`.
 - Added `TEXTCOLOR_TEAL`.
-- Added `ActorRenderFeatureFlag`.
-- Fixed `BlockLinesIterator::Create*` returning the wrong type.
+- Added `Thinker::STAT_USER_MAX`.
+- Added `Thinker::STAT_USER`.
 - Changed `Screen::SetCameraToTexture`'s `fov` parameter to `double`.
+- Fixed `BlockLinesIterator::Create*` returning the wrong type.
 
 ## Version 3.2.1
 
@@ -505,23 +505,23 @@ Here is a list of differences between ZScript versions:
 
 ## Version 3.2.2
 
-- Added `PlayerPawn::GetClassicFlight`.
 - Added `Actor::Warp`.
-- Added `TexMan::GetName`.
 - Added `CVar::GetBool`.
 - Added `CVar::SetBool`.
-- Added `Wads::CheckNumForFullName`.
-- Added `Wads::FindLump`.
-- Added `Wads::ReadLump`.
-- Added `Wads::FindLumpNamespace`.
-- Added `String::Remove`.
-- Added `String::Split`.
-- Added `LAF_TARGETISSOURCE`.
+- Added `EmptyTokenType`.
 - Added `LAF_ABSOFFSET`.
 - Added `LAF_ABSPOSITION`.
-- Added `EmptyTokenType`.
-- Added `offsetforward` and `offsetside` parameters for `Actor::LineAttack`.
+- Added `LAF_TARGETISSOURCE`.
+- Added `PlayerPawn::GetClassicFlight`.
+- Added `String::Remove`.
+- Added `String::Split`.
+- Added `TexMan::GetName`.
+- Added `Wads::CheckNumForFullName`.
+- Added `Wads::FindLumpNamespace`.
+- Added `Wads::FindLump`.
+- Added `Wads::ReadLump`.
 - Added `endIndex` parameter for `String::LastIndexOf`.
+- Added `offsetforward` and `offsetside` parameters for `Actor::LineAttack`.
 - Made `Array::Find` be `const`.
 - Made `Array::Max` be `const`.
 
@@ -536,140 +536,140 @@ Here is a list of differences between ZScript versions:
 ## Version 3.2.5
 
 - Added `Actor::CheckMove`.
-- Added `Screen::DrawLine`.
+- Added `ECheckMoveFlags`.
 - Added `LevelLocals::PixelStretch`.
 - Added `LevelLocals::Vec2Diff`.
 - Added `LevelLocals::Vec3Diff`.
-- Added `ECheckMoveFlags`.
 - Added `SKILLP_PlayerRespawn`.
+- Added `Screen::DrawLine`.
 - Added `alpha2` parameter to `Actor::A_SetBlend`.
 - Changed `Thinker::Tics2Seconds`' logic.
 
 ## Version 3.3
 
-- Default parameters in overridden virtual functions are now an error.
-- Added `Inventory::AltHUDIcon`.
-- Added `StrifeDialogueNode::MenuClassName`.
-- Added `StrifeDialogueNode::UserData`.
-- Added `OptionMenuItemLabeledSubmenu`.
-- Added `OptionMenuItemCommand::mCloseOnSelect`.
-- Added `OptionMenuItemOptionBase::IsGrayed`.
-- Added `DynamicLight::SpotInnerAngle`.
-- Added `DynamicLight::SpotOuterAngle`.
-- Added `SpotLight* classes`.
-- Added `HudMessageBase`.
-- Added `BaseStatusBar::EHUDMSGLayer`.
-- Added `BaseStatusBar::DI_MIRROR`.
-- Added `BaseStatusBar::AttachMessage`.
-- Added `BaseStatusBar::DetachMessage`.
-- Added `BaseStatusBar::DetachMessageID`.
-- Added `BaseStatusBar::DetachAllMessages`.
-- Added `FLineTargetData`.
-- Added `Actor::FriendlySeeBlocks`.
+- Added `Actor::ACS_ScriptCall`.
 - Added `Actor::Distance2DSquared`.
 - Added `Actor::Distance3DSquared`.
-- Added `Actor::LineTrace`.
+- Added `Actor::FriendlySeeBlocks`.
 - Added `Actor::GetRadiusDamage`.
-- Added `Actor::ACS_ScriptCall`.
-- Added `Screen::GetViewWindow`.
-- Added `Object::S_GetLength`.
+- Added `Actor::LineTrace`.
+- Added `Array` specialization for `Object`.
+- Added `BaseStatusBar::AttachMessage`.
+- Added `BaseStatusBar::DI_MIRROR`.
+- Added `BaseStatusBar::DetachAllMessages`.
+- Added `BaseStatusBar::DetachMessageID`.
+- Added `BaseStatusBar::DetachMessage`.
+- Added `BaseStatusBar::EHUDMSGLayer`.
+- Added `CHAN_LOOP`.
+- Added `DynamicLight::SpotInnerAngle`.
+- Added `DynamicLight::SpotOuterAngle`.
 - Added `ETrace*`, `ELineTier`, `ELineTraceFlags`.
-- Added `TraceResults`.
-- Added `LineTracer`.
-- Added `LevelLocals::SkyTexture1`.
-- Added `LevelLocals::SkyTexture2`.
+- Added `FLineTargetData`.
+- Added `HudMessageBase`.
+- Added `Inventory::AltHUDIcon`.
+- Added `LevelLocals::ChangeSky`.
+- Added `LevelLocals::GetChecksum`.
 - Added `LevelLocals::SkySpeed1`.
 - Added `LevelLocals::SkySpeed2`.
-- Added `LevelLocals::GetChecksum`.
-- Added `LevelLocals::ChangeSky`.
+- Added `LevelLocals::SkyTexture1`.
+- Added `LevelLocals::SkyTexture2`.
+- Added `LineTracer`.
+- Added `Object::S_GetLength`.
+- Added `OptionMenuItemCommand::mCloseOnSelect`.
+- Added `OptionMenuItemLabeledSubmenu`.
+- Added `OptionMenuItemOptionBase::IsGrayed`.
+- Added `ReverbEdit`.
+- Added `Screen::GetViewWindow`.
+- Added `Sector::CeilingData`.
+- Added `Sector::FloorData`.
+- Added `Sector::LightingData`.
 - Added `SectorEffect::GetSector`.
-- Added `CHAN_LOOP`.
-- Added `Array` specialization for `Object`.
+- Added `SpotLight* classes`.
+- Added `StaticEventHandler::PostUiTick`.
+- Added `StaticEventHandler::WorldLineActivated`.
+- Added `StaticEventHandler::WorldLinePreActivated`.
+- Added `StrifeDialogueNode::MenuClassName`.
+- Added `StrifeDialogueNode::UserData`.
+- Added `TraceResults`.
 - Added `WorldEvent::ActivatedLine`.
 - Added `WorldEvent::ShouldActivate`.
-- Added `StaticEventHandler::WorldLinePreActivated`.
-- Added `StaticEventHandler::WorldLineActivated`.
-- Added `StaticEventHandler::PostUiTick`.
-- Added `Sector::FloorData`.
-- Added `Sector::CeilingData`.
-- Added `Sector::LightingData`.
-- Added `ReverbEdit`.
-- Renamed `DynamicLight::ELightType::SpotLight` to `DummyLight`.
+- Default parameters in overridden virtual functions are now an error.
+- Made `SecPlane::HeightDiff` be `const`.
+- Made `SecPlane::ZatPoint` be `clearscope`.
 - Made `Side::V1` be `clearscope`.
 - Made `Side::V2` be `clearscope`.
-- Made `SecPlane::ZatPoint` be `clearscope`.
-- Made `SecPlane::HeightDiff` be `const`.
 - Made `Weapon::CheckAmmo` and `Weapon::DepleteAmmo` be `virtual`.
+- Renamed `DynamicLight::ELightType::SpotLight` to `DummyLight`.
 
 ## Version 3.3.1
 
 - Made `A_SetSize`'s `radius` parameter have a default.
+- Made `Side::Sector` and `Side::Linedef` be `readonly`.
 - Made all `DehInfo` members `readonly`.
 - Made all `State` members `readonly`.
-- Made `Side::Sector` and `Side::Linedef` be `readonly`.
 
 ## Version 3.3.2
 
-- Added `SPAC`.
 - Added `Line::Activate`.
 - Added `Line::RemoteActivate`.
+- Added `SPAC`.
 
 ## Version 3.4
 
+- Added "`internal`" keyword.
 - Added `Actor::OnGiveSecret`.
-- Added `LevelLocals::Vec2Offset`.
-- Added `LevelLocals::Vec2OffsetZ`.
-- Added `LevelLocals::Vec3Offset`.
-- Added `WorldEvent::ActivationType`.
-- Added `Line::ESide`.
-- Added `DTA_Desaturate`.
 - Added `DTA_Color`.
+- Added `DTA_Desaturate`.
 - Added `DTA_FlipY`.
+- Added `DTA_SrcHeight`.
+- Added `DTA_SrcWidth`.
 - Added `DTA_SrcX`.
 - Added `DTA_SrcY`.
-- Added `DTA_SrcWidth`.
-- Added `DTA_SrcHeight`.
-- Added "`internal`" keyword.
+- Added `LevelLocals::Vec2OffsetZ`.
+- Added `LevelLocals::Vec2Offset`.
+- Added `LevelLocals::Vec3Offset`.
+- Added `Line::ESide`.
+- Added `WorldEvent::ActivationType`.
+- Changed `PlayerPawn::ResetAirSupply`'s `playgasp` default to `true`.
 - Made `LevelLocals::SectorPortals` be `internal`.
 - Made `Sector::Portals` be `internal`.
-- Changed `PlayerPawn::ResetAirSupply`'s `playgasp` default to `true`.
 
 ## Version 3.5
 
-- Added `Menu::SetVideoMode`.
 - Added `DTA_LegacyRenderStyle`.
-- Added `Shape2D`.
-- Added `Screen::DrawShape`.
 - Added `MeansOfDeath` parameter to `Actor::Die`.
+- Added `Menu::SetVideoMode`.
+- Added `Screen::DrawShape`.
+- Added `Shape2D`.
 - Replaced `ListMenuItemPlayerDisplay::mTranslation` with `mBaseColor` and `mAddColor`.
 
 ## Version 3.5.1
 
 - Added `String::RightIndexOf`.
-- Made `Actor::DeltaAngle` be `clearscope`.
+- Deprecated `String::LastIndexOf`.
 - Made `Actor::AbsAngle` be `clearscope`.
 - Made `Actor::AngleToVector` be `clearscope`.
-- Made `Actor::RotateVector` be `clearscope`.
-- Made `Actor::Normalize180` be `clearscope`.
 - Made `Actor::BobSin` be `clearscope`.
-- Made `Actor::GetDefaultSpeed` be `clearscope`.
+- Made `Actor::DeltaAngle` be `clearscope`.
 - Made `Actor::FindState` be `clearscope`.
+- Made `Actor::GetDefaultSpeed` be `clearscope`.
 - Made `Actor::GetDropItems` be `clearscope`.
-- Deprecated `String::LastIndexOf`.
+- Made `Actor::Normalize180` be `clearscope`.
+- Made `Actor::RotateVector` be `clearscope`.
 
 ## Version 3.6
 
-- Added `Inventory::OnDrop`.
-- Added `GLTextureGLOptions`.
 - Added `Actor::A_CheckForResurrection`.
 - Added `Actor::A_RaiseSelf`.
 - Added `Actor::CanRaise`.
 - Added `Actor::Revive`.
-- Added `Screen::DrawThickLine`.
+- Added `DMG_EXPLOSION`.
+- Added `GLTextureGLOptions`.
+- Added `Inventory::OnDrop`.
 - Added `LevelLocals::SphericalCoords`.
+- Added `Screen::DrawThickLine`.
 - Added `StaticEventHandler::CheckReplacement`.
 - Added `StaticEventHandler::NewGame`.
-- Added `DMG_EXPLOSION`.
 - Added `TRF_SOLIDACTORS`, `TRF_BLOCKUSE`, and `TRF_BLOCKSELF`.
 - Made `StatusScreen::End` be `virtual`.
 
