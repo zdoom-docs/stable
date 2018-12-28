@@ -41,6 +41,7 @@ Table of Contents
    * [Version 3.5](#version-35)
    * [Version 3.5.1](#version-351)
    * [Version 3.6](#version-36)
+   * [Version 3.7](#version-37)
 * [Class Tree](#class-tree)
 * [Structure List](#structure-list)
 
@@ -673,14 +674,218 @@ Here is a list of differences between ZScript versions:
 - Added `TRF_SOLIDACTORS`, `TRF_BLOCKUSE`, and `TRF_BLOCKSELF`.
 - Made `StatusScreen::End` be `virtual`.
 
+## Version 3.7
+
+- Added "`flagdef`" keyword.
+- Added `ALF_NOWEAPONCHECK`.
+- Added `Actor::AimBulletMissile`.
+- Added `Actor::ApplyKickBack`.
+- Added `Actor::Blocking3DFloor`.
+- Added `Actor::BlockingCeiling`.
+- Added `Actor::BlockingFloor`.
+- Added `Actor::CanResurrect`.
+- Added `Actor::CheckFor3DCeilingHit`.
+- Added `Actor::CheckFor3DFloorHit`.
+- Added `Actor::CheckMonsterUseSpecials`.
+- Added `Actor::CheckSplash`.
+- Added `Actor::DaggerAlert`.
+- Added `Actor::DefMorphTicks`.
+- Added `Actor::DestroyAllInventory`.
+- Added `Actor::DisplayNameTag`.
+- Added `Actor::DoGiveInventory`.
+- Added `Actor::DoTakeInventory`.
+- Added `Actor::GetAge`.
+- Added `Actor::GetLevelSpawnTime`.
+- Added `Actor::Grind`.
+- Added `Actor::InitSpawnedItem`.
+- Added `Actor::Morph`.
+- Added `Actor::MorphedDeath`.
+- Added `Actor::RadiusAttack`.
+- Added `Actor::RailAttack`.
+- Added `Actor::RaiseActor`.
+- Added `Actor::RestoreRenderStyle`.
+- Added `Actor::ShouldSpawn`.
+- Added `Actor::SpawnLineAttackBlood`.
+- Added `Actor::SpawnTime`.
+- Added `Actor::Substitute`.
+- Added `Actor::TriggerPainChance`.
+- Added `Actor::UnMorph`.
+- Added `Actor::VelIntercept`.
+- Added `Actor::bBounceOnUnrippables`.
+- Added `Actor::bDontBounceOnSky`.
+- Added `Actor::bNOFRICTIONBOUNCE`.
+- Added `Actor::bNOFRICTION`.
+- Added `AllClasses`.
+- Added `Alpha` parameter to `Screen::DrawLine`.
+- Added `Alpha` parameter to `Screen::DrawThickLine`.
+- Added `AltHud`.
+- Added `AmbientSound::MarkAmbientSounds`.
+- Added `AutoUseHealthInfo`.
+- Added `BaseStatusBar::UpdateScreenGeometry`.
+- Added `Bobbing`.
+- Added `DMG_NO_ENHANCE`.
+- Added `Decal::SpawnDecal`.
+- Added `Destructible`.
+- Added `DynamicLight::SetOffset`.
+- Added `EChangeLevelFlags`.
+- Added `EFinishLevelType`.
+- Added `EPlayerGender`.
+- Added `FLineTraceData::TRACE_HasHitSky`.
+- Added `FRailParams`.
+- Added `Font::GetBottomAlignOffset`.
+- Added `GameInfoStruct::BerserkPic`.
+- Added `GameInfoStruct::DefKickBack`.
+- Added `GameInfoStruct::DefaultBloodColor`.
+- Added `GameInfoStruct::DefaultDropStyle`.
+- Added `GameInfoStruct::HealthPic`.
+- Added `GameInfoStruct::TeleFogHeight`.
+- Added `HealthGroup`.
+- Added `IntermissionSequenceType`.
+- Added `Inventory::PrevInv`.
+- Added `Inventory::SetGiveAmount`.
+- Added `Inventory::UseAll`.
+- Added `Key::GetKeyTypeCount`.
+- Added `Key::GetKeyType`.
+- Added `LevelLocals::Cluster_Hub`.
+- Added `LevelLocals::DeathSequence`.
+- Added `LevelLocals::GetAutomapPosition`.
+- Added `LevelLocals::IsPointInMap`.
+- Added `LevelLocals::KeepFullInventory`.
+- Added `LevelLocals::RemoveItems`.
+- Added `LevelLocals::StartIntermission`.
+- Added `Line::GetHealth`.
+- Added `Line::HealthGroup`.
+- Added `Line::Health`.
+- Added `Line::SetHealth`.
+- Added `MorphedMonster::FlagsSave`.
+- Added `MorphedMonster::UndoMonsterMorph`.
+- Added `NetGame`.
+- Added `Object::MarkSound`.
+- Added `PF_HITSKY`.
+- Added `PSprite::ResetInterpolation`.
+- Added `PlayerInfo::GetDeltaViewHeight`.
+- Added `PlayerInfo::GetWBobSpeed`.
+- Added `PlayerPawn::ActivateMorphWeapon`.
+- Added `PlayerPawn::AutoUseHealth`.
+- Added `PlayerPawn::AutoUseStrifeHealth`.
+- Added `PlayerPawn::BobWeapon`.
+- Added `PlayerPawn::BringUpWeapon`.
+- Added `PlayerPawn::CheatMorph`.
+- Added `PlayerPawn::CheatSetInv`.
+- Added `PlayerPawn::CheatTakeWeaps`.
+- Added `PlayerPawn::CurBob`.
+- Added `PlayerPawn::DropWeapon`.
+- Added `PlayerPawn::EndAllPowerupEffects`.
+- Added `PlayerPawn::FilterCoopRespawnInventory`.
+- Added `PlayerPawn::FindMostRecentWeapon`.
+- Added `PlayerPawn::GetTeleportFreezeTime`.
+- Added `PlayerPawn::GiveDefaultInventory`.
+- Added `PlayerPawn::InitAllPowerupEffects`.
+- Added `PlayerPawn::InvNext`.
+- Added `PlayerPawn::InvPrev`.
+- Added `PlayerPawn::MarkPlayerSounds`.
+- Added `PlayerPawn::MorphPlayer`.
+- Added `PlayerPawn::Num_Weapon_Slots`.
+- Added `PlayerPawn::PickNewWeapon`.
+- Added `PlayerPawn::PickNextWeapon`.
+- Added `PlayerPawn::PickPrevWeapon`.
+- Added `PlayerPawn::PickWeapon`.
+- Added `PlayerPawn::PlayerFinishLevel`.
+- Added `PlayerPawn::TeleportFreezeTime`.
+- Added `PlayerPawn::UndoPlayerMorph`.
+- Added `RadiusDamageFlags`.
+- Added `SKILLP_KickBackFactor`.
+- Added `ScriptUtil`.
+- Added `SecActDamage3D`.
+- Added `SecActDamageCeiling`.
+- Added `SecActDamageFloor`.
+- Added `SecActDeath3D`.
+- Added `SecActDeathCeiling`.
+- Added `SecActDeathFloor`.
+- Added `Sector::AdditiveColors`.
+- Added `Sector::GetHealth`.
+- Added `Sector::HealthCeilingGroup`.
+- Added `Sector::HealthCeiling`.
+- Added `Sector::HealthFloorGroup`.
+- Added `Sector::HealthFloor`.
+- Added `Sector::SECF_NOATTACK`.
+- Added `Sector::SetAdditiveColor`.
+- Added `Sector::SetHealth`.
+- Added `SectorAction::SECSPAC_Damage3D`.
+- Added `SectorAction::SECSPAC_DamageCeiling`.
+- Added `SectorAction::SECSPAC_DamageFloor`.
+- Added `SectorAction::SECSPAC_Death3D`.
+- Added `SectorAction::SECSPAC_DeathCeiling`.
+- Added `SectorAction::SECSPAC_DeathFloor`.
+- Added `SectorPart`.
+- Added `Side::EnableAdditiveColor`.
+- Added `Side::GetAdditiveColor`.
+- Added `Side::SetAdditiveColor`.
+- Added `Side::SetSpecialColor`.
+- Added `Side::WallBottom`.
+- Added `Side::WallTop`.
+- Added `State::InStateSequence`.
+- Added `StaticEventHandler::WorldLineDamaged`.
+- Added `StaticEventHandler::WorldSectorDamaged`.
+- Added `TRACE_HasHitSky`.
+- Added `Vertex::Index`.
+- Added `Weapon::CheckAddToSlots`.
+- Added `Weapon::DoReadyWeaponDisableSwitch`.
+- Added `Weapon::DoReadyWeaponToBob`.
+- Added `Weapon::DoReadyWeaponToFire`.
+- Added `Weapon::DoReadyWeaponToSwitch`.
+- Added `Weapon::GetButtonStateFlags`.
+- Added `Weapon::PlayUpSound`.
+- Added `Weapon::PostMorphWeapon`.
+- Added `Weapon::SlotPriority`.
+- Added `WeaponSlots::GetWeapon`.
+- Added `WeaponSlots::SetupWeaponSlots`.
+- Added `WeaponSlots::SlotSize`.
+- Added `WorldEvent::DamageIsRadius`.
+- Added `WorldEvent::DamageLineSide`.
+- Added `WorldEvent::DamageLine`.
+- Added `WorldEvent::DamagePosition`.
+- Added `WorldEvent::DamageSectorPart`.
+- Added `WorldEvent::DamageSector`.
+- Added `WorldEvent::NewDamage`.
+- Changed `PlayerInfo::PremorphWeapon`'s type to `Weapon`.
+- Deprecated `Actor::CheckClass`.
+- Deprecated `Actor::GetAngle`.
+- Deprecated `Actor::GetDistance`.
+- Deprecated `Actor::GetSpriteAngle`.
+- Deprecated `Actor::GetSpriteRotation`.
+- Deprecated `PlayerInfo::BringUpWeapon`.
+- Deprecated `PlayerInfo::DropWeapon`.
+- Deprecated `PlayerInfo::MorphPlayer`.
+- Deprecated `PlayerInfo::UndoPlayerMorph`.
+- Deprecated `Weapon::MinAmmo1`.
+- Deprecated `Weapon::MinAmmo2`.
+- Deprecated `Weapon::WeaponFlags`.
+- Made `Actor::A_PlaySound` be `clearscope`.
+- Made `Actor::ClearInventory` be `virtual`.
+- Made `Actor::GetPointer` be `clearscope`.
+- Made `Actor::InStateSequence` be `static`.
+- Made `Actor::MorphMonster` be `virtual`.
+- Made `Actor::UseInventory` be `virtual`.
+- Made `Ammo::GetParentAmmo` be `virtual`.
+- Made `BaseStatusBar::ArtiFlashTick` be `clearscope`.
+- Made `BaseStatusBar::FlashItem` be `clearscope`.
+- Made `BaseStatusBar::ItemFlashFade` be `clearscope`.
+- Made `Inventory::ModifyDropAmount` be `virtual`.
+- Made `Object::ChangeStatNum` not be `virtual`.
+- Made `Sector::PointInSector` be `clearscope`.
+- Made `Weapon::SlotNumber` be `meta`.
+- Made `WeaponSlots::LocateWeapon` be `const`.
+
 Class Tree
 ==========
 
-Here is a full tree of all classes in ZScript as of GZDoom 3.6.0. There are 1448 classes total.
+Here is a full tree of all classes in ZScript as of GZDoom 3.7.0. There are 1456 classes total.
 
 ```
 Object
 ├ ActorIterator
+├ AltHud
 ├ BaseStatusBar
 │ ├ DoomStatusBar
 │ │ └ HarmonyStatusBar
@@ -773,6 +978,7 @@ Object
 ├ PointLightFlickerRandomAdditive
 ├ PointLightFlickerRandomAttenuated
 ├ PSprite
+├ ScriptUtil
 ├ SectorTagIterator
 ├ SeqNode
 ├ Shape2D
@@ -1715,6 +1921,12 @@ Object
 │ │ ├ SecretTrigger
 │ │ ├ SectorAction
 │ │ │ ├ MusicChanger
+│ │ │ ├ SecActDamage3D
+│ │ │ ├ SecActDamageCeiling
+│ │ │ ├ SecActDamageFloor
+│ │ │ ├ SecActDeath3D
+│ │ │ ├ SecActDeathCeiling
+│ │ │ ├ SecActDeathFloor
 │ │ │ ├ SecActEnter
 │ │ │ ├ SecActExit
 │ │ │ ├ SecActEyesAboveC
@@ -2132,15 +2344,17 @@ Object
 Structure List
 ==============
 
-Here is a full list of all structures in ZScript as of GZDoom 3.6.0. There are 70 structures total. Note that some of these are merely implementation details and should not be used in code.
+Here is a full list of all structures in ZScript as of GZDoom 3.7.0. There are 74 structures total. Note that some of these are merely implementation details and should not be used in code.
 
 ```
 Struct
+├ AutoUseHealthInfo
 ├ Console
 ├ ConsoleEvent
 ├ CVar
 ├ DamageTypeDefinition
 ├ DehInfo
+├ Destructible
 ├ DropItem
 ├ DynArray_F32
 ├ DynArray_F64
@@ -2156,10 +2370,12 @@ Struct
 ├ FLineTraceData
 ├ Font
 ├ FOptionMenuSettings
+├ FRailParams
 ├ FStateParamInfo
 ├ FTranslatedLineTarget
 ├ GameInfoStruct
 ├ GIFont
+├ HealthGroup
 ├ InputEvent
 ├ JoystickConfig
 ├ KeyBindings
