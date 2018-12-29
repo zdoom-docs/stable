@@ -677,6 +677,10 @@ Here is a list of differences between ZScript versions:
 ## Version 3.7
 
 - Added "`flagdef`" keyword.
+- Added `"AddShaded"` RenderStyle.
+- Added `"ColorAdd"` RenderStyle.
+- Added `"ColorBlend"` RenderStyle.
+- Added `"Multiply"` RenderStyle.
 - Added `ALF_NOWEAPONCHECK`.
 - Added `Actor::AimBulletMissile`.
 - Added `Actor::ApplyKickBack`.
@@ -746,7 +750,7 @@ Here is a list of differences between ZScript versions:
 - Added `Inventory::UseAll`.
 - Added `Key::GetKeyTypeCount`.
 - Added `Key::GetKeyType`.
-- Added `LevelLocals::Cluster_Hub`.
+- Added `LevelLocals::CLUSTER_HUB`.
 - Added `LevelLocals::DeathSequence`.
 - Added `LevelLocals::GetAutomapPosition`.
 - Added `LevelLocals::IsPointInMap`.
@@ -785,7 +789,7 @@ Here is a list of differences between ZScript versions:
 - Added `PlayerPawn::InvPrev`.
 - Added `PlayerPawn::MarkPlayerSounds`.
 - Added `PlayerPawn::MorphPlayer`.
-- Added `PlayerPawn::Num_Weapon_Slots`.
+- Added `PlayerPawn::NUM_WEAPON_SLOTS`.
 - Added `PlayerPawn::PickNewWeapon`.
 - Added `PlayerPawn::PickNextWeapon`.
 - Added `PlayerPawn::PickPrevWeapon`.
