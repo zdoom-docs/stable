@@ -1,9 +1,8 @@
-Table of Contents
-=================
+Language
+========
 
 <!-- vim-markdown-toc GFM -->
 
-* [Language](#language)
 * [Reading This Document](#reading-this-document)
 * [Translation Unit](#translation-unit)
 * [Versions](#versions)
@@ -78,9 +77,6 @@ Table of Contents
       * [Action functions](#action-functions)
 
 <!-- vim-markdown-toc -->
-
-Language
-========
 
 ZScript is a new (circa 2017) scripting language that has sprung from the ceasing of ZDoom and the subsequent reprisal of GZDoom as mainline. It is similar to Java, though it has many deficiencies, oddities and other such issues. Despite this, it is still the most powerful Doom modding tool since straight up source editing, and will likely stay that way for a while until Eternity Engine inevitably becomes competition-worthy with scripting additions.
 

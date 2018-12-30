@@ -1,5 +1,7 @@
 # Examples
 
+<!-- vim-markdown-toc GFM -->
+
 * [Class headers](#class-headers)
 * [Class definitions](#class-definitions)
 * [Property definitions](#property-definitions)
@@ -14,6 +16,8 @@
 * [Control flow statements](#control-flow-statements)
 * [Multi-assignment statements](#multi-assignment-statements)
 * [Member declarations](#member-declarations)
+
+<!-- vim-markdown-toc -->
 
 Code examples for ZScript demonstrating various features.
 
@@ -36,11 +40,11 @@ Basic class definition with a member variable and member function.
 ```
 class BasicClass
 {
-   int m_thing;
+   int m_Thing;
 
-   void changeThing()
+   void ChangeThing()
    {
-      m_thing = 500;
+      m_Thing = 500;
    }
 }
 ```
@@ -50,7 +54,7 @@ Alternate syntax usage.
 ```
 class TheWholeFileIsAClassOhNo;
 
-int m_mymember;
+int m_MyMember;
 
 // end of file
 ```
@@ -68,11 +72,12 @@ class MyCoolActor : Actor
       MyCoolActor.MyCoolMemberList 501, 502;
    }
 
-   int m_myCoolMember;
-   int m_coolMember1, m_coolMember2;
+   int m_MyCoolMember;
+   int m_CoolMember1, m_CoolMember2;
 
-   property MyCoolMember: m_myCoolMember;
-   property MyCoolMemberList: m_coolMember1, m_coolMember2;
+   property MyCoolMember: m_MyCoolMember;
+   property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
+
 }
 ```
 
@@ -83,9 +88,9 @@ Simple structure.
 ```
 struct MyCoolStructure
 {
-   int x;
-   int y;
-   int z;
+   int X;
+   int Y;
+   int Z;
 }
 ```
 
@@ -121,7 +126,7 @@ enum MyCoolerEnum : int16
 Making an integer constant from a double.
 
 ```
-const MyCoolInt = int(777.7777);
+const MY_COOL_INT = int(777.7777);
 ```
 
 ## Include directives
@@ -137,28 +142,28 @@ Basic includes.
 With the function:
 
 ```
-void fn(int one, int two, int a = 0, int b = 0);
+void Fn(int one, int two, int a = 0, int b = 0);
 ```
 
 One could do the following:
 
 ```
-fn(4, 5);
-fn(5, 6, 7);
-fn(6, 7, 8, 9);
+Fn(4, 5);
+Fn(5, 6, 7);
+Fn(6, 7, 8, 9);
 ```
 
 Or using named default arguments,
 
 ```
-fn(5, 6, a: 7);
-fn(6, 7, b: 8);
-fn(7, 8, a: 9, b: 10);
+Fn(5, 6, a: 7);
+Fn(6, 7, b: 8);
+Fn(7, 8, a: 9, b: 10);
 
 // equivalent to:
-fn(5, 6, 7);
+Fn(5, 6, 7);
 // (no equivalent, must use above)
-fn(7, 8, 9, 10);
+Fn(7, 8, 9, 10);
 ```
 
 ## Expression statements
@@ -166,8 +171,8 @@ fn(7, 8, 9, 10);
 Some basic expressions.
 
 ```
-myCoolFunction(5, 4);
-m_myCoolMember = 500;
+MyCoolFunction(5, 4);
+m_MyCoolMember = 500;
 5 * 5; // does nothing of course, but valid
 ```
 
@@ -177,7 +182,7 @@ Simple conditional.
 
 ```
 if(a)
-   b();
+   B();
 ```
 
 Simple conditional, with else statement and a block.
@@ -185,7 +190,7 @@ Simple conditional, with else statement and a block.
 ```
 if(a)
 {
-   b();
+   B();
    c = d;
 }
 else
@@ -217,7 +222,7 @@ for(int i = 0; i < 50; i++)
 {
    if(i == 25) continue; // don't do anything on 25!
 
-   doThing(i);
+   DoThing(i);
 }
 ```
 
@@ -228,29 +233,29 @@ for(int i = 0; i < 50; i++)
 {
    if(i == 25) break; // exit the loop at 25!
 
-   doThing(i);
+   DoThing(i);
 }
 ```
 
 Use of `return` in various contexts.
 
 ```
-void returnsNothing()
+void ReturnsNothing()
 {
-   if(m_thing != 50) return; // exit early if m_thing isn't 50.
+   if(m_Thing != 50) return; // exit early if m_Thing isn't 50.
 
-   doThing(m_thing);
+   DoThing(m_Thing);
 }
 
-int returnsInt()
+int ReturnsInt()
 {
-   if(m_thing == 50)
+   if(m_Thing == 50)
       return 50; // m_thing is 50, so return 50.
 
    return 0; // must have a return eventually
 }
 
-int, int returnsTwoInts()
+int, int ReturnsTwoInts()
 {
    return 1, 2; // returns 1 and 2.
 }
@@ -271,11 +276,11 @@ bool spawned;
 Some basic member variables.
 
 ```
-int m_myCoolInt;
-int m_coolInt1, m_coolInt2, m_coolInt3;
-int[10] m_coolIntArray;
-private int m_coolPrivateInt;
-protected meta int m_coolMetaInt;
+int m_MyCoolInt;
+int m_CoolInt1, m_CoolInt2, m_CoolInt3;
+int[10] m_CoolIntArray;
+private int m_CoolPrivateInt;
+protected meta int m_CoolMetaInt;
 ```
 
 <!-- EOF -->
