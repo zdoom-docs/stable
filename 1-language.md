@@ -25,7 +25,9 @@ Table of Contents
 * [Include directives](#include-directives)
 * [Types](#types)
    * [Integers](#integers)
+      * [Symbols](#symbols)
    * [Floating-point types](#floating-point-types)
+      * [Symbols](#symbols-1)
    * [Strings](#strings)
    * [Names](#names)
    * [Color](#color)
@@ -423,6 +425,18 @@ Some types have aliases as well:
 | `short`  | `int16`  |
 | `ushort` | `uint16` |
 
+### Symbols
+
+Integer types have symbols attached which can be accessed by `typename.name`, for instance `int.Max`.
+
+- `Max`
+
+   Maximum value of type.
+
+- `Min`
+
+   Minimum value of type.
+
 ## Floating-point types
 
 Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
@@ -433,6 +447,58 @@ Floating-point types hold exponents, generally represented as regular decimal nu
 | `float`   | Yes (64 bits)      | 32-bit in structures and classes, 64-bit otherwise.                |
 | `float64` | Yes                | Alias for `double`.                                                |
 | `float32` | No                 | 32-bit floating-point number. Not implemented correctly, unusable. |
+
+### Symbols
+
+Floating-point types have symbols attached which can be accessed by `typename.name`, for instance `double.Infinity`.
+
+- `Dig`
+
+   Number of decimal digits in type.
+
+- `Epsilon`
+
+   ε value of type.
+
+- `Infinity`
+
+   ∞ value of type.
+
+- `Mant_Dig`
+
+   Number of mantissa bits in type.
+
+- `Max`
+
+   Maximum value of type.
+
+- `Max_Exp`
+
+   Maximum exponent bits value of type.
+
+- `Max_10_Exp`
+
+   Maximum exponent of type.
+
+- `Min_Denormal`
+
+   Minimum positive subnormal value of type.
+
+- `Min_Exp`
+
+   Minimum exponent bits value of type.
+
+- `Min_Normal`
+
+   Minimum value of type.
+
+- `Min_10_Exp`
+
+   Minimum exponent of type.
+
+- `NaN`
+
+   Not-a-Number value of type.
 
 ## Strings
 
