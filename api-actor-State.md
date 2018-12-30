@@ -94,7 +94,7 @@ struct State
 
 - `InStateSequence`
 
-   TODO
+   Returns `true` if this state is within a contiguous state sequence beginning with `base`.
 
 - `ValidateSpriteFrame`
 
