@@ -33,7 +33,7 @@ struct Font
 
 - `GetBottomAlignOffset`
 
-   TODO
+   Returns the baseline for the character `code`.
 
 - `GetCharWidth`
 
