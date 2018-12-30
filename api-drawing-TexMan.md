@@ -20,38 +20,38 @@ struct TexMan
 
    Returns a `textureid` for the texture named `name`. `usetype` may be one of the following, which selects what kind of texture to find:
 
-   | Name                       | Description                                                   |
-   | ----                       | -----------                                                   |
-   | `TexMan.Type_Any`          | Returns any kind of texture.                                  |
-   | `TexMan.Type_Autopage`     | Returns an auto-map background graphic. (TODO: needs example) |
-   | `TexMan.Type_Build`        | Returns a tile from a BUILD TILES entry.                      |
-   | `TexMan.Type_Decal`        | Unknown. (TODO)                                               |
-   | `TexMan.Type_FirstDefined` | Unknown. (TODO)                                               |
-   | `TexMan.Type_Flat`         | Returns any flat, i.e. `FLOOR0_1`.                            |
-   | `TexMan.Type_FontChar`     | Unknown. (TODO)                                               |
-   | `TexMan.Type_MiscPatch`    | Unknown. (TODO)                                               |
-   | `TexMan.Type_Null`         | Returns the null graphic. Ignores `name`.                     |
-   | `TexMan.Type_Override`     | Unknown. (TODO)                                               |
-   | `TexMan.Type_SkinGraphic`  | Unknown. (TODO)                                               |
-   | `TexMan.Type_SkinSprite`   | Unknown. (TODO)                                               |
-   | `TexMan.Type_Sprite`       | Returns a sprite, i.e. `MEDIA0`.                              |
-   | `TexMan.Type_WallPatch`    | Returns an uncomposited patch, i.e. `DOOR2_1`.                |
-   | `TexMan.Type_Wall`         | Returns any composited wall texture, i.e. `STARTAN2`.         |
+   | Name                       | Description                                                                                       |
+   | ----                       | -----------                                                                                       |
+   | `TexMan.Type_Any`          | Any kind of texture.                                                                              |
+   | `TexMan.Type_Autopage`     | Unused.                                                                                           |
+   | `TexMan.Type_Build`        | Unused.                                                                                           |
+   | `TexMan.Type_Decal`        | A decal pic defined in `DECALDEF`.                                                                |
+   | `TexMan.Type_FirstDefined` | The first composite texture defined by the IWad.                                                  |
+   | `TexMan.Type_Flat`         | A flat (ceiling/floor texture,) i.e. `FLOOR0_1`.                                                  |
+   | `TexMan.Type_FontChar`     | Unused.                                                                                           |
+   | `TexMan.Type_MiscPatch`    | A loose graphic, i.e. `M_DOOM`.                                                                   |
+   | `TexMan.Type_Null`         | Reserved for the null graphic. Ignores `name`.                                                    |
+   | `TexMan.Type_Override`     | Overridable generalized textures, for instance textures defined in `TX_START` or BUILD ART tiles. |
+   | `TexMan.Type_SkinGraphic`  | Any loose graphic defined in `S_SKIN` i.e. statusbar faces.                                       |
+   | `TexMan.Type_SkinSprite`   | Any sprite defined in `S_SKIN`.                                                                   |
+   | `TexMan.Type_Sprite`       | A sprite in `S_START`, i.e. `MEDIA0`.                                                             |
+   | `TexMan.Type_WallPatch`    | An uncomposited patch, i.e. `DOOR2_1`.                                                            |
+   | `TexMan.Type_Wall`         | Any composited wall texture, i.e. `STARTAN2`.                                                     |
 
    `flags` may be any of the following combined (with the bitwise OR operator `|`:)
 
-   | Name                   | Description                                     |
-   | ----                   | -----------                                     |
-   | `TexMan.AllowSkins`    | Unknown. (TODO)                                 |
-   | `TexMan.DontCreate`    | Will never create a new texture when searching. |
-   | `TexMan.Overridable`   | Unknown. (TODO)                                 |
-   | `TexMan.ReturnFirst`   | Unknown. (TODO)                                 |
-   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.  |
-   | `TexMan.TryAny`        | Default. Unknown. (TODO)                        |
+   | Name                   | Description                                                                               |
+   | ----                   | -----------                                                                               |
+   | `TexMan.AllowSkins`    | Allows `SkinGraphic`s to be returned under normal circumstances.                          |
+   | `TexMan.DontCreate`    | Will never create a new texture when searching.                                           |
+   | `TexMan.Overridable`   | Allows overriding of this texture by for instance `TEXTURES`.                             |
+   | `TexMan.ReturnFirst`   | Allows returning the `FirstDefined` "null" texture under normal circumstances.            |
+   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.                                            |
+   | `TexMan.TryAny`        | Returns any other type of texture if one is not found in the specified use type. Default. |
 
 - `CheckRealHeight`
 
-   TODO
+   Returns the height in pixels of the texture down to the last scanline which has actual pixel data. Note that this operation is extremely slow and should be used sparingly.
 
 - `GetName`
 
@@ -59,11 +59,11 @@ struct TexMan
 
 - `GetScaledOffset`
 
-   TODO
+   Returns the offsets for this texture used to display it (rather than the original offsets.)
 
 - `GetScaledSize`
 
-   TODO
+   Returns the size used to display this texture (rather than the physical size.)
 
 - `GetSize`
 
