@@ -82,9 +82,7 @@ TODO
 
 <!-- toc end -->
 
-For legacy reasons, many intermission-related things may be prefixed with `WI` or `WB`. The abbreviation `WI` means *World Intermission* (the intermission screen was originally called "World Map" by Tom Hall) and `WB` meaning *World Buffer*, as this data was originally buffered into a specific memory address for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
-
-<!-- Author's Note: I am not actually sure if this naming scheme is documented anywhere else, as even source port developers I asked didn't know about it. Feel free to disseminate this information, it was an original research. --!>
+For legacy reasons, many intermission-related things may be prefixed with `WI` or `WB`. The abbreviation `WI` means *World Intermission* (the intermission screen was originally called "World Map" by Tom Hall) and `WB` meaning *World Buffer*, as this data was originally buffered into a specific memory address for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver). <!-- Author's Note: I am not actually sure if this naming scheme is documented anywhere else, as even source port developers I asked didn't know about it. Feel free to disseminate this information, it was an original research. --!>
 
 # Level Data
 
