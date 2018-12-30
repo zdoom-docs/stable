@@ -5,6 +5,7 @@
 * [Class headers](#class-headers)
 * [Class definitions](#class-definitions)
 * [Property definitions](#property-definitions)
+* [Flag definitions](#flag-definitions)
 * [Structure definitions](#structure-definitions)
 * [Enumeration definitions](#enumeration-definitions)
 * [Constant definitions](#constant-definitions)
@@ -77,7 +78,32 @@ class MyCoolActor : Actor
 
    property MyCoolMember: m_MyCoolMember;
    property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
+}
+```
 
+## Flag definitions
+
+A class with some flags.
+
+```
+class MyCoolActorWithFlags : Actor
+{
+   default
+   {
+      +MYCOOLACTORWITHFLAGS.THIS_ONE_IS_ON
+      -MYCOOLACTORWITHFLAGS.THIS_ONE_IS_OFF
+   }
+
+   int m_Flags;
+
+   flagdef This_One_Is_On: m_Flags, 0;
+   flagdef This_One_Is_Off: m_Flags, 1;
+   flagdef This_One_Aliases_On: m_Flags, 0;
+
+   bool CheckIfOnIsOn()
+   {
+      return bTHIS_ONE_IS_ON;
+   }
 }
 ```
 

@@ -11,6 +11,7 @@ Language
    * [Class flags](#class-flags)
    * [Class content](#class-content)
    * [Property definitions](#property-definitions)
+   * [Flag definitions](#flag-definitions)
    * [Default blocks](#default-blocks)
       * [Default flag](#default-flag)
       * [Default property](#default-property)
@@ -190,6 +191,7 @@ Class contents are an optional list of various things logically contained within
 - Member declarations
 - Method definitions
 - Property definitions
+- Flag definitions
 - Default blocks
 - State definitions
 - Enumeration definitions
@@ -206,6 +208,22 @@ When registered, a property will be available in the `default` block as `ClassNa
 Property definitions take the form `property Identifier : Member $[ , Member]$... ;` (where `Member` is an identifier naming any member in the current class.)
 
 Properties defined in ZScript are usable from `DECORATE`.
+
+## Flag definitions
+
+*Version 3.7.0 and newer.*
+
+Flag definitions are used within classes to define defaultable boolean flags on actors. They are not valid on classes not derived from Actor.
+
+When registered, a flag will be available in the `default` block as `CLASSNAME.FLAGNAME`, as well as a member as `bFLAGNAME`.
+
+Each flag operates on a singular bit of any integer member of the class. The integer must be exactly 32 bits, though if it is signed or not does not matter. This means each backing integer can hold exactly 32 flags each (assuming no duplicated flags,) and more will require another one to be added. (Internally, the `Actor` flags are currently up to over 8 backing integers.)
+
+A flag's backing integer may not be `meta`, although it may be `readonly`, `private`, or any other access modifier. The generated flag member will be publicly visible regardless of the backing integer's visibility.
+
+Flag definitions take the form `flagdef Identifier : Member , Number ;` where `Number` is the bit in `Member` to use, starting from `0` and ending at `31`.
+
+Flags defined in ZScript are usable from `DECORATE`.
 
 ## Default blocks
 
@@ -1022,7 +1040,7 @@ $[Member-declaration-flags...]$ Type Variable-name $[ , Variable-name]$... ;
 | Flag                   | Description                                                                                                         |
 | ----                   | -----------                                                                                                         |
 | `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`.                      |
-| `internal`             | Member is only writable from the base resource archive (`gzdoom.pk3`.)                                              |
+| `internal`             | Member is only writable from the base resource archive (`gzdoom.pk3`.) *Version 3.4.0 and newer.*                   |
 | `latent`               | Does nothing. Purpose unknown.                                                                                      |
 | `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
 | `native`               | Member is from the engine. Only usable internally.                                                                  |
@@ -1060,7 +1078,7 @@ All methods which are not `static` have an implicit `self` parameter which refer
 
 ## Method argument list
 
-Method arguments must all have a name and type, and optionally the last arguments in the list may have a default value. The syntax is:
+Method arguments must all have a name and type, and optionally the last arguments in the list may have a default value, (*Version 3.3.0 and newer*) except in functions marked `override`. The syntax is:
 
 ```
 Type Variable-name $[ , Method-argument-list]$
