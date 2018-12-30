@@ -6,84 +6,102 @@
 
 require 'set'
 
-$c = {}
-$s = Set[]
-$st = Set[]
-$cap = {}
+class ClassSiphon
+   attr_reader :structs, :classes, :clstree, :strtree, :caps
 
-def procm m
-   k = (m[1] or "Object").strip
-   v = m[0].strip
+   def initialize dirs
+      @subcls  = {}
+      @classes = Set[]
+      @structs = Set[]
+      @caps    = {}
 
-   $cap[k.upcase] = k; k = k.upcase
-   $cap[v.upcase] = v; v = v.upcase
+      Dir.glob dirs do |f| proc_file File.read f end
 
-   return if k == v
-   $c[k] ? $c[k] << v : $c[k] = [v]
-   raise "duplicate class #{v}" if $s === v
-   $s << v
-end
+      @clstree = make_tree "OBJECT", @subcls["OBJECT"]
+      @strtree = @structs.map {|type| [type, nil]}
 
-def procs m
-   cl = m[0]
-   $cap[cl.upcase] = cl
-   $st << [cl.upcase]
-end
+      @classes.freeze
+      @structs.freeze
+      @clstree.freeze
+      @strtree.freeze
+      @caps.freeze
+   end
 
-def procf fp
-   t = fp.read
-   t.gsub! /\/\*(?!\*\/)+\*\//m, ''
-   t.gsub! /\/\/.+/, ''
-   sc = t.scan /^class\s*(\w*)[\s\w]+(?::\s+(\w*))?/
-   sc.each do |cl| procm cl end unless sc.empty?
-   sc = t.scan /^struct\s*(\w*)/
-   sc.each do |cl| procs cl end unless sc.empty?
-end
+   def print_classes out, filter = []
+      print_tree out, filter, "OBJECT", clstree
+   end
 
-dir = ARGV.shift
+   def print_structs out, filter = []
+      print_tree out, filter, "STRUCT", strtree
+   end
 
-Dir.glob dir do |item|
-   procf open item, "rt"
-end
+   private
+   def add_class m
+      ctype =  m[0]             .strip
+      cbase = (m[1] or "Object").strip
+      type = ctype.upcase
+      base = cbase.upcase
+      @caps[type] = ctype
+      @caps[base] = cbase
 
-$s1 = Set[]
+      if base != type
+         if @subcls[base]
+            @subcls[base] << type
+         else
+            @subcls[base] = [type]
+         end
+         raise "duplicate class #{type}" if @classes === type
+         @classes << type
+      end
+   end
 
-def procc bcl, t
-   raise "duplicate class #{bcl}" if $s1 === bcl
-   $s1 << bcl
-   return nil unless t
-   m = {}
-   for cl in t do m[cl] = procc cl, $c[cl] end
-   m
-end
+   def add_struct m
+      ctype = m[0]
+      type = ctype.upcase
+      @caps[type] = ctype
+      @structs << type
+   end
 
-ft = procc("OBJECT", $c["OBJECT"])
+   def proc_file f
+      f.gsub! /\/\*(?!\*\/)+\*\//m, ""
+      f.gsub! /\/\/.+/, ""
+      f.scan(/^class\s*(\w*)[\s\w]+(?::\s+(\w*))?/).each {|m| add_class  m}
+      f.scan(/^struct\s*(\w*)/)                    .each {|m| add_struct m}
+   end
 
-def printc bcl, t, tab = ""
-   return unless t
-   return if ARGV.include? bcl
+   # work our way down the subclasses recursively, making them into a tree structure
+   def make_tree bcl, subs
+      return nil unless subs
+      node = {}
+      subs.each do |cl| node[cl] = make_tree cl, @subcls[cl] end
+      node
+   end
 
-   t = t.map do |k, v| [k, v] end
-   t.sort!
+   def print_tree out, filter, base, tree, tab = ""
+      return if !tree or filter.include? base
 
-   for k, v in t
-      l = k == t[-1][0]
+      tree = tree.map do |type, base| [type, base] end
+      tree.sort!
 
-      s = tab.clone
-      s << (l ? "└" : "├")
-      s << " "
-      s << $cap[k]
+      for type, base in tree
+         last = type == tree[-1][0]
+         sep = last ? "└ " : "├ "
+         nxt = last ? "  " : "│ "
 
-      puts s
+         out.puts tab + sep + @caps[type]
 
-      printc k, v, l ? tab + "  " : tab + "│ "
+         print_tree out, filter, type, base, tab + nxt
+      end
    end
 end
 
-raise "missing classes: #{($s - $s1).to_a}" unless ($s - $s1).empty?
+if __FILE__ == $0
+   in_dirs = ARGV.shift
+   filters = ARGV
 
-puts "Object"
-printc "OBJECT", ft
+   si = ClassSiphon.new in_dirs
+   puts "Object"; si.print_classes STDOUT, filters
+   puts "Struct"; si.print_structs STDOUT, filters
+end
 
-puts "Struct"
-printc "STRUCT", $st
+## EOF
