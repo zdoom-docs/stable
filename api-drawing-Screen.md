@@ -15,8 +15,8 @@ struct Screen
    static void Clear(int left, int top, int right, int bottom, color cr, int palcolor = -1);
    static void Dim(color cr, double amount, int x, int y, int w, int h);
    static void DrawFrame(int x, int y, int w, int h);
-   static void DrawLine(int x0, int y0, int x1, int y1, color cr);
-   static void DrawThickLine(int x0, int y0, int x1, int y1, double thickness, color cr);
+   static void DrawLine(int x0, int y0, int x1, int y1, color cr, int alpha = 255);
+   static void DrawThickLine(int x0, int y0, int x1, int y1, double thickness, color cr, int alpha = 255);
 
    static double GetAspectRatio();
    static int GetHeight();
@@ -61,11 +61,11 @@ struct Screen
 
 - `DrawLine`
 
-   Draws a one pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr`. Does not support translucent colors.
+   Draws a one pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr` with alpha `alpha` (range 0-255.)
 
 - `DrawThickLine`
 
-   Draws a `thickness` pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr`. Supports translucent colors.
+   Draws a `thickness` pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr` with alpha `alpha` (range 0-255.)
 
 - `GetAspectRatio`
 

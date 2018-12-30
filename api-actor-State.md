@@ -23,7 +23,8 @@ struct State
    readonly bool bSAMEFRAME;
    readonly bool bSLOW;
 
-   int DistanceTo(State other);
+   int  DistanceTo(State other);
+   bool InStateSequence(State base);
    bool ValidateSpriteFrame();
 
    textureid, bool, vector2 GetSpriteTexture(int rotation, int skin = 0, vector2 scale = (0, 0));
@@ -90,6 +91,10 @@ struct State
 - `DistanceTo`
 
    Returns the offset between this state and `other` in the global frame table. Only works if both states are owned by the same actor.
+
+- `InStateSequence`
+
+   TODO
 
 - `ValidateSpriteFrame`
 

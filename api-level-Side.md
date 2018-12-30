@@ -25,14 +25,18 @@ struct Side play
    clearscope Vertex V2();
 
    textureid GetTexture(int which);
-   double    GetTextureXOffset(int which);
-   double    GetTextureYOffset(int which);
-   double    GetTextureXScale(int which);
-   double    GetTextureYScale(int which);
+
+   double GetTextureXOffset(int which);
+   double GetTextureYOffset(int which);
+
+   double GetTextureXScale(int which);
+   double GetTextureYScale(int which);
 
    void SetTexture(int which, textureid tex);
+
    void SetTextureXOffset(int which, double offset);
    void SetTextureYOffset(int which, double offset);
+
    void SetTextureXScale(int which, double scale);
    void SetTextureYScale(int which, double scale);
 
@@ -41,6 +45,13 @@ struct Side play
 
    void MultiplyTextureXScale(int which, double delta);
    void MultiplyTextureYScale(int which, double delta);
+
+   void SetSpecialColor(int tier, int position, color cr);
+
+   color GetAdditiveColor(int tier);
+   void  SetAdditiveColor(int tier, color cr);
+
+   void EnableAdditiveColor(int tier, bool enable);
 
    double GetUDMFFloat(name nm);
    int    GetUDMFInt(name nm);
@@ -102,6 +113,18 @@ struct Side play
 - `GetTextureYScale`, `SetTextureYScale`, `MultiplyTextureYScale`
 
    Gets, sets or multiplies the texture portion's vertical scale.
+
+- `SetSpecialColor`
+
+   TODO
+
+- `GetAdditiveColor`, `SetAdditiveColor`
+
+   TODO
+
+- `EnableAdditiveColor`
+
+   TODO
 
 - `GetUDMFFloat`, `GetUDMFInt`, `GetUDMFString`
 

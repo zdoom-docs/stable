@@ -45,7 +45,8 @@ class Thinker play
 {
    const TICRATE;
 
-   virtual void ChangeStatNum(int stat);
+   void ChangeStatNum(int stat);
+
    virtual void PostBeginPlay();
    virtual void Tick();
 

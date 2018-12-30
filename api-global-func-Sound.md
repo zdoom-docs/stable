@@ -3,6 +3,7 @@
 TODO
 
 ```
+void  MarkSound(sound snd);
 void  SetMusicVolume(float vol);
 bool  S_ChangeMusic(string name, int order = 0, bool looping = true, bool force = false);
 float S_GetLength(sound id);
@@ -10,6 +11,10 @@ void  S_PauseSound(bool notmusic, bool notsfx);
 void  S_ResumeSound(bool notsfx);
 void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_NORM);
 ```
+
+- `MarkSound`
+
+   Marks `snd` to be pre-cached (loaded into memory early.)
 
 - `SetMusicVolume`
 

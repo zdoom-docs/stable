@@ -9,11 +9,17 @@ struct GameInfoStruct
    string      ArmorIcon1;
    string      ArmorIcon2;
    name        BackpackType;
+   textureid   BerserkPic;
+   int         DefKickBack;
+   color       DefaultBloodColor;
+   int         DefaultDropStyle;
    int         GameType;
    double      GibFactor;
+   textureid   HealthPic;
    array<name> InfoPages;
    bool        IntermissionCounter;
    bool        NoRandomPlayerClass;
+   double      TeleFogHeight;
    string      mBackButton;
    name        mSliderColor;
    GIFont      mStatScreenEnteringFont;
@@ -22,60 +28,6 @@ struct GameInfoStruct
 }
 ```
 
-- `Armor2Percent`
-
-   TODO
-
-- `ArmorIcon1`
-
-   TODO
-
-- `ArmorIcon2`
-
-   TODO
-
-- `BackpackType`
-
-   TODO
-
-- `GameType`
-
-   TODO
-
-- `GibFactor`
-
-   TODO
-
-- `InfoPages`
-
-   TODO
-
-- `IntermissionCounter`
-
-   TODO
-
-- `NoRandomPlayerClass`
-
-   TODO
-
-- `mBackButton`
-
-   TODO
-
-- `mSliderColor`
-
-   TODO
-
-- `mStatScreenEnteringFont`
-
-   TODO
-
-- `mStatScreenFinishedFont`
-
-   TODO
-
-- `mStatScreenMapNameFont`
-
-   TODO
+TODO
 
 <!-- EOF -->

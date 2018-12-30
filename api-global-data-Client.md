@@ -25,6 +25,8 @@ ui int           BackbuttonTime;
 ui int           MenuActive;
 ui BaseStatusBar StatusBar;
 
+readonly ui bool NetGame;
+
 int LocalViewPitch;
 ```
 
@@ -100,3 +102,23 @@ int LocalViewPitch;
 
    The current active menu state. One of:
 
+   | Name             | Description                                                    |
+   | ----             | -----------                                                    |
+   | `Menu.Off`       | No active menu.                                                |
+   | `Menu.OnNoPause` | Menu is opened, but the game is not paused.                    |
+   | `Menu.On`        | Menu is open, game is paused.                                  |
+   | `Menu.WaitKey`   | Menu is opened, waiting for a key for a controls menu binding. |
+
+- `StatusBar`
+
+   TODO
+
+- `NetGame`
+
+   Whether this is a networked game or not.
+
+- `LocalViewPitch`
+
+   The pitch angle (in degrees) of `ConsolePlayer`'s view. **Not deterministic.**
+
+<!-- EOF -->

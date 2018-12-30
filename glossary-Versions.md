@@ -336,8 +336,6 @@ Here is a list of differences between ZScript versions.
 - Added `Actor::bNOFRICTIONBOUNCE`.
 - Added `Actor::bNOFRICTION`.
 - Added `AllClasses`.
-- Added `Alpha` parameter to `Screen::DrawLine`.
-- Added `Alpha` parameter to `Screen::DrawThickLine`.
 - Added `AltHud`.
 - Added `AmbientSound::MarkAmbientSounds`.
 - Added `AutoUseHealthInfo`.
@@ -468,6 +466,8 @@ Here is a list of differences between ZScript versions.
 - Added `WorldEvent::DamageSectorPart`.
 - Added `WorldEvent::DamageSector`.
 - Added `WorldEvent::NewDamage`.
+- Added `alpha` parameter to `Screen::DrawLine`.
+- Added `alpha` parameter to `Screen::DrawThickLine`.
 - Changed `PlayerInfo::PremorphWeapon`'s type to `Weapon`.
 - Deprecated `Actor::CheckClass`.
 - Deprecated `Actor::GetAngle`.
@@ -492,8 +492,8 @@ Here is a list of differences between ZScript versions.
 - Made `BaseStatusBar::FlashItem` be `clearscope`.
 - Made `BaseStatusBar::ItemFlashFade` be `clearscope`.
 - Made `Inventory::ModifyDropAmount` be `virtual`.
-- Made `Object::ChangeStatNum` not be `virtual`.
 - Made `Sector::PointInSector` be `clearscope`.
+- Made `Thinker::ChangeStatNum` not be `virtual`.
 - Made `Weapon::SlotNumber` be `meta`.
 - Made `WeaponSlots::LocateWeapon` be `const`.
 

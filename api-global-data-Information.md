@@ -4,6 +4,7 @@ TODO
 
 ```
 readonly array<class<Actor>> AllActorClasses;
+readonly array<class>        AllClasses;
 readonly array<PlayerClass>  PlayerClasses;
 readonly array<PlayerSkin>   PlayerSkins;
 readonly array<Team>         Teams;
@@ -17,7 +18,11 @@ readonly Weapon              WP_NOCHANGE;
 
 - `AllActorClasses`
 
-   As the name implies, an array of every actor class type reference.
+   An array of every actor class type reference.
+
+- `AllClasses`
+
+   An array of every class type reference.
 
 - `PlayerClasses`
 

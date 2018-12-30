@@ -63,6 +63,7 @@ struct LevelLocals
    bool Frozen;
 
    // Static info
+   name   DeathSequence;
    string F1Pic;
 
    readonly bool   ActOwnSpecial;
@@ -70,6 +71,7 @@ struct LevelLocals
    readonly bool   CheckSwitchRange;
    readonly int    FogDensity;
    readonly bool   Infinite_Flight;
+   readonly bool   KeepFullInventory;
    readonly bool   MissilesActivateImpact;
    readonly bool   MonsterFallingDamage;
    readonly bool   MonstersTelefrag;
@@ -79,6 +81,7 @@ struct LevelLocals
    readonly int    OutsideFogDensity;
    readonly float  PixelStretch;
    readonly bool   PolyGrind;
+   readonly bool   RemoveItems;
    readonly int    SkyFog;
    readonly bool   SndSeqTotalCtrl;
    readonly double TeamDamage;
@@ -93,6 +96,7 @@ struct LevelLocals
    string FormatMapName(int mapnamecolor);
    string GetChecksum() const;
    void   SetInterMusic(string nextmap);
+   void   StartIntermission(name type, int state) const;
    string TimeFormatted(bool totals = false);
 
    bool IsCrouchingAllowed() const;
@@ -103,6 +107,10 @@ struct LevelLocals
    static void RemoveAllBots(bool fromlist);
    static void StartSlideshow(name whichone = 'none');
    static void WorldDone();
+
+   static vector2 GetAutomapPosition();
+
+   static clearscope bool IsPointInMap(vector3 p);
 
    static clearscope vector3 SphericalCoords(vector3 viewpoint, vector3 targetPos, vector2 viewAngles = (0, 0), bool absolute = false);
    static clearscope vector2 Vec2Diff(vector2 v1, vector2 v2);
@@ -186,7 +194,11 @@ struct LevelLocals
 
 - `ClusterFlags`
 
-   TODO
+   Flags for this cluster. May contain any of the following bit flags:
+
+   | Name                | Description                      |
+   | ----                | -----------                      |
+   | `Level.CLUSTER_HUB` | This cluster uses hub behaviour. |
 
 - `LevelName`
 
@@ -256,6 +268,10 @@ struct LevelLocals
 
    TODO
 
+- `DeathSequence`
+
+   TODO
+
 - `F1Pic`
 
    TODO
@@ -277,6 +293,10 @@ struct LevelLocals
    TODO
 
 - `Infinite_Flight`
+
+   TODO
+
+- `KeepFullInventory`
 
    TODO
 
@@ -313,6 +333,10 @@ struct LevelLocals
    TODO
 
 - `PolyGrind`
+
+   TODO
+
+- `RemoveItems`
 
    TODO
 
@@ -360,6 +384,10 @@ struct LevelLocals
 
    TODO
 
+- `StartIntermission`
+
+   TODO
+
 - `TimeFormatted`
 
    TODO
@@ -389,6 +417,14 @@ struct LevelLocals
    TODO
 
 - `WorldDone`
+
+   TODO
+
+- `GetAutomapPosition`
+
+   TODO
+
+- `IsPointInMap`
 
    TODO
 

@@ -49,6 +49,7 @@ vector3, int G_PickPlayerStart(int pnum, int flags = 0);
    | `SKILLP_FriendlyHealth` |
    | `SKILLP_HealthFactor`   |
    | `SKILLP_MonsterHealth`  |
+   | `SKILLP_KickBackFactor` |
 
 - `G_PickDeathmatchStart`
 

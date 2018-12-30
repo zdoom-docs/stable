@@ -9,6 +9,7 @@ struct Font
    static int  FindFontColor(name color);
    static Font GetFont(name fontname);
 
+   double GetBottomAlignOffset(int code);
    int    GetCharWidth(int code);
    string GetCursor();
    int    GetHeight();
@@ -29,6 +30,10 @@ struct Font
 - `GetFont`
 
    Gets a font either as defined in `FONTDEFS` or a ZDoom/bitmap font.
+
+- `GetBottomAlignOffset`
+
+   TODO
 
 - `GetCharWidth`
 

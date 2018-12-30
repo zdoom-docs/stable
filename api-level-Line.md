@@ -14,6 +14,9 @@ struct Line play
    readonly uint PortalIndex;
    readonly uint PortalTransferred;
 
+   readonly int Health;
+   readonly int HealthGroup;
+
    double Alpha;
    uint   Flags;
    int    ValidCount;
@@ -31,6 +34,9 @@ struct Line play
    Line GetPortalDestination();
    bool IsLinePortal();
    bool IsVisualPortal();
+
+   clearscope int GetHealth();
+   void SetHealth(int newhealth);
 
    double GetUDMFFloat(name nm);
    int    GetUDMFInt(name nm);
@@ -63,6 +69,14 @@ struct Line play
    TODO
 
 - `PortalTransferred`
+
+   TODO
+
+- `Health`
+
+   TODO
+
+- `HealthGroup`
 
    TODO
 
@@ -145,6 +159,14 @@ struct Line play
    TODO
 
 - `IsVisualPortal`
+
+   TODO
+
+- `GetHealth`
+
+   TODO
+
+- `SetHealth`
 
    TODO
 
