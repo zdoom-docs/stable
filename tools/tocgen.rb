@@ -42,5 +42,6 @@ def rewrite fnam
 end
 
 rewrite "2-api.md" do |f| filter_toc_areas f do |a| /api-#{a}-(\w+).md/ end end
+rewrite "9-glossary.md" do |f| filter_toc_areas f do |a| /glossary-(\w+).md/ end end
 
 ## EOF

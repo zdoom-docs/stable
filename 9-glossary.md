@@ -1,10 +1,14 @@
 # Glossary
 
-* [Classes](glossary-classes.md)
-* [Concepts](glossary-concepts.md)
-* [Examples](glossary-examples.md)
-* [Structures](glossary-structures.md)
-* [Versions](glossary-versions.md)
+<!-- toc glossary -->
+
+* [Classes](glossary-Classes.md)
+* [Concepts](glossary-Concepts.md)
+* [Examples](glossary-Examples.md)
+* [Structures](glossary-Structures.md)
+* [Versions](glossary-Versions.md)
+
+<!-- toc end -->
 
 Miscallaneous information about ZScript, including code examples and version differences.
 
