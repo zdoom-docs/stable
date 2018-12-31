@@ -7,9 +7,9 @@ Note: There are no longer any fully paletted renderers in GZDoom as of version 3
 ```
 struct Screen
 {
-   static vararg void DrawChar(Font font, int normalcolor, double x, double y, int character, ...);
+   static vararg void DrawChar(Font font, int cr, double x, double y, int character, ...);
    static vararg void DrawShape(textureid tex, bool animate, Shape2D s, ...);
-   static vararg void DrawText(Font font, int normalcolor, double x, double y, string text, ...);
+   static vararg void DrawText(Font font, int cr, double x, double y, string text, ...);
    static vararg void DrawTexture(textureid tex, bool animate, double x, double y, ...);
 
    static void Clear(int left, int top, int right, int bottom, color cr, int palcolor = -1);
@@ -33,7 +33,7 @@ struct Screen
 
 - `DrawChar`
 
-   TODO
+   The same as `DrawTexture`, but draws the texture of character code `character` from `font`. The output color may be modified by the font color `cr`.
 
 - `DrawShape`
 
