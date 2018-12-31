@@ -87,8 +87,8 @@ struct Screen
    | `DTA_LeftOffset`, `DTA_TopOffset`         | `int ofs`      | Overrides the texture's X or Y offset. |
    | `DTA_LegacyRenderStyle`                   | `int style`    | Overrides the render style. Note that there is also a `DTA_RenderStyle` which cannot be used because the engine does not expose `FRenderStyle` yet. |
    | `DTA_Masked`                              | `bool on`      | Turns the texture fully opaque (no alpha mask) if `on` is `false`. Default value is on. |
-   | `DTA_SrcHeight`, `DTA_SrcWidth`           | `int size`     | Sets the width or height of the source image. Will cut the texture if lower than the original size. (TODO: I don't know what happens when the size is bigger.) |
-   | `DTA_SrcX`, `DTA_SrcY`                    | `int pos`      | Sets the X or Y on the source image to start the texture at. (TODO: I'm not sure how the texture handles wrapping.) |
+   | `DTA_SrcHeight`, `DTA_SrcWidth`           | `int size`     | Sets the width or height of the source image. Will cut the texture if lower than the original size. If the size is larger than the original, it will cause UV clamping, repeating the pixels at the image borders. |
+   | `DTA_SrcX`, `DTA_SrcY`                    | `int pos`      | Sets the X or Y on the source image to start the texture at. Texture wrapping will cause a UV clamping effect, repeating the pixels at the image borders. |
    | `DTA_TranslationIndex`                    | `int index`    | Remaps colors in the destination texture with translation table `index`. |
    | `DTA_VirtualHeightF`, `DTA_VirtualWidthF` | `double size`  | Same as `DTA_VirtualHeight`/`DTA_VirtualWidth`, but with decimal arguments. |
    | `DTA_VirtualHeight`, `DTA_VirtualWidth`   | `int size`     | Sets the virtual width or height to `size`. |
