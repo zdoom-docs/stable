@@ -268,7 +268,7 @@ These are the same as `DECORATE`, but states that do not have function blocks re
 A state definition block has the syntax:
 
 ```
-states $[ ( Scope ) ]$
+states $[ ( Scope $[ , Scope]$... ) ]$
 {
    $[State-or-label...]$
 }
