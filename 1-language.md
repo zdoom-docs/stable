@@ -85,7 +85,7 @@ This documentation serves as an introduction to and informal specification of th
 
 ZScript runs in a virtual machine much like ACS, although because it is *not* compiled to bytecode and uses an object-oriented structure, the virtual machine is far more complex, and also therefore quite a bit slower. ZScript may only be read from source files by the engine, which has several benefits as well as detriments. It is the opinion of the author that this is a bad solution, but the author will refrain from going on a several-paragraph tirade about why bytecode is always better than source, even if it is an optional component.
 
-In any case, here we are. This documentation will detail all aspects of ZScript, from the language and type system to the API and finer details. This document is distributed under the [CC0 public domain license](https://creativecommons.org/publicdomain/zero/1.0/legalcode) in the hope that it is useful reference and serves as a solid basis for further writings. This document was originally written by Alison Sanderson (Marrub.) Attribution is encouraged but not required.
+In any case, here we are. This documentation will detail all aspects of ZScript, from the language and type system to the API and finer details. This document is distributed under the [CC0 public domain license](LICENSE.txt) in the hope that it is useful reference and serves as a solid basis for further writings. This document was originally written by Alison Sanderson (Marrub.) Attribution is encouraged but not required.
 
 Reading This Document
 =====================
