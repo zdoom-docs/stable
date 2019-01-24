@@ -1,5 +1,7 @@
 # Versions
 
+<!-- vim-markdown-toc GFM -->
+
 * [Version 3.1](#version-31)
 * [Version 3.2](#version-32)
 * [Version 3.2.1](#version-321)
@@ -15,6 +17,9 @@
 * [Version 3.5.1](#version-351)
 * [Version 3.6](#version-36)
 * [Version 3.7](#version-37)
+* [Version 3.7.2](#version-372)
+
+<!-- vim-markdown-toc -->
 
 Here is a list of differences between ZScript versions.
 
@@ -220,7 +225,7 @@ Here is a list of differences between ZScript versions.
 
 ## Version 3.3.1
 
-- Made `A_SetSize`'s `radius` parameter have a default.
+- Made `Actor::A_SetSize`'s `radius` parameter have a default.
 - Made `Side::Sector` and `Side::Linedef` be `readonly`.
 - Made all `DehInfo` members `readonly`.
 - Made all `State` members `readonly`.
@@ -496,5 +501,13 @@ Here is a list of differences between ZScript versions.
 - Made `Thinker::ChangeStatNum` not be `virtual`.
 - Made `Weapon::SlotNumber` be `meta`.
 - Made `WeaponSlots::LocateWeapon` be `const`.
+
+## Version 3.7.2
+
+- Changed `Actor::A_Chase`'s argument defaults.
+- Fixed multi-dimensional arrays' dimensions being backwards.
+- Made `LevelLocals::ExecuteSpecial` return `int`.
+- Made `ScriptUtil::PlayerAmmo` be `static`.
+- Made `bool` negatable by the `-` prefix operator.
 
 <!-- EOF -->

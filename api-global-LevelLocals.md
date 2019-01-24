@@ -90,7 +90,7 @@ struct LevelLocals
    int    GetUDMFInt(int type, int index, name key);
    string GetUDMFString(int type, int index, name key);
 
-   bool ExecuteSpecial(int special, Actor activator, Line linedef, bool lineside, int arg1 = 0, int arg2 = 0, int arg3 = 0, int arg4 = 0, int arg5 = 0);
+   int ExecuteSpecial(int special, Actor activator, Line linedef, bool lineside, int arg1 = 0, int arg2 = 0, int arg3 = 0, int arg4 = 0, int arg5 = 0);
 
    void   ChangeSky(textureid sky1, textureid sky2);
    string FormatMapName(int mapnamecolor);
