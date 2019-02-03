@@ -1,6 +1,7 @@
 # BrokenLines
 
-A container representing an array of lines of text that have been broken up to fit the screen and clipping region.
+A container representing an array of lines of text that have been broken up to
+fit the screen and clipping region.
 
 ```
 class BrokenLines

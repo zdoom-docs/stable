@@ -62,7 +62,8 @@ struct Line play
 
 - `Sidedef`
 
-   The front and back sides of this line, 0 and 1 respectively. The aliases `Line.Front` and `Line.Back` are provided as well.
+   The front and back sides of this line, 0 and 1 respectively. The aliases
+   `Line.Front` and `Line.Back` are provided as well.
 
 - `PortalIndex`
 

@@ -1,6 +1,9 @@
 # PSprite
 
-A **P**layer **Sprite**, paradoxically, is not the player themself, but the sprite *within their view*, such as their weapon. PSprites are arbitrarily layered by number, somewhat similar to `HUDMessage`s. They are drawn ordered from lowest to highest.
+A **P**layer **Sprite**, paradoxically, is not the player themself, but the
+sprite *within their view*, such as their weapon. PSprites are arbitrarily
+layered by number, somewhat similar to `HUDMessage`s. They are drawn ordered
+from lowest to highest.
 
 The predefined layers are:
 
@@ -102,7 +105,8 @@ class PSprite play
 
 - `Y`
 
-   The offset from the weapon's normal resting position on the vertical axis. Note that `32` is the real resting position because of `A_Raise`.
+   The offset from the weapon's normal resting position on the vertical axis.
+   Note that `32` is the real resting position because of `A_Raise`.
 
 - `bADDBOB`
 

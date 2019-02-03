@@ -1,6 +1,8 @@
 # Side
 
-Also known as a "sidedef." One of the textured sides of a line. Each sidedef has three portions: Upper, middle, and lower. The middle texture is special as it can have translucency.
+Also known as a "sidedef." One of the textured sides of a line. Each sidedef
+has three portions: Upper, middle, and lower. The middle texture is special as
+it can have translucency.
 
 The three portions of a sidedef can be referred to with:
 
@@ -84,7 +86,8 @@ struct Side play
 
 - `Light`
 
-   The light level of this side. Relative to the sector lighting unless `WALLF_ABSLIGHTING`.
+   The light level of this side. Relative to the sector lighting unless
+   `WALLF_ABSLIGHTING`.
 
 - `Index`
 

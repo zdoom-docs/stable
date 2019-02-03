@@ -1,6 +1,7 @@
 # FOptionMenuSettings
 
-Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block and `MAPINFO`/GameInfo.
+Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block
+and `MAPINFO`/GameInfo.
 
 ```
 struct FOptionMenuSettings

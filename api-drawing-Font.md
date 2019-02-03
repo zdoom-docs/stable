@@ -1,6 +1,7 @@
 # Font
 
-A font as defined in `FONTDEFS` or a bitmap font file. **Not serializable. Do not use as a member unless marked as `transient`.**
+A font as defined in `FONTDEFS` or a bitmap font file. **Not serializable. Do
+not use as a member unless marked as `transient`.**
 
 ```
 struct Font
@@ -53,6 +54,8 @@ struct Font
 
 - `BreakLines`
 
-   Breaks `text` up into a `BrokenLines` structure according to the screen and clip region, as well as appropriately accounting for a maximum width in pixels of `maxlen`.
+   Breaks `text` up into a `BrokenLines` structure according to the screen and
+   clip region, as well as appropriately accounting for a maximum width in
+   pixels of `maxlen`.
 
 <!-- EOF -->

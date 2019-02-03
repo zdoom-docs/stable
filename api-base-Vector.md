@@ -1,6 +1,7 @@
 # Vector2/Vector3
 
-Vectors have builtin methods and `Vector3` in particular has a swizzle operator.
+Vectors have builtin methods and `Vector3` in particular has a swizzle
+operator.
 
 ```
 struct Vector2

@@ -1,12 +1,19 @@
 # Thinker
 
-A class representing any object in the game that runs logic every game tick, i.e., "thinks." Most classes derive from `Thinker`, directly or indirectly.
+A class representing any object in the game that runs logic every game tick,
+i.e., "thinks." Most classes derive from `Thinker`, directly or indirectly.
 
-All thinkers are grouped by their "stat" number, or "statnum," which specifies the ordering of which thinkers are run, first to last. There are 127 stat numbers total, 20 of which are not used by the engine and may be used for any purpose.
+All thinkers are grouped by their "stat" number, or "statnum," which specifies
+the ordering of which thinkers are run, first to last. There are 127 stat
+numbers total, 20 of which are not used by the engine and may be used for any
+purpose.
 
-The user-defined stat numbers begin at `Thinker.STAT_USER` and end at `Thinker.STAT_USER_MAX`. Do not attempt to use normal integers as stat numbers except as relative to these two.
+The user-defined stat numbers begin at `Thinker.STAT_USER` and end at
+`Thinker.STAT_USER_MAX`. Do not attempt to use normal integers as stat numbers
+except as relative to these two.
 
-(Note to authors: These tables are not alphabetically organized as their ordering is meaningful.)
+(Note to authors: These tables are not alphabetically organized as their
+ordering is meaningful.)
 
 Thinkers which do not think and are elided from many checks:
 
@@ -68,10 +75,12 @@ class Thinker play
 
 - `Tick`
 
-   Called every game tick. The order between this thinker's `Tick` and every other thinker in the same statnum is unspecified.
+   Called every game tick. The order between this thinker's `Tick` and every
+   other thinker in the same statnum is unspecified.
 
 - `Tics2Seconds`
 
-   Roughly converts a number of tics to an integral amount of seconds. Equivalent to `tics / TICRATE`.
+   Roughly converts a number of tics to an integral amount of seconds.
+   Equivalent to `tics / TICRATE`.
 
 <!-- EOF -->

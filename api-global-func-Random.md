@@ -1,6 +1,8 @@
 # Random Number Generation
 
-All of these functions may have `[identifier]` between the function name and the argument list to specify a named RNG table to use. This special syntax applies only to these functions.
+All of these functions may have `[identifier]` between the function name and
+the argument list to specify a named RNG table to use. This special syntax
+applies only to these functions.
 
 ```
 double FRandom(double min, double max);
@@ -25,7 +27,9 @@ void   SetRandomSeed(uint num);
 
 - `Random2`
 
-   Returns a random integer value between `-mask` and `mask`. `mask` is used as a bit mask, so it is recommended to use a value of one less than a power of two (i.e. 3, 7, 15, 31, 63, 127, 255...)
+   Returns a random integer value between `-mask` and `mask`. `mask` is used as
+   a bit mask, so it is recommended to use a value of one less than a power of
+   two (i.e. 3, 7, 15, 31, 63, 127, 255...)
 
 - `RandomPick`
 

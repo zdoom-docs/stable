@@ -48,7 +48,8 @@ struct String
 
 - `Filter`
 
-   Replaces escape sequences in a string with escaped characters as a new string.
+   Replaces escape sequences in a string with escaped characters as a new
+   string.
 
 - `IndexOf`
 
@@ -80,7 +81,9 @@ struct String
 
 - `Split`
 
-   Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be either `TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or discard empty strings found while splitting.
+   Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be
+   either `TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or
+   discard empty strings found while splitting.
 
 - `ToDouble`
 
@@ -88,7 +91,8 @@ struct String
 
 - `ToInt`
 
-   Interprets the string as a base `base` integer, guessing the base if it is `0`.
+   Interprets the string as a base `base` integer, guessing the base if it is
+   `0`.
 
 - `ToLower`
 

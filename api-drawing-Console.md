@@ -17,9 +17,13 @@ struct Console
 
 - `MidPrint`
 
-   Prints `text` (possibly a `LANGUAGE` string if prefixed with `$`) in `font` to the middle of the screen for 1½ seconds. Will print even if the player is a spectator if `bold` is `true`. Uses the `msgmidcolor` CVar for non-bold messages and `msgmidcolor2` for bold messages.
+   Prints `text` (possibly a `LANGUAGE` string if prefixed with `$`) in `font`
+   to the middle of the screen for 1½ seconds. Will print even if the player is
+   a spectator if `bold` is `true`. Uses the `msgmidcolor` CVar for non-bold
+   messages and `msgmidcolor2` for bold messages.
 
-   This is the function used internally by ACS' `Print` and `PrintBold` functions.
+   This is the function used internally by ACS' `Print` and `PrintBold`
+   functions.
 
 - `Printf`
 

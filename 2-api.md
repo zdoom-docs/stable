@@ -11,9 +11,17 @@
 * [Weapons](#weapons)
 * [Global Objects](#global-objects)
 
-The ZScript API (Advanced Programming Interface) is vast and has some holes which are hard to explain. Some parts are implemented in ways that don't make sense to user code, but are fine to the engine. Because of this, the API shall be documented in pseudo-ZScript which gives an idea of how it works for the modder rather than for the engine.
+The ZScript API (Advanced Programming Interface) is vast and has some holes
+which are hard to explain. Some parts are implemented in ways that don't make
+sense to user code, but are fine to the engine. Because of this, the API shall
+be documented in pseudo-ZScript which gives an idea of how it works for the
+modder rather than for the engine.
 
-Note to authors: Capitalization is normalized within this documentation to encourage consistent code, and does not follow ZScript's original capitalization exactly. Similarly, argument names in methods are sometimes renamed. Note well that *arguments with defaults MAY NOT be renamed* as they are part of the API.
+Note to authors: Capitalization is normalized within this documentation to
+encourage consistent code, and does not follow ZScript's original
+capitalization exactly. Similarly, argument names in methods are sometimes
+renamed. Note well that *arguments with defaults MAY NOT be renamed* as they
+are part of the API.
 
 # Actors
 
@@ -82,7 +90,11 @@ TODO
 
 <!-- toc end -->
 
-For legacy reasons, many intermission-related things may be prefixed with `WI` or `WB`. The abbreviation `WI` means *World Intermission* (the intermission screen was originally called "World Map" by Tom Hall) and `WB` meaning *World Buffer*, as this data was originally buffered into a specific memory address for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver). Author's Note: I am not actually sure if this naming scheme is documented anywhere else, as even source port developers I asked didn't know about it. Feel free to disseminate this information, it was an original research.
+For legacy reasons, many intermission-related things may be prefixed with `WI`
+or `WB`. The abbreviation `WI` means *World Intermission* (the intermission
+screen was originally called "World Map" by Tom Hall) and `WB` meaning *World
+Buffer*, as this data was originally buffered into a specific memory address
+for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
 
 # Level Data
 
@@ -158,7 +170,8 @@ These types are used by global variables.
 
 <!-- toc end -->
 
-These variables are accessible in any context and are not bound by any specific object.
+These variables are accessible in any context and are not bound by any specific
+object.
 
 <!-- toc global-func -->
 
@@ -171,6 +184,7 @@ These variables are accessible in any context and are not bound by any specific 
 
 <!-- toc end -->
 
-These functions are accessible in any context and are not bound by any specific object.
+These functions are accessible in any context and are not bound by any specific
+object.
 
 <!-- EOF -->

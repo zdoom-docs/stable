@@ -1,6 +1,7 @@
 # StatusScreen
 
-The base class for intermission status screens. Any status screen used by `MAPINFO`/GameInfo must be derived from this class.
+The base class for intermission status screens. Any status screen used by
+`MAPINFO`/GameInfo must be derived from this class.
 
 Status screens have four stages:
 
@@ -128,15 +129,18 @@ class StatusScreen abstract play
 
 - `TITLEY`
 
-   The Y position (in 320x200 pixels) to draw the top of the "finished" and "entering" texts. Used by `DrawEL` and `DrawLF`.
+   The Y position (in 320x200 pixels) to draw the top of the "finished" and
+   "entering" texts. Used by `DrawEL` and `DrawLF`.
 
 - `BG`
 
-   The `InterBackground` object for this intermission, set by `Start` with the initial `WBS` object.
+   The `InterBackground` object for this intermission, set by `Start` with the
+   initial `WBS` object.
 
 - `Plrs`
 
-   The value of `WBS.Plyr` when `Start` was called. Usually not changed, so essentially equivalent to `WBS.Plyr`.
+   The value of `WBS.Plyr` when `Start` was called. Usually not changed, so
+   essentially equivalent to `WBS.Plyr`.
 
 - `WBS`
 
@@ -144,7 +148,8 @@ class StatusScreen abstract play
 
 - `AccelerateStage`
 
-   Used to signify to the current stage that it should go quicker or be skipped entirely.
+   Used to signify to the current stage that it should go quicker or be skipped
+   entirely.
 
 - `BCnt`
 
@@ -200,7 +205,8 @@ class StatusScreen abstract play
 
 - `Me`
 
-   The value of `WBS.PNum` when `Start` was called. Usually not changed, so essentially equivalent to `WBS.PNum`.
+   The value of `WBS.PNum` when `Start` was called. Usually not changed, so
+   essentially equivalent to `WBS.PNum`.
 
 - `NG_State`
 
@@ -212,7 +218,8 @@ class StatusScreen abstract play
 
 - `PlayerReady`
 
-   Used in networked games to signify when each player is ready to continue to the next map. Set by `CheckForAccelerate`.
+   Used in networked games to signify when each player is ready to continue to
+   the next map. Set by `CheckForAccelerate`.
 
 - `Player_Deaths`
 
@@ -224,7 +231,8 @@ class StatusScreen abstract play
 
 - `SP_State`
 
-   Used in single-player status screens during the `StatCount` stage for indicating the current round of statistics to count up.
+   Used in single-player status screens during the `StatCount` stage for
+   indicating the current round of statistics to count up.
 
 - `ShadowAlpha`
 
@@ -320,15 +328,20 @@ class StatusScreen abstract play
 
 - `Drawer`
 
-   Called by `WI_Drawer`, which is called every frame when `GameState` is `GS_INTERMISSION`.
+   Called by `WI_Drawer`, which is called every frame when `GameState` is
+   `GS_INTERMISSION`.
 
 - `End`
 
-   Called when the intermission should end. Default behaviour is to set `CurState` to `LeavingIntermission` and remove bots in death-match. Generally, `Level.WorldDone` should be called directly after this.
+   Called when the intermission should end. Default behaviour is to set
+   `CurState` to `LeavingIntermission` and remove bots in death-match.
+   Generally, `Level.WorldDone` should be called directly after this.
 
 - `Start`
 
-   Called by `WI_Start` after the `WBStartStruct` is populated, sounds are stopped and the screen blend is set to black. Sets up initial values and runs `InitStats`.
+   Called by `WI_Start` after the `WBStartStruct` is populated, sounds are
+   stopped and the screen blend is set to black. Sets up initial values and
+   runs `InitStats`.
 
 - `StartMusic`
 
@@ -336,7 +349,8 @@ class StatusScreen abstract play
 
 - `Ticker`
 
-   Called by `WI_Ticker`, which is called every game tick when `GameState` is `GS_INTERMISSION`.
+   Called by `WI_Ticker`, which is called every game tick when `GameState` is
+   `GS_INTERMISSION`.
 
 - `DrawNoState`
 
@@ -344,11 +358,13 @@ class StatusScreen abstract play
 
 - `DrawShowNextLoc`
 
-   Called by `Drawer` when `CurState` is `ShowNextLoc` and, by default, `DrawNoState` after setting `SNL_PointerOn` to `true`.
+   Called by `Drawer` when `CurState` is `ShowNextLoc` and, by default,
+   `DrawNoState` after setting `SNL_PointerOn` to `true`.
 
 - `DrawStats`
 
-   Called by `Drawer` directly after drawing the animated background when `CurState` is `StatCount`.
+   Called by `Drawer` directly after drawing the animated background when
+   `CurState` is `StatCount`.
 
 - `InitNoState`
 
@@ -364,23 +380,32 @@ class StatusScreen abstract play
 
 - `UpdateNoState`
 
-   Called by `Ticker` when `CurState` is `NoState` or any other non-state. Exits the intermission by calling `End` and `Level.WorldDone` when appropriate.
+   Called by `Ticker` when `CurState` is `NoState` or any other non-state.
+   Exits the intermission by calling `End` and `Level.WorldDone` when
+   appropriate.
 
 - `UpdateShowNextLoc`
 
-   Called by `Ticker` when `CurState` is `ShowNextLoc`. Runs `InitNoState` when appropriate and alternates `SNL_PointerOn`.
+   Called by `Ticker` when `CurState` is `ShowNextLoc`. Runs `InitNoState` when
+   appropriate and alternates `SNL_PointerOn`.
 
 - `UpdateStats`
 
-   Called by `Ticker` when `CurState` is `StatCount`. Runs `InitShowNextLoc` when appropriate.
+   Called by `Ticker` when `CurState` is `StatCount`. Runs `InitShowNextLoc`
+   when appropriate.
 
 - `CheckForAccelerate`
 
-   Updates the values of `AccelerateStage` and `PlayerReady` according to each player's inputs.
+   Updates the values of `AccelerateStage` and `PlayerReady` according to each
+   player's inputs.
 
 - `FragSum`
 
-   Returns the number of frags player `playernum` has accumulated against all currently in-game players. This is different from `WBPlayerStruct.FragCount` because it is counted dynamically, i.e. if a player leaves the count will be changed. This is only useful for game modes where frags do not count as score.
+   Returns the number of frags player `playernum` has accumulated against all
+   currently in-game players. This is different from `WBPlayerStruct.FragCount`
+   because it is counted dynamically, i.e. if a player leaves the count will be
+   changed. This is only useful for game modes where frags do not count as
+   score.
 
 - `GetPlayerWidths`
 

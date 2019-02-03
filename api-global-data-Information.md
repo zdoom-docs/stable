@@ -26,7 +26,8 @@ readonly Weapon              WP_NOCHANGE;
 
 - `PlayerClasses`
 
-   An array of all player classes as defined in `MAPINFO`/GameInfo and `KEYCONF`.
+   An array of all player classes as defined in `MAPINFO`/GameInfo and
+   `KEYCONF`.
 
 - `PlayerSkins`
 
@@ -46,7 +47,8 @@ readonly Weapon              WP_NOCHANGE;
 
 - `OptionMenuSettings`
 
-   Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block and `MAPINFO`/GameInfo.
+   Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings`
+   block and `MAPINFO`/GameInfo.
 
 - `SkyFlatNum`
 
@@ -54,6 +56,7 @@ readonly Weapon              WP_NOCHANGE;
 
 - `WP_NOCHANGE`
 
-   A constant denoting that the weapon the player is currently holding shouldn't be switched from.
+   A constant denoting that the weapon the player is currently holding
+   shouldn't be switched from.
 
 <!-- EOF -->

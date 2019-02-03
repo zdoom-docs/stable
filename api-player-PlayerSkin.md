@@ -43,15 +43,18 @@ struct PlayerSkin
 
 - `OtherGame`
 
-   The player skin is made for another game and needs to be color remapped differently.
+   The player skin is made for another game and needs to be color remapped
+   differently.
 
 - `Range0End`
 
-   The end index of the translation range to be used for changing the player sprite's color.
+   The end index of the translation range to be used for changing the player
+   sprite's color.
 
 - `Range0Start`
 
-   The beginning index of the translation range to be used for changing the player sprite's color.
+   The beginning index of the translation range to be used for changing the
+   player sprite's color.
 
 - `Scale`
 

@@ -1,6 +1,8 @@
 # State
 
-Represents a state on an `Actor` or `StateProvider`. Data in `State` is read-only and is copied as needed to its respective locations for modification, as it is merely a look into the global constant state table.
+Represents a state on an `Actor` or `StateProvider`. Data in `State` is
+read-only and is copied as needed to its respective locations for modification,
+as it is merely a look into the global constant state table.
 
 ```
 struct State
@@ -54,15 +56,19 @@ struct State
 
 - `TicRange`
 
-   The maximum amount of tics to add for random tic durations, or `0` if the duration is not random. For example, `TNT1 A random(5, 7)` would have a `Tics` value of `5` and a `TicRange` of `2`.
+   The maximum amount of tics to add for random tic durations, or `0` if the
+   duration is not random. For example, `TNT1 A random(5, 7)` would have a
+   `Tics` value of `5` and a `TicRange` of `2`.
 
 - `UseFlags`
 
-   The scope of this state. See *Action Scoping*. Can have any of the `DefaultStateUsage` flags.
+   The scope of this state. See *Action Scoping*. Can have any of the
+   `DefaultStateUsage` flags.
 
 - `bCANRAISE`
 
-   State has the `CANRAISE` flag, allowing `A_VileChase` to target this actor for healing without entering an infinitely long state.
+   State has the `CANRAISE` flag, allowing `A_VileChase` to target this actor
+   for healing without entering an infinitely long state.
 
 - `bDEHACKED`
 
@@ -70,31 +76,38 @@ struct State
 
 - `bFAST`
 
-   State has the `FAST` flag, halving the duration when fast monsters is enabled.
+   State has the `FAST` flag, halving the duration when fast monsters is
+   enabled.
 
 - `bFULLBRIGHT`
 
-   State has the `BRIGHT` flag, making it fully bright regardless of other lighting conditions.
+   State has the `BRIGHT` flag, making it fully bright regardless of other
+   lighting conditions.
 
 - `bNODELAY`
 
-   State has the `NODELAY` flag, forcing the associated action function to be run if the actor is in its first tic.
+   State has the `NODELAY` flag, forcing the associated action function to be
+   run if the actor is in its first tic.
 
 - `bSAMEFRAME`
 
-   `true` if the state's frame is to be kept from the last frame used, i.e., is `#`.
+   `true` if the state's frame is to be kept from the last frame used, i.e., is
+   `#`.
 
 - `bSLOW`
 
-   State has the `SLOW` flag, doubling the duration when slow monsters is enabled.
+   State has the `SLOW` flag, doubling the duration when slow monsters is
+   enabled.
 
 - `DistanceTo`
 
-   Returns the offset between this state and `other` in the global frame table. Only works if both states are owned by the same actor.
+   Returns the offset between this state and `other` in the global frame table.
+   Only works if both states are owned by the same actor.
 
 - `InStateSequence`
 
-   Returns `true` if this state is within a contiguous state sequence beginning with `base`.
+   Returns `true` if this state is within a contiguous state sequence beginning
+   with `base`.
 
 - `ValidateSpriteFrame`
 
@@ -102,6 +115,8 @@ struct State
 
 - `GetSpriteTexture`
 
-   Returns the texture, if the texture should be flipped horizontally, and scaling of this state's sprite. Scaling will return `scale` unless `skin` is nonzero. `skin` determines the player skin used.
+   Returns the texture, if the texture should be flipped horizontally, and
+   scaling of this state's sprite. Scaling will return `scale` unless `skin` is
+   nonzero. `skin` determines the player skin used.
 
 <!-- EOF -->

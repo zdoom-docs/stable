@@ -10,6 +10,7 @@
 
 <!-- toc end -->
 
-Miscallaneous information about ZScript, including code examples and version differences.
+Miscallaneous information about ZScript, including code examples and version
+differences.
 
 <!-- EOF -->

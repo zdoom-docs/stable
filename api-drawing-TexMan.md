@@ -1,6 +1,7 @@
 # TexMan
 
-The **Tex**ture **Man**ager is used for loading, finding, replacing and getting information on textures.
+The **Tex**ture **Man**ager is used for loading, finding, replacing and getting
+information on textures.
 
 ```
 struct TexMan
@@ -18,7 +19,8 @@ struct TexMan
 
 - `CheckForTexture`
 
-   Returns a `textureid` for the texture named `name`. `usetype` may be one of the following, which selects what kind of texture to find:
+   Returns a `textureid` for the texture named `name`. `usetype` may be one of
+   the following, which selects what kind of texture to find:
 
    | Name                       | Description                                                                                       |
    | ----                       | -----------                                                                                       |
@@ -38,7 +40,8 @@ struct TexMan
    | `TexMan.Type_WallPatch`    | An uncomposited patch, i.e. `DOOR2_1`.                                                            |
    | `TexMan.Type_Wall`         | Any composited wall texture, i.e. `STARTAN2`.                                                     |
 
-   `flags` may be any of the following combined (with the bitwise OR operator `|`:)
+   `flags` may be any of the following combined (with the bitwise OR operator
+   `|`:)
 
    | Name                   | Description                                                                               |
    | ----                   | -----------                                                                               |
@@ -51,7 +54,9 @@ struct TexMan
 
 - `CheckRealHeight`
 
-   Returns the height in pixels of the texture down to the last scanline which has actual pixel data. Note that this operation is extremely slow and should be used sparingly.
+   Returns the height in pixels of the texture down to the last scanline which
+   has actual pixel data. Note that this operation is extremely slow and should
+   be used sparingly.
 
 - `GetName`
 
@@ -59,11 +64,13 @@ struct TexMan
 
 - `GetScaledOffset`
 
-   Returns the offsets for this texture used to display it (rather than the original offsets.)
+   Returns the offsets for this texture used to display it (rather than the
+   original offsets.)
 
 - `GetScaledSize`
 
-   Returns the size used to display this texture (rather than the physical size.)
+   Returns the size used to display this texture (rather than the physical
+   size.)
 
 - `GetSize`
 
@@ -71,7 +78,8 @@ struct TexMan
 
 - `ReplaceTextures`
 
-   Replaces textures named `from` with `to` within the map. `flags` may be used to filter out certain textures from being replaced:
+   Replaces textures named `from` with `to` within the map. `flags` may be used
+   to filter out certain textures from being replaced:
 
    | Name                 | Description                          |
    | ----                 | -----------                          |
@@ -85,6 +93,7 @@ struct TexMan
 
 - `SetCameraToTexture`
 
-   Sets the camera texture (as defined in `ANIMDEFS`) `texture` to the viewpoint of `viewpoint` with a fov of `fov`.
+   Sets the camera texture (as defined in `ANIMDEFS`) `texture` to the
+   viewpoint of `viewpoint` with a fov of `fov`.
 
 <!-- EOF -->

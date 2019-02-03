@@ -35,10 +35,15 @@ class Object
 
 - `Destroy`
 
-   Destroys this object. Do not use the object after calling this. References to it will be invalidated.
+   Destroys this object. Do not use the object after calling this. References
+   to it will be invalidated.
 
 - `OnDestroy`
 
-   Called just before the object is collected by the garbage collector. **Not deterministic** unless the object is linked into the thinker list, in which case it is destroyed earlier in a deterministic setting. Not all `Thinker`s are linked into this list, so be careful when overriding this. Any `Actor` will generally be safe.
+   Called just before the object is collected by the garbage collector. **Not
+   deterministic** unless the object is linked into the thinker list, in which
+   case it is destroyed earlier in a deterministic setting. Not all `Thinker`s
+   are linked into this list, so be careful when overriding this. Any `Actor`
+   will generally be safe.
 
 <!-- EOF -->

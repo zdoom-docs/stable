@@ -79,18 +79,40 @@ Language
 
 <!-- vim-markdown-toc -->
 
-ZScript is a new (circa 2017) scripting language that has sprung from the ceasing of ZDoom and the subsequent reprisal of GZDoom as mainline. It is similar to Java, though it has many deficiencies, oddities and other such issues. Despite this, it is still the most powerful Doom modding tool since straight up source editing, and will likely stay that way for a while until Eternity Engine inevitably becomes competition-worthy with scripting additions.
+ZScript is a new (circa 2017) scripting language that has sprung from the
+ceasing of ZDoom and the subsequent reprisal of GZDoom as mainline. It is
+similar to Java, though it has many deficiencies, oddities and other such
+issues. Despite this, it is still the most powerful Doom modding tool since
+straight up source editing, and will likely stay that way for a while until
+Eternity Engine inevitably becomes competition-worthy with scripting additions.
 
-This documentation serves as an introduction to and informal specification of the ZScript language from a programmer's viewpoint. It should also be useful for non-programmers looking for specifics on the inner workings of the language and more information on the functions and properties provided to it.
+This documentation serves as an introduction to and informal specification of
+the ZScript language from a programmer's viewpoint. It should also be useful
+for non-programmers looking for specifics on the inner workings of the language
+and more information on the functions and properties provided to it.
 
-ZScript runs in a virtual machine much like ACS, although because it is *not* compiled to bytecode and uses an object-oriented structure, the virtual machine is far more complex, and also therefore quite a bit slower. ZScript may only be read from source files by the engine, which has several benefits as well as detriments. It is the opinion of the author that this is a bad solution, but the author will refrain from going on a several-paragraph tirade about why bytecode is always better than source, even if it is an optional component.
+ZScript runs in a virtual machine much like ACS, although because it is *not*
+compiled to bytecode and uses an object-oriented structure, the virtual machine
+is far more complex, and also therefore quite a bit slower. ZScript may only be
+read from source files by the engine, which has several benefits as well as
+detriments. It is the opinion of the author that this is a bad solution, but
+the author will refrain from going on a several-paragraph tirade about why
+bytecode is always better than source, even if it is an optional component.
 
-In any case, here we are. This documentation will detail all aspects of ZScript, from the language and type system to the API and finer details. This document is distributed under the [CC0 public domain license](LICENSE.txt) in the hope that it is useful reference and serves as a solid basis for further writings. This document was originally written by Alison Sanderson (Marrub.) Attribution is encouraged but not required.
+In any case, here we are. This documentation will detail all aspects of
+ZScript, from the language and type system to the API and finer details. This
+document is distributed under the [CC0 public domain license](LICENSE.txt) in
+the hope that it is useful reference and serves as a solid basis for further
+writings. This document was originally written by Alison Sanderson (Marrub.)
+Attribution is encouraged but not required.
 
 Reading This Document
 =====================
 
-This document's syntaxes are written in a specific way to be easy to read but still close enough to a formal syntax that, for instance, someone writing a parser could do so off of this document. Here is a legend describing all syntax element spellings:
+This document's syntaxes are written in a specific way to be easy to read but
+still close enough to a formal syntax that, for instance, someone writing a
+parser could do so off of this document. Here is a legend describing all syntax
+element spellings:
 
 | Spelling      | Meaning                                                                                                   |
 | --------      | -------                                                                                                   |
@@ -105,27 +127,38 @@ This document's syntaxes are written in a specific way to be easy to read but st
 Translation Unit
 ================
 
-Full ZScript files are referred to as "translation units." This terminology comes from the C standard, and refers simply to the entirety of a ZScript source file. ZScript files are looked for in lumps named `zscript` with any extension. The standard extension is `.txt`, but `.zsc` and `.zs` are common as well. The author of this documentation prefers `.zsc`.
+Full ZScript files are referred to as "translation units." This terminology
+comes from the C standard, and refers simply to the entirety of a ZScript
+source file. ZScript files are looked for in lumps named `zscript` with any
+extension. The standard extension is `.txt`, but `.zsc` and `.zs` are common as
+well. The author of this documentation prefers `.zsc`.
 
-The base translation unit `zscript` may start with a version directive, then followed by any number of top-level definitions and `#include` directives. Included translation units may not have version directives.
+The base translation unit `zscript` may start with a version directive, then
+followed by any number of top-level definitions and `#include` directives.
+Included translation units may not have version directives.
 
 All keywords and identifiers in ZScript are case insensitive.
 
 Versions
 ========
 
-A version directive may be placed at the very beginning of a ZScript file, the syntax being:
+A version directive may be placed at the very beginning of a ZScript file, the
+syntax being:
 
 ```
 version "num"
 ```
 
-Where `num` is the ZScript version to use. By default ZScript is `version "2.3"`, the original ZScript specification. This old version is not supported by this documentation and it is highly encouraged to always use the latest version of ZScript. The minimum version supported by this documentation is 3.0.
+Where `num` is the ZScript version to use. By default ZScript is version
+2.3, the original ZScript specification. This old version is not supported
+by this documentation and it is highly encouraged to always use the latest
+version of ZScript. The minimum version supported by this documentation is 3.0.
 
 Top-level
 =========
 
-A ZScript file can have one of several things at the top level of the file, following a version directive:
+A ZScript file can have one of several things at the top level of the file,
+following a version directive:
 
 - Class definitions
 - Structure definitions
@@ -136,13 +169,20 @@ A ZScript file can have one of several things at the top level of the file, foll
 Class definitions
 =================
 
-A class defines an object type within ZScript, and is most of what you'll be creating within the language.
+A class defines an object type within ZScript, and is most of what you'll be
+creating within the language.
 
-All classes inherit from other classes. The base class can be set within the class header, but if it is not the class will automatically inherit from Object.
+All classes inherit from other classes. The base class can be set within the
+class header, but if it is not the class will automatically inherit from
+Object.
 
-Classes are subject to Scoping. They are also implicitly reference values, and therefore can be null. Use `new` to instantiate a new class object.
+Classes are subject to Scoping. They are also implicitly reference values, and
+therefore can be null. Use `new` to instantiate a new class object.
 
-Classes that inherit from Actor can replace other actors when spawned in maps, and can also be used freely in `DECORATE`. Actors have states, which will not be explained in this document as they are already well-documented on the ZDoom wiki.
+Classes that inherit from Actor can replace other actors when spawned in maps,
+and can also be used freely in `DECORATE`. Actors have states, which will not
+be explained in this document as they are already well-documented on the ZDoom
+wiki.
 
 A class is formed with the syntax:
 
@@ -155,7 +195,8 @@ class Identifier $[ : Base-class]$ $[Class-flags...]$
 
 `Base-class` in this context is an `Identifier`.
 
-Alternatively, the rest of the file can be used as class content. Note that with this syntax you cannot use include directives afterward:
+Alternatively, the rest of the file can be used as class content. Note that
+with this syntax you cannot use include directives afterward:
 
 ```
 class Identifier $[ : Base-class]$ $[Class-flags...]$ ;
@@ -163,7 +204,8 @@ class Identifier $[ : Base-class]$ $[Class-flags...]$ ;
 $[Class-content...]$
 ```
 
-If the class is defined within the same archive as the current file, then one can continue a class definition with the syntax:
+If the class is defined within the same archive as the current file, then one
+can continue a class definition with the syntax:
 
 ```
 extend class Identifier
@@ -182,11 +224,13 @@ In place of the class header.
 | `ui`                     | Class has UI scope.                                                               |
 | `version ( "ver" )`      | Restricted to ZScript version `ver` or higher.                                    |
 
-`Replace-class` in this context is an `Identifier` denoting a class which inherits `Actor`.
+`Replace-class` in this context is an `Identifier` denoting a class which
+inherits `Actor`.
 
 ## Class content
 
-Class contents are an optional list of various things logically contained within the class, including:
+Class contents are an optional list of various things logically contained
+within the class, including:
 
 - Member declarations
 - Method definitions
@@ -201,11 +245,20 @@ Class contents are an optional list of various things logically contained within
 
 ## Property definitions
 
-Property definitions are used within classes to define defaultable attributes on actors. They are not valid on classes not derived from Actor.
+Property definitions are used within classes to define defaultable attributes
+on actors. They are not valid on classes not derived from Actor.
 
-When registered, a property will be available in the `default` block as `ClassName.PropertyName`. Properties can be given multiple members to initialize.
+When registered, a property will be available in the `default` block as
+`ClassName.PropertyName`. Properties can be given multiple members to
+initialize.
 
-Property definitions take the form `property Identifier : Member $[ , Member]$... ;` (where `Member` is an identifier naming any member in the current class.)
+Property definitions take the form:
+
+```
+property Identifier : Member $[ , Member]$... ;
+```
+
+Where `Member` is an identifier naming any member in the current class.
 
 Properties defined in ZScript are usable from `DECORATE`.
 
@@ -213,23 +266,42 @@ Properties defined in ZScript are usable from `DECORATE`.
 
 *Version 3.7.0 and newer.*
 
-Flag definitions are used within classes to define defaultable boolean flags on actors. They are not valid on classes not derived from Actor.
+Flag definitions are used within classes to define defaultable boolean flags on
+actors. They are not valid on classes not derived from Actor.
 
-When registered, a flag will be available in the `default` block as `CLASSNAME.FLAGNAME`, as well as a member as `bFLAGNAME`.
+When registered, a flag will be available in the `default` block as
+`CLASSNAME.FLAGNAME`, as well as a member as `bFLAGNAME`.
 
-Each flag operates on a singular bit of any integer member of the class. The integer must be exactly 32 bits, though if it is signed or not does not matter. This means each backing integer can hold exactly 32 flags each (assuming no duplicated flags,) and more will require another one to be added. (Internally, the `Actor` flags are currently up to over 8 backing integers.)
+Each flag operates on a singular bit of any integer member of the class. The
+integer must be exactly 32 bits, though if it is signed or not does not matter.
+This means each backing integer can hold exactly 32 flags each (assuming no
+duplicated flags,) and more will require another one to be added. (Internally,
+the `Actor` flags are currently up to over 8 backing integers.)
 
-A flag's backing integer may not be `meta`, although it may be `readonly`, `private`, or any other access modifier. The generated flag member will be publicly visible regardless of the backing integer's visibility.
+A flag's backing integer may not be `meta`, although it may be `readonly`,
+`private`, or any other access modifier. The generated flag member will be
+publicly visible regardless of the backing integer's visibility.
 
-Flag definitions take the form `flagdef Identifier : Member , Number ;` where `Number` is the bit in `Member` to use, starting from `0` and ending at `31`.
+Flag definitions take the form:
+
+```
+flagdef Identifier : Member , Number ;
+```
+
+Where `Number` is the bit in `Member` to use, starting from `0` and ending at
+`31`.
 
 Flags defined in ZScript are usable from `DECORATE`.
 
 ## Default blocks
 
-Default blocks are used on classes derived from Actor to create an overridable list of defaults to properties, allowing for swift creation of flexible actor types.
+Default blocks are used on classes derived from Actor to create an overridable
+list of defaults to properties, allowing for swift creation of flexible actor
+types.
 
-In `DECORATE`, this is everything that isn't in the `states` block, but in ZScript, for syntax flexibility purposes, it must be enclosed in a block with `default` at the beginning, formed:
+In `DECORATE`, this is everything that isn't in the `states` block, but in
+ZScript, for syntax flexibility purposes, it must be enclosed in a block with
+`default` at the beginning, formed:
 
 ```
 default
@@ -259,11 +331,15 @@ Default properties are formed as:
 Identifier $[ . Identifier]$... Expression ;
 ```
 
-Note that all properties *except for* `DamageFunction` require `Expression` to be a constant expression.
+Note that all properties *except for* `DamageFunction` require `Expression` to
+be a constant expression.
 
 ## State definitions
 
-These are the same as `DECORATE`, but states that do not have function blocks require terminating semicolons. Double quotes around `#` and `-` are no longer required. State blocks can be subject to Action Scoping with the syntax `states(Scope)`.
+These are the same as `DECORATE`, but states that do not have function blocks
+require terminating semicolons. Double quotes around `#` and `-` are no longer
+required. State blocks can be subject to Action Scoping with the syntax
+`states(Scope)`.
 
 A state definition block has the syntax:
 
@@ -274,7 +350,7 @@ states $[ ( Scope $[ , Scope]$... ) ]$
 }
 ```
 
-State-or-label either defines a state label or a state itself, with the syntax of:
+State-or-label either defines a state label or a state itself, with the syntax:
 
 ```
 Identifier :
@@ -308,14 +384,23 @@ Identifier ( Argument-list ) ;
 { $[Statement...]$ }
 ```
 
-The first will attach no action function to the state. The second will attach the specified action function with the specified arguments, and the third will create an anonymous action function and attach it.
+The first will attach no action function to the state. The second will attach
+the specified action function with the specified arguments, and the third will
+create an anonymous action function and attach it.
 
 Structure definitions
 =====================
 
-A structure is an object type that does not inherit from Object and is not always (though occasionally is) a reference type, unlike classes. Structures marked as `native` are passed by-reference to and from the engine in an implicit pseudo-type `Pointer<T>`, and `null` can be passed in their place. Also note that this means the engine can return `null` structures. Non-native structures cannot be passed as arguments or returned normally.
+A structure is an object type that does not inherit from Object and is not
+always (though occasionally is) a reference type, unlike classes. Structures
+marked as `native` are passed by-reference to and from the engine in an
+implicit pseudo-type `Pointer<T>`, and `null` can be passed in their place.
+Also note that this means the engine can return `null` structures. Non-native
+structures cannot be passed as arguments or returned normally.
 
-Structures are preferred for basic compound data types that do not need to be instanced and are often used as a way of generalizing code. They cannot be returned from functions.
+Structures are preferred for basic compound data types that do not need to be
+instanced and are often used as a way of generalizing code. They cannot be
+returned from functions.
 
 Structures are subject to Scoping.
 
@@ -342,7 +427,8 @@ Optionally followed by a semicolon.
 
 ## Structure content
 
-Structure contents are an optional list of various things logically contained within the structure, including:
+Structure contents are an optional list of various things logically contained
+within the structure, including:
 
 - Member declarations
 - Method definitions
@@ -352,7 +438,9 @@ Structure contents are an optional list of various things logically contained wi
 Enumeration definitions
 =======================
 
-An enumeration is a list of named numbers, which by default will be incremental from 0. By default they decay to the type `int`, but the default decay type can be set manually.
+An enumeration is a list of named numbers, which by default will be incremental
+from 0. By default they decay to the type `int`, but the default decay type can
+be set manually.
 
 An enumeration definition takes the form:
 
@@ -363,9 +451,12 @@ enum Identifier $[ : Integer-type]$
 }
 ```
 
-Optionally followed by a semicolon. `Integer-type` in this context is any valid integral type name.
+Optionally followed by a semicolon. `Integer-type` in this context is any valid
+integral type name.
 
-Enumerators can either be incremental (from the last enumerator or 0 if there is none) or explicitly set with the syntax `Identifier = Expression`. Enumerators must be followed by a comma unless it is the end of the list.
+Enumerators can either be incremental (from the last enumerator or 0 if there
+is none) or explicitly set with the syntax `Identifier = Expression`.
+Enumerators must be followed by a comma unless it is the end of the list.
 
 Enumerator syntax is:
 
@@ -382,12 +473,15 @@ Constants are simple named values. They are created with the syntax:
 const Identifier = Expression ;
 ```
 
-Constants are not assignable. Their type is inferred from their value, so if you wish for them to have a specific type, you must cast the value to that type.
+Constants are not assignable. Their type is inferred from their value, so if
+you wish for them to have a specific type, you must cast the value to that
+type.
 
 Static array definitions
 =========================
 
-Similar to constants, static arrays are named values, but for an array. They are created with the syntax:
+Similar to constants, static arrays are named values, but for an array. They
+are created with the syntax:
 
 ```
 static const Type Variable-name = { $[Expression $[ , Expression]$...]$ } ;
@@ -398,24 +492,36 @@ Static arrays cannot be multi-dimensional, unlike normal fixed-size arrays.
 Include directives
 ==================
 
-Include directives include other files to be processed by the ZScript compiler, allowing you to organize and separate code into different files. Their syntax is simple:
+Include directives include other files to be processed by the ZScript compiler,
+allowing you to organize and separate code into different files. Their syntax
+is simple:
 
 ```
 #include "filename"
 ```
 
-Note that included filenames will conflict with other mods. If two mods have a file named `zscript/MyCoolClasses.zsc` and both include it, expecting to get different files, the engine will fail to load with a script error.
+Note that included filenames will conflict with other mods. If two mods have a
+file named `zscript/MyCoolClasses.zsc` and both include it, expecting to get
+different files, the engine will fail to load with a script error.
 
-To avoid this, it is suggested to place your ZScript code under a uniquely named sub-folder.
+To avoid this, it is suggested to place your ZScript code under a uniquely
+named sub-folder.
 
 Types
 =====
 
-ZScript has several categories of types: Integer types, floating-point (decimal) types, strings, vectors, names, classes, et al. There are a wide variety of ways to use these types, as well as a wide variety of places they are used.
+ZScript has several categories of types: Integer types, floating-point
+(decimal) types, strings, vectors, names, classes, et al. There are a wide
+variety of ways to use these types, as well as a wide variety of places they
+are used.
 
-Types determine what kind of value an object stores, how it acts within an expression, etc. All objects, constants and enumerations have a type. Argument lists use types to ensure a function is used properly.
+Types determine what kind of value an object stores, how it acts within an
+expression, etc. All objects, constants and enumerations have a type. Argument
+lists use types to ensure a function is used properly.
 
-Most basic types have methods attached to them, and both integer and floating-point type names have symbols accessible from them. See the API section for more information.
+Most basic types have methods attached to them, and both integer and
+floating-point type names have symbols accessible from them. See the API
+section for more information.
 
 ## Integers
 
@@ -441,7 +547,8 @@ Some types have aliases as well:
 
 ### Symbols
 
-Integer types have symbols attached which can be accessed by `typename.name`, for instance `int.Max`.
+Integer types have symbols attached which can be accessed by `typename.name`,
+for instance `int.Max`.
 
 - `Max`
 
@@ -453,7 +560,8 @@ Integer types have symbols attached which can be accessed by `typename.name`, fo
 
 ## Floating-point types
 
-Floating-point types hold exponents, generally represented as regular decimal numbers. There are two such types available to ZScript:
+Floating-point types hold exponents, generally represented as regular decimal
+numbers. There are two such types available to ZScript:
 
 | Name      | Usable as argument | Notes                                                              |
 | ----      | :----------------: | -----                                                              |
@@ -464,7 +572,8 @@ Floating-point types hold exponents, generally represented as regular decimal nu
 
 ### Symbols
 
-Floating-point types have symbols attached which can be accessed by `typename.name`, for instance `double.Infinity`.
+Floating-point types have symbols attached which can be accessed by
+`typename.name`, for instance `double.Infinity`.
 
 - `Dig`
 
@@ -520,7 +629,9 @@ Floating-point types have symbols attached which can be accessed by `typename.na
 | ----     | :----------------: |
 | `string` | Yes                |
 
-The `string` type is a mutable, garbage-collected string reference type. Strings are not structures or classes, however there are methods attached to the type, detailed in the API section.
+The `string` type is a mutable, garbage-collected string reference type.
+Strings are not structures or classes, however there are methods attached to
+the type, detailed in the API section.
 
 ## Names
 
@@ -528,9 +639,14 @@ The `string` type is a mutable, garbage-collected string reference type. Strings
 | ----   | :----------------: |
 | `name` | Yes                |
 
-The `name` type is an indexed string. While their contents are the same as a string, their actual value is merely an integer which can be compared far quicker than a string. Names are used for many internal purposes such as damage type names. Strings are implicitly cast to names.
+The `name` type is an indexed string. While their contents are the same as a
+string, their actual value is merely an integer which can be compared far
+quicker than a string. Names are used for many internal purposes such as damage
+type names. Strings are implicitly cast to names.
 
-Names can be converted to `int` with an explicit cast, and the negative of `int(name())` may be used to create an integer representation of a string usable by action specials, most prominently `ACS_NamedExecute`.
+Names can be converted to `int` with an explicit cast, and the negative of
+`int(name())` may be used to create an integer representation of a string
+usable by action specials, most prominently `ACS_NamedExecute`.
 
 ## Color
 
@@ -538,7 +654,13 @@ Names can be converted to `int` with an explicit cast, and the negative of `int(
 | ----    | :----------------: |
 | `color` | Yes                |
 
-The `color` type can be converted from a string using the `X11RGB` lump or a hex color in the format `#RRGGBB`, or with either `color(R, G, B)` or `color(A, R, G, B)`.
+The `color` type can be converted from a string using the `X11RGB` lump or a
+hex color in the format `#RRGGBB`, or with either of:
+
+```
+color(R, G, B)
+color(A, R, G, B)
+```
 
 ## Vectors
 
@@ -547,9 +669,13 @@ The `color` type can be converted from a string using the `X11RGB` lump or a hex
 | `vector2` | Yes                |
 | `vector3` | Yes                |
 
-There are two vector types in ZScript, `vector2` and `vector3`, which hold two and three members, respectively. Their members can be accessed through `x`, `y` and (for `vector3`,) `z`. `vector3` can additionally get the X and Y components as a `vector2` with `xy`.
+There are two vector types in ZScript, `vector2` and `vector3`, which hold two
+and three members, respectively. Their members can be accessed through `x`, `y`
+and (for `vector3`,) `z`. `vector3` can additionally get the X and Y components
+as a `vector2` with `xy`.
 
-Vectors can use many operators and even have special ones to themselves. See the Expressions and Operators section for more information.
+Vectors can use many operators and even have special ones to themselves. See
+the Expressions and Operators section for more information.
 
 ## Fixed-size arrays
 
@@ -557,7 +683,14 @@ Vectors can use many operators and even have special ones to themselves. See the
 | ----              | :----------------: |
 | `Type Array-size` | No                 |
 
-Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` elements, which can be accessed with the array access operator. Multi-dimensional arrays are also supported. Note that this kind of type can also be declared in variable names themselves.
+Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type`
+elements, which can be accessed with the array access operator.
+
+Multi-dimensional arrays are also supported, although the dimensions will be
+backwards (right to left instead of left to right) unless `version` is `3.7.2`
+or greater.
+
+Note that this kind of type can also be declared in variable names themselves.
 
 ## Dynamic-size arrays
 
@@ -565,9 +698,12 @@ Fixed-size arrays take the form `Type[size]`. They hold `size` number of `Type` 
 | ----             | :----------------: |
 | `array < Type >` | Yes                |
 
-Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary number of `Type` elements, which can be accessed with the array access operator.
+Dynamically sized arrays take the form `array<Type>`, and hold an arbitrary
+number of `Type` elements, which can be accessed with the array access
+operator.
 
-Dynamic-sized arrays do not have their lifetime scoped to their current block, so:
+Dynamic-sized arrays do not have their lifetime scoped to their current block,
+so the following:
 
 ```
 for(int i = 0; i < 5; i++)
@@ -579,7 +715,8 @@ for(int i = 0; i < 5; i++)
 
 Will result in an array with 5 elements.
 
-Dynamically sized arrays also cannot store other dynamically sized arrays, or user-defined `struct` objects.
+Dynamically sized arrays also cannot store other dynamically sized arrays, or
+user-defined `struct` objects.
 
 ## Maps
 
@@ -596,7 +733,10 @@ Map types take the form `map<Type, Type>`. They are not yet implemented.
 | `class < Type >` | Yes                |
 | `class`          | Yes                |
 
-Class type references are used to describe a concrete *type* rather than an object. They simply take the form `class`, and can be restrained to descendants of a type with the syntax `class<Type>`. Strings are implicitly cast to class type references.
+Class type references are used to describe a concrete *type* rather than an
+object. They simply take the form `class`, and can be restrained to descendants
+of a type with the syntax `class<Type>`. Strings are implicitly cast to class
+type references.
 
 ## User types
 
@@ -607,11 +747,15 @@ Class type references are used to describe a concrete *type* rather than an obje
 | User-defined `struct` object | No                 |
 | `@ Type`                     | Yes                |
 
-Any other identifier used as a type will resolve to a user class, structure or enumeration type.
+Any other identifier used as a type will resolve to a user class, structure or
+enumeration type.
 
-Types prefixed with `@` are native pointers to objects (as opposed to objects placed directly in the structure's data.) This is not usable in user code.
+Types prefixed with `@` are native pointers to objects (as opposed to objects
+placed directly in the structure's data.) This is not usable in user code.
 
-A type name that is within a specific scope can be accessed by prefixing it with a `.`. The type `.MyClass.MySubStructure` will resolve to the type `MySubStructure` contained within `MyClass`.
+A type name that is within a specific scope can be accessed by prefixing it
+with a `.`. The type `.MyClass.MySubStructure` will resolve to the type
+`MySubStructure` contained within `MyClass`.
 
 ## Read-only types
 
@@ -619,7 +763,9 @@ A type name that is within a specific scope can be accessed by prefixing it with
 | ----                | :----------------: |
 | `readonly < Type >` | Yes                |
 
-A read-only type, as its name implies, may only be read from, and is effectively immutable. They take the form `readonly<Type>`. Do note that this is separate from the member declaration flag.
+A read-only type, as its name implies, may only be read from, and is
+effectively immutable. They take the form `readonly<Type>`. Do note that this
+is separate from the member declaration flag.
 
 ## Other types
 
@@ -638,7 +784,8 @@ Strings will implicitly convert to `sound` and `statelabel`.
 
 ## Variable name
 
-Variable names can have an array's size on them, instead of on the type, or none. Variable names are formed as either:
+Variable names can have an array's size on them, instead of on the type, or
+none. Variable names are formed as either:
 
 ```
 Identifier
@@ -647,7 +794,8 @@ Identifier Array-size
 
 ## Array size
 
-Array sizes can be multi-dimensional or automatically sized, so all of the following syntaxes are available:
+Array sizes can be multi-dimensional or automatically sized, so all of the
+following syntaxes are available:
 
 ```
 [ ]
@@ -659,7 +807,9 @@ Expressions and Operators
 
 ## Literals
 
-Much like C or most other programming languages, ZScript has object literals, including string literals, integer literals, float literals, name literals, boolean literals, and the null pointer.
+Much like C or most other programming languages, ZScript has object literals,
+including string literals, integer literals, float literals, name literals,
+boolean literals, and the null pointer.
 
 ### String literals
 
@@ -669,7 +819,8 @@ String literals take the same form as in C:
 "text here"
 ```
 
-String literals have character escapes, which are formed with a backslash and a character. Character escapes include:
+String literals have character escapes, which are formed with a backslash and a
+character. Character escapes include:
 
 | Spelling                | Output                                          |
 | --------                | ------                                          |
@@ -688,9 +839,12 @@ String literals have character escapes, which are formed with a backslash and a 
 | `\xnn` or `\Xnn`        | Byte `0xnn`.                                    |
 | `\nnn`                  | Byte `0nnn` (octal.)                            |
 
-To quote [cppreference](https://en.cppreference.com/w/cpp/language/escape), "of the octal escape sequences, `\0` is the most useful because it represents the terminating null character in null-terminated strings."
+To quote [cppreference](https://en.cppreference.com/w/cpp/language/escape), "of
+the octal escape sequences, `\0` is the most useful because it represents the
+terminating null character in null-terminated strings."
 
-String literals, also like C and C++, will be concatenated when put directly next to each other. For example, this:
+String literals, also like C and C++, will be concatenated when put directly
+next to each other. For example, this:
 
 ```
 "text 1" "text 2"
@@ -700,23 +854,30 @@ Will be parsed as a single string literal with the text `"text 1text 2"`.
 
 ### Class type literals
 
-Class type literals take the same form as string literals, but do note that they are not the same.
+Class type literals take the same form as string literals, but do note that
+they are not the same.
 
 ### Name literals
 
-Name literals are similar to string literals, though they use apostrophes instead of quote marks:
+Name literals are similar to string literals, though they use apostrophes
+instead of quote marks:
 
 ```
 'text here'
 ```
 
-They do not concatenate like string literals, and do not have character escapes.
+They do not concatenate like string literals, and do not have character
+escapes.
 
 ### Integer literals
 
-Integer literals are formed similarly to C. They may take one of three forms, and be typed `uint` or `int` based on whether there is a `u` or `U` at the end or not.
+Integer literals are formed similarly to C. They may take one of three forms,
+and be typed `uint` or `int` based on whether there is a `u` or `U` at the end
+or not.
 
-The parser also supports an optional `l`/`L` suffix as in C, though it does not actually do anything, and it is advised you do not use it for potential forward compatibility purposes.
+The parser also supports an optional `l`/`L` suffix as in C, though it does not
+actually do anything, and it is advised you do not use it for potential forward
+compatibility purposes.
 
 Integer literals can be in the basic base-10/decimal form:
 
@@ -725,7 +886,8 @@ Integer literals can be in the basic base-10/decimal form:
 500u       // uint
 ```
 
-Base-16/hexadecimal form, which may use upper- or lower-case decimals and `0x` prefix, depending on user preference:
+Base-16/hexadecimal form, which may use upper- or lower-case decimals and `0x`
+prefix, depending on user preference:
 
 ```
 0x123456789ABCDEF0
@@ -743,9 +905,12 @@ And, base-8/octal form, prefixed with a `0`:
 
 ### Float literals
 
-Float literals, much like integer literals, are formed similarly to C, but they do not support hex-float notation. Float literals support exponent notation.
+Float literals, much like integer literals, are formed similarly to C, but they
+do not support hex-float notation. Float literals support exponent notation.
 
-The parser supports an optional `f`/`F` suffix as in C, though it does not actually do anything, and it is advised you do not use it for potential forward compatibility purposes.
+The parser supports an optional `f`/`F` suffix as in C, though it does not
+actually do anything, and it is advised you do not use it for potential forward
+compatibility purposes.
 
 Float literals can be formed in a few ways:
 
@@ -764,15 +929,19 @@ And with exponents:
 
 ### Boolean literals
 
-The two boolean literals are spelled `false` and `true`, and much like C, can decay to the integer literals `0` and `1`.
+The two boolean literals are spelled `false` and `true`, and much like C, can
+decay to the integer literals `0` and `1`.
 
 ### Null pointer
 
-The null pointer literal is spelled `null` and represents an object that does not exist in memory. Like C, it is not equivalent to the integer literal `0`, and is more similar to C++'s `nullptr`.
+The null pointer literal is spelled `null` and represents an object that does
+not exist in memory. Like C, it is not equivalent to the integer literal `0`,
+and is more similar to C++'s `nullptr`.
 
 ## Expressions
 
-Expressions contain literals or other such *expressions* of objects, including arithmetic and various conditions.
+Expressions contain literals or other such *expressions* of objects, including
+arithmetic and various conditions.
 
 ### Primary expressions
 
@@ -784,11 +953,15 @@ Basic expressions, also known as primary expressions, can be one of:
 - A vector literal.
 - An expression in parentheses.
 
-Identifiers work as you expect, they reference a variable or constant. The `Super` keyword references the parent type or any member within it.
+Identifiers work as you expect, they reference a variable or constant. The
+`Super` keyword references the parent type or any member within it.
 
 #### Vector literals
 
-Vector literals are not under object literals as they are not constants in the same manner as other literals, since they contain expressions within them. As such, they are expressions, not proper value-based literals. They can be formed with:
+Vector literals are not under object literals as they are not constants in the
+same manner as other literals, since they contain expressions within them. As
+such, they are expressions, not proper value-based literals. They can be formed
+with:
 
 ```
 ( X , Y )     //=> vector2, where X is not a vector2
@@ -796,11 +969,14 @@ Vector literals are not under object literals as they are not constants in the s
 ( X , Y , Z ) //=> vector3
 ```
 
-All components must have type `double`, except in the second grammar where `X` is `vector2`.
+All components must have type `double`, except in the second grammar where `X`
+is `vector2`.
 
 ### Postfix expressions
 
-Postfix expressions are affixed at the end of an expression, and are used for a large variety of things, although the actual amount of postfix expressions is small:
+Postfix expressions are affixed at the end of an expression, and are used for a
+large variety of things, although the actual amount of postfix expressions is
+small:
 
 | Form                       | Description                                                                                      |
 | ----                       | -----------                                                                                      |
@@ -820,11 +996,16 @@ The syntax for an argument list is:
 Expression $[ , Expression]$...
 ```
 
-Function calls may name arguments which have defaults with the syntax `Identifier : Expression`, possibly skipping over other defaulted arguments. After the first named defaultable argument, all other arguments must be named as well.
+Function calls may name arguments which have defaults with the syntax
+`Identifier : Expression`, possibly skipping over other defaulted arguments.
+After the first named defaultable argument, all other arguments must be named
+as well.
 
 ### Unary expressions
 
-Unary expressions are affixed at the beginning of an expression. The simplest example of a unary expression is the negation operator, `-`, as in `-500`. Unary expressions include:
+Unary expressions are affixed at the beginning of an expression. The simplest
+example of a unary expression is the negation operator, `-`, as in `-500`.
+Unary expressions include:
 
 | Form        | Description                                                                           |
 | ----        | -----------                                                                           |
@@ -839,7 +1020,9 @@ Unary expressions are affixed at the beginning of an expression. The simplest ex
 
 ### Binary expressions
 
-Binary expressions operate on two expressions, and are the most common kind of expression. They are used inline like regular math syntax, i.e. `1 + 1`. Binary expressions include:
+Binary expressions operate on two expressions, and are the most common kind of
+expression. They are used inline like regular math syntax, i.e. `1 + 1`. Binary
+expressions include:
 
 | Form        | Description                                                                       |
 | ----        | -----------                                                                       |
@@ -873,7 +1056,9 @@ Binary expressions operate on two expressions, and are the most common kind of e
 
 #### Assignment expressions
 
-Assignment expressions are a subset of binary expressions which *are never constant expressions*. They assign a value to another value, as one might guess.
+Assignment expressions are a subset of binary expressions which *are never
+constant expressions*. They assign a value to another value, as one might
+guess.
 
 | Form       | Description               |
 | ----       | -----------               |
@@ -892,12 +1077,15 @@ Assignment expressions are a subset of binary expressions which *are never const
 
 ### Ternary expression
 
-The ternary expression is formed `A ? B : C`, and will evaluate to `B` if `A` is `true`, or `C` if it is `false`.
+The ternary expression is formed `A ? B : C`, and will evaluate to `B` if `A`
+is `true`, or `C` if it is `false`.
 
 Statements
 ==========
 
-All functions are made up of a list of *statements* enclosed with left and right braces, which in and of itself is a statement called a *compound statement*, or *block*.
+All functions are made up of a list of *statements* enclosed with left and
+right braces, which in and of itself is a statement called a *compound
+statement*, or *block*.
 
 ## Compound statements
 
@@ -909,11 +1097,16 @@ A compound statement is formed as:
 }
 ```
 
-Note that the statement list is optional, so an empty compound statement `{}` is entirely valid.
+Note that the statement list is optional, so an empty compound statement `{}`
+is entirely valid.
 
 ## Expression statements
 
-An expression statement is the single most common type of statement in just about any programming language. In ZScript, exactly like C and C++, an expression statement is simply formed with any expression followed by a semicolon. Function calls and variable assignments are expressions, for instance, so it is quite clear why they are common.
+An expression statement is the single most common type of statement in just
+about any programming language. In ZScript, exactly like C and C++, an
+expression statement is simply formed with any expression followed by a
+semicolon. Function calls and variable assignments are expressions, for
+instance, so it is quite clear why they are common.
 
 Their syntax is:
 
@@ -923,7 +1116,8 @@ Expression ;
 
 ## Conditional statements
 
-A conditional statement will, conditionally, choose a statement (or none) to execute. They work the same as in C and ACS:
+A conditional statement will, conditionally, choose a statement (or none) to
+execute. They work the same as in C and ACS:
 
 ```
 if ( Expression ) Statement $[ else Statement]$
@@ -931,7 +1125,8 @@ if ( Expression ) Statement $[ else Statement]$
 
 ## Switch statements
 
-A switch statement takes an expression of integer or name type and selects a labeled statement to run. They work the same as in C and ACS:
+A switch statement takes an expression of integer or name type and selects a
+labeled statement to run. They work the same as in C and ACS:
 
 ```
 switch ( Expression ) Statement
@@ -939,15 +1134,21 @@ switch ( Expression ) Statement
 
 ## Loop statements
 
-ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while `until` and `do until` do the inverse of `while` and `do while`.
+ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do
+until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while
+`until` and `do until` do the inverse of `while` and `do while`.
 
-The `for` loop takes a limited statement and two optional expressions: The statement for when the loop begins (which is scoped to the loop,) one expression for checking if the loop should break, and one which is executed every time the loop iterates. Its syntax is:
+The `for` loop takes a limited statement and two optional expressions: The
+statement for when the loop begins (which is scoped to the loop,) one
+expression for checking if the loop should break, and one which is executed
+every time the loop iterates. Its syntax is:
 
 ```
 for ( $[Expression-or-Local-variable-statement]$ ; $[Expression]$ ; $[Expression]$ ) Statement
 ```
 
-The `while` loop simply takes one expression for checking if the loop should break, equivalent to `for(; a;)`.
+The `while` loop simply takes one expression for checking if the loop should
+break, equivalent to `for(; a;)`.
 
 The `until` loop is equivalent to `while(!a)`. Their syntax are:
 
@@ -956,7 +1157,8 @@ while ( Expression ) Statement
 until ( Expression ) Statement
 ```
 
-`do while` and `do until` will only check the expression after the first iteration is complete. The `do while` and `do until` loops are formed as such:
+`do while` and `do until` will only check the expression after the first
+iteration is complete. The `do while` and `do until` loops are formed as such:
 
 ```
 do
@@ -970,21 +1172,28 @@ until ( Expression )
 
 ## Control flow statements
 
-As in C, there are three control flow statements that manipulate where the program will execute statements next, which are available contextually. They are `continue`, `break` and `return`.
+As in C, there are three control flow statements that manipulate where the
+program will execute statements next, which are available contextually. They
+are `continue`, `break` and `return`.
 
-`continue` is available in loop statements and will continue to the next iteration immediately:
+`continue` is available in loop statements and will continue to the next
+iteration immediately:
 
 ```
 continue ;
 ```
 
-`break` is available in loop statements and switch statements, and will break out of the containing statement early:
+`break` is available in loop statements and switch statements, and will break
+out of the containing statement early:
 
 ```
 break ;
 ```
 
-`return` is available in functions. If the function does not return any values, it may only be spelled `return;` and will simply exit the function early. If the function does return values, it takes a comma-separated list for each value returned:
+`return` is available in functions. If the function does not return any values,
+it may only be spelled `return;` and will simply exit the function early. If
+the function does return values, it takes a comma-separated list for each value
+returned:
 
 ```
 return $[Expression $[ , Expression]$...]$ ;
@@ -992,7 +1201,9 @@ return $[Expression $[ , Expression]$...]$ ;
 
 ## Local variable statements
 
-Local variable statements are formed in one of 2 ways. The `let` keyword can be used to automatically determine the type of the variable from the initializer, while the regular syntax uses an explicit type, and initialization is optional.
+Local variable statements are formed in one of 2 ways. The `let` keyword can be
+used to automatically determine the type of the variable from the initializer,
+while the regular syntax uses an explicit type, and initialization is optional.
 
 Variables' syntax are one of:
 
@@ -1010,7 +1221,8 @@ Type Variable $[ , Variable]$... ;
 
 ## Multi-assignment statements
 
-Expressions or functions that return multiple values can be assigned into multiple variables with the syntax:
+Expressions or functions that return multiple values can be assigned into
+multiple variables with the syntax:
 
 ```
 [ Expression $[ , Expression]$... ] = Expression ;
@@ -1024,12 +1236,15 @@ Static arrays can be defined normally as a statement.
 
 ## Null statements
 
-A null statement does nothing, and is formed `;`. It is similar to an empty compound statement.
+A null statement does nothing, and is formed `;`. It is similar to an empty
+compound statement.
 
 Member declarations
 ===================
 
-Member declarations define data within a structure or class that can be accessed directly within methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+Member declarations define data within a structure or class that can be
+accessed directly within methods of the object (or its derived classes,) or
+indirectly from instances of it with the member access operator.
 
 A member declaration is formed as so:
 
@@ -1057,9 +1272,13 @@ $[Member-declaration-flags...]$ Type Variable-name $[ , Variable-name]$... ;
 Method definitions
 ==================
 
-Method definitions define functions within a structure or class that can be accessed directly within other methods of the object (or its derived classes,) or indirectly from instances of it with the member access operator.
+Method definitions define functions within a structure or class that can be
+accessed directly within other methods of the object (or its derived classes,)
+or indirectly from instances of it with the member access operator.
 
-Methods marked as `virtual` may have their functionality overridden by derived classes, and in those overrides one can use the `Super` keyword to call the parent function.
+Methods marked as `virtual` may have their functionality overridden by derived
+classes, and in those overrides one can use the `Super` keyword to call the
+parent function.
 
 Methods are formed as so:
 
@@ -1070,17 +1289,27 @@ $[Method-definition-flags...]$ Type $[ , Type]$... Identifier ( $[Method-argumen
 }
 ```
 
-If `const` is placed after the function signature and before the function body, the method will not be allowed to modify any members in the object instance it's being called on.
+If `const` is placed after the function signature and before the function body,
+the method will not be allowed to modify any members in the object instance
+it's being called on.
 
-The keyword `void` can be used in place of the return type (or type list) to have a method which does not have any return value. Similarly, one can place `void` where the argument list might be, although this is redundant as having no argument list at all is allowed.
+The keyword `void` can be used in place of the return type (or type list) to
+have a method which does not have any return value. Similarly, one can place
+`void` where the argument list might be, although this is redundant as having
+no argument list at all is allowed.
 
-Arguments of methods may only be of certain types due to technical limitations. See the type table for a list of which are usable and which are not.
+Arguments of methods may only be of certain types due to technical limitations.
+See the type table for a list of which are usable and which are not.
 
-All methods which are not `static` have an implicit `self` parameter which refers to this object, although if you wish to refer to a member of `self`, you do not need to reference it directly, as it is already implicitly in scope.
+All methods which are not `static` have an implicit `self` parameter which
+refers to this object, although if you wish to refer to a member of `self`, you
+do not need to reference it directly, as it is already implicitly in scope.
 
 ## Method argument list
 
-Method arguments must all have a name and type, and optionally the last arguments in the list may have a default value, (*Version 3.3.0 and newer*) except in functions marked `override`. The syntax is:
+Method arguments must all have a name and type, and optionally the last
+arguments in the list may have a default value, (*Version 3.3.0 and newer*)
+except in functions marked `override`. The syntax is:
 
 ```
 Type Variable-name $[ , Method-argument-list]$
@@ -1112,7 +1341,12 @@ Or, the entire list may simply be `void` or empty.
 
 ### Action functions
 
-ZScript includes an extra method type for descendents of `Actor` called *actions*, which are intended to be run from actor states and give extra information to the function. Action functions change the meaning of the `self` parameter and pass in `invoker` and `stateinfo` parameters as well. `stateinfo` refers to the `State` which this action was called from. Here is a chart for the meanings of the `self` and `invoker` variables under each scope:
+ZScript includes an extra method type for descendents of `Actor` called
+*actions*, which are intended to be run from actor states and give extra
+information to the function. Action functions change the meaning of the `self`
+parameter and pass in `invoker` and `stateinfo` parameters as well. `stateinfo`
+refers to the `State` which this action was called from. Here is a chart for
+the meanings of the `self` and `invoker` variables under each scope:
 
 | Scope     | `self` meaning                                                  | `invoker` meaning |
 | -----     | --------------                                                  | ----------------- |

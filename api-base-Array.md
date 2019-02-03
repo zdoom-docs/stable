@@ -1,6 +1,7 @@
 # Array
 
-While ZScript does not have proper user-facing generics, `Array` is one such type that does have a type parameter. It mirrors the internal `TArray` type.
+While ZScript does not have proper user-facing generics, `Array` is one such
+type that does have a type parameter. It mirrors the internal `TArray` type.
 
 ```
 struct Array<Type>
@@ -32,7 +33,8 @@ struct Array<Type>
 
 - `Delete`
 
-   Deletes `count` object(s) at `index`. Moves objects after them into their place.
+   Deletes `count` object(s) at `index`. Moves objects after them into their
+   place.
 
 - `Find`
 
@@ -56,7 +58,8 @@ struct Array<Type>
 
 - `Pop`
 
-   Deletes the last item in the array. Returns `false` if there are no items in the array.
+   Deletes the last item in the array. Returns `false` if there are no items in
+   the array.
 
 - `Push`
 
@@ -64,11 +67,13 @@ struct Array<Type>
 
 - `Reserve`
 
-   Adds `amount` new entries at the end of the array, increasing `Size`. Calls `Grow` if necessary.
+   Adds `amount` new entries at the end of the array, increasing `Size`. Calls
+   `Grow` if necessary.
 
 - `Resize`
 
-   Changes the allocated array size to `amount`. Deletes members if `amount` is smaller than `Size`.
+   Changes the allocated array size to `amount`. Deletes members if `amount` is
+   smaller than `Size`.
 
 - `ShrinkToFit`
 

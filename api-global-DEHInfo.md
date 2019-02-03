@@ -20,15 +20,18 @@ struct DEHInfo
 
 - `BlueAC`
 
-   Multiple of 100 for `BlueArmor`'s `Armor.SaveAmount`. Default is 2 for 200 armor.
+   Multiple of 100 for `BlueArmor`'s `Armor.SaveAmount`. Default is 2 for 200
+   armor.
 
 - `ExplosionAlpha`
 
-   For actors with the `DEHEXPLOSION` flag, the alpha to set the actor to on explosion.
+   For actors with the `DEHEXPLOSION` flag, the alpha to set the actor to on
+   explosion.
 
 - `ExplosionStyle`
 
-   For actors with the `DEHEXPLOSION` flag, the render style to be applied on explosion.
+   For actors with the `DEHEXPLOSION` flag, the render style to be applied on
+   explosion.
 
 - `MaxSoulsphere`
 
@@ -36,6 +39,7 @@ struct DEHInfo
 
 - `NoAutofreeze`
 
-   Overrides generic freezing deaths if not zero, making all actors act as if they had the `NOICEDEATH` flag.
+   Overrides generic freezing deaths if not zero, making all actors act as if
+   they had the `NOICEDEATH` flag.
 
 <!-- EOF -->

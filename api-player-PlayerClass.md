@@ -17,7 +17,8 @@ struct PlayerClass
 
 - `Flags`
 
-   Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript, but its value is `1` if you need to check for that.
+   Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript,
+   but its value is `1` if you need to check for that.
 
 - `Skins`
 

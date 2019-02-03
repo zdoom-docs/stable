@@ -27,6 +27,9 @@ struct PatchInfo play
 
 - `Init`
 
-   Initializes the structure. If `gifont.Color` is `'Null'`, and `gifont.FontName` is a valid patch, `mPatch` will be set accordingly. Otherwise, if the font has a color or the patch is invalid, `gifont.FontName` is used to set `mFont` (or it is defaulted to `BigFont`.)
+   Initializes the structure. If `gifont.Color` is `'Null'`, and
+   `gifont.FontName` is a valid patch, `mPatch` will be set accordingly.
+   Otherwise, if the font has a color or the patch is invalid,
+   `gifont.FontName` is used to set `mFont` (or it is defaulted to `BigFont`.)
 
 <!-- EOF -->

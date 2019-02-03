@@ -1,6 +1,8 @@
 # TextureID
 
-Texture IDs can be explicitly converted to integers, but not the other way around. You can add and subtract integers with a `textureid`, however. (This only works with the integer on the right hand side.)
+Texture IDs can be explicitly converted to integers, but not the other way
+around. You can add and subtract integers with a `textureid`, however. (This
+only works with the integer on the right hand side.)
 
 ```
 struct TextureID

@@ -60,19 +60,25 @@ int LocalViewPitch;
 
 - `CleanXFac`
 
-   Integral scaling factor for horizontal positions to scale from 320x200 to the current virtual resolution. **Not deterministic.**
+   Integral scaling factor for horizontal positions to scale from 320x200 to
+   the current virtual resolution. **Not deterministic.**
 
 - `CleanXFac_1`
 
-   Integral scaling factor for horizontal positions to scale from 320x200 to the current virtual resolution, accounting for aspect ratio differences. **Not deterministic.**
+   Integral scaling factor for horizontal positions to scale from 320x200 to
+   the current virtual resolution, accounting for aspect ratio differences.
+   **Not deterministic.**
 
 - `CleanYFac`
 
-   Integral scaling factor for vertical positions to scale from 320x200 to the current virtual resolution. **Not deterministic.**
+   Integral scaling factor for vertical positions to scale from 320x200 to the
+   current virtual resolution. **Not deterministic.**
 
 - `CleanYFac_1`
 
-   Integral scaling factor for vertical positions to scale from 320x200 to the current virtual resolution, accounting for aspect ratio differences. **Not deterministic.**
+   Integral scaling factor for vertical positions to scale from 320x200 to the
+   current virtual resolution, accounting for aspect ratio differences. **Not
+   deterministic.**
 
 - `ConFont`
 

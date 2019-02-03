@@ -18,7 +18,8 @@ double VectorAngle(double x, double y);
 
 - `ATan2`
 
-   Computes the arctangent of `y / x` using the arguments' signs to determine the correct quadrant.
+   Computes the arctangent of `y / x` using the arguments' signs to determine
+   the correct quadrant.
 
 - `BAM`
 
@@ -26,7 +27,8 @@ double VectorAngle(double x, double y);
 
 - `Clamp`
 
-   Returns `n` if `n` is more than `minimum` and less than `maximum`, or either of those values if it is not.
+   Returns `n` if `n` is more than `minimum` and less than `maximum`, or either
+   of those values if it is not.
 
 - `Max`
 

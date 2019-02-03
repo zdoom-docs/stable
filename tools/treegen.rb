@@ -15,7 +15,8 @@ f = open "glossary-classes.md", "wb"
 f.puts <<_end_
 # Classes
 
-Here is a full tree of all classes in ZScript as of GZDoom #{VER}. There are #{si.classes.count + 1} classes total.
+Here is a full tree of all classes in ZScript as of GZDoom #{VER}. There are
+#{si.classes.count + 1} classes total.
 
 ```
 Object
@@ -33,7 +34,9 @@ f = open "glossary-structures.md", "wb"
 f.puts <<_end_
 # Structures
 
-Here is a full list of all structures in ZScript as of GZDoom #{VER}. There are #{si.structs.count} structures total. Note that some of these are merely implementation details and should not be used in code.
+Here is a full list of all structures in ZScript as of GZDoom #{VER}. There are
+#{si.structs.count} structures total. Note that some of these are merely
+implementation details and should not be used in code.
 
 ```
 Struct

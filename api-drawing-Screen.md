@@ -2,7 +2,8 @@
 
 Functions for drawing various things to the screen.
 
-Note: There are no longer any fully paletted renderers in GZDoom as of version 3.5. Alternate palette index parameters are generally ignored now.
+Note: There are no longer any fully paletted renderers in GZDoom as of version
+3.5. Alternate palette index parameters are generally ignored now.
 
 ```
 struct Screen
@@ -33,7 +34,9 @@ struct Screen
 
 - `DrawChar`
 
-   The same as `DrawTexture`, but draws the texture of character code `character` from `font`. The output color may be modified by the font color `cr`.
+   The same as `DrawTexture`, but draws the texture of character code
+   `character` from `font`. The output color may be modified by the font color
+   `cr`.
 
 - `DrawShape`
 
@@ -45,9 +48,14 @@ struct Screen
 
 - `DrawTexture`
 
-   Draws texture `tex`, possibly animated by the animation ticker if `animate` is `true`, at horizontal position `x` and vertical position `y`.
+   Draws texture `tex`, possibly animated by the animation ticker if `animate`
+   is `true`, at horizontal position `x` and vertical position `y`.
 
-   Various properties of this drawing process can be changed by passing extra arguments to this function. After all arguments are parsed, the "`CleanMode`" internal variable is used along with the specified virtual width/height to determine how to finally transform positions. `CleanMode` may be one of the following:
+   Various properties of this drawing process can be changed by passing extra
+   arguments to this function. After all arguments are parsed, the
+   "`CleanMode`" internal variable is used along with the specified virtual
+   width/height to determine how to finally transform positions. `CleanMode`
+   may be one of the following:
 
    | Name                | Description                                                                                          |
    | ----                | -----------                                                                                          |
@@ -97,23 +105,31 @@ struct Screen
 
 - `Clear`
 
-   Draws a rectangle from `top left` to `bottom right` in screen coordinates of `cr` color. Does not support translucent colors. `palcolor` is a palette index to use as a color in paletted renderers or `-1` for automatic conversion from the given RGB color.
+   Draws a rectangle from `top left` to `bottom right` in screen coordinates of
+   `cr` color. Does not support translucent colors. `palcolor` is a palette
+   index to use as a color in paletted renderers or `-1` for automatic
+   conversion from the given RGB color.
 
 - `Dim`
 
-   Draws a rectangle at `x y` of `w h` size in screen coordinates of `cr` color. Does not support translucent colors, but `amount` may be used to specify the translucency in a range of 0-1 inclusive.
+   Draws a rectangle at `x y` of `w h` size in screen coordinates of `cr`
+   color. Does not support translucent colors, but `amount` may be used to
+   specify the translucency in a range of 0-1 inclusive.
 
 - `DrawFrame`
 
-   Draws a frame around a rectangle at `x y` of `w h` size in screen coordinates, using the border graphics as defined in `MAPINFO`/GameInfo.
+   Draws a frame around a rectangle at `x y` of `w h` size in screen
+   coordinates, using the border graphics as defined in `MAPINFO`/GameInfo.
 
 - `DrawLine`
 
-   Draws a one pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr` with alpha `alpha` (range 0-255.)
+   Draws a one pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of
+   color `cr` with alpha `alpha` (range 0-255.)
 
 - `DrawThickLine`
 
-   Draws a `thickness` pixel wide line from `x0 y0` to `x1 y1` in screen coordinates of color `cr` with alpha `alpha` (range 0-255.)
+   Draws a `thickness` pixel wide line from `x0 y0` to `x1 y1` in screen
+   coordinates of color `cr` with alpha `alpha` (range 0-255.)
 
 - `GetAspectRatio`
 
@@ -133,7 +149,10 @@ struct Screen
 
 - `VirtualToRealCoords`
 
-   Converts virtual coordinates `pos` from virtual coordinate space `vsize` to screen coordinate space `size`, possibly accounting for aspect ratio differences if `handleaspect` is true. If the ratio is 5:4, `vbottom` will account for the higher-than-wide conversion by repositioning vertically.
+   Converts virtual coordinates `pos` from virtual coordinate space `vsize` to
+   screen coordinate space `size`, possibly accounting for aspect ratio
+   differences if `handleaspect` is true. If the ratio is 5:4, `vbottom` will
+   account for the higher-than-wide conversion by repositioning vertically.
 
 - `ClearClipRect`
 
@@ -145,10 +164,12 @@ struct Screen
 
 - `GetViewWindow`
 
-   Returns the 3D viewing window, which may be smaller than the screen size with any given `screenblocks` setting.
+   Returns the 3D viewing window, which may be smaller than the screen size
+   with any given `screenblocks` setting.
 
 - `SetClipRect`
 
-   Sets the clipping rectangle to restrict further drawing to the region starting at `x y` of size `w h` in screen coordinates.
+   Sets the clipping rectangle to restrict further drawing to the region
+   starting at `x y` of size `w h` in screen coordinates.
 
 <!-- EOF -->

@@ -14,7 +14,8 @@ struct FColorMap
 
 - `BlendFactor`
 
-   TODO: "This is for handling Legacy-style color maps which use a different formula to calculate how the color affects lighting."
+   TODO: "This is for handling Legacy-style color maps which use a different
+   formula to calculate how the color affects lighting."
 
 - `Desaturation`
 

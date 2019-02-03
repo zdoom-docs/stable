@@ -18,11 +18,15 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
 
 - `SetMusicVolume`
 
-   Sets the volume of the music relative to the user's volume. Range is 0-1, inclusive.
+   Sets the volume of the music relative to the user's volume. Range is 0-1,
+   inclusive.
 
 - `S_ChangeMusic`
 
-   Changes the music to `name`. If `name` is `"*"`, the music will be set to the default music for this level. Will loop if `looping` is `true`. `force` will force the music to play even if a playlist (from the `playlist` console command) is playing.
+   Changes the music to `name`. If `name` is `"*"`, the music will be set to
+   the default music for this level. Will loop if `looping` is `true`. `force`
+   will force the music to play even if a playlist (from the `playlist` console
+   command) is playing.
 
    `order` may mean something different based on the music format:
 
@@ -34,11 +38,13 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
 
 - `S_GetLength`
 
-   Returns the length of a sound in seconds. **Potentially non-deterministic if all users in a networked game are not using the same sounds.**
+   Returns the length of a sound in seconds. **Potentially non-deterministic if
+   all users in a networked game are not using the same sounds.**
 
 - `S_PauseSound`
 
-   Pauses music if `notmusic` is `false` and all game sounds if `notsfx` is `false`. Used for instance in the time stop power-up.
+   Pauses music if `notmusic` is `false` and all game sounds if `notsfx` is
+   `false`. Used for instance in the time stop power-up.
 
 - `S_ResumeSound`
 
@@ -46,7 +52,8 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
 
 - `S_Sound`
 
-   Plays a sound (as defined in `SNDINFO`) from the calling object if it has world presence (is an actor or sector etc.)
+   Plays a sound (as defined in `SNDINFO`) from the calling object if it has
+   world presence (is an actor or sector etc.)
 
    `channel` may be:
 
@@ -61,7 +68,8 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
    | `CHAN_6`      | Extra sound channel.                                               |
    | `CHAN_7`      | Extra sound channel.                                               |
 
-   `channel` may also have the following flags applied with the binary OR operator `|`:
+   `channel` may also have the following flags applied with the binary OR
+   operator `|`:
 
    | Name               | Description                                                                              |
    | ----               | -----------                                                                              |
@@ -74,7 +82,8 @@ void  S_Sound(sound id, int channel, float volume = 1, float attenuation = ATTN_
 
    Additionally, `CHAN_PICKUP` is equivalent to `CHAN_ITEM | CHAN_MAYBE_LOCAL`.
 
-   `attenuation` determines the drop-off distance of the sound. The higher the value, the quicker it fades. Constants include:
+   `attenuation` determines the drop-off distance of the sound. The higher the
+   value, the quicker it fades. Constants include:
 
    | Name          | Value   | Description                                                                         |
    | ----          | -----   | -----------                                                                         |

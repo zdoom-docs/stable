@@ -22,7 +22,8 @@ const SAWRANGE;
 
 - `DEFMELEERANGE`
 
-   The range where melee will be used for monsters, and the range for the player's melee attacks.
+   The range where melee will be used for monsters, and the range for the
+   player's melee attacks.
 
 - `MISSILERANGE`
 

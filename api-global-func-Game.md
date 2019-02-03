@@ -57,7 +57,8 @@ vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
 - `G_PickPlayerStart`
 
-   Returns the position and angle of a player start for player `pnum`. `flags` may be:
+   Returns the position and angle of a player start for player `pnum`. `flags`
+   may be:
 
    | Name                  | Description                                               |
    | ----                  | -----------                                               |
