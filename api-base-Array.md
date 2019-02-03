@@ -1,40 +1,66 @@
 # Array
 
 While ZScript does not have proper user-facing generics, `Array` is one such
-type that does have a type parameter. It mirrors the internal `TArray` type.
+type that does have a (hard-coded) type parameter. It mirrors the internal
+`TArray` type exactly. Note that all Object types monomorphize to the same
+implementation and structures cannot be stored in arrays due to no polymorphic
+variant of `TArray` existing in the engine.
 
 ```
 struct Array<Type>
 {
-   void Clear();
+   uint Max() const;
+   uint Size() const;
+
    void Copy(array<Type> other);
+   void Move(array<Type> other);
+
+   void Clear();
    void Delete(uint index, int deletecount = 1);
+   bool Pop();
+
    uint Find(Type item) const;
    void Grow(uint amount);
    void Insert(uint index, Type item);
-   uint Max() const;
-   void Move(array<Type> other);
-   bool Pop();
    uint Push(Type item);
    uint Reserve(uint amount);
    void Resize(uint amount);
    void ShrinkToFit();
-   uint Size() const;
 }
 ```
 
+- `Max`
+
+   Returns the amount of allocated objects in the array.
+
+- `Size`
+
+   Returns the amount of constructed objects in the array.
+
 - `Clear`
 
-   Clears out the entire array.
-
-- `Copy`
-
-   Copies another array's contents into this array.
+   Clears out the entire array, possibly destroying all objects in it.
 
 - `Delete`
 
-   Deletes `count` object(s) at `index`. Moves objects after them into their
-   place.
+   Removes `count` objects starting at `index`, possibly destroying them. Moves
+   objects after `index + count` to the left.
+
+- `Pop`
+
+   Removes the last item in the array, possibly destroying it. Returns `false`
+   if there are no items in the array to begin with.
+
+- `Copy`
+
+   Value-copies another array's contents into this array. The contents of
+   `other` are preserved. This operation can be extremely taxing in some cases.
+
+- `Move`
+
+   Moves another array's contents into this array. The contents of `other` are
+   left indeterminate and shall not be used. This operation is extremely fast
+   as it only copies pointers but must be used carefully to avoid error.
 
 - `Find`
 
@@ -42,24 +68,12 @@ struct Array<Type>
 
 - `Grow`
 
-   Ensures the array can hold at least `amount` new members.
+   Ensures the array can hold at least `amount` new members, growing the
+   allocated object amount if necessary.
 
 - `Insert`
 
    Inserts `item` at `index`. Moves objects after `index` to the right.
-
-- `Max`
-
-   Returns the allocated size of the array.
-
-- `Move`
-
-   Moves another array's contents into this array.
-
-- `Pop`
-
-   Deletes the last item in the array. Returns `false` if there are no items in
-   the array.
 
 - `Push`
 
@@ -67,20 +81,18 @@ struct Array<Type>
 
 - `Reserve`
 
-   Adds `amount` new entries at the end of the array, increasing `Size`. Calls
-   `Grow` if necessary.
+   Adds `amount` new empty-constructed objects at the end of the array,
+   increasing `Size` and calling `Grow` if necessary. Value types are
+   initialized to zero and reference types to `null`.
 
 - `Resize`
 
-   Changes the allocated array size to `amount`. Deletes members if `amount` is
-   smaller than `Size`.
+   Adds or removes objects based on `amount`. If it is less than `Size` then
+   objects are destroyed, if it is more then objects are empty-constructed. New
+   objects follow the same initialization rules as `Reserve`.
 
 - `ShrinkToFit`
 
-   Shrinks the allocated array size `Max` to `Size`.
-
-- `Size`
-
-   Returns the amount of objects in the array.
+   Shrinks `Max` to `Size`. Does not mutate any objects in the array.
 
 <!-- EOF -->
