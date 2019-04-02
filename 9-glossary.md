@@ -1,4 +1,5 @@
-# Glossary
+Glossary
+========
 
 <!-- toc glossary -->
 

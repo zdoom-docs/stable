@@ -1,9 +1,8 @@
-Table of Contents
-=================
+Entry Points
+============
 
 <!-- vim-markdown-toc GFM -->
 
-* [Entry Points](#entry-points)
 * [ACS](#acs)
 * [Actors](#actors)
 * [CVARINFO](#cvarinfo)
@@ -17,9 +16,6 @@ Table of Contents
 * [TERRAIN](#terrain)
 
 <!-- vim-markdown-toc -->
-
-Entry Points
-============
 
 For backwards compatibility reasons and so as to not bloat the ZScript language
 itself, many interactions with the engine are not defined in ZScript. This

@@ -149,17 +149,6 @@ TODO
 
 # Global Objects
 
-<!-- toc global -->
-
-* [DEHInfo](api-global-DEHInfo.md)
-* [FOptionMenuSettings](api-global-FOptionMenuSettings.md)
-* [GameInfoStruct](api-global-GameInfoStruct.md)
-* [LevelLocals](api-global-LevelLocals.md)
-
-<!-- toc end -->
-
-These types are used by global variables.
-
 <!-- toc global-data -->
 
 * [Client](api-global-data-Client.md)
@@ -171,7 +160,7 @@ These types are used by global variables.
 <!-- toc end -->
 
 These variables are accessible in any context and are not bound by any specific
-object.
+object. Generally these mirror global information within the engine itself.
 
 <!-- toc global-func -->
 
@@ -185,6 +174,17 @@ object.
 <!-- toc end -->
 
 These functions are accessible in any context and are not bound by any specific
-object.
+object. Generally these are utility functions.
+
+<!-- toc global -->
+
+* [DEHInfo](api-global-DEHInfo.md)
+* [FOptionMenuSettings](api-global-FOptionMenuSettings.md)
+* [GameInfoStruct](api-global-GameInfoStruct.md)
+* [LevelLocals](api-global-LevelLocals.md)
+
+<!-- toc end -->
+
+These are the types used by global variables.
 
 <!-- EOF -->
