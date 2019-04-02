@@ -59,6 +59,7 @@ struct Screen
 
    | Name                | Description                                                                                          |
    | ----                | -----------                                                                                          |
+   | `DTA_Base`          | No position scaling is performed.                                                                    |
    | `DTA_Clean`         | Scales all positions by `Clean*Fac`. See the documentation for those variables for more information. |
    | `DTA_CleanNoMove`   | Scales the destination width and height by `Clean*Fac`.                                              |
    | `DTA_CleanNoMove_1` | Scales the destination width and height by `Clean*Fac_1`.                                            |
