@@ -13,7 +13,7 @@ Status screens have four stages:
 These are provided as constants in `StatusScreen`. The starting stage is `StatCount`.
 
 ```
-class StatusScreen abstract play
+class StatusScreen : Object abstract play
 {
    const NG_STATSY;
    const SHOWNEXTLOCDELAY;

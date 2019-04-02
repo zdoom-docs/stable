@@ -4,7 +4,7 @@ A container representing an array of lines of text that have been broken up to
 fit the screen and clipping region.
 
 ```
-class BrokenLines
+class BrokenLines : Object
 {
    int    Count();
    string StringAt(int line);

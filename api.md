@@ -77,7 +77,11 @@ TODO
 
 <!-- inter-toc events -->
 
-
+* [ConsoleEvent](api-events-ConsoleEvent.md)
+* [EventHandler](api-events-EventHandler.md)
+* [RenderEvent](api-events-RenderEvent.md)
+* [ReplaceEvent](api-events-ReplaceEvent.md)
+* [StaticEventHandler](api-events-StaticEventHandler.md)
 
 <!-- end -->
 

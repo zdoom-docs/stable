@@ -48,7 +48,7 @@ Thinkers which do think and are mandatory to many checks:
 | `Thinker.STAT_BOT`           | All bot logic. This is not bound to their actor.         |
 
 ```
-class Thinker play
+class Thinker : Object play
 {
    const TICRATE;
 

@@ -3,7 +3,7 @@
 A sound sequence (`SNDSEQ`) node.
 
 ```
-class SeqNode
+class SeqNode : Object
 {
    static name GetSequenceSlot(int sequence, int type);
    static void MarkPrecacheSounds(int sequence, int type);

@@ -17,7 +17,7 @@ The predefined layers are:
 | `PSprite.Weapon`       | `1`           | The default layer for all weapons.                                                 |
 
 ```
-class PSprite play
+class PSprite : Object play
 {
    readonly State      CurState;
    readonly int        ID;

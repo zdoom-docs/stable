@@ -73,9 +73,9 @@ class MyOtherActor : Actor replaces OtherActor {} // OtherActor will now be repl
 # Console Commands
 
 While ZScript cannot be directly called by console commands, one can use the
-`event` and `netevent` console commands. `event` will call the `ConsoleProcess`
-event handler, or `NetworkProcess` if it was not called by a player. `netevent`
-acts the same as `EventHandler::SendNetworkEvent`.
+`event` and `netevent` console commands. `event` will dispatch a non-player
+network event, and `netevent` will dispatch a network event for the player that
+ran it.
 
 # CVARINFO
 

@@ -3,7 +3,7 @@
 Iterates over line indices with a specified tag.
 
 ```
-class LineIdIterator
+class LineIdIterator : Object
 {
    static LineIdIterator Create(int tag);
 

@@ -3,7 +3,7 @@
 A class containing an animated intermission background.
 
 ```
-class InterBackground play
+class InterBackground : Object play
 {
    static InterBackground Create(WBStartStruct wbs);
 
