@@ -7,7 +7,7 @@ struct Console
 {
    static void HideConsole();
    static void MidPrint(Font font, string text, bool bold = false);
-   static vararg void Printf(string fmt, ...);
+   static vararg void PrintF(string fmt, ...);
 }
 ```
 
@@ -25,7 +25,7 @@ struct Console
    This is the function used internally by ACS' `Print` and `PrintBold`
    functions.
 
-- `Printf`
+- `PrintF`
 
    Prints a formatted string to the console.
 

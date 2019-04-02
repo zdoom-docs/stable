@@ -1,11 +1,17 @@
 ZScriptDoc
 ==========
 
-This is documentation for the ZScript language. CC0 public domain. See [LICENSE](LICENSE.txt) for more information.
+This is documentation for the ZScript language. CC0 public domain. See
+[LICENSE](LICENSE.txt) for more information.
 
-* [Language](1-language.md) - for information on the language itself.
-* [API](2-api.md) - for information on the interfaces provided by GZDoom. This is itself a map of all of the API files.
-* [Entry Points](3-entry.md) - for information on the ways you can tell the engine to add new things.
-* [Glossary](9-glossary.md) - for miscallaneous information and concepts you should learn. This is itself a map of all of the glossary files.
+* [API](api.md) - for information on the interfaces provided by GZDoom. This is itself a map of all of the API files.
+* [Entry Points](entry.md) - for information on the ways you can tell the engine to add new things.
+* [Glossary](glossary.md) - for miscallaneous information and concepts you should learn. This is itself a map of all of the glossary files.
+* [Language](lang.md) - for information on the language itself.
+
+If you're wondering where to start, try starting with the language
+documentation and working your way from there. Also recommended is looking at
+existing mods using ZScript and modifying them. Try experimenting with
+features if you don't know what they do.
 
 <!-- EOF -->
