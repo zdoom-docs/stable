@@ -1,6 +1,6 @@
 # Classes
 
-Here is a full tree of all classes in ZScript as of GZDoom 3.7.1. There are
+Here is a full tree of all classes in ZScript as of GZDoom 3.7.2. There are
 1456 classes total.
 
 ```

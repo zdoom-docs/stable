@@ -1,6 +1,6 @@
 # Structures
 
-Here is a full list of all structures in ZScript as of GZDoom 3.7.1. There are
+Here is a full list of all structures in ZScript as of GZDoom 3.7.2. There are
 74 structures total. Note that some of these are merely
 implementation details and should not be used in code.
 
