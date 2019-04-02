@@ -5,6 +5,7 @@ Entry Points
 
 * [ACS](#acs)
 * [Actors](#actors)
+* [Console Commands](#console-commands)
 * [CVARINFO](#cvarinfo)
 * [DECALDEF](#decaldef)
 * [DECORATE](#decorate)
@@ -71,6 +72,14 @@ For example:
 class MyActor : Actor replaces OtherActor {} // OtherActor will be dynamically replaced with MyActor
 class MyOtherActor : Actor replaces OtherActor {} // OtherActor will now be replaced with MyOtherActor instead of MyActor
 ```
+
+Console Commands
+================
+
+While ZScript cannot be directly called by console commands, one can use the
+`event` and `netevent` console commands. `event` will call the `ConsoleProcess`
+event handler, or `NetworkProcess` if it was not called by a player. `netevent`
+acts the same as `EventHandler::SendNetworkEvent`.
 
 CVARINFO
 ========

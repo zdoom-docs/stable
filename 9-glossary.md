@@ -5,7 +5,6 @@ Glossary
 
 * [Classes](glossary-Classes.md)
 * [Concepts](glossary-Concepts.md)
-* [Examples](glossary-Examples.md)
 * [Structures](glossary-Structures.md)
 * [Versions](glossary-Versions.md)
 

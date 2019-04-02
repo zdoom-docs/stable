@@ -8,21 +8,29 @@ Language
 * [Versions](#versions)
 * [Top-level](#top-level)
 * [Class definitions](#class-definitions)
+      * [Example: Class headers](#example-class-headers)
+      * [Example: Class definitions](#example-class-definitions)
    * [Class flags](#class-flags)
    * [Class content](#class-content)
    * [Property definitions](#property-definitions)
+      * [Example: Property definitions](#example-property-definitions)
    * [Flag definitions](#flag-definitions)
+      * [Example: Flag definitions](#example-flag-definitions)
    * [Default blocks](#default-blocks)
       * [Default flag](#default-flag)
       * [Default property](#default-property)
    * [State definitions](#state-definitions)
 * [Structure definitions](#structure-definitions)
+      * [Example: Structure definitions](#example-structure-definitions)
    * [Structure flags](#structure-flags)
    * [Structure content](#structure-content)
 * [Enumeration definitions](#enumeration-definitions)
+      * [Example: Enumeration definitions](#example-enumeration-definitions)
 * [Constant definitions](#constant-definitions)
+      * [Example: Constant definitions](#example-constant-definitions)
 * [Static array definitions](#static-array-definitions)
 * [Include directives](#include-directives)
+      * [Example: Include directives](#example-include-directives)
 * [Types](#types)
    * [Integers](#integers)
       * [Symbols](#symbols)
@@ -62,18 +70,25 @@ Language
 * [Statements](#statements)
    * [Compound statements](#compound-statements)
    * [Expression statements](#expression-statements)
+      * [Example: Expression statements](#example-expression-statements)
    * [Conditional statements](#conditional-statements)
+      * [Example: Conditional statements](#example-conditional-statements)
    * [Switch statements](#switch-statements)
+      * [Example: Switch statements](#example-switch-statements)
    * [Loop statements](#loop-statements)
    * [Control flow statements](#control-flow-statements)
+      * [Example: Control flow statements](#example-control-flow-statements)
    * [Local variable statements](#local-variable-statements)
    * [Multi-assignment statements](#multi-assignment-statements)
+      * [Example: Multi-assignment statements](#example-multi-assignment-statements)
    * [Static array statements](#static-array-statements)
    * [Null statements](#null-statements)
 * [Member declarations](#member-declarations)
+      * [Example: Member declarations](#example-member-declarations)
    * [Member declaration flags](#member-declaration-flags)
 * [Method definitions](#method-definitions)
    * [Method argument list](#method-argument-list)
+      * [Example: Method argument lists](#example-method-argument-lists)
    * [Method definition flags](#method-definition-flags)
       * [Action functions](#action-functions)
 
@@ -213,6 +228,56 @@ extend class Identifier
 
 In place of the class header.
 
+### Example: Class headers
+
+```
+class MyCoolObject // automatically inherits Object
+{
+}
+
+class MyCoolScopedObject play // has Play scope
+{
+}
+
+class MyCoolThinker : Thinker // inherits Thinker
+{
+}
+
+class MyCoolActor : Actor replaces OtherActor
+{
+}
+
+class MyCoolInterface abstract // can only be inherited
+{
+}
+```
+
+### Example: Class definitions
+
+Basic class definition with a member variable and member function.
+
+```
+class BasicClass
+{
+   int m_Thing;
+
+   void ChangeThing()
+   {
+      m_Thing = 500;
+   }
+}
+```
+
+Alternate syntax usage.
+
+```
+class TheWholeFileIsAClassOhNo;
+
+int m_MyMember;
+
+// end of file
+```
+
 ## Class flags
 
 | Flag                     | Description                                                                       |
@@ -262,6 +327,27 @@ Where `Member` is an identifier naming any member in the current class.
 
 Properties defined in ZScript are usable from `DECORATE`.
 
+### Example: Property definitions
+
+A class with some properties.
+
+```
+class MyCoolActor : Actor
+{
+   default
+   {
+      MyCoolActor.MyCoolMember 5000;
+      MyCoolActor.MyCoolMemberList 501, 502;
+   }
+
+   int m_MyCoolMember;
+   int m_CoolMember1, m_CoolMember2;
+
+   property MyCoolMember: m_MyCoolMember;
+   property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
+}
+```
+
 ## Flag definitions
 
 *Version 3.7.0 and newer.*
@@ -292,6 +378,32 @@ Where `Number` is the bit in `Member` to use, starting from `0` and ending at
 `31`.
 
 Flags defined in ZScript are usable from `DECORATE`.
+
+### Example: Flag definitions
+
+A class with some flags.
+
+```
+class MyCoolActorWithFlags : Actor
+{
+   default
+   {
+      +MYCOOLACTORWITHFLAGS.THIS_ONE_IS_ON
+      -MYCOOLACTORWITHFLAGS.THIS_ONE_IS_OFF
+   }
+
+   int m_Flags;
+
+   flagdef This_One_Is_On: m_Flags, 0;
+   flagdef This_One_Is_Off: m_Flags, 1;
+   flagdef This_One_Aliases_On: m_Flags, 0;
+
+   bool CheckIfOnIsOn()
+   {
+      return bTHIS_ONE_IS_ON;
+   }
+}
+```
 
 ## Default blocks
 
@@ -415,6 +527,19 @@ struct Identifier $[Structure-flags...]$
 
 Optionally followed by a semicolon.
 
+### Example: Structure definitions
+
+Simple structure.
+
+```
+struct MyCoolStructure
+{
+   int X;
+   int Y;
+   int Z;
+}
+```
+
 ## Structure flags
 
 | Flag                | Description                                           |
@@ -464,6 +589,33 @@ Enumerator syntax is:
 Identifier $[ = Expression]$
 ```
 
+### Example: Enumeration definitions
+
+Basic enumeration.
+
+```
+enum MyCoolEnum
+{
+   A, // has value int(0)
+   B, // 1 ...
+   C, // 2 ...
+   D  // and 3
+}
+```
+
+Less trivial example.
+
+```
+enum MyCoolerEnum : int16
+{
+   A = 500, // has value int16(500)
+   B, // 501
+   C = 200,
+   D, // 201
+   E, // 202
+};
+```
+
 Constant definitions
 ====================
 
@@ -476,6 +628,14 @@ const Identifier = Expression ;
 Constants are not assignable. Their type is inferred from their value, so if
 you wish for them to have a specific type, you must cast the value to that
 type.
+
+### Example: Constant definitions
+
+Making an integer constant from a double.
+
+```
+const MY_COOL_INT = int(777.7777);
+```
 
 Static array definitions
 =========================
@@ -506,6 +666,14 @@ different files, the engine will fail to load with a script error.
 
 To avoid this, it is suggested to place your ZScript code under a uniquely
 named sub-folder.
+
+### Example: Include directives
+
+Basic includes.
+
+```
+#include "zscript/MyCoolMod/MyCoolClasses.zsc"
+```
 
 Types
 =====
@@ -1114,6 +1282,16 @@ Their syntax is:
 Expression ;
 ```
 
+### Example: Expression statements
+
+Some basic expressions.
+
+```
+MyCoolFunction(5, 4);
+m_MyCoolMember = 500;
+5 * 5; // does nothing of course, but valid
+```
+
 ## Conditional statements
 
 A conditional statement will, conditionally, choose a statement (or none) to
@@ -1123,6 +1301,27 @@ execute. They work the same as in C and ACS:
 if ( Expression ) Statement $[ else Statement]$
 ```
 
+### Example: Conditional statements
+
+Simple conditional.
+
+```
+if(a)
+   B();
+```
+
+Simple conditional, with else statement and a block.
+
+```
+if(a)
+{
+   B();
+   c = d;
+}
+else
+   e = f;
+```
+
 ## Switch statements
 
 A switch statement takes an expression of integer or name type and selects a
@@ -1130,6 +1329,22 @@ labeled statement to run. They work the same as in C and ACS:
 
 ```
 switch ( Expression ) Statement
+```
+
+### Example: Switch statements
+
+A switch demonstrating fall-through and default cases.
+
+```
+switch(a)
+{
+case 500: Console.Printf("a is 500"); break;
+case 501: Console.Printf("a is 501"); // falls through to next case
+case 502: Console.Printf("a is 501 or 502"); break;
+default:
+   Console.Printf("not sure what a is!");
+   // break is implied here
+}
 ```
 
 ## Loop statements
@@ -1199,6 +1414,54 @@ returned:
 return $[Expression $[ , Expression]$...]$ ;
 ```
 
+### Example: Control flow statements
+
+Use of `continue`.
+
+```
+for(int i = 0; i < 50; i++)
+{
+   if(i == 25) continue; // don't do anything on 25!
+
+   DoThing(i);
+}
+```
+
+Use of `break`.
+
+```
+for(int i = 0; i < 50; i++)
+{
+   if(i == 25) break; // exit the loop at 25!
+
+   DoThing(i);
+}
+```
+
+Use of `return` in various contexts.
+
+```
+void ReturnsNothing()
+{
+   if(m_Thing != 50) return; // exit early if m_Thing isn't 50.
+
+   DoThing(m_Thing);
+}
+
+int ReturnsInt()
+{
+   if(m_Thing == 50)
+      return 50; // m_thing is 50, so return 50.
+
+   return 0; // must have a return eventually
+}
+
+int, int ReturnsTwoInts()
+{
+   return 1, 2; // returns 1 and 2.
+}
+```
+
 ## Local variable statements
 
 Local variable statements are formed in one of 2 ways. The `let` keyword can be
@@ -1230,6 +1493,16 @@ multiple variables with the syntax:
 
 Note that the surrounding brackets are literal and not an optional element.
 
+### Example: Multi-assignment statements
+
+Getting the actor out of `A_SpawnItemEx`.
+
+```
+Actor mo;
+bool spawned;
+[spawned, mo] = A_SpawnItemEx("MyCoolActor");
+```
+
 ## Static array statements
 
 Static arrays can be defined normally as a statement.
@@ -1250,6 +1523,18 @@ A member declaration is formed as so:
 
 ```
 $[Member-declaration-flags...]$ Type Variable-name $[ , Variable-name]$... ;
+```
+
+### Example: Member declarations
+
+Some basic member variables.
+
+```
+int m_MyCoolInt;
+int m_CoolInt1, m_CoolInt2, m_CoolInt3;
+int[10] m_CoolIntArray;
+private int m_CoolPrivateInt;
+protected meta int m_CoolMetaInt;
 ```
 
 ## Member declaration flags
@@ -1317,6 +1602,35 @@ Type Variable-name = Expression $[ , Method-argument-list]$
 ```
 
 Or, the entire list may simply be `void` or empty.
+
+### Example: Method argument lists
+
+With the function:
+
+```
+void Fn(int one, int two, int a = 0, int b = 0);
+```
+
+One could do the following:
+
+```
+Fn(4, 5);
+Fn(5, 6, 7);
+Fn(6, 7, 8, 9);
+```
+
+Or using named default arguments,
+
+```
+Fn(5, 6, a: 7);
+Fn(6, 7, b: 8);
+Fn(7, 8, a: 9, b: 10);
+
+// equivalent to:
+Fn(5, 6, 7);
+// (no equivalent, must use above)
+Fn(7, 8, 9, 10);
+```
 
 ## Method definition flags
 
