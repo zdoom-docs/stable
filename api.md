@@ -127,6 +127,7 @@ for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
 * [SecSpecial](api-level-SecSpecial.md)
 * [Sector](api-level-Sector.md)
 * [SectorEffect](api-level-SectorEffect.md)
+* [SectorTagIterator](api-level-SectorTagIterator.md)
 * [Side](api-level-Side.md)
 * [Vertex](api-level-Vertex.md)
 
