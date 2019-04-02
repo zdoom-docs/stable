@@ -1,6 +1,6 @@
 # SectorTagIterator
 
-Iterates over line indices with a specified tag.
+Iterates over sector indices with a specified tag.
 
 ```
 class SectorTagIterator : Object
