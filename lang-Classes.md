@@ -11,9 +11,9 @@ Class Definitions
    * [Example: Property definitions](#example-property-definitions)
 * [Flag Definitions](#flag-definitions)
    * [Example: Flag definitions](#example-flag-definitions)
-* [Default Dlocks](#default-dlocks)
-   * [Default flag](#default-flag)
-   * [Default property](#default-property)
+* [Default Blocks](#default-blocks)
+   * [Default Flag](#default-flag)
+   * [Default Property](#default-property)
 * [State Definitions](#state-definitions)
 
 <!-- vim-markdown-toc -->
@@ -243,7 +243,7 @@ class MyCoolActorWithFlags : Actor
 }
 ```
 
-Default Dlocks
+Default Blocks
 ==============
 
 Default blocks are used on classes derived from Actor to create an overridable
@@ -263,7 +263,7 @@ default
 
 Default statements include either flags or properties:
 
-## Default flag
+## Default Flag
 
 Default flags are formed either:
 
@@ -274,16 +274,28 @@ Default flags are formed either:
 
 The former will enable the flag on this actor, the latter will disable it.
 
-## Default property
+## Default Property
 
 Default properties are formed as:
 
 ```
-Identifier $[ . Identifier]$... Expression ;
+Identifier $[ . Identifier]$ $[Expression]$ ;
 ```
 
 Note that all properties *except for* `DamageFunction` require `Expression` to
 be a constant expression.
+
+There are several special properties which add pre-defined flag sets onto the
+actor. Here is a list of them:
+
+| Name         | Description |
+| ----         | ----------- |
+| `ClearFlags` | Clears all flags except `ARGSDEFINED`. |
+| `Monster`    | Adds the flags `SHOOTABLE COUNTKILL SOLID PUSHWALL MCROSS PASSMOBJ ISMONSTER CANUSEWALLS`. |
+| `Projectile` | Adds the flags `NOBLOCKMAP NOGRAVITY DROPOFF MISSILE IMPACT PCROSS NOTELEPORT`, and if the game is Heretic or Hexen, `BLOODSPLATTER`. |
+
+Note that like any other property, they require a semicolon after them,
+although they do not use an expression.
 
 State Definitions
 =================

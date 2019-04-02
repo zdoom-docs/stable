@@ -112,11 +112,11 @@ A switch demonstrating fall-through and default cases.
 ```
 switch(a)
 {
-case 500: Console.Printf("a is 500"); break;
-case 501: Console.Printf("a is 501"); // falls through to next case
-case 502: Console.Printf("a is 501 or 502"); break;
+case 500: Console.PrintF("a is 500"); break;
+case 501: Console.PrintF("a is 501"); // falls through to next case
+case 502: Console.PrintF("a is 501 or 502"); break;
 default:
-   Console.Printf("not sure what a is!");
+   Console.PrintF("not sure what a is!");
    // break is implied here
 }
 ```
