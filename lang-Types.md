@@ -1,5 +1,4 @@
-Types
-=====
+# Types
 
 <!-- vim-markdown-toc GFM -->
 
@@ -36,8 +35,7 @@ Most basic types have methods attached to them, and both integer and
 floating-point type names have symbols accessible from them. See the API
 section for more information.
 
-Integer Types
-=============
+# Integer Types
 
 Integer types are basic integral numbers. They include:
 
@@ -72,8 +70,7 @@ for instance `int.Max`.
 
    Minimum value of type.
 
-Floating-point Types
-====================
+# Floating-point Types
 
 Floating-point types hold exponents, generally represented as regular decimal
 numbers. There are two such types available to ZScript:
@@ -138,8 +135,7 @@ Floating-point types have symbols attached which can be accessed by
 
    Not-a-Number value of type.
 
-Strings
-=======
+# Strings
 
 | Name     | Usable as argument |
 | ----     | :----------------: |
@@ -149,8 +145,7 @@ The `string` type is a mutable, garbage-collected string reference type.
 Strings are not structures or classes, however there are methods attached to
 the type, detailed in the API section.
 
-Names
-=====
+# Names
 
 | Name   | Usable as argument |
 | ----   | :----------------: |
@@ -165,8 +160,7 @@ Names can be converted to `int` with an explicit cast, and the negative of
 `int(name())` may be used to create an integer representation of a string
 usable by action specials, most prominently `ACS_NamedExecute`.
 
-Colors
-======
+# Colors
 
 | Name    | Usable as argument |
 | ----    | :----------------: |
@@ -180,8 +174,7 @@ color(R, G, B)
 color(A, R, G, B)
 ```
 
-Vectors
-=======
+# Vectors
 
 | Name      | Usable as argument |
 | ----      | :----------------: |
@@ -196,8 +189,7 @@ as a `vector2` with `xy`.
 Vectors can use many operators and even have special ones to themselves. See
 the Expressions and Operators section for more information.
 
-Fixed-size Arrays
-=================
+# Fixed-size Arrays
 
 | Name              | Usable as argument |
 | ----              | :----------------: |
@@ -212,8 +204,7 @@ or greater.
 
 Note that this kind of type can also be declared in variable names themselves.
 
-Dynamic-size Arrays
-===================
+# Dynamic-size Arrays
 
 | Name             | Usable as argument |
 | ----             | :----------------: |
@@ -239,8 +230,7 @@ Will result in an array with 5 elements.
 Dynamically sized arrays also cannot store other dynamically sized arrays, or
 user-defined `struct` objects.
 
-Maps
-====
+# Maps
 
 | Name                  | Usable as argument |
 | ----                  | :----------------: |
@@ -248,8 +238,7 @@ Maps
 
 Map types take the form `map<Type, Type>`. They are not yet implemented.
 
-Class Types
-===========
+# Class Types
 
 | Name             | Usable as argument |
 | ----             | :----------------: |
@@ -261,8 +250,7 @@ object. They simply take the form `class`, and can be restrained to descendants
 of a type with the syntax `class<Type>`. Strings are implicitly cast to class
 type references.
 
-User Types
-==========
+# User Types
 
 | Name                         | Usable as argument |
 | ----                         | :----------------: |
@@ -281,8 +269,7 @@ A type name that is within a specific scope can be accessed by prefixing it
 with a `.`. The type `.MyClass.MySubStructure` will resolve to the type
 `MySubStructure` contained within `MyClass`.
 
-Read-only Types
-===============
+# Read-only Types
 
 | Name                | Usable as argument |
 | ----                | :----------------: |
@@ -292,8 +279,7 @@ A read-only type, as its name implies, may only be read from, and is
 effectively immutable. They take the form `readonly<Type>`. Do note that this
 is separate from the member declaration flag.
 
-Other Types
-===========
+# Other Types
 
 | Name         | Usable as argument | Description                                                     |
 | ----         | :----------------: | -----------                                                     |
@@ -308,8 +294,7 @@ Other Types
 
 Strings will implicitly convert to `sound` and `statelabel`.
 
-Variable Name
-=============
+# Variable Name
 
 Variable names can have an array's size on them, instead of on the type, or
 none. Variable names are formed as either:
@@ -319,8 +304,7 @@ Identifier
 Identifier Array-size
 ```
 
-Array Size
-==========
+# Array Size
 
 Array sizes can be multi-dimensional or automatically sized, so all of the
 following syntaxes are available:

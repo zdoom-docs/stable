@@ -1,5 +1,4 @@
-Constant Definitions
-====================
+# Constant Definitions
 
 <!-- vim-markdown-toc GFM -->
 
@@ -26,8 +25,7 @@ Making an integer constant from a double.
 const MY_COOL_INT = int(777.7777);
 ```
 
-Static array definitions
-=========================
+# Static array definitions
 
 Similar to constants, static arrays are named values, but for an array. They
 are created with the syntax:

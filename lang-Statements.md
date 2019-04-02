@@ -1,5 +1,4 @@
-Statements
-==========
+# Statements
 
 <!-- vim-markdown-toc GFM -->
 
@@ -25,8 +24,7 @@ All functions are made up of a list of *statements* enclosed with left and
 right braces, which in and of itself is a statement called a *compound
 statement*, or *block*.
 
-Compound Statements
-===================
+# Compound Statements
 
 A compound statement is formed as:
 
@@ -39,8 +37,7 @@ A compound statement is formed as:
 Note that the statement list is optional, so an empty compound statement `{}`
 is entirely valid.
 
-Expression Statements
-=====================
+# Expression Statements
 
 An expression statement is the single most common type of statement in just
 about any programming language. In ZScript, exactly like C and C++, an
@@ -64,8 +61,7 @@ m_MyCoolMember = 500;
 5 * 5; // does nothing of course, but valid
 ```
 
-Conditional Statements
-======================
+# Conditional Statements
 
 A conditional statement will, conditionally, choose a statement (or none) to
 execute. They work the same as in C and ACS:
@@ -95,8 +91,7 @@ else
    e = f;
 ```
 
-Switch Statements
-=================
+# Switch Statements
 
 A switch statement takes an expression of integer or name type and selects a
 labeled statement to run. They work the same as in C and ACS:
@@ -121,8 +116,7 @@ default:
 }
 ```
 
-Loop Statements
-===============
+# Loop Statements
 
 ZScript has five loop statements, `for`, `while`, `until`, `do while` and `do
 until`. `for`, `while` and `do while` work the same as in C, C++ and ACS, while
@@ -160,8 +154,7 @@ do
 until ( Expression )
 ```
 
-Control Flow Statements
-=======================
+# Control Flow Statements
 
 As in C, there are three control flow statements that manipulate where the
 program will execute statements next, which are available contextually. They
@@ -238,8 +231,7 @@ int, int ReturnsTwoInts()
 }
 ```
 
-Local Variable Statements
-=========================
+# Local Variable Statements
 
 Local variable statements are formed in one of 2 ways. The `let` keyword can be
 used to automatically determine the type of the variable from the initializer,
@@ -259,8 +251,7 @@ let Identifier = Expression ;
 Type Variable $[ , Variable]$... ;
 ```
 
-Multi-assignment Statements
-===========================
+# Multi-assignment Statements
 
 Expressions or functions that return multiple values can be assigned into
 multiple variables with the syntax:
@@ -281,13 +272,11 @@ bool spawned;
 [spawned, mo] = A_SpawnItemEx("MyCoolActor");
 ```
 
-Static Array Statements
-=======================
+# Static Array Statements
 
 Static arrays can be defined normally as a statement.
 
-Null Statements
-===============
+# Null Statements
 
 A null statement does nothing, and is formed `;`. It is similar to an empty
 compound statement.

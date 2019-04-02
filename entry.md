@@ -1,5 +1,4 @@
-Entry Points
-============
+# Entry Points
 
 <!-- vim-markdown-toc GFM -->
 
@@ -23,8 +22,7 @@ itself, many interactions with the engine are not defined in ZScript. This
 section describes all ZScript interactions with the engine, both inside and
 outside of ZScript itself.
 
-ACS
-===
+# ACS
 
 ACS has several functions for interfacing with ZScript: `SetUserVariable`
 (callfunc `24`,) `GetUserVariable` (callfunc `25`,) `SetUserArray` (callfunc
@@ -57,8 +55,7 @@ values, although more than one value will be ignored. The returned value may be
 `double` (converted to fixed-point,) `name`, `sound` or `string` (converted to
 ACS string.) If it is not one of these types, it will be ignored.
 
-Actors
-======
+# Actors
 
 Actor classes can be replaced by the `replaces` class flag, which during
 dynamic actor replacement will choose to spawn this class over its replaced
@@ -73,52 +70,44 @@ class MyActor : Actor replaces OtherActor {} // OtherActor will be dynamically r
 class MyOtherActor : Actor replaces OtherActor {} // OtherActor will now be replaced with MyOtherActor instead of MyActor
 ```
 
-Console Commands
-================
+# Console Commands
 
 While ZScript cannot be directly called by console commands, one can use the
 `event` and `netevent` console commands. `event` will call the `ConsoleProcess`
 event handler, or `NetworkProcess` if it was not called by a player. `netevent`
 acts the same as `EventHandler::SendNetworkEvent`.
 
-CVARINFO
-========
+# CVARINFO
 
 Any CVars declared as a server CVar in `CVARINFO` or by the engine will be
 accessible as a global variable in ZScript, which has a special type that can
 be implicitly cast to the type of the CVar. They cannot be set this way, only
 accessed.
 
-DECALDEF
-========
+# DECALDEF
 
 `DECALDEF` can set the decal generator for a specific `Actor` class with the
 `generator` keyword. An actor can also define its generator and inherited
 classes' generators with the `Decal` property.
 
-DECORATE
-========
+# DECORATE
 
 TODO: lots of things to note here
 
-LOCKDEFS
-========
+# LOCKDEFS
 
 Key and lock groups in `LOCKDEFS` are defined as groups of `Inventory` or `Key`
 descendants.
 
-GLDEFS
-======
+# GLDEFS
 
 Lights can be associated with `Actor` classes and frames in `GLDEFS`.
 
-KEYCONF
-=======
+# KEYCONF
 
 TODO: this can be used for custom buttons
 
-MAPINFO
-=======
+# MAPINFO
 
 In `MAPINFO`, the `GameInfo` block (referred to as `MAPINFO`/GameInfo in this
 document) the following properties interact directly with ZScript:
@@ -135,13 +124,11 @@ document) the following properties interact directly with ZScript:
 
 TODO: there are other things here as well, like map event handlers
 
-MENUDEF
-=======
+# MENUDEF
 
 TODO: this directly uses ZScript classes
 
-TERRAIN
-=======
+# TERRAIN
 
 The `SmallSplash`, `SplashBase` and `SplashChunk` properties of `Splash` blocks
 use `Actor`s.

@@ -1,5 +1,4 @@
-Structure Definitions
-=====================
+# Structure Definitions
 
 <!-- vim-markdown-toc GFM -->
 
@@ -46,8 +45,7 @@ struct MyCoolStructure
 }
 ```
 
-Structure Flags
-===============
+# Structure Flags
 
 | Flag                | Description                                           |
 | ----                | -----------                                           |
@@ -57,8 +55,7 @@ Structure Flags
 | `ui`                | Structure has UI scope.                               |
 | `version ( "ver" )` | Restricted to ZScript version `ver` or higher.        |
 
-Structure Content
-=================
+# Structure Content
 
 Structure contents are an optional list of various things logically contained
 within the structure, including:

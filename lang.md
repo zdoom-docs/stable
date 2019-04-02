@@ -1,5 +1,4 @@
-Language
-========
+# Language
 
 <!-- vim-markdown-toc GFM -->
 
@@ -40,8 +39,7 @@ the hope that it is useful reference and serves as a solid basis for further
 writings. This document was originally written by Alison Sanderson (Marrub.)
 Attribution is encouraged but not required.
 
-Reading This Document
-=====================
+# Reading This Document
 
 This document's syntaxes are written in a specific way to be easy to read but
 still close enough to a formal syntax that, for instance, someone writing a
@@ -58,8 +56,7 @@ element spellings:
 | `$[` and `]$` | An optional syntax element, which may be omitted by the user.                                             |
 | `"text"`      | Any string literal, contents do not necessarily have to be what is inside unless explicitly stated.       |
 
-Translation Unit
-================
+# Translation Unit
 
 Full ZScript files are referred to as "translation units." This terminology
 comes from the C standard, and refers simply to the entirety of a ZScript
@@ -73,8 +70,7 @@ Included translation units may not have version directives.
 
 All keywords and identifiers in ZScript are case insensitive.
 
-Versions
-========
+# Versions
 
 A version directive may be placed at the very beginning of a ZScript file, the
 syntax being:
@@ -88,8 +84,7 @@ Where `num` is the ZScript version to use. By default ZScript is version
 by this documentation and it is highly encouraged to always use the latest
 version of ZScript. The minimum version supported by this documentation is 3.0.
 
-Top-level
-=========
+# Top-level
 
 A ZScript file can have one of several things at the top level of the file,
 following a version directive:
@@ -101,8 +96,7 @@ following a version directive:
 - Include directives
 
 
-Include directives
-==================
+# Include directives
 
 Include directives include other files to be processed by the ZScript compiler,
 allowing you to organize and separate code into different files. Their syntax
@@ -127,12 +121,11 @@ Basic includes.
 #include "zscript/MyCoolMod/MyCoolClasses.zsc"
 ```
 
-Table of Contents
-=================
+# Table of Contents
 
 Finally, here is a table of contents for each language element:
 
-<!-- toc glossary -->
+<!-- inter-toc -->
 
 * [Classes](lang-Classes.md)
 * [Constants](lang-Constants.md)
@@ -144,6 +137,6 @@ Finally, here is a table of contents for each language element:
 * [Structures](lang-Structures.md)
 * [Types](lang-Types.md)
 
-<!-- toc end -->
+<!-- end -->
 
 <!-- EOF -->

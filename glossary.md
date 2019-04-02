@@ -1,16 +1,15 @@
-Glossary
-========
+# Glossary
 
-<!-- toc glossary -->
+<!-- inter-toc -->
 
 * [Classes](glossary-Classes.md)
 * [Concepts](glossary-Concepts.md)
 * [Structures](glossary-Structures.md)
 * [Versions](glossary-Versions.md)
 
-<!-- toc end -->
+<!-- end -->
 
-Miscallaneous information about ZScript, including code examples and version
+Miscallaneous information about ZScript, including class lists and version
 differences.
 
 <!-- EOF -->

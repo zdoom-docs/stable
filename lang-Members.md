@@ -1,5 +1,4 @@
-Member Declarations
-===================
+# Member Declarations
 
 <!-- vim-markdown-toc GFM -->
 
@@ -30,8 +29,7 @@ private int m_CoolPrivateInt;
 protected meta int m_CoolMetaInt;
 ```
 
-Member Declaration Flags
-========================
+# Member Declaration Flags
 
 | Flag                   | Description                                                                                                         |
 | ----                   | -----------                                                                                                         |

@@ -1,5 +1,4 @@
-Method Definitions
-==================
+# Method Definitions
 
 <!-- vim-markdown-toc GFM -->
 
@@ -43,8 +42,7 @@ All methods which are not `static` have an implicit `self` parameter which
 refers to this object, although if you wish to refer to a member of `self`, you
 do not need to reference it directly, as it is already implicitly in scope.
 
-Method Argument List
-====================
+# Method Argument List
 
 Method arguments must all have a name and type, and optionally the last
 arguments in the list may have a default value, (*Version 3.3.0 and newer*)
@@ -86,8 +84,7 @@ Fn(5, 6, 7);
 Fn(7, 8, 9, 10);
 ```
 
-Method Definition Flags
-=======================
+# Method Definition Flags
 
 | Flag                   | Description                                                                                    |
 | ----                   | -----------                                                                                    |

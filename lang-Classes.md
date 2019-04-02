@@ -1,5 +1,4 @@
-Class Definitions
-=================
+# Class Definitions
 
 <!-- vim-markdown-toc GFM -->
 
@@ -112,8 +111,7 @@ int m_MyMember;
 // end of file
 ```
 
-Class Flags
-===========
+# Class Flags
 
 | Flag                     | Description                                                                       |
 | ----                     | -----------                                                                       |
@@ -127,8 +125,7 @@ Class Flags
 `Replace-class` in this context is an `Identifier` denoting a class which
 inherits `Actor`.
 
-Class Content
-=============
+# Class Content
 
 Class contents are an optional list of various things logically contained
 within the class, including:
@@ -144,8 +141,7 @@ within the class, including:
 - Constant definitions
 - Static array definitions
 
-Property Definitions
-====================
+# Property Definitions
 
 Property definitions are used within classes to define defaultable attributes
 on actors. They are not valid on classes not derived from Actor.
@@ -185,8 +181,7 @@ class MyCoolActor : Actor
 }
 ```
 
-Flag Definitions
-================
+# Flag Definitions
 
 *Version 3.7.0 and newer.*
 
@@ -243,8 +238,7 @@ class MyCoolActorWithFlags : Actor
 }
 ```
 
-Default Blocks
-==============
+# Default Blocks
 
 Default blocks are used on classes derived from Actor to create an overridable
 list of defaults to properties, allowing for swift creation of flexible actor
@@ -297,8 +291,7 @@ actor. Here is a list of them:
 Note that like any other property, they require a semicolon after them,
 although they do not use an expression.
 
-State Definitions
-=================
+# State Definitions
 
 These are the same as `DECORATE`, but states that do not have function blocks
 require terminating semicolons. Double quotes around `#` and `-` are no longer

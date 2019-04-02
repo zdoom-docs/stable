@@ -1,5 +1,4 @@
-ZScriptDoc
-==========
+# ZScriptDoc
 
 This is documentation for the ZScript language. CC0 public domain. See
 [LICENSE](LICENSE.txt) for more information.

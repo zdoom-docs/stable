@@ -1,5 +1,4 @@
-Expressions and Operators
-=========================
+# Expressions and Operators
 
 <!-- vim-markdown-toc GFM -->
 
@@ -23,8 +22,7 @@ Expressions and Operators
 
 <!-- vim-markdown-toc -->
 
-Literals
-========
+# Literals
 
 Much like C or most other programming languages, ZScript has object literals,
 including string literals, integer literals, float literals, name literals,
@@ -157,8 +155,7 @@ The null pointer literal is spelled `null` and represents an object that does
 not exist in memory. Like C, it is not equivalent to the integer literal `0`,
 and is more similar to C++'s `nullptr`.
 
-Expressions
-===========
+# Expressions
 
 Expressions contain literals or other such *expressions* of objects, including
 arithmetic and various conditions.

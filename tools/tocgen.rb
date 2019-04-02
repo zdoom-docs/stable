@@ -15,7 +15,8 @@ def filter_emit r
 end
 
 def find_toc_areas f
-   f.to_enum(:scan, /^(<!-- toc (.+) -->)(?:.|\n)*?(<!-- toc end -->)/i).map{$~}
+   re = /^(<!-- inter-toc ([^\s]+)\s+-->)(?:.|\n)*?(<!-- end -->)/i
+   f.to_enum(:scan, re).map{$~}
 end
 
 def filter_toc_areas f
@@ -41,8 +42,16 @@ def rewrite fnam
    File.write fnam, o
 end
 
-rewrite "api.md" do |f| filter_toc_areas f do |a| /api-#{a}-(\w+).md/ end end
-rewrite "glossary.md" do |f| filter_toc_areas f do |a| /glossary-(\w+).md/ end end
-rewrite "lang.md" do |f| filter_toc_areas f do |a| /lang-(\w+).md/ end end
+rewrite "api.md" do |f|
+   filter_toc_areas f do |a| /api-#{a}-(\w+).md/ end
+end
+
+rewrite "glossary.md" do |f|
+   filter_toc_areas f do |a| /glossary-(\w+).md/ end
+end
+
+rewrite "lang.md" do |f|
+   filter_toc_areas f do |a| /lang-(\w+).md/ end
+end
 
 ## EOF

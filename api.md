@@ -1,8 +1,11 @@
 # API
 
+<!-- vim-markdown-toc GFM -->
+
 * [Actors](#actors)
 * [Base](#base)
 * [Drawing](#drawing)
+* [Event Handling](#event-handling)
 * [Files](#files)
 * [Intermission Screens](#intermission-screens)
 * [Level Data](#level-data)
@@ -10,6 +13,8 @@
 * [Sounds](#sounds)
 * [Weapons](#weapons)
 * [Global Objects](#global-objects)
+
+<!-- vim-markdown-toc -->
 
 The ZScript API (Advanced Programming Interface) is vast and has some holes
 which are hard to explain. Some parts are implemented in ways that don't make
@@ -25,17 +30,17 @@ are part of the API.
 
 # Actors
 
-<!-- toc actor -->
+<!-- inter-toc actor -->
 
 * [State](api-actor-State.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Base
 
-<!-- toc base -->
+<!-- inter-toc base -->
 
 * [Array](api-base-Array.md)
 * [Color](api-base-Color.md)
@@ -47,13 +52,13 @@ TODO
 * [Thinker](api-base-Thinker.md)
 * [Vector](api-base-Vector.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Drawing
 
-<!-- toc drawing -->
+<!-- inter-toc drawing -->
 
 * [BrokenLines](api-drawing-BrokenLines.md)
 * [Console](api-drawing-Console.md)
@@ -64,33 +69,33 @@ TODO
 * [TexMan](api-drawing-TexMan.md)
 * [TextureID](api-drawing-TextureID.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Event Handling
 
-<!-- toc events -->
+<!-- inter-toc events -->
 
 
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Files
 
-<!-- toc files -->
+<!-- inter-toc files -->
 
 * [Wads](api-files-Wads.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Intermission Screens
 
-<!-- toc inter -->
+<!-- inter-toc inter -->
 
 * [InterBackground](api-inter-InterBackground.md)
 * [PatchInfo](api-inter-PatchInfo.md)
@@ -98,7 +103,7 @@ TODO
 * [WBPlayerStruct](api-inter-WBPlayerStruct.md)
 * [WBStartStruct](api-inter-WBStartStruct.md)
 
-<!-- toc end -->
+<!-- end -->
 
 For legacy reasons, many intermission-related things may be prefixed with `WI`
 or `WB`. The abbreviation `WI` means *World Intermission* (the intermission
@@ -108,7 +113,7 @@ for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
 
 # Level Data
 
-<!-- toc level -->
+<!-- inter-toc level -->
 
 * [F3DFloor](api-level-F3DFloor.md)
 * [FColorMap](api-level-FColorMap.md)
@@ -121,45 +126,45 @@ for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
 * [Side](api-level-Side.md)
 * [Vertex](api-level-Vertex.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Players
 
-<!-- toc player -->
+<!-- inter-toc player -->
 
 * [PlayerClass](api-player-PlayerClass.md)
 * [PlayerSkin](api-player-PlayerSkin.md)
 * [Team](api-player-Team.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Sounds
 
-<!-- toc sound -->
+<!-- inter-toc sound -->
 
 * [SeqNode](api-sound-SeqNode.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Weapons
 
-<!-- toc wep -->
+<!-- inter-toc wep -->
 
 * [PSprite](api-wep-PSprite.md)
 
-<!-- toc end -->
+<!-- end -->
 
 TODO
 
 # Global Objects
 
-<!-- toc global-data -->
+<!-- inter-toc global-data -->
 
 * [Client](api-global-data-Client.md)
 * [Constants](api-global-data-Constants.md)
@@ -167,12 +172,12 @@ TODO
 * [Information](api-global-data-Information.md)
 * [Player](api-global-data-Player.md)
 
-<!-- toc end -->
+<!-- end -->
 
 These variables are accessible in any context and are not bound by any specific
 object. Generally these mirror global information within the engine itself.
 
-<!-- toc global-func -->
+<!-- inter-toc global-func -->
 
 * [Classes](api-global-func-Classes.md)
 * [Game](api-global-func-Game.md)
@@ -181,19 +186,19 @@ object. Generally these mirror global information within the engine itself.
 * [Sound](api-global-func-Sound.md)
 * [System](api-global-func-System.md)
 
-<!-- toc end -->
+<!-- end -->
 
 These functions are accessible in any context and are not bound by any specific
 object. Generally these are utility functions.
 
-<!-- toc global -->
+<!-- inter-toc global -->
 
 * [DEHInfo](api-global-DEHInfo.md)
 * [FOptionMenuSettings](api-global-FOptionMenuSettings.md)
 * [GameInfoStruct](api-global-GameInfoStruct.md)
 * [LevelLocals](api-global-LevelLocals.md)
 
-<!-- toc end -->
+<!-- end -->
 
 These are the types used by global variables.
 
