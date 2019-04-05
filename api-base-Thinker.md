@@ -12,8 +12,10 @@ The user-defined stat numbers begin at `Thinker.STAT_USER` and end at
 `Thinker.STAT_USER_MAX`. Do not attempt to use normal integers as stat numbers
 except as relative to these two.
 
-(Note to authors: These tables are not alphabetically organized as their
-ordering is meaningful.)
+<!--
+   NOTE: These tables are not alphabetically organized as their ordering is
+         meaningful.
+-->
 
 Thinkers which do not think and are elided from many checks:
 

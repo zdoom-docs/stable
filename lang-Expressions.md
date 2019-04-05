@@ -56,9 +56,9 @@ character. Character escapes include:
 | `\xnn` or `\Xnn`        | Byte `0xnn`.                                    |
 | `\nnn`                  | Byte `0nnn` (octal.)                            |
 
-To quote [cppreference](https://en.cppreference.com/w/cpp/language/escape), "of
-the octal escape sequences, `\0` is the most useful because it represents the
-terminating null character in null-terminated strings."
+To quote [cppreference][1], "of the octal escape sequences, `\0` is the most
+useful because it represents the terminating null character in null-terminated
+strings."
 
 String literals, also like C and C++, will be concatenated when put directly
 next to each other. For example, this:
@@ -68,6 +68,8 @@ next to each other. For example, this:
 ```
 
 Will be parsed as a single string literal with the text `"text 1text 2"`.
+
+[1]: https://en.cppreference.com/w/cpp/language/escape
 
 ## Class type literals
 

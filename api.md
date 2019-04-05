@@ -22,12 +22,6 @@ sense to user code, but are fine to the engine. Because of this, the API shall
 be documented in pseudo-ZScript which gives an idea of how it works for the
 modder rather than for the engine.
 
-Note to authors: Capitalization is normalized within this documentation to
-encourage consistent code, and does not follow ZScript's original
-capitalization exactly. Similarly, argument names in methods are sometimes
-renamed. Note well that *arguments with defaults MAY NOT be renamed* as they
-are part of the API.
-
 # Actors
 
 <!-- inter-toc actor -->
@@ -113,7 +107,9 @@ For legacy reasons, many intermission-related things may be prefixed with `WI`
 or `WB`. The abbreviation `WI` means *World Intermission* (the intermission
 screen was originally called "World Map" by Tom Hall) and `WB` meaning *World
 Buffer*, as this data was originally buffered into a specific memory address
-for [statistics drivers](https://doomwiki.org/wiki/Statistics_driver).
+for [statistics drivers][1].
+
+[1]: https://doomwiki.org/wiki/Statistics_driver
 
 # Level Data
 

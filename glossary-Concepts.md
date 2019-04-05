@@ -1,5 +1,7 @@
 # Concepts
 
+<!-- vim-markdown-toc GFM -->
+
 * [Action Scoping](#action-scoping)
 * [Object Scoping](#object-scoping)
 * [Format String](#format-string)
@@ -7,7 +9,13 @@
 * [Game Tick](#game-tick)
 * [Interpolation](#interpolation)
 
-TODO
+<!-- vim-markdown-toc -->
+
+Here is a cursory view of concepts vital to ZScript and ZDoom in general. If
+you can't find something here, it's likely inherited directly from Doom, so you
+should check [the Doom Wiki][1] for more relevant information.
+
+[1]: https://doomwiki.org/wiki/Entryway
 
 ## Action Scoping
 
@@ -61,15 +69,18 @@ Here is a chart of data access possibilities for each scope:
 
 A format string is a string that specifies the format of a conversion from
 arbitrary data to a contiguous character string. A format string contains
-normal characters and *conversion specifiers*. See [this
-page](https://en.cppreference.com/w/c/io/fprintf) for more information.
-Differences between C's `printf` and ZScript formats include:
+normal characters and *conversion specifiers*. See [this page][2] for more
+information. Differences between C's `printf` and ZScript formats include:
 
 - Since there's no `char` type, `int` is used for `%c`.
 - `%s` also works for `name`.
 - No `%n` specifier.
-- An additional conversion specifier `%B` exists which converts a number to binary.
-- An additional conversion specifier `%H` exists which works like `%g` but automatically selects the smallest appropriate precision.
+- An additional conversion specifier `%B` exists which converts a number to
+binary.
+- An additional conversion specifier `%H` exists which works like `%g` but
+automatically selects the smallest appropriate precision.
+
+[2]: https://en.cppreference.com/w/c/io/fprintf
 
 ## Sprite
 
@@ -81,7 +92,9 @@ the file and state block representations, not a character, but an integer. The
 number `0` for instance represents the letter `A`, `1` to `B`, etc.
 
 For more information on sprites and rotations, please refer to [the relevant
-Doom Wiki article](https://doomwiki.org/wiki/Sprite).
+Doom Wiki article][3].
+
+[3]: https://doomwiki.org/wiki/Sprite
 
 ## Game Tick
 
@@ -108,7 +121,9 @@ simulation in the same way:
    smoother rendering.
 
 For more information on ticks, please refer to [the relevant Doom Wiki
-article](https://doomwiki.org/wiki/Tic).
+article][4].
+
+[4]: https://doomwiki.org/wiki/Tic
 
 ## Interpolation
 
