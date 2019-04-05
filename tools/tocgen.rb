@@ -15,7 +15,7 @@ def filter_emit r
 end
 
 def find_toc_areas f
-   re = /^(<!-- inter-toc ([^\s]+)\s+-->)(?:.|\n)*?(<!-- end -->)/i
+   re = /^(<!-- inter-toc\s*([^\s]+)\s*-->)(?:.|\n)*?(<!-- end -->)/i
    f.to_enum(:scan, re).map{$~}
 end
 
