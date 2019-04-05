@@ -35,28 +35,24 @@ Identifier $[ = Expression]$
 
 ## Example: Enumeration definitions
 
-Basic enumeration.
-
 ```
+// Basic enumeration.
 enum MyCoolEnum
 {
-   A, // has value int(0)
-   B, // 1 ...
-   C, // 2 ...
-   D  // and 3
+   A_THING, // Has value int(0) ...
+   BEES, // ... 1 ...
+   CALCIUM, // ... 2 ...
+   DEXTROSE, // ... and 3.
 }
-```
 
-Less trivial example.
-
-```
+// Less trivial example.
 enum MyCoolerEnum : int16
 {
-   A = 500, // has value int16(500)
-   B, // 501
+   A = 500, // Has value int16(500),
+   B, // 501,
    C = 200,
-   D, // 201
-   E, // 202
-};
+   D, // 201,
+   E, // and 202.
+}
 ```
 <!-- EOF -->

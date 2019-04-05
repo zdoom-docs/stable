@@ -22,7 +22,7 @@ creating within the language.
 
 All classes inherit from other classes. The base class can be set within the
 class header, but if it is not the class will automatically inherit from
-Object.
+`Object`.
 
 Classes are subject to Scoping. They are also implicitly reference values, and
 therefore can be null. Use `new` to instantiate a new class object.
@@ -64,23 +64,38 @@ In place of the class header.
 ## Example: Class headers
 
 ```
-class MyCoolObject // automatically inherits Object
+// Automatically inherits Object, similar to the "actor" keyword in DECORATE.
+class MyCoolObject
 {
 }
 
-class MyCoolScopedObject play // has Play scope
+// Equivalent to the above.
+class MyCoolObjectExplicit : Object
 {
 }
 
-class MyCoolThinker : Thinker // inherits Thinker
+// Has "Play" scope.
+class MyCoolScopedObject play
 {
 }
 
+// Inherits Thinker and can override functions on it.
+class MyCoolThinker : Thinker
+{
+}
+
+// Some actor.
+class OtherActor : Actor
+{
+}
+
+// Replaces "OtherActor."
 class MyCoolActor : Actor replaces OtherActor
 {
 }
 
-class MyCoolInterface abstract // can only be inherited
+// Can only be inherited.
+class MyCoolInterface abstract
 {
 }
 ```
@@ -92,8 +107,10 @@ Basic class definition with a member variable and member function.
 ```
 class BasicClass
 {
+   // "m_Thing" is attached to any "instance" of BasicClass.
    int m_Thing;
 
+   // Changes "m_Thing" to 500 on an instance of BasicClass.
    void ChangeThing()
    {
       m_Thing = 500;
@@ -104,11 +121,12 @@ class BasicClass
 Alternate syntax usage.
 
 ```
+// This class spans from this point to the end of the file.
 class TheWholeFileIsAClassOhNo;
 
 int m_MyMember;
 
-// end of file
+// End of file, end of class.
 ```
 
 # Class Flags
@@ -167,15 +185,19 @@ A class with some properties.
 ```
 class MyCoolActor : Actor
 {
+   // You can set defined properties in a "default" block like in DECORATE.
+   // This will also be available in DECORATE code that inherits your class!
    default
    {
       MyCoolActor.MyCoolMember 5000;
       MyCoolActor.MyCoolMemberList 501, 502;
    }
 
+   // Declare some members.
    int m_MyCoolMember;
    int m_CoolMember1, m_CoolMember2;
 
+   // Declare some properties attached to our members.
    property MyCoolMember: m_MyCoolMember;
    property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
 }
@@ -219,18 +241,25 @@ A class with some flags.
 ```
 class MyCoolActorWithFlags : Actor
 {
+   // You can set defined flag in a "default" block like in DECORATE.
+   // This will also be available in DECORATE code that inherits your class!
+   // Hey, those sentences sounded familiar...
    default
    {
       +MYCOOLACTORWITHFLAGS.THIS_ONE_IS_ON
       -MYCOOLACTORWITHFLAGS.THIS_ONE_IS_OFF
    }
 
+   // Declare a flag field for all of the flags. This can hold up to 32 flags.
    int m_Flags;
 
-   flagdef This_One_Is_On: m_Flags, 0;
-   flagdef This_One_Is_Off: m_Flags, 1;
-   flagdef This_One_Aliases_On: m_Flags, 0;
+   // Declare the flags, one at a time...
+   flagdef THIS_ONE_IS_ON: m_Flags, 0;
+   flagdef THIS_ONE_IS_OFF: m_Flags, 1;
+   flagdef THIS_ONE_ALIASES_ON: m_Flags, 0;
 
+   // Unnecessary, since you can just access it directly, but this demonstrates
+   // how declared flags can be used in methods.
    bool CheckIfOnIsOn()
    {
       return bTHIS_ONE_IS_ON;

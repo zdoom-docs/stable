@@ -5,6 +5,7 @@
 * [Classes](glossary-Classes.md)
 * [Concepts](glossary-Concepts.md)
 * [Structures](glossary-Structures.md)
+* [Style](glossary-Style.md)
 * [Versions](glossary-Versions.md)
 
 <!-- end -->

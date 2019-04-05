@@ -34,9 +34,8 @@ Optionally followed by a semicolon.
 
 ## Example: Structure definitions
 
-Simple structure.
-
 ```
+// Simple structure.
 struct MyCoolStructure
 {
    int X;

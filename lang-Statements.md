@@ -53,12 +53,13 @@ Expression ;
 
 ## Example: Expression statements
 
-Some basic expressions.
-
 ```
+// Some basic expressions.
 MyCoolFunction(5, 4);
 m_MyCoolMember = 500;
-5 * 5; // does nothing of course, but valid
+
+// Does nothing, of course, but valid.
+5 * 5;
 ```
 
 # Conditional Statements
@@ -72,16 +73,14 @@ if ( Expression ) Statement $[ else Statement]$
 
 ## Example: Conditional statements
 
-Simple conditional.
-
 ```
+// Simple conditional.
+
 if(a)
    B();
-```
 
-Simple conditional, with else statement and a block.
+// Simple conditional, with else statement and a block.
 
-```
 if(a)
 {
    B();
@@ -102,17 +101,23 @@ switch ( Expression ) Statement
 
 ## Example: Switch statements
 
-A switch demonstrating fall-through and default cases.
-
 ```
+// A switch demonstrating fall-through and default cases.
+
 switch(a)
 {
-case 500: Console.PrintF("a is 500"); break;
-case 501: Console.PrintF("a is 501"); // falls through to next case
-case 502: Console.PrintF("a is 501 or 502"); break;
+case 500:
+   Console.PrintF("a is 500");
+   break;
+case 501:
+   Console.PrintF("a is 501");
+   // Falls through to the next case.
+case 502:
+   Console.PrintF("a is 501 or 502");
+   break;
 default:
    Console.PrintF("not sure what a is!");
-   // break is implied here
+   // "break" is implied here.
 }
 ```
 
@@ -185,49 +190,51 @@ return $[Expression $[ , Expression]$...]$ ;
 
 ## Example: Control flow statements
 
-Use of `continue`.
-
 ```
+// Use of "continue."
 for(int i = 0; i < 50; i++)
 {
-   if(i == 25) continue; // don't do anything on 25!
+   // Don't do anything when "i" is 25.
+   if(i == 25)
+      continue;
 
    DoThing(i);
 }
-```
 
-Use of `break`.
-
-```
+// Use of "break."
 for(int i = 0; i < 50; i++)
 {
-   if(i == 25) break; // exit the loop at 25!
+   // "break" when "i" is 25.
+   if(i == 25)
+      break;
 
    DoThing(i);
 }
-```
 
-Use of `return` in various contexts.
-
-```
+// Use of `return` in various contexts.
 void ReturnsNothing()
 {
-   if(m_Thing != 50) return; // exit early if m_Thing isn't 50.
+   // Exit early if "m_Thing" isn't 50.
+   if(m_Thing != 50)
+      return;
 
    DoThing(m_Thing);
 }
 
 int ReturnsInt()
 {
+   // "m_Thing" is 50, so return 50.
    if(m_Thing == 50)
-      return 50; // m_thing is 50, so return 50.
+      return 50;
 
-   return 0; // must have a return eventually
+   // Must have a return, eventually.
+   return 0;
 }
 
 int, int ReturnsTwoInts()
 {
-   return 1, 2; // returns 1 and 2.
+   // Returns 1 and 2.
+   return 1, 2;
 }
 ```
 
@@ -264,12 +271,9 @@ Note that the surrounding brackets are literal and not an optional element.
 
 ## Example: Multi-assignment statements
 
-Getting the actor out of `A_SpawnItemEx`.
-
 ```
-Actor mo;
-bool spawned;
-[spawned, mo] = A_SpawnItemEx("MyCoolActor");
+// Getting the actor out of "A_SpawnItemEx."
+Actor mo; bool spawned; [spawned, mo] = A_SpawnItemEx("MyCoolActor");
 ```
 
 # Static Array Statements

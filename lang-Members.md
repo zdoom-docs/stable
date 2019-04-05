@@ -22,10 +22,19 @@ $[Member-declaration-flags...]$ Type Variable-name $[ , Variable-name]$... ;
 Some basic member variables.
 
 ```
+// An integer. Visible to and modifiable by everything.
 int m_MyCoolInt;
+
+// Three separate integers, defined short-hand.
 int m_CoolInt1, m_CoolInt2, m_CoolInt3;
+
+// Ten integers in one variable.
 int[10] m_CoolIntArray;
+
+// Can only be seen by this type.
 private int m_CoolPrivateInt;
+
+// Read-only (part of the class data, can only be seen by descendant types.
 protected meta int m_CoolMetaInt;
 ```
 

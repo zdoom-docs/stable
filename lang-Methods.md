@@ -57,31 +57,25 @@ Or, the entire list may simply be `void` or empty.
 
 ## Example: Method argument lists
 
-With the function:
-
 ```
-void Fn(int one, int two, int a = 0, int b = 0);
-```
+// With the function:
+void DoSomething(int one, int two, int a = 0, int b = 0);
 
-One could do the following:
+// One could do the following:
+DoSomething(4, 5);
+DoSomething(5, 6, 7);
+DoSomething(6, 7, 8, 9);
 
-```
-Fn(4, 5);
-Fn(5, 6, 7);
-Fn(6, 7, 8, 9);
-```
+// Or using named default arguments,
+DoSomething(5, 6, a: 7);
 
-Or using named default arguments,
+// Equivalent to:
+DoSomething(5, 6, 7);
 
-```
-Fn(5, 6, a: 7);
-Fn(6, 7, b: 8);
-Fn(7, 8, a: 9, b: 10);
-
-// equivalent to:
-Fn(5, 6, 7);
-// (no equivalent, must use above)
-Fn(7, 8, 9, 10);
+// And more examples:
+DoSomething(6, 7, b: 8);
+DoSomething(7, 8, a: 9, b: 10);
+DoSomething(7, 8, 9, 10);
 ```
 
 # Method Definition Flags

@@ -19,10 +19,12 @@ type.
 
 ## Example: Constant definitions
 
-Making an integer constant from a double.
-
 ```
-const MY_COOL_INT = int(777.7777);
+// Making a regular integer constant.
+const MY_COOL_NUMBER = 777;
+
+// Making an integer constant from a double.
+const MY_COOL_NUMBER_FROM_BEYOND = int(777.7777);
 ```
 
 # Static array definitions
