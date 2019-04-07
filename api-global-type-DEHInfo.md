@@ -9,6 +9,7 @@ struct DEHInfo
    readonly int    BlueAC;
    readonly double ExplosionAlpha;
    readonly uint8  ExplosionStyle;
+   readonly int    MaxHealth;
    readonly int    MaxSoulsphere;
    readonly int    NoAutofreeze;
 }
@@ -32,6 +33,10 @@ struct DEHInfo
 
    For actors with the `DEHEXPLOSION` flag, the render style to be applied on
    explosion.
+
+- `MaxHealth`
+
+   TODO
 
 - `MaxSoulsphere`
 

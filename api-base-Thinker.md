@@ -54,6 +54,8 @@ class Thinker : Object play
 {
    const TICRATE;
 
+   LevelLocals Level;
+
    void ChangeStatNum(int stat);
 
    virtual void PostBeginPlay();
@@ -66,6 +68,10 @@ class Thinker : Object play
 - `TICRATE`
 
    The number of game ticks in a second. This value is always `int(35)`.
+
+- `Level`
+
+   The level this `Thinker` is in, which may differ from another one's.
 
 - `ChangeStatNum`
 

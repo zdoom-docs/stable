@@ -7,8 +7,8 @@ string G_SkillName();
 int    G_SkillPropertyInt(int p);
 double G_SkillPropertyFloat(int p);
 
-vector3, int G_PickDeathmatchStart();
-vector3, int G_PickPlayerStart(int pnum, int flags = 0);
+deprecated("3.8") vector3, int G_PickDeathmatchStart();
+deprecated("3.8") vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 ```
 
 - `G_SkillName`
@@ -53,9 +53,15 @@ vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
 - `G_PickDeathmatchStart`
 
+   Note: This function is deprecated and `LevelLocals::PickDeathmatchStart`
+   should be used instead.
+
    Returns the position and angle of a random death-match start location.
 
 - `G_PickPlayerStart`
+
+   Note: This function is deprecated and `LevelLocals::PickPlayerStart` should
+   be used instead.
 
    Returns the position and angle of a player start for player `pnum`. `flags`
    may be:

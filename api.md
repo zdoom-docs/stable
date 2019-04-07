@@ -192,7 +192,7 @@ object. Generally these mirror global information within the engine itself.
 These functions are accessible in any context and are not bound by any specific
 object. Generally these are utility functions.
 
-<!-- inter-toc global -->
+<!-- inter-toc global-type -->
 
 * [DEHInfo](api-global-DEHInfo.md)
 * [FOptionMenuSettings](api-global-FOptionMenuSettings.md)

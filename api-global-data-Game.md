@@ -3,14 +3,15 @@
 TODO
 
 ```
-readonly bool        AutomapActive;
-readonly bool        DemoPlayback;
-play     uint        GameAction;
-readonly int         GameState;
-readonly int         GameTic;
-readonly uint8       GlobalFreeze;
-play     LevelLocals Level;
+readonly bool           AutomapActive;
+readonly bool           DemoPlayback;
+readonly uint           GameAction;
+readonly int            GameState;
+readonly int            GameTic;
+play     LevelLocals    Level;
+readonly MusPlayingInfo MusPlaying;
 
+deprecated("3.8") readonly bool GlobalFreeze;
 int ValidCount;
 ```
 
@@ -66,13 +67,17 @@ int ValidCount;
 
    Number of game tics passed since engine initialization. **Not deterministic.**
 
-- `GlobalFreeze`
-
-   TODO: I have no idea what the difference between this and `Level.Frozen` is.
-
 - `Level`
 
    All level info as defined in `LevelLocals`.
+
+- `MusPlaying`
+
+   TODO
+
+- `GlobalFreeze`
+
+   Deprecated. Don't use.
 
 - `ValidCount`
 

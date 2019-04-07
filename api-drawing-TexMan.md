@@ -12,8 +12,10 @@ struct TexMan
    static vector2   GetScaledOffset(textureid tex);
    static vector2   GetScaledSize(textureid tex);
    static int, int  GetSize(textureid tex);
-   static void      ReplaceTextures(string from, string to, int flags);
    static void      SetCameraToTexture(Actor viewpoint, string texture, double fov);
+   static bool      OkForLocalization(textureid patch, string textSubstitute);
+
+   deprecated("3.8") static void ReplaceTextures(string from, string to, int flags);
 }
 ```
 
@@ -47,6 +49,7 @@ struct TexMan
    | ----                   | -----------                                                                               |
    | `TexMan.AllowSkins`    | Allows `SkinGraphic`s to be returned under normal circumstances.                          |
    | `TexMan.DontCreate`    | Will never create a new texture when searching.                                           |
+   | `TexMan.Localize`      | TODO                                          .                                           |
    | `TexMan.Overridable`   | Allows overriding of this texture by for instance `TEXTURES`.                             |
    | `TexMan.ReturnFirst`   | Allows returning the `FirstDefined` "null" texture under normal circumstances.            |
    | `TexMan.ShortNameOnly` | Will force use of a short name when searching.                                            |
@@ -76,7 +79,19 @@ struct TexMan
 
    Returns the width and height of a `textureid`.
 
+- `SetCameraToTexture`
+
+   Sets the camera texture (as defined in `ANIMDEFS`) `texture` to the
+   viewpoint of `viewpoint` with a fov of `fov`.
+
+- `OkForLocalization`
+
+   TODO
+
 - `ReplaceTextures`
+
+   Note: This function is deprecated and `LevelLocals::ReplaceTextures` should
+   be used instead.
 
    Replaces textures named `from` with `to` within the map. `flags` may be used
    to filter out certain textures from being replaced:
@@ -90,10 +105,5 @@ struct TexMan
    | `TexMan.NOT_MIDDLE`  | Filters out linedef middle textures. |
    | `TexMan.NOT_TOP`     | Filters out linedef upper textures.  |
    | `TexMan.NOT_WALL`    | Filters out any linedef texture.     |
-
-- `SetCameraToTexture`
-
-   Sets the camera texture (as defined in `ANIMDEFS`) `texture` to the
-   viewpoint of `viewpoint` with a fov of `fov`.
 
 <!-- EOF -->

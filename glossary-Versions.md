@@ -18,6 +18,7 @@
 * [Version 3.6](#version-36)
 * [Version 3.7](#version-37)
 * [Version 3.7.2](#version-372)
+* [Version 4.0.0](#version-400)
 
 <!-- vim-markdown-toc -->
 
@@ -509,5 +510,197 @@ Here is a list of differences between ZScript versions.
 - Made `LevelLocals::ExecuteSpecial` return `int`.
 - Made `ScriptUtil::PlayerAmmo` be `static`.
 - Made `bool` negatable by the `-` prefix operator.
+
+## Version 4.0.0
+
+- Added `Actor::CanTouchItem`.
+- Added `Actor::GetMaxHealth`.
+- Added `Actor::IsFrozen`.
+- Added `COMPATF2_*`.
+- Added `COMPATF_*`.
+- Added `CoOpStatusScreen::DisplayFont`.
+- Added `CoOpStatusScreen::FontScale`.
+- Added `CoOpStatusScreen::RowHeight`.
+- Added `ConversationMenu::LineHeight`.
+- Added `DehInfo::MaxHealth`.
+- Added `GameInfoStruct::NormForwardMove`.
+- Added `GameInfoStruct::NormSideMove`.
+- Added `Inventory::bUNCLEARABLE`.
+- Added `LevelCompatibility::AddLineID`.
+- Added `LevelCompatibility::AddSectorTag`.
+- Added `LevelCompatibility::Apply`.
+- Added `LevelCompatibility::ClearLineIDs`.
+- Added `LevelCompatibility::ClearLineSpecial`.
+- Added `LevelCompatibility::ClearSectorTags`.
+- Added `LevelCompatibility::GetDefaultActor`.
+- Added `LevelCompatibility::Level`.
+- Added `LevelCompatibility::OffsetSectorPlane`.
+- Added `LevelCompatibility::SetLineActivation`.
+- Added `LevelCompatibility::SetLineFlags`.
+- Added `LevelCompatibility::SetLineSectorRef`.
+- Added `LevelCompatibility::SetLineSpecial`.
+- Added `LevelCompatibility::SetSectorLight`.
+- Added `LevelCompatibility::SetSectorSpecial`.
+- Added `LevelCompatibility::SetSectorTextureID`.
+- Added `LevelCompatibility::SetSectorTexture`.
+- Added `LevelCompatibility::SetThingFlags`.
+- Added `LevelCompatibility::SetThingSkills`.
+- Added `LevelCompatibility::SetThingXY`.
+- Added `LevelCompatibility::SetTingZ`.
+- Added `LevelCompatibility::SetVertex`.
+- Added `LevelCompatibility::SetWallTextureID`.
+- Added `LevelCompatibility::SetWallTexture`.
+- Added `LevelCompatibility::SetWallYScale`.
+- Added `LevelLocals::CompatFlags2`.
+- Added `LevelLocals::CompatFlags`.
+- Added `LevelLocals::CreateActorIterator`.
+- Added `LevelLocals::CreateCeiling`.
+- Added `LevelLocals::CreateFloor`.
+- Added `LevelLocals::CreateLineIDIterator`.
+- Added `LevelLocals::CreateSectorTagIterator`.
+- Added `LevelLocals::FindHealthGroup`.
+- Added `LevelLocals::FindUniqueTid`.
+- Added `LevelLocals::GetSkyboxPortal`.
+- Added `LevelLocals::GetSpotState`.
+- Added `LevelLocals::IsFrozen`.
+- Added `LevelLocals::IsPointInLevel`.
+- Added `LevelLocals::MakeAutoSave`.
+- Added `LevelLocals::MakeScreenShot`.
+- Added `LevelLocals::PickDeathmatchStart`.
+- Added `LevelLocals::PickPlayerStart`.
+- Added `LevelLocals::PointInSector`.
+- Added `LevelLocals::ReplaceTextures`.
+- Added `LevelLocals::SetFrozen`.
+- Added `ListMenuItemStaticPatch::mColor`.
+- Added `ListMenuItemStaticPatch::mFont`.
+- Added `ListMenuItemStaticPatch::mSubstitute`.
+- Added `LoadSaveMenu::BrokenSaveComment`.
+- Added `LoadSaveMenu::CommentRows`.
+- Added `LoadSaveMenu::FontScale`.
+- Added `LoadSaveMenu::UpdateSaveComment`.
+- Added `MAXPLAYERNAME`.
+- Added `Menu::DrawOptionText`.
+- Added `Menu::OptionColor`.
+- Added `Menu::OptionFont`.
+- Added `Menu::OptionHeight`.
+- Added `Menu::OptionWidth`.
+- Added `MusPlayingInfo`.
+- Added `MusPlaying`.
+- Added `NewConsoleFont`.
+- Added `NewSmallFont`.
+- Added `OptionMenuDescriptor::mFont`.
+- Added `OptionMenuItem::DrawText`.
+- Added `OptionMenuItem::DrawValue`.
+- Added `PlayerInfo::GetMoveBob`.
+- Added `PlayerInfo::GetStillBob`.
+- Added `PlayerInfo::SendPitchLimits`.
+- Added `PlayerPawn::Face`.
+- Added `PlayerPawn::GetFlechetteItem`.
+- Added `PlayerPawn::GetPainFlash`.
+- Added `PlayerPawn::GiveDeathmatchInventory`.
+- Added `PlayerPawn::MAXBOB`.
+- Added `ReplacedEvent`.
+- Added `SaveGameManager::SaveCommentString`.
+- Added `SectorPortal::GetSkyboxPortal`.
+- Added `StaticEventHandler::CheckReplacee`.
+- Added `StatusScreen::DrawNumScaled`.
+- Added `StatusScreen::DrawPatchOrText`.
+- Added `StatusScreen::DrawPercentScaled`.
+- Added `StatusScreen::DrawTextScaled`.
+- Added `StatusScreen::DrawTimeFont`.
+- Added `StatusScreen::EnteringPatch`.
+- Added `StatusScreen::FinishedPatch`.
+- Added `String::AppendCharacter`.
+- Added `String::DeleteLastCharacter`.
+- Added `TexMan::Localize`.
+- Added `TexMan::OkForLocalization`.
+- Added `TextEnterMenu::CursorSize`.
+- Added `TextEnterMenu::DisplayFont`.
+- Added `TextEnterMenu::OpenTextEnter`.
+- Added `Thinker::Level`.
+- Added `WBStartStruct::ThisName`.
+- Added `Weapon::LookScale`.
+- Added `desc` parameter to `ListMenuItemStaticPatch::Init`.
+- Added `desc` parameter to `ListMenuItemStaticPatchCentered::Init`.
+- Added `dpf` parameter to `TextEnterMenu::Init`.
+- Added `flags` parameter to `Actor::GetModifiedDamage`.
+- Added `flags` parameter to `Inventory::ModifyDamage`.
+- Added `inflictor` parameter to `Actor::GetModifiedDamage`.
+- Added `inflictor` parameter to `Inventory::ModifyDamage`.
+- Added `level` parameter to `ScriptUtils::SetMarineSprite`.
+- Added `level` parameter to `ScriptUtils::SetMarineWeapon`.
+- Added `nomove` parameter to `StatusScreen::DrawNum`.
+- Added `nomove` parameter to `StatusScreen::DrawPercent`.
+- Added `os_AnyOrAllOption`.
+- Added `os_Menu`.
+- Added `os_Query`.
+- Added `os_SearchField`.
+- Added `source` parameter to `Actor::GetModifiedDamage`.
+- Added `source` parameter to `Inventory::ModifyDamage`.
+- Deprecated `Actor::FindUniqueTid`.
+- Deprecated `ActorIterator::Create`.
+- Deprecated `Ceiling::CreateCeiling`.
+- Deprecated `Floor::CreateFloor`.
+- Deprecated `G_PickDeathmatchStart`.
+- Deprecated `G_PickPlayerStart`.
+- Deprecated `GlobalFreeze`.
+- Deprecated `HealthGroup::Find`.
+- Deprecated `LevelLocals::Frozen`.
+- Deprecated `LevelLocals::IsPointInMap`.
+- Deprecated `LevelLocals::RemoveAllBots`.
+- Deprecated `LineIDIterator::Create`.
+- Deprecated `Menu::DrawConText`.
+- Deprecated `PatchInfo::mPatch`.
+- Deprecated `SaveGameManager::DrawSaveComment`.
+- Deprecated `Sector::PointInSector`.
+- Deprecated `SectorTagIterator::Create`.
+- Deprecated `SpotState::GetSpotState`.
+- Deprecated `StatusScreen::DrawPatchText`.
+- Deprecated `TexMan::ReplaceTextures`.
+- Deprecated `TextEnterMenu::Open`.
+- Implemented compound initializers for single-dimension arrays.
+- Made `GameAction` be `readonly`.
+- Made `LevelLocals::ExecuteSpecial` be `play`.
+- Made `LevelLocals::F1Pic` be `readonly`.
+- Made `LevelLocals::GetAutomapPosition` be `ui`.
+- Made `LevelLocals::GetAutomapPosition` not be `static`.
+- Made `LevelLocals::GiveSecret` not be `static`.
+- Made `LevelLocals::SphericalCoords` be `const`.
+- Made `LevelLocals::SphericalCoords` not be `static`.
+- Made `LevelLocals::StartSlideshow` not be `static`.
+- Made `LevelLocals::Vec2Diff` be `const`.
+- Made `LevelLocals::Vec2Diff` not be `static`.
+- Made `LevelLocals::Vec2OffsetZ` be `const`.
+- Made `LevelLocals::Vec2OffsetZ` not be `static`.
+- Made `LevelLocals::Vec2Offset` be `const`.
+- Made `LevelLocals::Vec2Offset` not be `static`.
+- Made `LevelLocals::Vec3Diff` be `const`.
+- Made `LevelLocals::Vec3Diff` not be `static`.
+- Made `LevelLocals::Vec3Offset` be `const`.
+- Made `LevelLocals::Vec3Offset` not be `static`.
+- Made `LevelLocals::WorldDone` not be `static`.
+- Made `PlayerMenu::AlwaysRunChanged` be `static`.
+- Made `PlayerMenu::AutoaimChanged` be `static`.
+- Made `PlayerMenu::ClassChanged` be `static`.
+- Made `PlayerMenu::ColorChanged` be `static`.
+- Made `PlayerMenu::ColorSetChanged` be `static`.
+- Made `PlayerMenu::GenderChanged` be `static`.
+- Made `PlayerMenu::PlayerNameChanged` be `static`.
+- Made `PlayerMenu::SkinChanged` be `static`.
+- Made `PlayerMenu::SwitchOnPickupChanged` be `static`.
+- Made `PlayerMenu::TeamChanged` be `static`.
+- Made `PlayerPawn::CalcHeight` be `virtual`.
+- Made `PlayerPawn::ColorRangeEnd` be `meta`.
+- Made `PlayerPawn::ColorRangeStart` be `meta`.
+- Made `PlayerPawn::FlechetteType` be `class<Inventory>`.
+- Made `PlayerPawn::ResetAirSupply` be `virtual`.
+- Made `PlayerPawn::TweakSpeeds` be `virtual`.
+- Made `SaveGameManager` be `ui`.
+- Made `SaveGameNode::FileName` be `readonly`.
+- Made `StatusScreen::DrawEL` be `virtual`.
+- Made `StatusScreen::DrawLF` be `virtual`.
+- Removed `PlayerPawn::GetMaxHealth` (as it is now an `Actor` override.)
+- Removed `PlayerPawn::PlayerFlags`.
+- Removed `TextEnterMenu::mSizeMode`.
 
 <!-- EOF -->

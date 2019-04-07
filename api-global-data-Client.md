@@ -19,6 +19,8 @@ readonly Font ConFont;
 readonly Font IntermissionFont;
 readonly Font SmallFont;
 readonly Font SmallFont2;
+readonly Font NewConsoleFont;
+readonly Font NewSmallFont;
 
 ui float         BackbuttonAlpha;
 ui int           BackbuttonTime;
@@ -95,6 +97,14 @@ int LocalViewPitch;
 - `SmallFont2`
 
    The alternate `smallfnt`.
+
+- `NewConsoleFont`
+
+   TODO
+
+- `NewSmallFont`
+
+   TODO
 
 - `BackbuttonAlpha`
 

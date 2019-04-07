@@ -19,6 +19,8 @@ struct GameInfoStruct
    array<name> InfoPages;
    bool        IntermissionCounter;
    bool        NoRandomPlayerClass;
+   double      NormForwardMove[2];
+   double      NormSideMove[2];
    double      TeleFogHeight;
    string      mBackButton;
    name        mSliderColor;
