@@ -21,19 +21,19 @@ deprecated("3.8") vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
    | Name                   |
    | ----                   |
-   | `SKILLP_ACSReturn`     |
-   | `SKILLP_AutoUseHealth` |
-   | `SKILLP_DisableCheats` |
-   | `SKILLP_EasyBossBrain` |
-   | `SKILLP_EasyKey`       |
-   | `SKILLP_FastMonsters`  |
-   | `SKILLP_Infight`       |
-   | `SKILLP_NoPain`        |
-   | `SKILLP_PlayerRespawn` |
-   | `SKILLP_RespawnLimit`  |
-   | `SKILLP_Respawn`       |
-   | `SKILLP_SlowMonsters`  |
-   | `SKILLP_SpawnFilter`   |
+   | `SKILLP_ACSRETURN`     |
+   | `SKILLP_AUTOUSEHEALTH` |
+   | `SKILLP_DISABLECHEATS` |
+   | `SKILLP_EASYBOSSBRAIN` |
+   | `SKILLP_EASYKEY`       |
+   | `SKILLP_FASTMONSTERS`  |
+   | `SKILLP_INFIGHT`       |
+   | `SKILLP_NOPAIN`        |
+   | `SKILLP_PLAYERRESPAWN` |
+   | `SKILLP_RESPAWNLIMIT`  |
+   | `SKILLP_RESPAWN`       |
+   | `SKILLP_SLOWMONSTERS`  |
+   | `SKILLP_SPAWNFILTER`   |
 
 - `G_SkillPropertyFloat`
 
@@ -41,15 +41,15 @@ deprecated("3.8") vector3, int G_PickPlayerStart(int pnum, int flags = 0);
 
    | Name                    |
    | ----                    |
-   | `SKILLP_Aggressiveness` |
-   | `SKILLP_AmmoFactor`     |
-   | `SKILLP_ArmorFactor`    |
-   | `SKILLP_DamageFactor`   |
-   | `SKILLP_DropAmmoFactor` |
-   | `SKILLP_FriendlyHealth` |
-   | `SKILLP_HealthFactor`   |
-   | `SKILLP_MonsterHealth`  |
-   | `SKILLP_KickBackFactor` |
+   | `SKILLP_AGGRESSIVENESS` |
+   | `SKILLP_AMMOFACTOR`     |
+   | `SKILLP_ARMORFACTOR`    |
+   | `SKILLP_DAMAGEFACTOR`   |
+   | `SKILLP_DROPAMMOFACTOR` |
+   | `SKILLP_FRIENDLYHEALTH` |
+   | `SKILLP_HEALTHFACTOR`   |
+   | `SKILLP_MONSTERHEALTH`  |
+   | `SKILLP_KICKBACKFACTOR` |
 
 - `G_PickDeathmatchStart`
 

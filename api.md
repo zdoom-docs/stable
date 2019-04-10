@@ -194,10 +194,10 @@ object. Generally these are utility functions.
 
 <!-- inter-toc global-type -->
 
-* [DEHInfo](api-global-DEHInfo.md)
-* [FOptionMenuSettings](api-global-FOptionMenuSettings.md)
-* [GameInfoStruct](api-global-GameInfoStruct.md)
-* [LevelLocals](api-global-LevelLocals.md)
+* [DehInfo](api-global-type-DehInfo.md)
+* [FOptionMenuSettings](api-global-type-FOptionMenuSettings.md)
+* [GameInfoStruct](api-global-type-GameInfoStruct.md)
+* [LevelLocals](api-global-type-LevelLocals.md)
 
 <!-- end -->
 

@@ -9,7 +9,7 @@ readonly array<PlayerClass>  PlayerClasses;
 readonly array<PlayerSkin>   PlayerSkins;
 readonly array<Team>         Teams;
 
-play     DEHInfo             DEH;
+play     DehInfo             Deh;
 readonly GameInfoStruct      GameInfo;
 readonly FOptionMenuSettings OptionMenuSettings;
 readonly textureid           SkyFlatNum;
@@ -37,7 +37,7 @@ readonly Weapon              WP_NOCHANGE;
 
    An array of all teams. Maximum index is `Team.Max`.
 
-- `DEH`
+- `Deh`
 
    Static DeHackEd information.
 

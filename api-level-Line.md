@@ -38,9 +38,9 @@ struct Line play
    clearscope int GetHealth();
    void SetHealth(int newhealth);
 
-   double GetUDMFFloat(name nm);
-   int    GetUDMFInt(name nm);
-   string GetUDMFString(name nm);
+   double GetUdmfFloat(name nm);
+   int    GetUdmfInt(name nm);
+   string GetUdmfString(name nm);
 }
 ```
 
@@ -171,7 +171,7 @@ struct Line play
 
    TODO
 
-- `GetUDMFFloat`, `GetUDMFInt`, `GetUDMFString`
+- `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
 
    Gets a named UDMF property attached to this linedef.
 

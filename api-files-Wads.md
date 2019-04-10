@@ -30,33 +30,33 @@ In short:
 
 | Name              | Description                                             | Resource path | Wad file marker                          |
 | ----              | -----------                                             | ------------- | ---------------                          |
-| `ns_acslibrary`   | ACS libraries.                                          | `/acs/`       | `A_START`/`A_END`                        |
-| `ns_bloodmisc`    | Unused.                                                 | N/A           | N/A                                      |
-| `ns_bloodraw`     | Blood `RAW` format sounds. Found only in `RFF` files.   | N/A           | N/A                                      |
-| `ns_bloodsfx`     | Blood `SFX` format sounds. Found only in `RFF` files.   | N/A           | N/A                                      |
-| `ns_colormaps`    | Boom color maps.                                        | `/colormaps/` | `C_START`/`C_END`                        |
-| `ns_flats`        | Flat textures.                                          | `/flats/`     | `FF_START`/`FF_END`                      |
-| `ns_global`       | The global namespace, which is the root of any archive. | `/`           | None                                     |
-| `ns_graphics`     | Miscellaneous graphics.                                 | `/graphics/`  | None                                     |
-| `ns_hidden`       | Used for filtered files that did not match this game.   | N/A           | N/A                                      |
-| `ns_hires`        | Deprecated high-resolution textures.                    | `/hires/`     | `HI_START`/`HI_END`                      |
-| `ns_music`        | Music files.                                            | `/music/`     | None                                     |
-| `ns_newtextures`  | Generic texture files, usable as patches or flats.      | `/textures/`  | `TX_START`/`TX_END`                      |
-| `ns_patches`      | Texture patches.                                        | `/patches/`   | None                                     |
-| `ns_sounds`       | Sound files.                                            | `/sounds/`    | None                                     |
-| `ns_sprites`      | Sprites are all contained in this namespace.            | `/sprites/`   | `S_START`/`S_END` or `SS_START`/`SS_END` |
-| `ns_strifevoices` | Strife voice files.                                     | `/voices/`    | `V_START`/`V_END`                        |
-| `ns_voxels`       | Volumetric pixel (voxel) models.                        | `/voxels/`    | `VX_START`/`VX_END`                      |
+| `NS_ACSLIBRARY`   | ACS libraries.                                          | `/acs/`       | `A_START`/`A_END`                        |
+| `NS_BLOODMISC`    | Unused.                                                 | N/A           | N/A                                      |
+| `NS_BLOODRAW`     | Blood `RAW` format sounds. Found only in `RFF` files.   | N/A           | N/A                                      |
+| `NS_BLOODSFX`     | Blood `SFX` format sounds. Found only in `RFF` files.   | N/A           | N/A                                      |
+| `NS_COLORMAPS`    | Boom color maps.                                        | `/colormaps/` | `C_START`/`C_END`                        |
+| `NS_FLATS`        | Flat textures.                                          | `/flats/`     | `FF_START`/`FF_END`                      |
+| `NS_GLOBAL`       | The global namespace, which is the root of any archive. | `/`           | None                                     |
+| `NS_GRAPHICS`     | Miscellaneous graphics.                                 | `/graphics/`  | None                                     |
+| `NS_HIDDEN`       | Used for filtered files that did not match this game.   | N/A           | N/A                                      |
+| `NS_HIRES`        | Deprecated high-resolution textures.                    | `/hires/`     | `HI_START`/`HI_END`                      |
+| `NS_MUSIC`        | Music files.                                            | `/music/`     | None                                     |
+| `NS_NEWTEXTURES`  | Generic texture files, usable as patches or flats.      | `/textures/`  | `TX_START`/`TX_END`                      |
+| `NS_PATCHES`      | Texture patches.                                        | `/patches/`   | None                                     |
+| `NS_SOUNDS`       | Sound files.                                            | `/sounds/`    | None                                     |
+| `NS_SPRITES`      | Sprites are all contained in this namespace.            | `/sprites/`   | `S_START`/`S_END` or `SS_START`/`SS_END` |
+| `NS_STRIFEVOICES` | Strife voice files.                                     | `/voices/`    | `V_START`/`V_END`                        |
+| `NS_VOXELS`       | Volumetric pixel (voxel) models.                        | `/voxels/`    | `VX_START`/`VX_END`                      |
 
-Additionally, `ns_specialzipdirectory` denotes the start of the specialized
-resource archive folder namespaces, which are normally under `ns_global`.
+Additionally, `NS_SPECIALZIPDIRECTORY` denotes the start of the specialized
+resource archive folder namespaces, which are normally under `NS_GLOBAL`.
 
 ```
 struct Wads
 {
    static int    CheckNumForFullName(string name);
    static int    CheckNumForName(string name, int ns, int wadnum = -1, bool exact = false);
-   static int    FindLump(string name, int startlump = 0, FindLumpNamespace ns = Wads.GlobalNamespace);
+   static int    FindLump(string name, int startlump = 0, FindLumpNamespace ns = Wads.GLOBALNAMESPACE);
    static string ReadLump(int lump);
 }
 ```
@@ -82,7 +82,7 @@ struct Wads
 
    Returns the handle of the first lump named `name` starting at `startlump`
    (zero indicates the first lump) in either the global namespace or any
-   namespace. `ns` can be either `Wads.GlobalNamespace` or `Wads.AnyNamespace`
+   namespace. `ns` can be either `Wads.GLOBALNAMESPACE` or `Wads.ANYNAMESPACE`
    to specify this. Returns `-1` if there are no lumps with that name left.
 
    This function can be used in a loop to find all lumps with a specified name.

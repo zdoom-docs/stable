@@ -185,9 +185,9 @@ struct Sector play
    clearscope int GetHealth(SectorPart part);
    void           SetHealth(SectorPart part, int newhealth);
 
-   double GetUDMFFloat(name nm);
-   int    GetUDMFInt(name nm);
-   string GetUDMFString(name nm);
+   double GetUdmfFloat(name nm);
+   int    GetUdmfInt(name nm);
+   string GetUdmfString(name nm);
 }
 ```
 

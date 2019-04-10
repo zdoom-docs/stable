@@ -5,12 +5,12 @@ The base class for intermission status screens. Any status screen used by
 
 Status screens have four stages:
 
-- `StatCount`, where the stats are counted and displayed.
-- `ShowNextLoc`, where the next map is shown as "ENTERING (map name)" and in episodic maps, the world map.
-- `NoState`, at the very end of this process, where the last frame is drawn and the intermission is exited.
-- `LeavingIntermission`, which is used only to signify that all stages are done and the status screen has been exited.
+- `STATCOUNT`, where the stats are counted and displayed.
+- `SHOWNEXTLOC`, where the next map is shown as "ENTERING (map name)" and in episodic maps, the world map.
+- `NOSTATE`, at the very end of this process, where the last frame is drawn and the intermission is exited.
+- `LEAVINGINTERMISSION`, which is used only to signify that all stages are done and the status screen has been exited.
 
-These are provided as constants in `StatusScreen`. The starting stage is `StatCount`.
+These are provided as constants in `StatusScreen`. The starting stage is `STATCOUNT`.
 
 ```
 class StatusScreen : Object abstract play
@@ -25,7 +25,7 @@ class StatusScreen : Object abstract play
 
    InterBackground BG;
    WBPlayerStruct  Plrs[MAXPLAYERS];
-   WBStartStruct   WBS;
+   WBStartStruct   Wbs;
 
    int   AccelerateStage;
    int   BCnt;
@@ -46,7 +46,7 @@ class StatusScreen : Object abstract play
    bool  NoAutoStartMap;
    bool  PlayerReady[MAXPLAYERS];
    int   Player_Deaths[MAXPLAYERS];
-   bool  SNL_PointerOn;
+   bool  Snl_PointerOn;
    int   SP_State;
    float ShadowAlpha;
    int   Total_Deaths;
@@ -135,14 +135,14 @@ class StatusScreen : Object abstract play
 - `BG`
 
    The `InterBackground` object for this intermission, set by `Start` with the
-   initial `WBS` object.
+   initial `Wbs` object.
 
 - `Plrs`
 
-   The value of `WBS.Plyr` when `Start` was called. Usually not changed, so
-   essentially equivalent to `WBS.Plyr`.
+   The value of `Wbs.Plyr` when `Start` was called. Usually not changed, so
+   essentially equivalent to `Wbs.Plyr`.
 
-- `WBS`
+- `Wbs`
 
    The `WBStartStruct` passed to this class via the `Start` function.
 
@@ -205,8 +205,8 @@ class StatusScreen : Object abstract play
 
 - `Me`
 
-   The value of `WBS.PNum` when `Start` was called. Usually not changed, so
-   essentially equivalent to `WBS.PNum`.
+   The value of `Wbs.PNum` when `Start` was called. Usually not changed, so
+   essentially equivalent to `Wbs.PNum`.
 
 - `NG_State`
 
@@ -225,13 +225,13 @@ class StatusScreen : Object abstract play
 
    TODO
 
-- `SNL_PointerOn`
+- `Snl_PointerOn`
 
    TODO
 
 - `SP_State`
 
-   Used in single-player status screens during the `StatCount` stage for
+   Used in single-player status screens during the `STATCOUNT` stage for
    indicating the current round of statistics to count up.
 
 - `ShadowAlpha`
@@ -334,7 +334,7 @@ class StatusScreen : Object abstract play
 - `End`
 
    Called when the intermission should end. Default behaviour is to set
-   `CurState` to `LeavingIntermission` and remove bots in death-match.
+   `CurState` to `LEAVINGINTERMISSION` and remove bots in death-match.
    Generally, `Level.WorldDone` should be called directly after this.
 
 - `Start`
@@ -354,44 +354,44 @@ class StatusScreen : Object abstract play
 
 - `DrawNoState`
 
-   Called by `Drawer` when `CurState` is `NoState` or any other non-state.
+   Called by `Drawer` when `CurState` is `NOSTATE` or any other non-state.
 
 - `DrawShowNextLoc`
 
-   Called by `Drawer` when `CurState` is `ShowNextLoc` and, by default,
-   `DrawNoState` after setting `SNL_PointerOn` to `true`.
+   Called by `Drawer` when `CurState` is `SHOWNEXTLOC` and, by default,
+   `DrawNoState` after setting `Snl_PointerOn` to `true`.
 
 - `DrawStats`
 
    Called by `Drawer` directly after drawing the animated background when
-   `CurState` is `StatCount`.
+   `CurState` is `STATCOUNT`.
 
 - `InitNoState`
 
-   Called by `UpdateShowNextLoc` to initiate the `NoState` stage.
+   Called by `UpdateShowNextLoc` to initiate the `NOSTATE` stage.
 
 - `InitShowNextLoc`
 
-   Called by `UpdateStats` to initiate the `ShowNextLoc` stage.
+   Called by `UpdateStats` to initiate the `SHOWNEXTLOC` stage.
 
 - `InitStats`
 
-   Called by `Start` to initiate the `StatCount` stage.
+   Called by `Start` to initiate the `STATCOUNT` stage.
 
 - `UpdateNoState`
 
-   Called by `Ticker` when `CurState` is `NoState` or any other non-state.
+   Called by `Ticker` when `CurState` is `NOSTATE` or any other non-state.
    Exits the intermission by calling `End` and `Level.WorldDone` when
    appropriate.
 
 - `UpdateShowNextLoc`
 
-   Called by `Ticker` when `CurState` is `ShowNextLoc`. Runs `InitNoState` when
-   appropriate and alternates `SNL_PointerOn`.
+   Called by `Ticker` when `CurState` is `SHOWNEXTLOC`. Runs `InitNoState` when
+   appropriate and alternates `Snl_PointerOn`.
 
 - `UpdateStats`
 
-   Called by `Ticker` when `CurState` is `StatCount`. Runs `InitShowNextLoc`
+   Called by `Ticker` when `CurState` is `STATCOUNT`. Runs `InitShowNextLoc`
    when appropriate.
 
 - `CheckForAccelerate`

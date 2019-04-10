@@ -50,7 +50,7 @@ Here is a list of differences between ZScript versions.
 - Added `PlayerPawn::CheckCrouch`.
 - Added `PlayerPawn::CheckDegeneration`.
 - Added `PlayerPawn::CheckEnvironment`.
-- Added `PlayerPawn::CheckFOV`.
+- Added `PlayerPawn::CheckFov`.
 - Added `PlayerPawn::CheckFrozen`.
 - Added `PlayerPawn::CheckJump`.
 - Added `PlayerPawn::CheckMoveUpDown`.
@@ -89,7 +89,7 @@ Here is a list of differences between ZScript versions.
 - Added `+DYNAMICLIGHT.SUBTRACTIVE`.
 - Added `+ZDOOMTRANS`.
 - Added `Actor::A_SoundVolume`.
-- Added `Actor::CameraFOV`.
+- Added `Actor::CameraFov`.
 - Added `Actor::CheckPortalTransition`.
 - Added `Actor::FloatBobStrength`.
 - Added `Actor::RenderHidden`.
@@ -163,14 +163,14 @@ Here is a list of differences between ZScript versions.
 - Added `LevelLocals::PixelStretch`.
 - Added `LevelLocals::Vec2Diff`.
 - Added `LevelLocals::Vec3Diff`.
-- Added `SKILLP_PlayerRespawn`.
+- Added `SKILLP_PLAYERRESPAWN`.
 - Added `Screen::DrawLine`.
 - Added `alpha2` parameter to `Actor::A_SetBlend`.
 - Changed `Thinker::Tics2Seconds`' logic.
 
 ## Version 3.3.0
 
-- Added `Actor::ACS_ScriptCall`.
+- Added `Actor::Acs_ScriptCall`.
 - Added `Actor::Distance2DSquared`.
 - Added `Actor::Distance3DSquared`.
 - Added `Actor::FriendlySeeBlocks`.
@@ -182,14 +182,14 @@ Here is a list of differences between ZScript versions.
 - Added `BaseStatusBar::DetachAllMessages`.
 - Added `BaseStatusBar::DetachMessageID`.
 - Added `BaseStatusBar::DetachMessage`.
-- Added `BaseStatusBar::EHUDMSGLayer`.
+- Added `BaseStatusBar::EHudMsgLayer`.
 - Added `CHAN_LOOP`.
 - Added `DynamicLight::SpotInnerAngle`.
 - Added `DynamicLight::SpotOuterAngle`.
 - Added `ETrace*`, `ELineTier`, `ELineTraceFlags`.
 - Added `FLineTargetData`.
 - Added `HudMessageBase`.
-- Added `Inventory::AltHUDIcon`.
+- Added `Inventory::AltHudIcon`.
 - Added `LevelLocals::ChangeSky`.
 - Added `LevelLocals::GetChecksum`.
 - Added `LevelLocals::SkySpeed1`.
@@ -235,19 +235,19 @@ Here is a list of differences between ZScript versions.
 
 - Added `Line::Activate`.
 - Added `Line::RemoteActivate`.
-- Added `SPAC`.
+- Added `Spac`.
 
 ## Version 3.4.0
 
 - Added "`internal`" keyword.
 - Added `Actor::OnGiveSecret`.
-- Added `DTA_Color`.
-- Added `DTA_Desaturate`.
-- Added `DTA_FlipY`.
-- Added `DTA_SrcHeight`.
-- Added `DTA_SrcWidth`.
-- Added `DTA_SrcX`.
-- Added `DTA_SrcY`.
+- Added `DTA_COLOR`.
+- Added `DTA_DESATURATE`.
+- Added `DTA_FLIPY`.
+- Added `DTA_SRCHEIGHT`.
+- Added `DTA_SRCWIDTH`.
+- Added `DTA_SRCX`.
+- Added `DTA_SRCY`.
 - Added `LevelLocals::Vec2OffsetZ`.
 - Added `LevelLocals::Vec2Offset`.
 - Added `LevelLocals::Vec3Offset`.
@@ -354,7 +354,7 @@ Here is a list of differences between ZScript versions.
 - Added `EChangeLevelFlags`.
 - Added `EFinishLevelType`.
 - Added `EPlayerGender`.
-- Added `FLineTraceData::TRACE_HasHitSky`.
+- Added `FLineTraceData::TRACE_HASHITSKY`.
 - Added `FRailParams`.
 - Added `Font::GetBottomAlignOffset`.
 - Added `GameInfoStruct::BerserkPic`.
@@ -418,7 +418,7 @@ Here is a list of differences between ZScript versions.
 - Added `PlayerPawn::TeleportFreezeTime`.
 - Added `PlayerPawn::UndoPlayerMorph`.
 - Added `RadiusDamageFlags`.
-- Added `SKILLP_KickBackFactor`.
+- Added `SKILLP_KICKBACKFACTOR`.
 - Added `ScriptUtil`.
 - Added `SecActDamage3D`.
 - Added `SecActDamageCeiling`.
@@ -435,12 +435,12 @@ Here is a list of differences between ZScript versions.
 - Added `Sector::SECF_NOATTACK`.
 - Added `Sector::SetAdditiveColor`.
 - Added `Sector::SetHealth`.
-- Added `SectorAction::SECSPAC_Damage3D`.
-- Added `SectorAction::SECSPAC_DamageCeiling`.
-- Added `SectorAction::SECSPAC_DamageFloor`.
-- Added `SectorAction::SECSPAC_Death3D`.
-- Added `SectorAction::SECSPAC_DeathCeiling`.
-- Added `SectorAction::SECSPAC_DeathFloor`.
+- Added `SectorAction::SECSPAC_DAMAGE3D`.
+- Added `SectorAction::SECSPAC_DAMAGECEILING`.
+- Added `SectorAction::SECSPAC_DAMAGEFLOOR`.
+- Added `SectorAction::SECSPAC_DEATH3D`.
+- Added `SectorAction::SECSPAC_DEATHCEILING`.
+- Added `SectorAction::SECSPAC_DEATHFLOOR`.
 - Added `SectorPart`.
 - Added `Side::EnableAdditiveColor`.
 - Added `Side::GetAdditiveColor`.
@@ -451,7 +451,7 @@ Here is a list of differences between ZScript versions.
 - Added `State::InStateSequence`.
 - Added `StaticEventHandler::WorldLineDamaged`.
 - Added `StaticEventHandler::WorldSectorDamaged`.
-- Added `TRACE_HasHitSky`.
+- Added `TRACE_HASHITSKY`.
 - Added `Vertex::Index`.
 - Added `Weapon::CheckAddToSlots`.
 - Added `Weapon::DoReadyWeaponDisableSwitch`.

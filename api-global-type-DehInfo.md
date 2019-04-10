@@ -1,11 +1,11 @@
-# DEHInfo
+# DehInfo
 
 Static DeHackEd information.
 
 ```
-struct DEHInfo
+struct DehInfo
 {
-   readonly int    BFGCells;
+   readonly int    BfgCells;
    readonly int    BlueAC;
    readonly double ExplosionAlpha;
    readonly uint8  ExplosionStyle;
@@ -15,9 +15,9 @@ struct DEHInfo
 }
 ```
 
-- `BFGCells`
+- `BfgCells`
 
-   The amount of ammunition `A_FireBFG` will deplete. Default is 40.
+   The amount of ammunition `A_FireBfg` will deplete. Default is 40.
 
 - `BlueAC`
 

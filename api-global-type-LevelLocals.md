@@ -89,9 +89,9 @@ struct LevelLocals
    readonly bool   SndSeqTotalCtrl;
    readonly double TeamDamage;
 
-   double GetUDMFFloat(int type, int index, name key);
-   int    GetUDMFInt(int type, int index, name key);
-   string GetUDMFString(int type, int index, name key);
+   double GetUdmfFloat(int type, int index, name key);
+   int    GetUdmfInt(int type, int index, name key);
+   string GetUdmfString(int type, int index, name key);
 
    play int ExecuteSpecial(int special, Actor activator, Line linedef, bool lineside, int arg1 = 0, int arg2 = 0, int arg3 = 0, int arg4 = 0, int arg5 = 0);
 

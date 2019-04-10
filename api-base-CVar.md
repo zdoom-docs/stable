@@ -71,11 +71,11 @@ struct CVar
 
    | Name               |
    | ----               |
-   | `CVar.CVAR_Bool`   |
-   | `CVar.CVAR_Color`  |
-   | `CVar.CVAR_Float`  |
-   | `CVar.CVAR_Int`    |
-   | `CVar.CVAR_String` |
+   | `CVar.CVAR_BOOL`   |
+   | `CVar.CVAR_COLOR  |
+   | `CVar.CVAR_FLOAT`  |
+   | `CVar.CVAR_INT`    |
+   | `CVar.CVAR_STRING` |
 
 - `ResetToDefault`
 

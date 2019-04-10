@@ -55,9 +55,9 @@ struct Side play
 
    void EnableAdditiveColor(int tier, bool enable);
 
-   double GetUDMFFloat(name nm);
-   int    GetUDMFInt(name nm);
-   string GetUDMFString(name nm);
+   double GetUdmfFloat(name nm);
+   int    GetUdmfInt(name nm);
+   string GetUdmfString(name nm);
 }
 ```
 
@@ -129,7 +129,7 @@ struct Side play
 
    TODO
 
-- `GetUDMFFloat`, `GetUDMFInt`, `GetUDMFString`
+- `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
 
    Gets a named UDMF property attached to this sidedef.
 

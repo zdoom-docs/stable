@@ -158,7 +158,7 @@ type names. Strings are implicitly cast to names.
 
 Names can be converted to `int` with an explicit cast, and the negative of
 `int(name())` may be used to create an integer representation of a string
-usable by action specials, most prominently `ACS_NamedExecute`.
+usable by action specials, most prominently `Acs_NamedExecute`.
 
 # Colors
 

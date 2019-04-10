@@ -26,34 +26,34 @@ struct TexMan
 
    | Name                       | Description                                                                                       |
    | ----                       | -----------                                                                                       |
-   | `TexMan.Type_Any`          | Any kind of texture.                                                                              |
-   | `TexMan.Type_Autopage`     | Unused.                                                                                           |
-   | `TexMan.Type_Build`        | Unused.                                                                                           |
-   | `TexMan.Type_Decal`        | A decal pic defined in `DECALDEF`.                                                                |
-   | `TexMan.Type_FirstDefined` | The first composite texture defined by the IWad.                                                  |
-   | `TexMan.Type_Flat`         | A flat (ceiling/floor texture,) i.e. `FLOOR0_1`.                                                  |
-   | `TexMan.Type_FontChar`     | Unused.                                                                                           |
-   | `TexMan.Type_MiscPatch`    | A loose graphic, i.e. `M_DOOM`.                                                                   |
-   | `TexMan.Type_Null`         | Reserved for the null graphic. Ignores `name`.                                                    |
-   | `TexMan.Type_Override`     | Overridable generalized textures, for instance textures defined in `TX_START` or BUILD ART tiles. |
-   | `TexMan.Type_SkinGraphic`  | Any loose graphic defined in `S_SKIN` i.e. statusbar faces.                                       |
-   | `TexMan.Type_SkinSprite`   | Any sprite defined in `S_SKIN`.                                                                   |
-   | `TexMan.Type_Sprite`       | A sprite in `S_START`, i.e. `MEDIA0`.                                                             |
-   | `TexMan.Type_WallPatch`    | An uncomposited patch, i.e. `DOOR2_1`.                                                            |
-   | `TexMan.Type_Wall`         | Any composited wall texture, i.e. `STARTAN2`.                                                     |
+   | `TexMan.TYPE_ANY`          | Any kind of texture.                                                                              |
+   | `TexMan.TYPE_AUTOPAGE`     | Unused.                                                                                           |
+   | `TexMan.TYPE_BUILD`        | Unused.                                                                                           |
+   | `TexMan.TYPE_DECAL`        | A decal pic defined in `DECALDEF`.                                                                |
+   | `TexMan.TYPE_FIRSTDEFINED` | The first composite texture defined by the IWad.                                                  |
+   | `TexMan.TYPE_FLAT`         | A flat (ceiling/floor texture,) i.e. `FLOOR0_1`.                                                  |
+   | `TexMan.TYPE_FONTCHAR`     | Unused.                                                                                           |
+   | `TexMan.TYPE_MISCPATCH`    | A loose graphic, i.e. `M_DOOM`.                                                                   |
+   | `TexMan.TYPE_NULL`         | Reserved for the null graphic. Ignores `name`.                                                    |
+   | `TexMan.TYPE_OVERRIDE`     | Overridable generalized textures, for instance textures defined in `TX_START` or BUILD ART tiles. |
+   | `TexMan.TYPE_SKINGRAPHIC`  | Any loose graphic defined in `S_SKIN` i.e. statusbar faces.                                       |
+   | `TexMan.TYPE_SKINSPRITE`   | Any sprite defined in `S_SKIN`.                                                                   |
+   | `TexMan.TYPE_SPRITE`       | A sprite in `S_START`, i.e. `MEDIA0`.                                                             |
+   | `TexMan.TYPE_WALLPATCH`    | An uncomposited patch, i.e. `DOOR2_1`.                                                            |
+   | `TexMan.TYPE_WALL`         | Any composited wall texture, i.e. `STARTAN2`.                                                     |
 
    `flags` may be any of the following combined (with the bitwise OR operator
    `|`:)
 
    | Name                   | Description                                                                               |
    | ----                   | -----------                                                                               |
-   | `TexMan.AllowSkins`    | Allows `SkinGraphic`s to be returned under normal circumstances.                          |
-   | `TexMan.DontCreate`    | Will never create a new texture when searching.                                           |
-   | `TexMan.Localize`      | TODO                                          .                                           |
-   | `TexMan.Overridable`   | Allows overriding of this texture by for instance `TEXTURES`.                             |
-   | `TexMan.ReturnFirst`   | Allows returning the `FirstDefined` "null" texture under normal circumstances.            |
-   | `TexMan.ShortNameOnly` | Will force use of a short name when searching.                                            |
-   | `TexMan.TryAny`        | Returns any other type of texture if one is not found in the specified use type. Default. |
+   | `TexMan.ALLOWSKINS`    | Allows `SkinGraphic`s to be returned under normal circumstances.                          |
+   | `TexMan.DONTCREATE`    | Will never create a new texture when searching.                                           |
+   | `TexMan.LOCALIZE`      | TODO                                          .                                           |
+   | `TexMan.OVERRIDABLE`   | Allows overriding of this texture by for instance `TEXTURES`.                             |
+   | `TexMan.RETURNFIRST`   | Allows returning the `FirstDefined` "null" texture under normal circumstances.            |
+   | `TexMan.SHORTNAMEONLY` | Will force use of a short name when searching.                                            |
+   | `TexMan.TRYANY`        | Returns any other type of texture if one is not found in the specified use type. Default. |
 
 - `CheckRealHeight`
 
