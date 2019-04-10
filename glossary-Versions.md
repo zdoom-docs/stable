@@ -2,21 +2,21 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Version 3.1](#version-31)
-* [Version 3.2](#version-32)
+* [Version 3.1.0](#version-310)
+* [Version 3.2.0](#version-320)
 * [Version 3.2.1](#version-321)
 * [Version 3.2.2](#version-322)
 * [Version 3.2.3](#version-323)
 * [Version 3.2.4](#version-324)
 * [Version 3.2.5](#version-325)
-* [Version 3.3](#version-33)
+* [Version 3.3.0](#version-330)
 * [Version 3.3.1](#version-331)
 * [Version 3.3.2](#version-332)
-* [Version 3.4](#version-34)
-* [Version 3.5](#version-35)
+* [Version 3.4.0](#version-340)
+* [Version 3.5.0](#version-350)
 * [Version 3.5.1](#version-351)
-* [Version 3.6](#version-36)
-* [Version 3.7](#version-37)
+* [Version 3.6.0](#version-360)
+* [Version 3.7.0](#version-370)
 * [Version 3.7.2](#version-372)
 * [Version 4.0.0](#version-400)
 
@@ -24,7 +24,7 @@
 
 Here is a list of differences between ZScript versions.
 
-## Version 3.1
+## Version 3.1.0
 
 - Added `Actor::CheckFakeFloorTriggers`.
 - Added `Actor::ORIG_FRICTION_FACTOR`.
@@ -82,7 +82,7 @@ Here is a list of differences between ZScript versions.
 - Added override for `SBarInfoWrapper::GetProtrusion`.
 - Made `PlayerInfo::Cls` not `readonly`.
 
-## Version 3.2
+## Version 3.2.0
 
 - Added `+DYNAMICLIGHT.ADDITIVE`.
 - Added `+DYNAMICLIGHT.ATTENUATE`.
@@ -168,7 +168,7 @@ Here is a list of differences between ZScript versions.
 - Added `alpha2` parameter to `Actor::A_SetBlend`.
 - Changed `Thinker::Tics2Seconds`' logic.
 
-## Version 3.3
+## Version 3.3.0
 
 - Added `Actor::ACS_ScriptCall`.
 - Added `Actor::Distance2DSquared`.
@@ -237,7 +237,7 @@ Here is a list of differences between ZScript versions.
 - Added `Line::RemoteActivate`.
 - Added `SPAC`.
 
-## Version 3.4
+## Version 3.4.0
 
 - Added "`internal`" keyword.
 - Added `Actor::OnGiveSecret`.
@@ -257,7 +257,7 @@ Here is a list of differences between ZScript versions.
 - Made `LevelLocals::SectorPortals` be `internal`.
 - Made `Sector::Portals` be `internal`.
 
-## Version 3.5
+## Version 3.5.0
 
 - Added `DTA_LegacyRenderStyle`.
 - Added `MeansOfDeath` parameter to `Actor::Die`.
@@ -280,7 +280,7 @@ Here is a list of differences between ZScript versions.
 - Made `Actor::Normalize180` be `clearscope`.
 - Made `Actor::RotateVector` be `clearscope`.
 
-## Version 3.6
+## Version 3.6.0
 
 - Added `Actor::A_CheckForResurrection`.
 - Added `Actor::A_RaiseSelf`.
@@ -296,7 +296,7 @@ Here is a list of differences between ZScript versions.
 - Added `TRF_SOLIDACTORS`, `TRF_BLOCKUSE`, and `TRF_BLOCKSELF`.
 - Made `StatusScreen::End` be `virtual`.
 
-## Version 3.7
+## Version 3.7.0
 
 - Added "`flagdef`" keyword.
 - Added `"AddShaded"` RenderStyle.

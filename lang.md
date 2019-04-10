@@ -61,8 +61,8 @@ element spellings:
 Full ZScript files are referred to as "translation units." This terminology
 comes from the C standard, and refers simply to the entirety of a ZScript
 source file. ZScript files are looked for in lumps named `zscript` with any
-extension. The standard extension is `.txt`, but `.zsc` and `.zs` are common as
-well. The author of this documentation prefers `.zsc`.
+extension. The standard extension is `.zs`, but `.zsc` is common as well. The
+author of this documentation prefers `.zsc`.
 
 The base translation unit `zscript` may start with a version directive, then
 followed by any number of top-level definitions and `#include` directives.
