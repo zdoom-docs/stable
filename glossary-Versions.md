@@ -18,7 +18,15 @@
 * [Version 3.6.0](#version-360)
 * [Version 3.7.0](#version-370)
 * [Version 3.7.2](#version-372)
+* [Version 3.8.0 (Legacy)](#version-380-legacy)
+* [Version 3.8.1 (Legacy)](#version-381-legacy)
+* [Version 3.8.2 (Legacy)](#version-382-legacy)
 * [Version 4.0.0](#version-400)
+* [Version 4.1.0](#version-410)
+* [Version 4.1.1](#version-411)
+* [Version 4.1.2](#version-412)
+* [Version 4.1.3](#version-413)
+* [Version 4.2.0](#version-420)
 
 <!-- vim-markdown-toc -->
 
@@ -339,8 +347,8 @@ Here is a list of differences between ZScript versions.
 - Added `Actor::VelIntercept`.
 - Added `Actor::bBounceOnUnrippables`.
 - Added `Actor::bDontBounceOnSky`.
-- Added `Actor::bNOFRICTIONBOUNCE`.
-- Added `Actor::bNOFRICTION`.
+- Added `Actor::bNoFrictionBounce`.
+- Added `Actor::bNoFriction`.
 - Added `AllClasses`.
 - Added `AltHud`.
 - Added `AmbientSound::MarkAmbientSounds`.
@@ -511,6 +519,18 @@ Here is a list of differences between ZScript versions.
 - Made `ScriptUtil::PlayerAmmo` be `static`.
 - Made `bool` negatable by the `-` prefix operator.
 
+## Version 3.8.0 (Legacy)
+
+TODO
+
+## Version 3.8.1 (Legacy)
+
+TODO
+
+## Version 3.8.2 (Legacy)
+
+TODO
+
 ## Version 4.0.0
 
 - Added `Actor::CanTouchItem`.
@@ -525,7 +545,7 @@ Here is a list of differences between ZScript versions.
 - Added `DehInfo::MaxHealth`.
 - Added `GameInfoStruct::NormForwardMove`.
 - Added `GameInfoStruct::NormSideMove`.
-- Added `Inventory::bUNCLEARABLE`.
+- Added `Inventory::bUnClearable`.
 - Added `LevelCompatibility::AddLineID`.
 - Added `LevelCompatibility::AddSectorTag`.
 - Added `LevelCompatibility::Apply`.
@@ -631,10 +651,10 @@ Here is a list of differences between ZScript versions.
 - Added `level` parameter to `ScriptUtils::SetMarineWeapon`.
 - Added `nomove` parameter to `StatusScreen::DrawNum`.
 - Added `nomove` parameter to `StatusScreen::DrawPercent`.
-- Added `os_AnyOrAllOption`.
-- Added `os_Menu`.
-- Added `os_Query`.
-- Added `os_SearchField`.
+- Added `OS_AnyOrAllOption`.
+- Added `OS_Menu`.
+- Added `OS_Query`.
+- Added `OS_SearchField`.
 - Added `source` parameter to `Actor::GetModifiedDamage`.
 - Added `source` parameter to `Inventory::ModifyDamage`.
 - Deprecated `Actor::FindUniqueTid`.
@@ -702,5 +722,133 @@ Here is a list of differences between ZScript versions.
 - Removed `PlayerPawn::GetMaxHealth` (as it is now an `Actor` override.)
 - Removed `PlayerPawn::PlayerFlags`.
 - Removed `TextEnterMenu::mSizeMode`.
+
+## Version 4.1.0
+
+- Added `AlternativeSmallFont`.
+- Added `ConversationMenu::DisplayFont`.
+- Added `ConversationMenu::DisplayHeight`.
+- Added `ConversationMenu::DisplayWidth`.
+- Added `ConversationMenu::FontScale`.
+- Added `ConversationMenu::RefHeight`.
+- Added `ConversationMenu::RefWidth`.
+- Added `ConversationMenu::ReplyLineHeight`.
+- Added `DTA_MONOSPACE`.
+- Added `DTA_SPACING`.
+- Added `DeathmatchStatusScreen::DisplayFont`.
+- Added `DeathmatchStatusScreen::FontScale`.
+- Added `DeathmatchStatusScreen::RowHeight`.
+- Added `Font::CanPrint`.
+- Added `Font::CanPrint`.
+- Added `Generic_UI`.
+- Added `MONO_CELLCENTER`.
+- Added `MONO_CELLLEFT`.
+- Added `MONO_CELLRIGHT`.
+- Added `MONO_OFF`.
+- Added `Menu::UpdateColorSets`.
+- Added `Menu::UpdateSkinOptions`.
+- Added `MessageBoxMenu::ArrowFont`.
+- Added `MessageBoxMenu::DestHeight`.
+- Added `MessageBoxMenu::DestWidth`.
+- Added `MessageBoxMenu::Selector`.
+- Added `MessageBoxMenu::TextFont`.
+- Added `NewPlayerMenu`.
+- Added `OptionMenu::GetIndent`.
+- Added `OptionMenuItemAutoAimSlider`.
+- Added `OptionMenuItemPlayerClassItem`.
+- Added `OptionMenuItemPlayerColorItem`.
+- Added `OptionMenuItemPlayerColorSlider`.
+- Added `OptionMenuItemPlayerGenderItem`.
+- Added `OptionMenuItemPlayerNameField`.
+- Added `OptionMenuItemPlayerSkinItem`.
+- Added `OptionMenuItemPlayerSwitchOnPickupItem`.
+- Added `OptionMenuItemPlayerTeamItem`.
+- Added `OriginalBigFont`.
+- Added `OriginalSmallFont`.
+- Added `PlayerMenuPlayerDisplay`.
+- Added `String::ByteAt`.
+- Added `String::CharLower`.
+- Added `String::CharUpper`.
+- Added `String::CodePointCount`.
+- Added `String::GetNextCodePoint`.
+- Added `String::MakeLower`.
+- Added `String::MakeUpper`.
+- Added `withmapname` parameter to `AltHud::DrawCoordinates`.
+- Changed `HUDFont::Create`'s `monospaced` parameter to `EMonoSpacing` and renamed to `monospacing`.
+- Deprecated `String::CharAt`.
+- Deprecated `String::CharCodeAt`.
+- Deprecated `String::ToLower`.
+- Deprecated `String::ToUpper`.
+- Made `PlayerMenu::AlwaysRunChanged` be `public`.
+- Made `PlayerMenu::AutoAimChanged` be `public`.
+- Made `PlayerMenu::ClassChanged` be `public`.
+- Made `PlayerMenu::ColorChanged` be `public`.
+- Made `PlayerMenu::ColorSetChanged` be `public`.
+- Made `PlayerMenu::GenderChanged` be `public`.
+- Made `PlayerMenu::PlayerNameChanged` be `public`.
+- Made `PlayerMenu::SkinChanged` be `public`.
+- Made `PlayerMenu::SwitchOnPickupChanged` be `public`.
+- Made `PlayerMenu::TeamChanged` be `public`.
+- Removed `Menu::OptionColor`.
+
+## Version 4.1.1
+
+- Fixed `ConversationMenu::FormatReplies` using deprecated functions.
+- Fixed `ConversationMenu::FormatSpeakerMessage` using deprecated functions.
+- Fixed `PatchInfo::Init` using deprecated functions.
+- Fixed `PlayerPawn::GetObituary` using deprecated functions.
+
+## Version 4.1.2
+
+No changes.
+
+## Version 4.1.3
+
+- Added `PlayerInfo::SetSubtitleNumber`
+
+## Version 4.2.0
+
+- Added `Actor::A_AttachLightDef`.
+- Added `Actor::A_AttachLight`.
+- Added `Actor::A_RemoveLight`.
+- Added `Actor::A_SoundPitch`.
+- Added `Actor::RetargetAfterSlam`.
+- Added `Array::Append`.
+- Added `ConversationMenu::FontFactor`.
+- Added `ConversationMenu::SpeechDisplayWidth`.
+- Added `ConversationMenu::mConfineTextToBackdrop`.
+- Added `ConversationMenu::mHasBackdrop`.
+- Added `DoomStatusBar::DrawBarKeys`.
+- Added `DoomStatusBar::DrawBarWeapons`.
+- Added `DoomStatusBar::DrawFullScreenKeys`.
+- Added `DynamicLight::LF_ADDITIVE`.
+- Added `DynamicLight::LF_ATTENUATE`.
+- Added `DynamicLight::LF_DONTLIGHTACTORS`.
+- Added `DynamicLight::LF_DONTLIGHTSELF`.
+- Added `DynamicLight::LF_NOSHADOWMAP`.
+- Added `DynamicLight::LF_SPOT`.
+- Added `DynamicLight::LF_SUBTRACTIVE`.
+- Added `Font::GetDisplacement`.
+- Added `Font::GetMaxAscender`.
+- Added `GameInfoStruct::mStatScreenAuthorFont`.
+- Added `GameInfoStruct::mStatScreenContentFont`.
+- Added `LevelLocals::AuthorName`.
+- Added `LevelLocals::ExitLevel`.
+- Added `LevelLocals::SecretExitLevel`.
+- Added `Menu::DontBlur`.
+- Added `PSprite::bMirror`.
+- Added `Shape2D::SetTransform`.
+- Added `Shape2DTransform`.
+- Added `StaticEventHandler::RenderUnderlay`.
+- Added `StatusScreen::AuthorTexts`.
+- Added `StatusScreen::Author`.
+- Added `StatusScreen::Content`.
+- Added `StatusScreen::DrawAuthor`.
+- Added `WBStartStruct::NextAuthor`.
+- Added `WBStartStruct::ThisAuthor`.
+- Added `pitch` parameter to `Actor::A_SoundPitch`.
+- Added `pitch` parameter to `Object::S_Sound`.
+- Added `sound_id` parameter to `PlayerInfo::SetSubtitleNumber`.
+- Added a warning for unknown `DropItem`s.
 
 <!-- EOF -->

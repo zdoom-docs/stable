@@ -3,6 +3,10 @@
 ## By Alison Sanderson. Attribution is encouraged, though not required.
 ## <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 ## TreeGen: Generates the glossary files for classes.
+## Example usage:
+## tools/treegen.rb  \
+## '/mnt/g/Archive/gzdoom-g4.1.0/wadsrc/static/zscript/**/*.zs' \
+## 4.1.0
 
 require "./tools/zsclasstree.rb"
 
@@ -11,7 +15,7 @@ VER = ARGV.shift
 
 si = ClassSiphon.new DIR
 
-f = open "glossary-classes.md", "wb"
+f = open "glossary-Classes.md", "wb"
 f.puts <<_end_
 # Classes
 
@@ -30,7 +34,7 @@ f.puts <<_end_
 <!-- EOF -->
 _end_
 
-f = open "glossary-structures.md", "wb"
+f = open "glossary-Structures.md", "wb"
 f.puts <<_end_
 # Structures
 

@@ -3,6 +3,10 @@
 ## By Alison Sanderson. Attribution is encouraged, though not required.
 ## <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 ## ZSClassTree: Generates a class tree from ZScript files.
+## Example usage:
+## tools/zsclasstree.rb \
+## '/mnt/g/Archive/gzdoom-g4.1.0/wadsrc/static/zscript/**/*.zs' \
+## > trees/tree_g4.1.0.txt
 
 require 'set'
 
