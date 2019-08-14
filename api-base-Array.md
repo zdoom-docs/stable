@@ -12,6 +12,7 @@ struct Array<Type>
    uint Max() const;
    uint Size() const;
 
+   void Append(array<Type> other);
    void Copy(array<Type> other);
    void Move(array<Type> other);
 
@@ -50,6 +51,11 @@ struct Array<Type>
 
    Removes the last item in the array, possibly destroying it. Returns `false`
    if there are no items in the array to begin with.
+
+- `Append`
+
+   Value-copies another array's contents and places them into this array at the
+   end.
 
 - `Copy`
 
