@@ -169,8 +169,8 @@ members, and so this prefix is omitted within them.
 
 ## Layout Conventions
 
-Use 3 spaces for indentation. Indent at each block, but do not indent `case`
-labels. Align all code to 80 columns.
+Use tabs with a width of 3 characters for indentation. Indent at each block,
+but do not indent `case` labels. Align all code to 80 columns.
 
 Write only one statement or declaration per line, except in the case of
 multiple-assignment operations, in which case pairing all of the related
@@ -193,9 +193,10 @@ when there is a single sub-statement, for instance with `if(x) y = z;`.
 
 The convention of 3 spaces for indentation comes from [Eternity Engine's style
 guideline.][1] There is no other reason for this decision, other than it is
-pleasing to the eye while not being excessive. The indentation and blank line
-rules are generally the same as the majority of C-like language style
-guidelines.
+pleasing to the eye while not being excessive. Hardware tabs are used instead
+of spaces in order to allow for user configuration, increasing accessibility.
+The indentation and blank line rules are generally the same as the majority of
+C-like language style guidelines.
 
 Alignment to 80 columns is for the purpose of reading the raw documentation
 text under standard size Linux terminals. This is useful, for instance, when
