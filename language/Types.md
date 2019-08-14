@@ -235,8 +235,8 @@ so the following:
 ```
 for(int i = 0; i < 5; i++)
 {
-   array<int> a;
-   a.Push(0);
+	array<int> a;
+	a.Push(0);
 }
 ```
 

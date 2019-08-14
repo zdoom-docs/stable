@@ -27,7 +27,7 @@ A structure takes the form of:
 ```
 struct Identifier $[Structure-flags...]$
 {
-   $[Structure-content...]$
+	$[Structure-content...]$
 }
 ```
 
@@ -39,9 +39,9 @@ Optionally followed by a semicolon.
 // Simple structure.
 struct MyCoolStructure
 {
-   int X;
-   int Y;
-   int Z;
+	int X;
+	int Y;
+	int Z;
 }
 ```
 

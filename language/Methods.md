@@ -23,7 +23,7 @@ Methods are formed as so:
 ```
 $[Method-definition-flags...]$ Type $[ , Type]$... Identifier ( $[Method-argument-list]$ ) $[ const ]$
 {
-   $[Statement...]$
+	$[Statement...]$
 }
 ```
 

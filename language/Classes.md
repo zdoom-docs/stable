@@ -38,7 +38,7 @@ A class is formed with the syntax:
 ```
 class Identifier $[ : Base-class]$ $[Class-flags...]$
 {
-   $[Class-content...]$
+	$[Class-content...]$
 }
 ```
 
@@ -108,14 +108,14 @@ Basic class definition with a member variable and member function.
 ```
 class BasicClass
 {
-   // "m_Thing" is attached to any "instance" of BasicClass.
-   int m_Thing;
+	// "m_Thing" is attached to any "instance" of BasicClass.
+	int m_Thing;
 
-   // Changes "m_Thing" to 500 on an instance of BasicClass.
-   void ChangeThing()
-   {
-      m_Thing = 500;
-   }
+	// Changes "m_Thing" to 500 on an instance of BasicClass.
+	void ChangeThing()
+	{
+		m_Thing = 500;
+	}
 }
 ```
 
@@ -186,21 +186,21 @@ A class with some properties.
 ```
 class MyCoolActor : Actor
 {
-   // You can set defined properties in a "default" block like in DECORATE.
-   // This will also be available in DECORATE code that inherits your class!
-   default
-   {
-      MyCoolActor.MyCoolMember 5000;
-      MyCoolActor.MyCoolMemberList 501, 502;
-   }
+	// You can set defined properties in a "default" block like in DECORATE.
+	// This will also be available in DECORATE code that inherits your class!
+	default
+	{
+		MyCoolActor.MyCoolMember 5000;
+		MyCoolActor.MyCoolMemberList 501, 502;
+	}
 
-   // Declare some members.
-   int m_MyCoolMember;
-   int m_CoolMember1, m_CoolMember2;
+	// Declare some members.
+	int m_MyCoolMember;
+	int m_CoolMember1, m_CoolMember2;
 
-   // Declare some properties attached to our members.
-   property MyCoolMember: m_MyCoolMember;
-   property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
+	// Declare some properties attached to our members.
+	property MyCoolMember: m_MyCoolMember;
+	property MyCoolMemberList: m_CoolMember1, m_CoolMember2;
 }
 ```
 
@@ -242,29 +242,29 @@ A class with some flags.
 ```
 class MyCoolActorWithFlags : Actor
 {
-   // You can set defined flag in a "default" block like in DECORATE.
-   // This will also be available in DECORATE code that inherits your class!
-   // Hey, those sentences sounded familiar...
-   default
-   {
-      +MyCoolActorWithFlags.ThisOneIsOn
-      -MyCoolActorWithFlags.ThisOneIsOff
-   }
+	// You can set defined flag in a "default" block like in DECORATE.
+	// This will also be available in DECORATE code that inherits your class!
+	// Hey, those sentences sounded familiar...
+	default
+	{
+		+MyCoolActorWithFlags.ThisOneIsOn
+		-MyCoolActorWithFlags.ThisOneIsOff
+	}
 
-   // Declare a flag field for all of the flags. This can hold up to 32 flags.
-   int m_Flags;
+	// Declare a flag field for all of the flags. This can hold up to 32 flags.
+	int m_Flags;
 
-   // Declare the flags, one at a time...
-   flagdef ThisOneIsOn: m_Flags, 0;
-   flagdef ThisOneIsOff: m_Flags, 1;
-   flagdef ThisOneAliasesOn: m_Flags, 0;
+	// Declare the flags, one at a time...
+	flagdef ThisOneIsOn: m_Flags, 0;
+	flagdef ThisOneIsOff: m_Flags, 1;
+	flagdef ThisOneAliasesOn: m_Flags, 0;
 
-   // Unnecessary, since you can just access it directly, but this demonstrates
-   // how declared flags can be used in methods.
-   bool CheckIfOnIsOn()
-   {
-      return bThisOneIsOn;
-   }
+	// Unnecessary, since you can just access it directly, but this demonstrates
+	// how declared flags can be used in methods.
+	bool CheckIfOnIsOn()
+	{
+		return bThisOneIsOn;
+	}
 }
 ```
 
@@ -281,7 +281,7 @@ ZScript, for syntax flexibility purposes, it must be enclosed in a block with
 ```
 default
 {
-   $[Default-statement...]$
+	$[Default-statement...]$
 }
 ```
 
@@ -333,7 +333,7 @@ A state definition block has the syntax:
 ```
 states $[ ( Scope $[ , Scope]$... ) ]$
 {
-   $[State-or-label...]$
+	$[State-or-label...]$
 }
 ```
 

@@ -31,7 +31,7 @@ A compound statement is formed as:
 
 ```
 {
-   $[Statement...]$
+	$[Statement...]$
 }
 ```
 
@@ -78,17 +78,17 @@ if ( Expression ) Statement $[ else Statement]$
 // Simple conditional.
 
 if(a)
-   B();
+	B();
 
 // Simple conditional, with else statement and a block.
 
 if(a)
 {
-   B();
-   c = d;
+	B();
+	c = d;
 }
 else
-   e = f;
+	e = f;
 ```
 
 # Switch Statements
@@ -108,17 +108,17 @@ switch ( Expression ) Statement
 switch(a)
 {
 case 500:
-   Console.PrintF("a is 500");
-   break;
+	Console.PrintF("a is 500");
+	break;
 case 501:
-   Console.PrintF("a is 501");
-   // Falls through to the next case.
+	Console.PrintF("a is 501");
+	// Falls through to the next case.
 case 502:
-   Console.PrintF("a is 501 or 502");
-   break;
+	Console.PrintF("a is 501 or 502");
+	break;
 default:
-   Console.PrintF("not sure what a is!");
-   // "break" is implied here.
+	Console.PrintF("not sure what a is!");
+	// "break" is implied here.
 }
 ```
 
@@ -152,11 +152,11 @@ iteration is complete. The `do while` and `do until` loops are formed as such:
 
 ```
 do
-   Statement
+	Statement
 while ( Expression ) // unlike C, you don't need a semicolon here
 
 do
-   Statement
+	Statement
 until ( Expression )
 ```
 
@@ -195,47 +195,47 @@ return $[Expression $[ , Expression]$...]$ ;
 // Use of "continue."
 for(int i = 0; i < 50; i++)
 {
-   // Don't do anything when "i" is 25.
-   if(i == 25)
-      continue;
+	// Don't do anything when "i" is 25.
+	if(i == 25)
+		continue;
 
-   DoThing(i);
+	DoThing(i);
 }
 
 // Use of "break."
 for(int i = 0; i < 50; i++)
 {
-   // "break" when "i" is 25.
-   if(i == 25)
-      break;
+	// "break" when "i" is 25.
+	if(i == 25)
+		break;
 
-   DoThing(i);
+	DoThing(i);
 }
 
 // Use of `return` in various contexts.
 void ReturnsNothing()
 {
-   // Exit early if "m_Thing" isn't 50.
-   if(m_Thing != 50)
-      return;
+	// Exit early if "m_Thing" isn't 50.
+	if(m_Thing != 50)
+		return;
 
-   DoThing(m_Thing);
+	DoThing(m_Thing);
 }
 
 int ReturnsInt()
 {
-   // "m_Thing" is 50, so return 50.
-   if(m_Thing == 50)
-      return 50;
+	// "m_Thing" is 50, so return 50.
+	if(m_Thing == 50)
+		return 50;
 
-   // Must have a return, eventually.
-   return 0;
+	// Must have a return, eventually.
+	return 0;
 }
 
 int, int ReturnsTwoInts()
 {
-   // Returns 1 and 2.
-   return 1, 2;
+	// Returns 1 and 2.
+	return 1, 2;
 }
 ```
 

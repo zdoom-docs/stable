@@ -16,7 +16,7 @@ An enumeration definition takes the form:
 ```
 enum Identifier $[ : Integer-type]$
 {
-   $[Enumerator $[ , Enumerator]$... $[ , ]$]$
+	$[Enumerator $[ , Enumerator]$... $[ , ]$]$
 }
 ```
 
@@ -39,20 +39,20 @@ Identifier $[ = Expression]$
 // Basic enumeration.
 enum MyCoolEnum
 {
-   A_THING, // Has value int(0) ...
-   BEES, // ... 1 ...
-   CALCIUM, // ... 2 ...
-   DEXTROSE, // ... and 3.
+	A_THING, // Has value int(0) ...
+	BEES, // ... 1 ...
+	CALCIUM, // ... 2 ...
+	DEXTROSE, // ... and 3.
 }
 
 // Less trivial example.
 enum MyCoolerEnum : int16
 {
-   A = 500, // Has value int16(500),
-   B, // 501,
-   C = 200,
-   D, // 201,
-   E, // and 202.
+	A = 500, // Has value int16(500),
+	B, // 501,
+	C = 200,
+	D, // 201,
+	E, // and 202.
 }
 ```
 <!-- EOF -->
