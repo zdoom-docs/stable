@@ -5,7 +5,7 @@ The localized string table as defined by `LANGUAGE`.
 ```
 struct StringTable
 {
-   static string Localize(string val, bool prefixed = true);
+	static string Localize(string val, bool prefixed = true);
 }
 ```
 

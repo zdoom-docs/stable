@@ -6,17 +6,17 @@ not use as a member unless marked as `transient`.**
 ```
 struct Font
 {
-   static Font FindFont(name fontname);
-   static int  FindFontColor(name color);
-   static Font GetFont(name fontname);
+	static Font FindFont(name fontname);
+	static int  FindFontColor(name color);
+	static Font GetFont(name fontname);
 
-   double GetBottomAlignOffset(int code);
-   int    GetCharWidth(int code);
-   string GetCursor();
-   int    GetHeight();
-   int    StringWidth(string code);
+	double GetBottomAlignOffset(int code);
+	int    GetCharWidth(int code);
+	string GetCursor();
+	int    GetHeight();
+	int    StringWidth(string code);
 
-   BrokenLines BreakLines(string text, int maxlen);
+	BrokenLines BreakLines(string text, int maxlen);
 }
 ```
 

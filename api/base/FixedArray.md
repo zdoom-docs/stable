@@ -5,7 +5,7 @@ Fixed-size arrays have a size method attached to them for convenience purposes.
 ```
 struct Type[N]
 {
-   uint Size() const;
+	uint Size() const;
 }
 ```
 

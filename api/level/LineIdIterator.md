@@ -5,9 +5,9 @@ Iterates over line indices with a specified tag.
 ```
 class LineIdIterator : Object
 {
-   static LineIdIterator Create(int tag);
+	static LineIdIterator Create(int tag);
 
-   int Next();
+	int Next();
 }
 ```
 

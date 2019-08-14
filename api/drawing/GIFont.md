@@ -5,8 +5,8 @@ A font as defined in `MAPINFO`/GameInfo.
 ```
 struct GIFont
 {
-   name Color;
-   name FontName;
+	name Color;
+	name FontName;
 }
 ```
 

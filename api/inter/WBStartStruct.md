@@ -5,27 +5,27 @@ Information passed into the `StatusScreen` class when an intermission starts.
 ```
 struct WBStartStruct
 {
-   WBPlayerStruct Plyr[MAXPLAYERS];
-   int            PNum;
+	WBPlayerStruct Plyr[MAXPLAYERS];
+	int            PNum;
 
-   int Finished_Ep;
-   int Next_Ep;
+	int Finished_Ep;
+	int Next_Ep;
 
-   string Current;
-   string Next;
-   string NextName;
+	string Current;
+	string Next;
+	string NextName;
 
-   textureid LName0;
-   textureid LName1;
+	textureid LName0;
+	textureid LName1;
 
-   int MaxFrags;
-   int MaxItems;
-   int MaxKills;
-   int MaxSecret;
+	int MaxFrags;
+	int MaxItems;
+	int MaxKills;
+	int MaxSecret;
 
-   int ParTime;
-   int SuckTime;
-   int TotalTime;
+	int ParTime;
+	int SuckTime;
+	int TotalTime;
 }
 ```
 

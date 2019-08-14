@@ -6,9 +6,9 @@ this event to change the result of replacement checking.
 ```
 struct ReplaceEvent
 {
-   readonly class<Actor> Replacee;
-   class<Actor>          Replacement;
-   bool                  IsFinal;
+	readonly class<Actor> Replacee;
+	class<Actor>          Replacement;
+	bool                  IsFinal;
 }
 ```
 

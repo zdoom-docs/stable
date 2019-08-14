@@ -5,10 +5,10 @@ A team as defined in `TEAMINFO`.
 ```
 struct Team
 {
-   const Max;
-   const NoTeam;
+	const Max;
+	const NoTeam;
 
-   string mName;
+	string mName;
 }
 ```
 

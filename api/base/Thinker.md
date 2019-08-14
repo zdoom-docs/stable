@@ -52,16 +52,16 @@ Thinkers which do think and are mandatory to many checks:
 ```
 class Thinker : Object play
 {
-   const TICRATE;
+	const TICRATE;
 
-   LevelLocals Level;
+	LevelLocals Level;
 
-   void ChangeStatNum(int stat);
+	void ChangeStatNum(int stat);
 
-   virtual void PostBeginPlay();
-   virtual void Tick();
+	virtual void PostBeginPlay();
+	virtual void Tick();
 
-   static clearscope int Tics2Seconds(int tics);
+	static clearscope int Tics2Seconds(int tics);
 }
 ```
 

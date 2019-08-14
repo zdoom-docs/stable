@@ -54,10 +54,10 @@ resource archive folder namespaces, which are normally under `NS_GLOBAL`.
 ```
 struct Wads
 {
-   static int    CheckNumForFullName(string name);
-   static int    CheckNumForName(string name, int ns, int wadnum = -1, bool exact = false);
-   static int    FindLump(string name, int startlump = 0, FindLumpNamespace ns = Wads.GLOBALNAMESPACE);
-   static string ReadLump(int lump);
+	static int    CheckNumForFullName(string name);
+	static int    CheckNumForName(string name, int ns, int wadnum = -1, bool exact = false);
+	static int    FindLump(string name, int startlump = 0, FindLumpNamespace ns = Wads.GLOBALNAMESPACE);
+	static string ReadLump(int lump);
 }
 ```
 

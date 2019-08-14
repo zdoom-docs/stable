@@ -5,28 +5,28 @@ Strings have many methods attached to them for manipulating text.
 ```
 struct String
 {
-   static vararg string Format(string format, ...);
+	static vararg string Format(string format, ...);
 
-   vararg void AppendFormat(string format, ...);
+	vararg void AppendFormat(string format, ...);
 
-   string CharAt(int pos) const;
-   int    CharCodeAt(int pos) const;
-   string Filter();
-   int    IndexOf(string substr, int startIndex = 0) const;
-   string Left(int len) const;
-   uint   Length() const;
-   string Mid(int pos = 0, int len = int.Max) const;
-   void   Remove(int index, int amount);
-   void   Replace(string pattern, string replacement);
-   int    RightIndexOf(string substr, int endIndex = int.Max) const;
-   void   Split(out array<string> tokens, string delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
-   double ToDouble() const;
-   int    ToInt(int base = 0) const;
-   void   ToLower();
-   void   ToUpper();
-   void   Truncate(int newlen);
+	string CharAt(int pos) const;
+	int    CharCodeAt(int pos) const;
+	string Filter();
+	int    IndexOf(string substr, int startIndex = 0) const;
+	string Left(int len) const;
+	uint   Length() const;
+	string Mid(int pos = 0, int len = int.Max) const;
+	void   Remove(int index, int amount);
+	void   Replace(string pattern, string replacement);
+	int    RightIndexOf(string substr, int endIndex = int.Max) const;
+	void   Split(out array<string> tokens, string delimiter, EmptyTokenType keepEmpty = TOK_KEEPEMPTY) const;
+	double ToDouble() const;
+	int    ToInt(int base = 0) const;
+	void   ToLower();
+	void   ToUpper();
+	void   Truncate(int newlen);
 
-   deprecated("3.5.1") int LastIndexOf(string substr, int endIndex = int.Max) const;
+	deprecated("3.5.1") int LastIndexOf(string substr, int endIndex = int.Max) const;
 }
 ```
 

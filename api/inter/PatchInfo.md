@@ -5,11 +5,11 @@ Either a patch or string depending on external configurations.
 ```
 struct PatchInfo play
 {
-   int       mColor;
-   Font      mFont;
-   textureid mPatch;
+	int       mColor;
+	Font      mFont;
+	textureid mPatch;
 
-   void Init(GIFont gifont);
+	void Init(GIFont gifont);
 }
 ```
 

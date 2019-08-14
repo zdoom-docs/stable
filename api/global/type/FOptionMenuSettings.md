@@ -6,14 +6,14 @@ and `MAPINFO`/GameInfo.
 ```
 struct FOptionMenuSettings
 {
-   int mTitleColor;
-   int mFontColor;
-   int mFontColorValue;
-   int mFontColorMore;
-   int mFontColorHeader;
-   int mFontColorHighlight;
-   int mFontColorSelection;
-   int mLineSpacing;
+	int mTitleColor;
+	int mFontColor;
+	int mFontColorValue;
+	int mFontColorMore;
+	int mFontColorHeader;
+	int mFontColorHighlight;
+	int mFontColorSelection;
+	int mLineSpacing;
 }
 ```
 

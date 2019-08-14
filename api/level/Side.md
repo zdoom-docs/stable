@@ -15,49 +15,49 @@ The three portions of a sidedef can be referred to with:
 ```
 struct Side play
 {
-   readonly Line   Linedef;
-   readonly Sector Sector;
+	readonly Line   Linedef;
+	readonly Sector Sector;
 
-   uint8 Flags;
-   int16 Light;
+	uint8 Flags;
+	int16 Light;
 
-   int Index();
+	int Index();
 
-   clearscope Vertex V1();
-   clearscope Vertex V2();
+	clearscope Vertex V1();
+	clearscope Vertex V2();
 
-   textureid GetTexture(int which);
+	textureid GetTexture(int which);
 
-   double GetTextureXOffset(int which);
-   double GetTextureYOffset(int which);
+	double GetTextureXOffset(int which);
+	double GetTextureYOffset(int which);
 
-   double GetTextureXScale(int which);
-   double GetTextureYScale(int which);
+	double GetTextureXScale(int which);
+	double GetTextureYScale(int which);
 
-   void SetTexture(int which, textureid tex);
+	void SetTexture(int which, textureid tex);
 
-   void SetTextureXOffset(int which, double offset);
-   void SetTextureYOffset(int which, double offset);
+	void SetTextureXOffset(int which, double offset);
+	void SetTextureYOffset(int which, double offset);
 
-   void SetTextureXScale(int which, double scale);
-   void SetTextureYScale(int which, double scale);
+	void SetTextureXScale(int which, double scale);
+	void SetTextureYScale(int which, double scale);
 
-   void AddTextureXOffset(int which, double delta);
-   void AddTextureYOffset(int which, double delta);
+	void AddTextureXOffset(int which, double delta);
+	void AddTextureYOffset(int which, double delta);
 
-   void MultiplyTextureXScale(int which, double delta);
-   void MultiplyTextureYScale(int which, double delta);
+	void MultiplyTextureXScale(int which, double delta);
+	void MultiplyTextureYScale(int which, double delta);
 
-   void SetSpecialColor(int tier, int position, color cr);
+	void SetSpecialColor(int tier, int position, color cr);
 
-   color GetAdditiveColor(int tier);
-   void  SetAdditiveColor(int tier, color cr);
+	color GetAdditiveColor(int tier);
+	void  SetAdditiveColor(int tier, color cr);
 
-   void EnableAdditiveColor(int tier, bool enable);
+	void EnableAdditiveColor(int tier, bool enable);
 
-   double GetUdmfFloat(name nm);
-   int    GetUdmfInt(name nm);
-   string GetUdmfString(name nm);
+	double GetUdmfFloat(name nm);
+	int    GetUdmfInt(name nm);
+	string GetUdmfString(name nm);
 }
 ```
 

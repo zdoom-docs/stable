@@ -5,13 +5,13 @@ Information for each individual player for a `StatusScreen`.
 ```
 struct WBPlayerStruct
 {
-   int SItems;
-   int SKills;
-   int SSecret;
-   int STime;
+	int SItems;
+	int SKills;
+	int SSecret;
+	int STime;
 
-   int FragCount;
-   int Frags[MAXPLAYERS];
+	int FragCount;
+	int Frags[MAXPLAYERS];
 }
 ```
 

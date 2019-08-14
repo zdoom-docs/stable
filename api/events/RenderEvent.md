@@ -5,12 +5,12 @@ The information for a `RenderOverlay` event.
 ```
 struct RenderEvent
 {
-   readonly vector3 ViewPos;
-   readonly double ViewAngle;
-   readonly double ViewPitch;
-   readonly double ViewRoll;
-   readonly double FracTic;
-   readonly Actor Camera;
+	readonly vector3 ViewPos;
+	readonly double ViewAngle;
+	readonly double ViewPitch;
+	readonly double ViewRoll;
+	readonly double FracTic;
+	readonly Actor Camera;
 }
 ```
 

@@ -5,10 +5,10 @@ Iterates over sector indices with a specified tag.
 ```
 class SectorTagIterator : Object
 {
-   static SectorTagIterator Create(int tag, Line defline = null);
+	static SectorTagIterator Create(int tag, Line defline = null);
 
-   int Next();
-   int NextCompat(bool compat, int secnum);
+	int Next();
+	int NextCompat(bool compat, int secnum);
 }
 ```
 

@@ -17,50 +17,50 @@ documentation.
 ```
 class StaticEventHandler : Object play
 {
-   clearscope static StaticEventHandler Find(class<StaticEventHandler> type);
+	clearscope static StaticEventHandler Find(class<StaticEventHandler> type);
 
-   virtual void OnRegister();
-   virtual void OnUnregister();
+	virtual void OnRegister();
+	virtual void OnUnregister();
 
-   virtual void WorldLoaded(WorldEvent e);
-   virtual void WorldUnloaded(WorldEvent e);
-   virtual void WorldThingSpawned(WorldEvent e);
-   virtual void WorldThingDied(WorldEvent e);
-   virtual void WorldThingRevived(WorldEvent e);
-   virtual void WorldThingDamaged(WorldEvent e);
-   virtual void WorldThingDestroyed(WorldEvent e);
-   virtual void WorldLinePreActivated(WorldEvent e);
-   virtual void WorldLineActivated(WorldEvent e);
-   virtual void WorldSectorDamaged(WorldEvent e);
-   virtual void WorldLineDamaged(WorldEvent e);
-   virtual void WorldLightning(WorldEvent e);
-   virtual void WorldTick();
+	virtual void WorldLoaded(WorldEvent e);
+	virtual void WorldUnloaded(WorldEvent e);
+	virtual void WorldThingSpawned(WorldEvent e);
+	virtual void WorldThingDied(WorldEvent e);
+	virtual void WorldThingRevived(WorldEvent e);
+	virtual void WorldThingDamaged(WorldEvent e);
+	virtual void WorldThingDestroyed(WorldEvent e);
+	virtual void WorldLinePreActivated(WorldEvent e);
+	virtual void WorldLineActivated(WorldEvent e);
+	virtual void WorldSectorDamaged(WorldEvent e);
+	virtual void WorldLineDamaged(WorldEvent e);
+	virtual void WorldLightning(WorldEvent e);
+	virtual void WorldTick();
 
-   virtual ui void RenderOverlay(RenderEvent e);
+	virtual ui void RenderOverlay(RenderEvent e);
 
-   virtual void PlayerEntered(PlayerEvent e);
-   virtual void PlayerRespawned(PlayerEvent e);
-   virtual void PlayerDied(PlayerEvent e);
-   virtual void PlayerDisconnected(PlayerEvent e);
+	virtual void PlayerEntered(PlayerEvent e);
+	virtual void PlayerRespawned(PlayerEvent e);
+	virtual void PlayerDied(PlayerEvent e);
+	virtual void PlayerDisconnected(PlayerEvent e);
 
-   virtual ui bool UiProcess(UiEvent e);
-   virtual ui void UiTick();
-   virtual ui void PostUiTick();
+	virtual ui bool UiProcess(UiEvent e);
+	virtual ui void UiTick();
+	virtual ui void PostUiTick();
 
-   virtual ui bool InputProcess(InputEvent e);
+	virtual ui bool InputProcess(InputEvent e);
 
-   virtual ui void ConsoleProcess(ConsoleEvent e);
-   virtual void NetworkProcess(ConsoleEvent e);
+	virtual ui void ConsoleProcess(ConsoleEvent e);
+	virtual void NetworkProcess(ConsoleEvent e);
 
-   virtual void CheckReplacement(ReplaceEvent e);
+	virtual void CheckReplacement(ReplaceEvent e);
 
-   virtual void NewGame();
+	virtual void NewGame();
 
-   void SetOrder(int order);
+	void SetOrder(int order);
 
-   readonly int Order;
-   bool IsUiProcessor;
-   bool RequireMouse;
+	readonly int Order;
+	bool IsUiProcessor;
+	bool RequireMouse;
 }
 ```
 

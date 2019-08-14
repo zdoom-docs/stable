@@ -7,11 +7,11 @@ only works with the integer on the right hand side.)
 ```
 struct TextureID
 {
-   bool Exists() const;
-   bool IsNull() const;
-   bool IsValid() const;
-   void SetInvalid();
-   void SetNull();
+	bool Exists() const;
+	bool IsNull() const;
+	bool IsValid() const;
+	void SetInvalid();
+	void SetNull();
 }
 ```
 

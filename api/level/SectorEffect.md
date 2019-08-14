@@ -5,9 +5,9 @@ A thinker which is attached to a sector and effects it in some way.
 ```
 class SectorEffect : Thinker
 {
-   protected Sector m_Sector;
+	protected Sector m_Sector;
 
-   Sector GetSector();
+	Sector GetSector();
 }
 ```
 

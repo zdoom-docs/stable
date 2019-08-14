@@ -15,8 +15,8 @@ overridden on this type.
 ```
 class EventHandler : StaticEventHandler
 {
-   clearscope static StaticEventHandler Find(class<StaticEventHandler> type);
-   clearscope static void SendNetworkEvent(string name, int arg1 = 0, int arg2 = 0, int arg3 = 0);
+	clearscope static StaticEventHandler Find(class<StaticEventHandler> type);
+	clearscope static void SendNetworkEvent(string name, int arg1 = 0, int arg2 = 0, int arg3 = 0);
 }
 ```
 

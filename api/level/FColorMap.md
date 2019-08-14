@@ -5,10 +5,10 @@ Describes the coloring of a sector.
 ```
 struct FColorMap
 {
-   uint8 BlendFactor;
-   uint8 Desaturation;
-   color FadeColor;
-   color LightColor;
+	uint8 BlendFactor;
+	uint8 Desaturation;
+	color FadeColor;
+	color LightColor;
 }
 ```
 

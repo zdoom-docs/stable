@@ -5,9 +5,9 @@ Basic access to console functionality.
 ```
 struct Console
 {
-   static void HideConsole();
-   static void MidPrint(Font font, string text, bool bold = false);
-   static vararg void PrintF(string fmt, ...);
+	static void HideConsole();
+	static void MidPrint(Font font, string text, bool bold = false);
+	static vararg void PrintF(string fmt, ...);
 }
 ```
 

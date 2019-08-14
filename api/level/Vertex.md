@@ -5,9 +5,9 @@ A point in world space.
 ```
 struct Vertex play
 {
-   readonly vector2 P;
+	readonly vector2 P;
 
-   int Index();
+	int Index();
 }
 ```
 

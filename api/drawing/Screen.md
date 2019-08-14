@@ -8,27 +8,27 @@ Note: There are no longer any fully paletted renderers in GZDoom as of version
 ```
 struct Screen
 {
-   static vararg void DrawChar(Font font, int cr, double x, double y, int character, ...);
-   static vararg void DrawShape(textureid tex, bool animate, Shape2D s, ...);
-   static vararg void DrawText(Font font, int cr, double x, double y, string text, ...);
-   static vararg void DrawTexture(textureid tex, bool animate, double x, double y, ...);
+	static vararg void DrawChar(Font font, int cr, double x, double y, int character, ...);
+	static vararg void DrawShape(textureid tex, bool animate, Shape2D s, ...);
+	static vararg void DrawText(Font font, int cr, double x, double y, string text, ...);
+	static vararg void DrawTexture(textureid tex, bool animate, double x, double y, ...);
 
-   static void Clear(int left, int top, int right, int bottom, color cr, int palcolor = -1);
-   static void Dim(color cr, double amount, int x, int y, int w, int h);
-   static void DrawFrame(int x, int y, int w, int h);
-   static void DrawLine(int x0, int y0, int x1, int y1, color cr, int alpha = 255);
-   static void DrawThickLine(int x0, int y0, int x1, int y1, double thickness, color cr, int alpha = 255);
+	static void Clear(int left, int top, int right, int bottom, color cr, int palcolor = -1);
+	static void Dim(color cr, double amount, int x, int y, int w, int h);
+	static void DrawFrame(int x, int y, int w, int h);
+	static void DrawLine(int x0, int y0, int x1, int y1, color cr, int alpha = 255);
+	static void DrawThickLine(int x0, int y0, int x1, int y1, double thickness, color cr, int alpha = 255);
 
-   static double GetAspectRatio();
-   static int GetHeight();
-   static int GetWidth();
-   static color PaletteColor(int index);
-   static vector2, vector2 VirtualToRealCoords(vector2 pos, vector2 size, vector2 vsize, bool vbottom = false, bool handleaspect = true);
+	static double GetAspectRatio();
+	static int GetHeight();
+	static int GetWidth();
+	static color PaletteColor(int index);
+	static vector2, vector2 VirtualToRealCoords(vector2 pos, vector2 size, vector2 vsize, bool vbottom = false, bool handleaspect = true);
 
-   static void ClearClipRect();
-   static int, int, int, int GetClipRect();
-   static int, int, int, int GetViewWindow();
-   static void SetClipRect(int x, int y, int w, int h);
+	static void ClearClipRect();
+	static int, int, int, int GetClipRect();
+	static int, int, int, int GetViewWindow();
+	static void SetClipRect(int x, int y, int w, int h);
 }
 ```
 

@@ -5,16 +5,16 @@ A player skin as defined in `SKININFO` or `S_SKIN`.
 ```
 struct PlayerSkin
 {
-   int     CrouchSprite;
-   string  Face;
-   uint8   Gender;
-   int     NameSpc;
-   bool    OtherGame;
-   uint8   Range0End;
-   uint8   Range0Start;
-   vector2 Scale;
-   string  SkinName;
-   int     Sprite;
+	int     CrouchSprite;
+	string  Face;
+	uint8   Gender;
+	int     NameSpc;
+	bool    OtherGame;
+	uint8   Range0End;
+	uint8   Range0Start;
+	vector2 Scale;
+	string  SkinName;
+	int     Sprite;
 }
 ```
 

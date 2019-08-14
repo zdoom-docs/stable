@@ -19,31 +19,31 @@ The predefined layers are:
 ```
 class PSprite : Object play
 {
-   readonly State      CurState;
-   readonly int        ID;
-   readonly PSprite    Next;
-   readonly PlayerInfo Owner;
+	readonly State      CurState;
+	readonly int        ID;
+	readonly PSprite    Next;
+	readonly PlayerInfo Owner;
 
-   double   Alpha;
-   Actor    Caller;
-   bool     FirstTic;
-   int      Frame;
-   double   OldX;
-   double   OldY;
-   bool     ProcessPending;
-   spriteid Sprite;
-   int      Tics;
-   double   X;
-   double   Y;
+	double   Alpha;
+	Actor    Caller;
+	bool     FirstTic;
+	int      Frame;
+	double   OldX;
+	double   OldY;
+	bool     ProcessPending;
+	spriteid Sprite;
+	int      Tics;
+	double   X;
+	double   Y;
 
-   bool bAddBob;
-   bool bAddWeapon;
-   bool bCVarFast;
-   bool bFlip;
-   bool bPowDouble;
+	bool bAddBob;
+	bool bAddWeapon;
+	bool bCVarFast;
+	bool bFlip;
+	bool bPowDouble;
 
-   void SetState(State newstate, bool pending = false);
-   void Tick();
+	void SetState(State newstate, bool pending = false);
+	void Tick();
 }
 ```
 

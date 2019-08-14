@@ -9,21 +9,21 @@ as they aren't "strongly" typed.
 ```
 struct CVar
 {
-   static CVar FindCVar(name n);
-   static CVar GetCVar(name n, PlayerInfo player = null);
+	static CVar FindCVar(name n);
+	static CVar GetCVar(name n, PlayerInfo player = null);
 
-   bool   GetBool();
-   double GetFloat();
-   int    GetInt();
-   string GetString();
+	bool   GetBool();
+	double GetFloat();
+	int    GetInt();
+	string GetString();
 
-   void SetBool(bool v);
-   void SetFloat(double v);
-   void SetInt(int v);
-   void SetString(string v);
+	void SetBool(bool v);
+	void SetFloat(double v);
+	void SetInt(int v);
+	void SetString(string v);
 
-   int GetRealType();
-   int ResetToDefault();
+	int GetRealType();
+	int ResetToDefault();
 }
 ```
 

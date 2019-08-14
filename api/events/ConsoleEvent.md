@@ -5,10 +5,10 @@ The information for a `ConsoleProcess` or `NetworkProcess` event.
 ```
 struct ConsoleEvent
 {
-   readonly int Player;
-   readonly string Name;
-   readonly int Args[3];
-   readonly bool IsManual;
+	readonly int Player;
+	readonly string Name;
+	readonly int Args[3];
+	readonly bool IsManual;
 }
 ```
 

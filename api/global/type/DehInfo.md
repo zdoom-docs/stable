@@ -5,13 +5,13 @@ Static DeHackEd information.
 ```
 struct DehInfo
 {
-   readonly int    BfgCells;
-   readonly int    BlueAC;
-   readonly double ExplosionAlpha;
-   readonly uint8  ExplosionStyle;
-   readonly int    MaxHealth;
-   readonly int    MaxSoulsphere;
-   readonly int    NoAutofreeze;
+	readonly int    BfgCells;
+	readonly int    BlueAC;
+	readonly double ExplosionAlpha;
+	readonly uint8  ExplosionStyle;
+	readonly int    MaxHealth;
+	readonly int    MaxSoulsphere;
+	readonly int    NoAutofreeze;
 }
 ```
 

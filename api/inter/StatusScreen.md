@@ -15,91 +15,91 @@ These are provided as constants in `StatusScreen`. The starting stage is `STATCO
 ```
 class StatusScreen : Object abstract play
 {
-   const NG_STATSY;
-   const SHOWNEXTLOCDELAY;
-   const SP_STATSX;
-   const SP_STATSY;
-   const SP_TIMEX;
-   const SP_TIMEY;
-   const TITLEY;
+	const NG_STATSY;
+	const SHOWNEXTLOCDELAY;
+	const SP_STATSX;
+	const SP_STATSY;
+	const SP_TIMEX;
+	const SP_TIMEY;
+	const TITLEY;
 
-   InterBackground BG;
-   WBPlayerStruct  Plrs[MAXPLAYERS];
-   WBStartStruct   Wbs;
+	InterBackground BG;
+	WBPlayerStruct  Plrs[MAXPLAYERS];
+	WBStartStruct   Wbs;
 
-   int   AccelerateStage;
-   int   BCnt;
-   int   Cnt;
-   int   Cnt_Deaths[MAXPLAYERS];
-   int   Cnt_Frags[MAXPLAYERS];
-   int   Cnt_Items[MAXPLAYERS];
-   int   Cnt_Kills[MAXPLAYERS];
-   int   Cnt_Par;
-   int   Cnt_Pause;
-   int   Cnt_Secret[MAXPLAYERS];
-   int   Cnt_Time;
-   int   Cnt_Total_Time;
-   int   CurState;
-   int   DoFrags;
-   int   Me;
-   int   NG_State;
-   bool  NoAutoStartMap;
-   bool  PlayerReady[MAXPLAYERS];
-   int   Player_Deaths[MAXPLAYERS];
-   bool  Snl_PointerOn;
-   int   SP_State;
-   float ShadowAlpha;
-   int   Total_Deaths;
-   int   Total_Frags;
+	int   AccelerateStage;
+	int   BCnt;
+	int   Cnt;
+	int   Cnt_Deaths[MAXPLAYERS];
+	int   Cnt_Frags[MAXPLAYERS];
+	int   Cnt_Items[MAXPLAYERS];
+	int   Cnt_Kills[MAXPLAYERS];
+	int   Cnt_Par;
+	int   Cnt_Pause;
+	int   Cnt_Secret[MAXPLAYERS];
+	int   Cnt_Time;
+	int   Cnt_Total_Time;
+	int   CurState;
+	int   DoFrags;
+	int   Me;
+	int   NG_State;
+	bool  NoAutoStartMap;
+	bool  PlayerReady[MAXPLAYERS];
+	int   Player_Deaths[MAXPLAYERS];
+	bool  Snl_PointerOn;
+	int   SP_State;
+	float ShadowAlpha;
+	int   Total_Deaths;
+	int   Total_Frags;
 
-   PatchInfo Entering;
-   PatchInfo Finished;
-   PatchInfo MapName;
+	PatchInfo Entering;
+	PatchInfo Finished;
+	PatchInfo MapName;
 
-   textureid Items;
-   textureid Kills;
-   textureid P_Secret;
-   textureid Par;
-   textureid Secret;
-   textureid Sucks;
-   textureid Timepic;
+	textureid Items;
+	textureid Kills;
+	textureid P_Secret;
+	textureid Par;
+	textureid Secret;
+	textureid Sucks;
+	textureid Timepic;
 
-   string LNameTexts[2];
+	string LNameTexts[2];
 
-   int  DrawCharPatch(Font fnt, int charcode, int x, int y, int translation = Font.CR_UNTRANSLATED, bool nomove = false);
-   void DrawEL();
-   int  DrawLF();
-   int  DrawName(int y, textureid tex, string levelname);
-   int  DrawNum(Font fnt, int x, int y, int n, int digits, bool leadingzeros = true, int translation = Font.CR_UNTRANSLATED);
-   int  DrawPatchText(int y, PatchInfo pinfo, string stringname);
-   void DrawPercent(Font fnt, int x, int y, int p, int b, bool show_total = true, int color = Font.CR_UNTRANSLATED);
-   void DrawTime(int x, int y, int t, bool no_sucks = false);
+	int  DrawCharPatch(Font fnt, int charcode, int x, int y, int translation = Font.CR_UNTRANSLATED, bool nomove = false);
+	void DrawEL();
+	int  DrawLF();
+	int  DrawName(int y, textureid tex, string levelname);
+	int  DrawNum(Font fnt, int x, int y, int n, int digits, bool leadingzeros = true, int translation = Font.CR_UNTRANSLATED);
+	int  DrawPatchText(int y, PatchInfo pinfo, string stringname);
+	void DrawPercent(Font fnt, int x, int y, int p, int b, bool show_total = true, int color = Font.CR_UNTRANSLATED);
+	void DrawTime(int x, int y, int t, bool no_sucks = false);
 
-   bool AutoSkip();
+	bool AutoSkip();
 
-   virtual void Drawer();
-   virtual void End();
-   virtual void Start(WBStartStruct wbs_);
-   virtual void StartMusic();
-   virtual void Ticker();
+	virtual void Drawer();
+	virtual void End();
+	virtual void Start(WBStartStruct wbs_);
+	virtual void StartMusic();
+	virtual void Ticker();
 
-   protected virtual void DrawNoState();
-   protected virtual void DrawShowNextLoc();
-   protected virtual void DrawStats();
-   protected virtual void InitNoState();
-   protected virtual void InitShowNextLoc();
-   protected virtual void InitStats();
-   protected virtual void UpdateNoState();
-   protected virtual void UpdateShowNextLoc();
-   protected virtual void UpdateStats();
+	protected virtual void DrawNoState();
+	protected virtual void DrawShowNextLoc();
+	protected virtual void DrawStats();
+	protected virtual void InitNoState();
+	protected virtual void InitShowNextLoc();
+	protected virtual void InitStats();
+	protected virtual void UpdateNoState();
+	protected virtual void UpdateShowNextLoc();
+	protected virtual void UpdateStats();
 
-   protected void CheckForAccelerate();
-   protected int  FragSum(int playernum);
+	protected void CheckForAccelerate();
+	protected int  FragSum(int playernum);
 
-   static int, int, int GetPlayerWidths();
-   static color GetRowColor(PlayerInfo player, bool highlight);
-   static void  GetSortedPlayers(in out array<int> sorted, bool teamplay);
-   static void  PlaySound(sound snd);
+	static int, int, int GetPlayerWidths();
+	static color GetRowColor(PlayerInfo player, bool highlight);
+	static void  GetSortedPlayers(in out array<int> sorted, bool teamplay);
+	static void  PlaySound(sound snd);
 }
 ```
 

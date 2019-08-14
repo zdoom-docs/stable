@@ -6,9 +6,9 @@ fit the screen and clipping region.
 ```
 class BrokenLines : Object
 {
-   int    Count();
-   string StringAt(int line);
-   int    StringWidth(int line);
+	int    Count();
+	string StringAt(int line);
+	int    StringWidth(int line);
 }
 ```
 

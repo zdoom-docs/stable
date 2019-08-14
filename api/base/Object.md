@@ -5,15 +5,15 @@ The base class of all `class` types.
 ```
 class Object
 {
-   bool bDestroyed;
+	bool bDestroyed;
 
-   class  GetClass();
-   string GetClassName();
-   class  GetParentClass();
+	class  GetClass();
+	string GetClassName();
+	class  GetParentClass();
 
-   virtualscope void Destroy();
+	virtualscope void Destroy();
 
-   virtual virtualscope void OnDestroy();
+	virtual virtualscope void OnDestroy();
 }
 ```
 

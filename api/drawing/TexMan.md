@@ -6,16 +6,16 @@ information on textures.
 ```
 struct TexMan
 {
-   static textureid CheckForTexture(string name, int usetype, int flags = TexMan.TryAny);
-   static int       CheckRealHeight(textureid tex);
-   static string    GetName(textureid tex);
-   static vector2   GetScaledOffset(textureid tex);
-   static vector2   GetScaledSize(textureid tex);
-   static int, int  GetSize(textureid tex);
-   static void      SetCameraToTexture(Actor viewpoint, string texture, double fov);
-   static bool      OkForLocalization(textureid patch, string textSubstitute);
+	static textureid CheckForTexture(string name, int usetype, int flags = TexMan.TryAny);
+	static int       CheckRealHeight(textureid tex);
+	static string    GetName(textureid tex);
+	static vector2   GetScaledOffset(textureid tex);
+	static vector2   GetScaledSize(textureid tex);
+	static int, int  GetSize(textureid tex);
+	static void      SetCameraToTexture(Actor viewpoint, string texture, double fov);
+	static bool      OkForLocalization(textureid patch, string textSubstitute);
 
-   deprecated("3.8") static void ReplaceTextures(string from, string to, int flags);
+	deprecated("3.8") static void ReplaceTextures(string from, string to, int flags);
 }
 ```
 

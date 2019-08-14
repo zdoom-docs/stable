@@ -5,13 +5,13 @@ A player class as defined in either `MAPINFO`/GameInfo or `KEYCONF`.
 ```
 struct PlayerClass
 {
-   uint         Flags;
-   array<int>   Skins;
-   class<Actor> Type;
+	uint         Flags;
+	array<int>   Skins;
+	class<Actor> Type;
 
-   bool CheckSkin(int skin);
-   void EnumColorsets(out array<int> data);
-   name GetColorsetName(int setnum);
+	bool CheckSkin(int skin);
+	void EnumColorsets(out array<int> data);
+	name GetColorsetName(int setnum);
 }
 ```
 

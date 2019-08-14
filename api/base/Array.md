@@ -9,24 +9,24 @@ variant of `TArray` existing in the engine.
 ```
 struct Array<Type>
 {
-   uint Max() const;
-   uint Size() const;
+	uint Max() const;
+	uint Size() const;
 
-   void Append(array<Type> other);
-   void Copy(array<Type> other);
-   void Move(array<Type> other);
+	void Append(array<Type> other);
+	void Copy(array<Type> other);
+	void Move(array<Type> other);
 
-   void Clear();
-   void Delete(uint index, int deletecount = 1);
-   bool Pop();
+	void Clear();
+	void Delete(uint index, int deletecount = 1);
+	bool Pop();
 
-   uint Find(Type item) const;
-   void Grow(uint amount);
-   void Insert(uint index, Type item);
-   uint Push(Type item);
-   uint Reserve(uint amount);
-   void Resize(uint amount);
-   void ShrinkToFit();
+	uint Find(Type item) const;
+	void Grow(uint amount);
+	void Insert(uint index, Type item);
+	uint Push(Type item);
+	uint Reserve(uint amount);
+	void Resize(uint amount);
+	void ShrinkToFit();
 }
 ```
 

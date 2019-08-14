@@ -5,42 +5,42 @@ Also known as a "linedef." A line segment with two sides and two vertices.
 ```
 struct Line play
 {
-   readonly Sector  BackSector, FrontSector;
-   readonly double  BBox[4];
-   readonly vector2 Delta;
-   readonly Side    Sidedef[2];
-   readonly Vertex  V1, V2;
+	readonly Sector  BackSector, FrontSector;
+	readonly double  BBox[4];
+	readonly vector2 Delta;
+	readonly Side    Sidedef[2];
+	readonly Vertex  V1, V2;
 
-   readonly uint PortalIndex;
-   readonly uint PortalTransferred;
+	readonly uint PortalIndex;
+	readonly uint PortalTransferred;
 
-   readonly int Health;
-   readonly int HealthGroup;
+	readonly int Health;
+	readonly int HealthGroup;
 
-   double Alpha;
-   uint   Flags;
-   int    ValidCount;
+	double Alpha;
+	uint   Flags;
+	int    ValidCount;
 
-   uint Activation;
-   int  Args[5];
-   int  LockNumber;
-   int  Special;
+	uint Activation;
+	int  Args[5];
+	int  LockNumber;
+	int  Special;
 
-   int Index();
+	int Index();
 
-   bool Activate(Actor activator, int side, int type);
-   bool RemoteActivate(Actor activator, int side, int type, vector3 pos);
+	bool Activate(Actor activator, int side, int type);
+	bool RemoteActivate(Actor activator, int side, int type, vector3 pos);
 
-   Line GetPortalDestination();
-   bool IsLinePortal();
-   bool IsVisualPortal();
+	Line GetPortalDestination();
+	bool IsLinePortal();
+	bool IsVisualPortal();
 
-   clearscope int GetHealth();
-   void SetHealth(int newhealth);
+	clearscope int GetHealth();
+	void SetHealth(int newhealth);
 
-   double GetUdmfFloat(name nm);
-   int    GetUdmfInt(name nm);
-   string GetUdmfString(name nm);
+	double GetUdmfFloat(name nm);
+	int    GetUdmfInt(name nm);
+	string GetUdmfString(name nm);
 }
 ```
 

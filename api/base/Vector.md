@@ -6,19 +6,19 @@ operator.
 ```
 struct Vector2
 {
-   double x, y;
+	double x, y;
 
-   double  Length() const;
-   vector2 Unit() const;
+	double  Length() const;
+	vector2 Unit() const;
 }
 
 struct Vector3
 {
-   double x, y, z;
-   vector2 xy;
+	double x, y, z;
+	vector2 xy;
 
-   double  Length() const;
-   vector3 Unit() const;
+	double  Length() const;
+	vector3 Unit() const;
 }
 ```
 

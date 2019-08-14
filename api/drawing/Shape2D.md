@@ -5,10 +5,10 @@ Represents an arbitrary polygonal 2D shape.
 ```
 class Shape2D : Object
 {
-   void Clear(int which = C_Verts | C_Coords | C_Indices);
-   void PushCoord(vector2 c);
-   void PushTriangle(int a, int b, int c);
-   void PushVertex(vector2 v);
+	void Clear(int which = C_Verts | C_Coords | C_Indices);
+	void PushCoord(vector2 c);
+	void PushTriangle(int a, int b, int c);
+	void PushVertex(vector2 v);
 }
 ```
 

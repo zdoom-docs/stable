@@ -7,29 +7,29 @@ as it is merely a look into the global constant state table.
 ```
 struct State
 {
-   readonly uint8 Frame;
-   readonly State NextState;
-   readonly int   Sprite;
-   readonly int16 Tics;
+	readonly uint8 Frame;
+	readonly State NextState;
+	readonly int   Sprite;
+	readonly int16 Tics;
 
-   readonly int    Misc1;
-   readonly int    Misc2;
-   readonly uint16 TicRange;
-   readonly uint8  UseFlags;
+	readonly int    Misc1;
+	readonly int    Misc2;
+	readonly uint16 TicRange;
+	readonly uint8  UseFlags;
 
-   readonly bool bCanRaise;
-   readonly bool bDeHackEd;
-   readonly bool bFast;
-   readonly bool bFullBright;
-   readonly bool bNoDelay;
-   readonly bool bSameFrame;
-   readonly bool bSlow;
+	readonly bool bCanRaise;
+	readonly bool bDeHackEd;
+	readonly bool bFast;
+	readonly bool bFullBright;
+	readonly bool bNoDelay;
+	readonly bool bSameFrame;
+	readonly bool bSlow;
 
-   int  DistanceTo(State other);
-   bool InStateSequence(State base);
-   bool ValidateSpriteFrame();
+	int  DistanceTo(State other);
+	bool InStateSequence(State base);
+	bool ValidateSpriteFrame();
 
-   textureid, bool, vector2 GetSpriteTexture(int rotation, int skin = 0, vector2 scale = (0, 0));
+	textureid, bool, vector2 GetSpriteTexture(int rotation, int skin = 0, vector2 scale = (0, 0));
 }
 ```
 
