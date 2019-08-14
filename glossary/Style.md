@@ -3,17 +3,17 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Capitalization Conventions](#capitalization-conventions)
-   * [Rationale](#rationale)
+	* [Rationale](#rationale)
 * [Word Choice](#word-choice)
-   * [Rationale](#rationale-1)
+	* [Rationale](#rationale-1)
 * [Naming Type Members](#naming-type-members)
-   * [Rationale](#rationale-2)
+	* [Rationale](#rationale-2)
 * [Layout Conventions](#layout-conventions)
-   * [Rationale](#rationale-3)
+	* [Rationale](#rationale-3)
 * [Commenting Conventions](#commenting-conventions)
-   * [Rationale](#rationale-4)
+	* [Rationale](#rationale-4)
 * [Language Guidelines](#language-guidelines)
-   * [Rationale](#rationale-5)
+	* [Rationale](#rationale-5)
 
 <!-- vim-markdown-toc -->
 
@@ -34,7 +34,8 @@ you must not rely on case differences in identifiers due to this.
 Capitalize the first letter of each word in an identifier. Acronyms over 2
 characters in length are considered whole words, so for instance prefer
 `XmlWidget` over `XMLWidget` but `IOStream` over `IoStream`. Acronyms of one
-character also count, so prefer `PrintF` over `Printf`.
+character also count, so prefer `PrintF` over `Printf`. Members with `m`
+prefixes in unmodifiable code must not capitalize the `m`.
 
 For identifiers of parameter names and local scope variables do not capitalize
 the first word. In these cases, prefer `xmlWidget` over `XmlWidget` or
@@ -42,9 +43,8 @@ the first word. In these cases, prefer `xmlWidget` over `XmlWidget` or
 over `TypeF` or `nChars` over `NChars`. (Note that the former two are malformed
 names, however. See the "Word Choice" section for more information.)
 
-Identifiers used for flags (declared with `flagdef`) and constants (declared
-with `const`, `static const`, or `enum`) must be all uppercase, except the `b`
-prefix on flags, and can separate words with underscores.
+Constants (declared with `const`, `static const`, or `enum`) must be all
+uppercase, and must separate words with underscores.
 
 Argument names in base archive methods may be renamed, but arguments with
 defaults may not be renamed as they are part of the API.
@@ -71,9 +71,14 @@ written advocate for this. The purpose in ZScript is primarily moot due to case
 insensitivity, but we apply these rules to make reading easier and more
 consistent with most other programming languages that have existed.
 
-Capitalizing constants, enumerations, and flags is an artifact of the way they
-are declared in ZDoom, and also in the original Linux Doom source code. This is
+Capitalizing constants and enumerations is an artifact of the way they are
+declared in ZDoom, and also in the original Linux Doom source code. This is
 extended to static arrays for consistency.
+
+Flags were capitalized in Linux Doom due to being constants, and internally
+within ZDoom they are still constants, but due to the style of ZScript using
+full capitalization appears inconsistent. This is especially true due to the
+use of `m` prefixes in places within ZScript's standard library.
 
 ## Word Choice
 
@@ -128,10 +133,10 @@ mod. Avoid violent words such as `Die`, `Destroy`, `Kill`, except where
 literally applicable. Prefer for instance `Stop`, `Drop`, `Halt`.
 
 Always name members with nouns, noun phrases or adjectives. Boolean values
-should often be prefixed with `Is`, `Has`, and other existential present-tense
-verbs. All members of class types should be prefixed with `m_`, despite rules
-against Hungarian notation and underscores. Try to name members productively
-rather than vaguely, instead of `RefInt` write `RefCount`.
+should often be prefixed with `Is`, `Has`, `Can`, and other existential
+present-tense verbs. All members of class types should be prefixed with `m_`,
+despite rules against Hungarian notation and underscores. Try to name members
+productively rather than vaguely, instead of `RefInt` write `RefCount`.
 
 ### Rationale
 
