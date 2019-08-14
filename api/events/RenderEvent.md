@@ -14,31 +14,31 @@ struct RenderEvent
 }
 ```
 
-- `ViewPos`
+### `ViewPos`
 
-   The position at which the camera is at.
+The position at which the camera is at.
 
-- `ViewAngle`
+### `ViewAngle`
 
-   The yaw angle of the camera.
+The yaw angle of the camera.
 
-- `ViewPitch`
+### `ViewPitch`
 
-   The pitch angle of the camera.
+The pitch angle of the camera.
 
-- `ViewRoll`
+### `ViewRoll`
 
-   The roll angle of the camera.
+The roll angle of the camera.
 
-- `FracTic`
+### `FracTic`
 
-   A value between 0 and 1 (exclusive) representing the time between the last
-   game tick and the next game tick. This is most useful for interpolation, and
-   you can add it to the current game tick to get the real time at which this
-   event has been called. Precision is not specified.
+A value between 0 and 1 (exclusive) representing the time between the last game
+tick and the next game tick. This is most useful for interpolation, and you can
+add it to the current game tick to get the real time at which this event has
+been called. Precision is not specified.
 
-- `Camera`
+### `Camera`
 
-   The actor which is acting as the camera for the player's view.
+The actor which is acting as the camera for the player's view.
 
 <!-- EOF -->

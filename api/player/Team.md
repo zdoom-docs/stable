@@ -12,16 +12,16 @@ struct Team
 }
 ```
 
-- `Max`
+### `Max`
 
-   The maximum number of teams.
+The maximum number of teams.
 
-- `NoTeam`
+### `NoTeam`
 
-   A constant index for a player with no team.
+A constant index for a player with no team.
 
-- `mName`
+### `mName`
 
-   The name of the team.
+The name of the team.
 
 <!-- EOF -->

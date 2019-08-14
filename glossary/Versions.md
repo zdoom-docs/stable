@@ -1,34 +1,35 @@
-# Versions
-
 <!-- vim-markdown-toc GFM -->
 
-* [Version 3.1.0](#version-310)
-* [Version 3.2.0](#version-320)
-* [Version 3.2.1](#version-321)
-* [Version 3.2.2](#version-322)
-* [Version 3.2.3](#version-323)
-* [Version 3.2.4](#version-324)
-* [Version 3.2.5](#version-325)
-* [Version 3.3.0](#version-330)
-* [Version 3.3.1](#version-331)
-* [Version 3.3.2](#version-332)
-* [Version 3.4.0](#version-340)
-* [Version 3.5.0](#version-350)
-* [Version 3.5.1](#version-351)
-* [Version 3.6.0](#version-360)
-* [Version 3.7.0](#version-370)
-* [Version 3.7.2](#version-372)
-* [Version 3.8.0 (Legacy)](#version-380-legacy)
-* [Version 3.8.1 (Legacy)](#version-381-legacy)
-* [Version 3.8.2 (Legacy)](#version-382-legacy)
-* [Version 4.0.0](#version-400)
-* [Version 4.1.0](#version-410)
-* [Version 4.1.1](#version-411)
-* [Version 4.1.2](#version-412)
-* [Version 4.1.3](#version-413)
-* [Version 4.2.0](#version-420)
+* [Versions](#versions)
+	* [Version 3.1.0](#version-310)
+	* [Version 3.2.0](#version-320)
+	* [Version 3.2.1](#version-321)
+	* [Version 3.2.2](#version-322)
+	* [Version 3.2.3](#version-323)
+	* [Version 3.2.4](#version-324)
+	* [Version 3.2.5](#version-325)
+	* [Version 3.3.0](#version-330)
+	* [Version 3.3.1](#version-331)
+	* [Version 3.3.2](#version-332)
+	* [Version 3.4.0](#version-340)
+	* [Version 3.5.0](#version-350)
+	* [Version 3.5.1](#version-351)
+	* [Version 3.6.0](#version-360)
+	* [Version 3.7.0](#version-370)
+	* [Version 3.7.2](#version-372)
+	* [Version 3.8.0 (Legacy)](#version-380-legacy)
+	* [Version 3.8.1 (Legacy)](#version-381-legacy)
+	* [Version 3.8.2 (Legacy)](#version-382-legacy)
+	* [Version 4.0.0](#version-400)
+	* [Version 4.1.0](#version-410)
+	* [Version 4.1.1](#version-411)
+	* [Version 4.1.2](#version-412)
+	* [Version 4.1.3](#version-413)
+	* [Version 4.2.0](#version-420)
 
 <!-- vim-markdown-toc -->
+
+# Versions
 
 Here is a list of differences between ZScript versions.
 

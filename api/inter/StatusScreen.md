@@ -5,10 +5,10 @@ The base class for intermission status screens. Any status screen used by
 
 Status screens have four stages:
 
-- `STATCOUNT`, where the stats are counted and displayed.
-- `SHOWNEXTLOC`, where the next map is shown as "ENTERING (map name)" and in episodic maps, the world map.
-- `NOSTATE`, at the very end of this process, where the last frame is drawn and the intermission is exited.
-- `LEAVINGINTERMISSION`, which is used only to signify that all stages are done and the status screen has been exited.
+* `STATCOUNT`, where the stats are counted and displayed.
+* `SHOWNEXTLOC`, where the next map is shown as "ENTERING (map name)" and in episodic maps, the world map.
+* `NOSTATE`, at the very end of this process, where the last frame is drawn and the intermission is exited.
+* `LEAVINGINTERMISSION`, which is used only to signify that all stages are done and the status screen has been exited.
 
 These are provided as constants in `StatusScreen`. The starting stage is `STATCOUNT`.
 
@@ -103,324 +103,322 @@ class StatusScreen : Object abstract play
 }
 ```
 
-- `NG_STATSY`
+### `NG_STATSY`
 
-   TODO
+TODO
 
-- `SHOWNEXTLOCDELAY`
+### `SHOWNEXTLOCDELAY`
 
-   TODO
+TODO
 
-- `SP_STATSX`
+### `SP_STATSX`
 
-   TODO
+TODO
 
-- `SP_STATSY`
+### `SP_STATSY`
 
-   TODO
+TODO
 
-- `SP_TIMEX`
+### `SP_TIMEX`
 
-   TODO
+TODO
 
-- `SP_TIMEY`
+### `SP_TIMEY`
 
-   TODO
+TODO
 
-- `TITLEY`
+### `TITLEY`
 
-   The Y position (in 320x200 pixels) to draw the top of the "finished" and
-   "entering" texts. Used by `DrawEL` and `DrawLF`.
+The Y position (in 320x200 pixels) to draw the top of the "finished" and
+"entering" texts. Used by `DrawEL` and `DrawLF`.
 
-- `BG`
+### `BG`
 
-   The `InterBackground` object for this intermission, set by `Start` with the
-   initial `Wbs` object.
+The `InterBackground` object for this intermission, set by `Start` with the
+initial `Wbs` object.
 
-- `Plrs`
+### `Plrs`
 
-   The value of `Wbs.Plyr` when `Start` was called. Usually not changed, so
-   essentially equivalent to `Wbs.Plyr`.
+The value of `Wbs.Plyr` when `Start` was called. Usually not changed, so
+essentially equivalent to `Wbs.Plyr`.
 
-- `Wbs`
+### `Wbs`
 
-   The `WBStartStruct` passed to this class via the `Start` function.
+The `WBStartStruct` passed to this class via the `Start` function.
 
-- `AccelerateStage`
+### `AccelerateStage`
 
-   Used to signify to the current stage that it should go quicker or be skipped
-   entirely.
+Used to signify to the current stage that it should go quicker or be skipped
+entirely.
 
-- `BCnt`
+### `BCnt`
 
-   TODO
+TODO
 
-- `Cnt`
+### `Cnt`
 
-   TODO
+TODO
 
-- `Cnt_Deaths`
+### `Cnt_Deaths`
 
-   TODO
+TODO
 
-- `Cnt_Frags`
+### `Cnt_Frags`
 
-   TODO
+TODO
 
-- `Cnt_Items`
+### `Cnt_Items`
 
-   TODO
+TODO
 
-- `Cnt_Kills`
+### `Cnt_Kills`
 
-   TODO
+TODO
 
-- `Cnt_Par`
+### `Cnt_Par`
 
-   TODO
+TODO
 
-- `Cnt_Pause`
+### `Cnt_Pause`
 
-   TODO
+TODO
 
-- `Cnt_Secret`
+### `Cnt_Secret`
 
-   TODO
+TODO
 
-- `Cnt_Time`
+### `Cnt_Time`
 
-   TODO
+TODO
 
-- `Cnt_Total_Time`
+### `Cnt_Total_Time`
 
-   TODO
+TODO
 
-- `CurState`
+### `CurState`
 
-   The current stage the intermission is in.
+The current stage the intermission is in.
 
-- `DoFrags`
+### `DoFrags`
 
-   TODO
+TODO
 
-- `Me`
+### `Me`
 
-   The value of `Wbs.PNum` when `Start` was called. Usually not changed, so
-   essentially equivalent to `Wbs.PNum`.
+The value of `Wbs.PNum` when `Start` was called. Usually not changed, so
+essentially equivalent to `Wbs.PNum`.
 
-- `NG_State`
+### `NG_State`
 
-   TODO
+TODO
 
-- `NoAutoStartMap`
+### `NoAutoStartMap`
 
-   TODO
+TODO
 
-- `PlayerReady`
+### `PlayerReady`
 
-   Used in networked games to signify when each player is ready to continue to
-   the next map. Set by `CheckForAccelerate`.
+Used in networked games to signify when each player is ready to continue to the
+next map. Set by `CheckForAccelerate`.
 
-- `Player_Deaths`
+### `Player_Deaths`
 
-   TODO
+TODO
 
-- `Snl_PointerOn`
+### `Snl_PointerOn`
 
-   TODO
+TODO
 
-- `SP_State`
+### `SP_State`
 
-   Used in single-player status screens during the `STATCOUNT` stage for
-   indicating the current round of statistics to count up.
+Used in single-player status screens during the `STATCOUNT` stage for
+indicating the current round of statistics to count up.
 
-- `ShadowAlpha`
+### `ShadowAlpha`
 
-   TODO
+TODO
 
-- `Total_Deaths`
+### `Total_Deaths`
 
-   TODO
+TODO
 
-- `Total_Frags`
+### `Total_Frags`
 
-   TODO
+TODO
 
-- `Entering`
+### `Entering`
 
-   TODO
+TODO
 
-- `Finished`
+### `Finished`
 
-   TODO
+TODO
 
-- `MapName`
+### `MapName`
 
-   TODO
+TODO
 
-- `Items`
+### `Items`
 
-   The "ITEMS" (default `WIOSTI`) graphic.
+The "ITEMS" (default `WIOSTI`) graphic.
 
-- `Kills`
+### `Kills`
 
-   The "KILLS" (default `WIOSTK`) graphic.
+The "KILLS" (default `WIOSTK`) graphic.
 
-- `P_Secret`
+### `P_Secret`
 
-   The "SECRET" (default `WISCRT2`) graphic.
+The "SECRET" (default `WISCRT2`) graphic.
 
-- `Par`
+### `Par`
 
-   The "PAR" (default `WIPAR`) graphic.
+The "PAR" (default `WIPAR`) graphic.
 
-- `Secret`
+### `Secret`
 
-   The "SCRT" (default `WIOSTS`) graphic.
+The "SCRT" (default `WIOSTS`) graphic.
 
-- `Sucks`
+### `Sucks`
 
-   The "SUCKS" (default `WISUCKS`) graphic.
+The "SUCKS" (default `WISUCKS`) graphic.
 
-- `Timepic`
+### `Timepic`
 
-   The "TIME" (default `WITIME`) graphic.
+The "TIME" (default `WITIME`) graphic.
 
-- `LNameTexts`
+### `LNameTexts`
 
-   TODO
+TODO
 
-- `DrawCharPatch`
+### `DrawCharPatch`
 
-   TODO
+TODO
 
-- `DrawEL`
+### `DrawEL`
 
-   TODO
+TODO
 
-- `DrawLF`
+### `DrawLF`
 
-   TODO
+TODO
 
-- `DrawName`
+### `DrawName`
 
-   TODO
+TODO
 
-- `DrawNum`
+### `DrawNum`
 
-   TODO
+TODO
 
-- `DrawPatchText`
+### `DrawPatchText`
 
-   TODO
+TODO
 
-- `DrawPercent`
+### `DrawPercent`
 
-   TODO
+TODO
 
-- `DrawTime`
+### `DrawTime`
 
-   TODO
+TODO
 
-- `AutoSkip`
+### `AutoSkip`
 
-   TODO
+TODO
 
-- `Drawer`
+### `Drawer`
 
-   Called by `WI_Drawer`, which is called every frame when `GameState` is
-   `GS_INTERMISSION`.
+Called by `WI_Drawer`, which is called every frame when `GameState` is
+`GS_INTERMISSION`.
 
-- `End`
+### `End`
 
-   Called when the intermission should end. Default behaviour is to set
-   `CurState` to `LEAVINGINTERMISSION` and remove bots in death-match.
-   Generally, `Level.WorldDone` should be called directly after this.
+Called when the intermission should end. Default behaviour is to set `CurState`
+to `LEAVINGINTERMISSION` and remove bots in death-match. Generally,
+`Level.WorldDone` should be called directly after this.
 
-- `Start`
+### `Start`
 
-   Called by `WI_Start` after the `WBStartStruct` is populated, sounds are
-   stopped and the screen blend is set to black. Sets up initial values and
-   runs `InitStats`.
+Called by `WI_Start` after the `WBStartStruct` is populated, sounds are stopped
+and the screen blend is set to black. Sets up initial values and runs
+`InitStats`.
 
-- `StartMusic`
+### `StartMusic`
 
-   Called in the first tick by `Ticker` to set the intermission music.
+Called in the first tick by `Ticker` to set the intermission music.
 
-- `Ticker`
+### `Ticker`
 
-   Called by `WI_Ticker`, which is called every game tick when `GameState` is
-   `GS_INTERMISSION`.
+Called by `WI_Ticker`, which is called every game tick when `GameState` is
+`GS_INTERMISSION`.
 
-- `DrawNoState`
+### `DrawNoState`
 
-   Called by `Drawer` when `CurState` is `NOSTATE` or any other non-state.
+Called by `Drawer` when `CurState` is `NOSTATE` or any other non-state.
 
-- `DrawShowNextLoc`
+### `DrawShowNextLoc`
 
-   Called by `Drawer` when `CurState` is `SHOWNEXTLOC` and, by default,
-   `DrawNoState` after setting `Snl_PointerOn` to `true`.
+Called by `Drawer` when `CurState` is `SHOWNEXTLOC` and, by default,
+`DrawNoState` after setting `Snl_PointerOn` to `true`.
 
-- `DrawStats`
+### `DrawStats`
 
-   Called by `Drawer` directly after drawing the animated background when
-   `CurState` is `STATCOUNT`.
+Called by `Drawer` directly after drawing the animated background when
+`CurState` is `STATCOUNT`.
 
-- `InitNoState`
+### `InitNoState`
 
-   Called by `UpdateShowNextLoc` to initiate the `NOSTATE` stage.
+Called by `UpdateShowNextLoc` to initiate the `NOSTATE` stage.
 
-- `InitShowNextLoc`
+### `InitShowNextLoc`
 
-   Called by `UpdateStats` to initiate the `SHOWNEXTLOC` stage.
+Called by `UpdateStats` to initiate the `SHOWNEXTLOC` stage.
 
-- `InitStats`
+### `InitStats`
 
-   Called by `Start` to initiate the `STATCOUNT` stage.
+Called by `Start` to initiate the `STATCOUNT` stage.
 
-- `UpdateNoState`
+### `UpdateNoState`
 
-   Called by `Ticker` when `CurState` is `NOSTATE` or any other non-state.
-   Exits the intermission by calling `End` and `Level.WorldDone` when
-   appropriate.
+Called by `Ticker` when `CurState` is `NOSTATE` or any other non-state. Exits
+the intermission by calling `End` and `Level.WorldDone` when appropriate.
 
-- `UpdateShowNextLoc`
+### `UpdateShowNextLoc`
 
-   Called by `Ticker` when `CurState` is `SHOWNEXTLOC`. Runs `InitNoState` when
-   appropriate and alternates `Snl_PointerOn`.
+Called by `Ticker` when `CurState` is `SHOWNEXTLOC`. Runs `InitNoState` when
+appropriate and alternates `Snl_PointerOn`.
 
-- `UpdateStats`
+### `UpdateStats`
 
-   Called by `Ticker` when `CurState` is `STATCOUNT`. Runs `InitShowNextLoc`
-   when appropriate.
+Called by `Ticker` when `CurState` is `STATCOUNT`. Runs `InitShowNextLoc`
+when appropriate.
 
-- `CheckForAccelerate`
+### `CheckForAccelerate`
 
-   Updates the values of `AccelerateStage` and `PlayerReady` according to each
-   player's inputs.
+Updates the values of `AccelerateStage` and `PlayerReady` according to each
+player's inputs.
 
-- `FragSum`
+### `FragSum`
 
-   Returns the number of frags player `playernum` has accumulated against all
-   currently in-game players. This is different from `WBPlayerStruct.FragCount`
-   because it is counted dynamically, i.e. if a player leaves the count will be
-   changed. This is only useful for game modes where frags do not count as
-   score.
+Returns the number of frags player `playernum` has accumulated against all
+currently in-game players. This is different from `WBPlayerStruct.FragCount`
+because it is counted dynamically, i.e. if a player leaves the count will be
+changed. This is only useful for game modes where frags do not count as score.
 
-- `GetPlayerWidths`
+### `GetPlayerWidths`
 
-   TODO
+TODO
 
-- `GetRowColor`
+### `GetRowColor`
 
-   TODO
+TODO
 
-- `GetSortedPlayers`
+### `GetSortedPlayers`
 
-   TODO
+TODO
 
-- `PlaySound`
+### `PlaySound`
 
-   Plays a UI sound at full volume using `S_Sound`.
+Plays a UI sound at full volume using `S_Sound`.
 
 <!-- EOF -->

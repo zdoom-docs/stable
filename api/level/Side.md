@@ -61,76 +61,76 @@ struct Side play
 }
 ```
 
-- `Linedef`
+### `Linedef`
 
-   The line this side belongs to.
+The line this side belongs to.
 
-- `Sector`
+### `Sector`
 
-   The sector this side belongs to.
+The sector this side belongs to.
 
-- `Flags`
+### `Flags`
 
-   Any combination of the following bit flags:
+Any combination of the following bit flags:
 
-   | Name                   | Description                                                                 |
-   | ----                   | -----------                                                                 |
-   | `WALLF_ABSLIGHTING`    | Light is absolute instead of relative to the sector.                        |
-   | `WALLF_CLIP_MIDTEX`    | Clips the middle texture when it goes under the floor or above the ceiling. |
-   | `WALLF_LIGHT_FOG`      | The wall's lighting will ignore fog effects.                                |
-   | `WALLF_NOAUTODECALS`   | Don't attach decals to this surface.                                        |
-   | `WALLF_NOFAKECONTRAST` | Disables the "fake contrast" effect for this side.                          |
-   | `WALLF_POLYOBJ`        | This sidedef belongs to a polyobject.                                       |
-   | `WALLF_SMOOTHLIGHTING` | Applies a unique contrast at all angles.                                    |
-   | `WALLF_WRAP_MIDTEX`    | Repeats the middle texture infinitely on the vertical axis.                 |
+| Name                   | Description                                                                 |
+| ----                   | -----------                                                                 |
+| `WALLF_ABSLIGHTING`    | Light is absolute instead of relative to the sector.                        |
+| `WALLF_CLIP_MIDTEX`    | Clips the middle texture when it goes under the floor or above the ceiling. |
+| `WALLF_LIGHT_FOG`      | The wall's lighting will ignore fog effects.                                |
+| `WALLF_NOAUTODECALS`   | Don't attach decals to this surface.                                        |
+| `WALLF_NOFAKECONTRAST` | Disables the "fake contrast" effect for this side.                          |
+| `WALLF_POLYOBJ`        | This sidedef belongs to a polyobject.                                       |
+| `WALLF_SMOOTHLIGHTING` | Applies a unique contrast at all angles.                                    |
+| `WALLF_WRAP_MIDTEX`    | Repeats the middle texture infinitely on the vertical axis.                 |
 
-- `Light`
+### `Light`
 
-   The light level of this side. Relative to the sector lighting unless
-   `WALLF_ABSLIGHTING`.
+The light level of this side. Relative to the sector lighting unless
+`WALLF_ABSLIGHTING`.
 
-- `Index`
+### `Index`
 
-   Returns the index of this side.
+Returns the index of this side.
 
-- `V1`, `V2`
+### `V1`, `V2`
 
-   Returns the start and end points of this sidedef, respectively.
+Returns the start and end points of this sidedef, respectively.
 
-- `GetTexture`, `SetTexture`
+### `GetTexture`, `SetTexture`
 
-   Gets or sets the texture of one portion of the sidedef.
+Gets or sets the texture of one portion of the sidedef.
 
-- `GetTextureXOffset`, `SetTextureXOffset`, `AddTextureXOffset`
+### `GetTextureXOffset`, `SetTextureXOffset`, `AddTextureXOffset`
 
-   Gets, sets or adds to the texture portion's horizontal offset.
+Gets, sets or adds to the texture portion's horizontal offset.
 
-- `GetTextureYOffset`, `SetTextureYOffset`, `AddTextureYOffset`
+### `GetTextureYOffset`, `SetTextureYOffset`, `AddTextureYOffset`
 
-   Gets, sets or adds to the texture portion's vertical offset.
+Gets, sets or adds to the texture portion's vertical offset.
 
-- `GetTextureXScale`, `SetTextureXScale`, `MultiplyTextureXScale`
+### `GetTextureXScale`, `SetTextureXScale`, `MultiplyTextureXScale`
 
-   Gets, sets or multiplies the texture portion's horizontal scale.
+Gets, sets or multiplies the texture portion's horizontal scale.
 
-- `GetTextureYScale`, `SetTextureYScale`, `MultiplyTextureYScale`
+### `GetTextureYScale`, `SetTextureYScale`, `MultiplyTextureYScale`
 
-   Gets, sets or multiplies the texture portion's vertical scale.
+Gets, sets or multiplies the texture portion's vertical scale.
 
-- `SetSpecialColor`
+### `SetSpecialColor`
 
-   TODO
+TODO
 
-- `GetAdditiveColor`, `SetAdditiveColor`
+### `GetAdditiveColor`, `SetAdditiveColor`
 
-   TODO
+TODO
 
-- `EnableAdditiveColor`
+### `EnableAdditiveColor`
 
-   TODO
+TODO
 
-- `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
+### `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
 
-   Gets a named UDMF property attached to this sidedef.
+Gets a named UDMF property attached to this sidedef.
 
 <!-- EOF -->

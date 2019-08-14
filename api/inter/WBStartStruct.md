@@ -29,68 +29,68 @@ struct WBStartStruct
 }
 ```
 
-- `Plyr`
+### `Plyr`
 
-   The `WBPlayerStruct` for each player.
+The `WBPlayerStruct` for each player.
 
-- `PNum`
+### `PNum`
 
-   The index of the player to show stats for.
+The index of the player to show stats for.
 
-- `Finished_Ep`
+### `Finished_Ep`
 
-   The cluster of the finished map, minus one.
+The cluster of the finished map, minus one.
 
-- `Next_Ep`
+### `Next_Ep`
 
-   The cluster of the next map, minus one.
+The cluster of the next map, minus one.
 
-- `Current`
+### `Current`
 
-   The name of the map that was finished.
+The name of the map that was finished.
 
-- `Next`
+### `Next`
 
-   The name of the next map.
+The name of the next map.
 
-- `NextName`
+### `NextName`
 
-   The printable name of the next map.
+The printable name of the next map.
 
-- `LName0`
+### `LName0`
 
-   Texture ID of the level name of the map that was finished.
+Texture ID of the level name of the map that was finished.
 
-- `LName1`
+### `LName1`
 
-   Texture ID of the level name of the map being entered.
+Texture ID of the level name of the map being entered.
 
-- `MaxFrags`
+### `MaxFrags`
 
-   Unknown purpose, not actually used by any part of the engine.
+Unknown purpose, not actually used by any part of the engine.
 
-- `MaxItems`
+### `MaxItems`
 
-   The maximum number of acquired items in the map.
+The maximum number of acquired items in the map.
 
-- `MaxKills`
+### `MaxKills`
 
-   The maximum number of killed monsters in the map.
+The maximum number of killed monsters in the map.
 
-- `MaxSecret`
+### `MaxSecret`
 
-   The maximum number of found secrets in the map.
+The maximum number of found secrets in the map.
 
-- `ParTime`
+### `ParTime`
 
-   The par time of the map, in ticks.
+The par time of the map, in ticks.
 
-- `SuckTime`
+### `SuckTime`
 
-   The suck time of the map, in minutes.
+The suck time of the map, in minutes.
 
-- `TotalTime`
+### `TotalTime`
 
-   The total time for the whole game, in ticks.
+The total time for the whole game, in ticks.
 
 <!-- EOF -->

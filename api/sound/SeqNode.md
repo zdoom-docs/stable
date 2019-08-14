@@ -15,28 +15,28 @@ class SeqNode : Object
 }
 ```
 
-- `GetSequenceSlot`
+### `GetSequenceSlot`
 
-   TODO
+TODO
 
-- `MarkPrecacheSounds`
+### `MarkPrecacheSounds`
 
-   TODO
+TODO
 
-- `AddChoice`
+### `AddChoice`
 
-   TODO
+TODO
 
-- `AreModesSame`
+### `AreModesSame`
 
-   TODO
+TODO
 
-- `AreModesSameID`
+### `AreModesSameID`
 
-   TODO
+TODO
 
-- `GetSequenceName`
+### `GetSequenceName`
 
-   TODO
+TODO
 
 <!-- EOF -->

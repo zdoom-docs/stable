@@ -15,29 +15,29 @@ struct PlayerClass
 }
 ```
 
-- `Flags`
+### `Flags`
 
-   Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript,
-   but its value is `1` if you need to check for that.
+Not currently implemented correctly, `PCF_NOMENU` does not exist in ZScript,
+but its value is `1` if you need to check for that.
 
-- `Skins`
+### `Skins`
 
-   Skin indices available to this player class.
+Skin indices available to this player class.
 
-- `Type`
+### `Type`
 
-   The class type reference for this player class.
+The class type reference for this player class.
 
-- `CheckSkin`
+### `CheckSkin`
 
-   Checks if `skin` is in `Skins`.
+Checks if `skin` is in `Skins`.
 
-- `EnumColorsets`
+### `EnumColorsets`
 
-   TODO
+TODO
 
-- `GetColorsetName`
+### `GetColorsetName`
 
-   TODO
+TODO
 
 <!-- EOF -->

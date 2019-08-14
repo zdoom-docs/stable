@@ -22,52 +22,52 @@ struct SecPlane play
 }
 ```
 
-- `D`
+### `D`
 
-   TODO
+TODO
 
-- `NegiC`
+### `NegiC`
 
-   TODO
+TODO
 
-- `Normal`
+### `Normal`
 
-   TODO
+TODO
 
-- `ChangeHeight`
+### `ChangeHeight`
 
-   TODO
+TODO
 
-- `GetChangedHeight`
+### `GetChangedHeight`
 
-   TODO
+TODO
 
-- `HeightDiff`
+### `HeightDiff`
 
-   TODO
+TODO
 
-- `IsEqual`
+### `IsEqual`
 
-   TODO
+TODO
 
-- `IsSlope`
+### `IsSlope`
 
-   TODO
+TODO
 
-- `PointOnSide`
+### `PointOnSide`
 
-   TODO
+TODO
 
-- `PointToDist`
+### `PointToDist`
 
-   TODO
+TODO
 
-- `ZAtPointDist`
+### `ZAtPointDist`
 
-   TODO
+TODO
 
-- `ZAtPoint`
+### `ZAtPoint`
 
-   TODO
+TODO
 
 <!-- EOF -->

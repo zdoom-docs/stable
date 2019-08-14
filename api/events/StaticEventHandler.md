@@ -64,186 +64,185 @@ class StaticEventHandler : Object play
 }
 ```
 
-- `Find`
+### `Find`
 
-   Finds and returns the `StaticEventHandler` type `type` if it is registered,
-   or `null` if it does not exist.
+Finds and returns the `StaticEventHandler` type `type` if it is registered, or
+`null` if it does not exist.
 
-- `OnRegister`
+### `OnRegister`
 
-   Called when this type is registered. This is where you should set `Order`,
-   `IsUiProcessor` and `RequireMouse`.
+Called when this type is registered. This is where you should set `Order`,
+`IsUiProcessor` and `RequireMouse`.
 
-- `OnUnregister`
+### `OnUnregister`
 
-   Called when this type is un-registered. With `StaticEventHandler`s this is
-   called when the engine shuts down, so it isn't particularly useful.
+Called when this type is un-registered. With `StaticEventHandler`s this is
+called when the engine shuts down, so it isn't particularly useful.
 
-- `WorldLoaded`
+### `WorldLoaded`
 
-   Called directly after the status bar is attached to the player and after
-   `REOPEN` ACS scripts are called, just before the display is flushed and
-   auto-save is done.
+Called directly after the status bar is attached to the player and after
+`REOPEN` ACS scripts are called, just before the display is flushed and
+auto-save is done.
 
-- `WorldUnloaded`
+### `WorldUnloaded`
 
-   Called directly after `UNLOADING` ACS scripts, just before the level is
-   changed.
+Called directly after `UNLOADING` ACS scripts, just before the level is
+changed.
 
-- `WorldThingSpawned`
+### `WorldThingSpawned`
 
-   Called directly after an actor's `PostBeginPlay` function.
+Called directly after an actor's `PostBeginPlay` function.
 
-- `WorldThingDied`
+### `WorldThingDied`
 
-   Called after `MorphedDeath`, inventory items have called `OwnerDied`, and
-   the target is set to the damage source, just before `KILL` ACS scripts are
-   called and the rest of the death handling is done.
+Called after `MorphedDeath`, inventory items have called `OwnerDied`, and the
+target is set to the damage source, just before `KILL` ACS scripts are called
+and the rest of the death handling is done.
 
-- `WorldThingRevived`
+### `WorldThingRevived`
 
-   Called when an actor is revived, after everything is finished.
+Called when an actor is revived, after everything is finished.
 
-- `WorldThingDamaged`
+### `WorldThingDamaged`
 
-   Called directly before `Die`, or directly after after `DamageMobj` finishes.
+Called directly before `Die`, or directly after after `DamageMobj` finishes.
 
-- `WorldThingDestroyed`
+### `WorldThingDestroyed`
 
-   Called at the beginning of an actor's `OnDestroy` function.
+Called at the beginning of an actor's `OnDestroy` function.
 
-- `WorldLinePreActivated`
+### `WorldLinePreActivated`
 
-   Called directly after a line is tested for activation, before any other
-   activation specials are called (such as checking for keys, executing the
-   line special, etc.)
+Called directly after a line is tested for activation, before any other
+activation specials are called (such as checking for keys, executing the line
+special, etc.)
 
-- `WorldLineActivated`
+### `WorldLineActivated`
 
-   Called directly after a line's special is executed, if it succeeded, before
-   any other handling (such as changing a switch's texture) is completed.
+Called directly after a line's special is executed, if it succeeded, before any
+other handling (such as changing a switch's texture) is completed.
 
-- `WorldSectorDamaged`
+### `WorldSectorDamaged`
 
-   Called when a sector is damaged if it has any health groups, before any
-   other handling is done.
+Called when a sector is damaged if it has any health groups, before any other
+handling is done.
 
-- `WorldLineDamaged`
+### `WorldLineDamaged`
 
-   Called when a line is damaged if it has any health groups, before any other
-   handling is done.
+Called when a line is damaged if it has any health groups, before any other
+handling is done.
 
-- `WorldLightning`
+### `WorldLightning`
 
-   Called when lightning strikes, directly after the sound is played, just
-   before `LIGHTNING` ACS scripts are called.
+Called when lightning strikes, directly after the sound is played, just before
+`LIGHTNING` ACS scripts are called.
 
-- `WorldTick`
+### `WorldTick`
 
-   Called on every world tick, after interpolators are updated, world freeze is
-   updated, sight counters are reset, particles have run their thinkers, and
-   players have run their thinkers, just before the status bar is ticked, the
-   level ticks, thinkers are ticked, and the level time is updated. This is not
-   called when the game is paused, and its execution is entirely deterministic
-   regardless of how this event handler is applied.
+Called on every world tick, after interpolators are updated, world freeze is
+updated, sight counters are reset, particles have run their thinkers, and
+players have run their thinkers, just before the status bar is ticked, the
+level ticks, thinkers are ticked, and the level time is updated. This is not
+called when the game is paused, and its execution is entirely deterministic
+regardless of how this event handler is applied.
 
-- `RenderOverlay`
+### `RenderOverlay`
 
-   Despite the name, this is actually run on the status bar, specifically in
-   `BaseStatusBar::DrawTopStuff`. It is run after `HudMessage`s are drawn and
-   power-ups are drawn, just before ゴゴゴ「The Log」ゴゴゴ is drawn. You may
-   use `Screen` functions in this function.
+Despite the name, this is actually run on the status bar, specifically in
+`BaseStatusBar::DrawTopStuff`. It is run after `HudMessage`s are drawn and
+power-ups are drawn, just before ゴゴゴ「The Log」ゴゴゴ is drawn. You may use
+`Screen` functions in this function.
 
-- `PlayerEntered`
+### `PlayerEntered`
 
-   Called during level load when each player enters the game, after the camera
-   is set but just before `RETURN` ACS scripts are called.
+Called during level load when each player enters the game, after the camera is
+set but just before `RETURN` ACS scripts are called.
 
-- `PlayerRespawned`
+### `PlayerRespawned`
 
-   Called when a player spawns, directly after the teleport fog is spanwed and
-   just before `RESPAWN` ACS scripts are called. Also called similarly at the
-   end of the `Respawn` function, for example when the `resurrect` cheat is
-   used.
+Called when a player spawns, directly after the teleport fog is spanwed and
+just before `RESPAWN` ACS scripts are called. Also called similarly at the end
+of the `Respawn` function, for example when the `resurrect` cheat is used.
 
-- `PlayerDied`
+### `PlayerDied`
 
-   Called after `WorldThingDied` and `GetDeathHeight`, and after the actor's
-   thing special is activated, when the obituary has been displayed, just
-   before `DEATH` ACS scripts have been called.
+Called after `WorldThingDied` and `GetDeathHeight`, and after the actor's thing
+special is activated, when the obituary has been displayed, just before `DEATH`
+ACS scripts have been called.
 
-- `PlayerDisconnected`
+### `PlayerDisconnected`
 
-   Called when a bot is removed and when a player disconnects from the game,
-   just before `DISCONNECT` ACS scripts are called.
+Called when a bot is removed and when a player disconnects from the game, just
+before `DISCONNECT` ACS scripts are called.
 
-- `UiProcess`
+### `UiProcess`
 
-   Called only if `IsUiProcessor` is `true`. Called when a GUI event is
-   dispatched by the engine, for example when the UI is active and the player
-   has pressed a key or moved the mouse. Mouse movements will only be captured
-   if `RequireMouse` is `true`. Because this interacts directly with the OS it
-   is not part of the game simulation, therefore has `ui` scope and must
-   dispatch commands to the game as networked events. If the return value is
-   `true`, the function will block any further handlers from processing this
-   event, essentially "eating" it. If the return value is `false`, other
-   handlers will continue to be called as normal.
+Called only if `IsUiProcessor` is `true`. Called when a GUI event is dispatched
+by the engine, for example when the UI is active and the player has pressed a
+key or moved the mouse. Mouse movements will only be captured if `RequireMouse`
+is `true`. Because this interacts directly with the OS it is not part of the
+game simulation, therefore has `ui` scope and must dispatch commands to the
+game as networked events. If the return value is `true`, the function will
+block any further handlers from processing this event, essentially "eating"
+it. If the return value is `false`, other handlers will continue to be called
+as normal.
 
-- `UiTick`
+### `UiTick`
 
-   Despite what it may seem, this function is actually called deterministically
-   within the game loop, just before the level is ticked and after the player's
-   network commands are created. Albeit this, it is `ui` scope, so it should
-   be used to process UI code.
+Despite what it may seem, this function is actually called deterministically
+within the game loop, just before the level is ticked and after the player's
+network commands are created. Albeit this, it is `ui` scope, so it should be
+used to process UI code.
 
-- `PostUiTick`
+### `PostUiTick`
 
-   Similar to `UiTick`, this is also deterministic, but called after all other
-   tickers.
+Similar to `UiTick`, this is also deterministic, but called after all other
+tickers.
 
-- `InputProcess`
+### `InputProcess`
 
-   The same as `UiProcess`, but this is only called when inputs are being
-   directed to the game, rather than to the GUI. All of the same restrictions
-   apply to this as they do to `UiProcess`, and the return value acts the same.
+The same as `UiProcess`, but this is only called when inputs are being directed
+to the game, rather than to the GUI. All of the same restrictions apply to this
+as they do to `UiProcess`, and the return value acts the same.
 
-- `ConsoleProcess`
+### `ConsoleProcess`
 
-   Called when network events which have no player activator are received.
+Called when network events which have no player activator are received.
 
-- `NetworkProcess`
+### `NetworkProcess`
 
-   Called when network events which have a player activator are received.
+Called when network events which have a player activator are received.
 
-- `CheckReplacement`
+### `CheckReplacement`
 
-   Called during actor replacement, after skill replacement is done, but before
-   any other replacement (such as actor replacements done in ZScript actor
-   definitions.)
+Called during actor replacement, after skill replacement is done, but before
+any other replacement (such as actor replacements done in ZScript actor
+definitions.)
 
-- `NewGame`
+### `NewGame`
 
-   Called on a new game, directly after level data is reset and right before
-   the level is set up.
+Called on a new game, directly after level data is reset and right before the
+level is set up.
 
-- `SetOrder`
+### `SetOrder`
 
-   Sets the ordering of this event handler, which can be read from `Order`.
+Sets the ordering of this event handler, which can be read from `Order`.
 
-- `Order`
+### `Order`
 
-   The arbitrary ordering of this event handler relative to other ones. Event
-   handlers with lower ordering numbers have their functions executed first.
-   You can set this variable with `SetOrder`.
+The arbitrary ordering of this event handler relative to other ones. Event
+handlers with lower ordering numbers have their functions executed first. You
+can set this variable with `SetOrder`.
 
-- `IsUiProcessor`
+### `IsUiProcessor`
 
-   If `true`, GUI events will be sent to this event handler through
-   `UiProcess`. This is mainly for optimization purposes.
+If `true`, GUI events will be sent to this event handler through `UiProcess`.
+This is mainly for optimization purposes.
 
-- `RequireMouse`
+### `RequireMouse`
 
-   If `true`, mouse events will be sent to this event handler through
-   `InputProcess` and/or `UiProcess`. This is mainly for optimization purposes.
+If `true`, mouse events will be sent to this event handler through
+`InputProcess` and/or `UiProcess`. This is mainly for optimization purposes.
 
 <!-- EOF -->

@@ -28,97 +28,97 @@ double TanH(double n);
 double VectorAngle(double x, double y);
 ```
 
-- `Abs`
+### `Abs`
 
-   Returns `|n|` (absolute of `n`.)
+Returns `|n|` (absolute of `n`.)
 
-- `ACos`
+### `ACos`
 
-   Returns the arc-cosine of `n`.
+Returns the arc-cosine of `n`.
 
-- `ASin`
+### `ASin`
 
-   Returns the arc-sine of `n`.
+Returns the arc-sine of `n`.
 
-- `ATan`
+### `ATan`
 
-   Returns the arc-tangent of `n`.
+Returns the arc-tangent of `n`.
 
-- `ATan2`
+### `ATan2`
 
-   Returns the arc-tangent of `y / x` using the arguments' signs to determine
-   the correct quadrant.
+Returns the arc-tangent of `y / x` using the arguments' signs to determine the
+correct quadrant.
 
-- `BAM`
+### `BAM`
 
-   Returns a byte angle of `angle` (`degrees * (0x40000000 / 90.0)`.)
+Returns a byte angle of `angle` (`degrees * (0x40000000 / 90.0)`.)
 
-- `Ceil`
+### `Ceil`
 
-   Returns the integral portion of `n`, rounded up.
+Returns the integral portion of `n`, rounded up.
 
-- `Clamp`
+### `Clamp`
 
-   Returns `n` if `n` is more than `minimum` and less than `maximum`, or either
-   of those values if it is not.
+Returns `n` if `n` is more than `minimum` and less than `maximum`, or either of
+those values if it is not.
 
-- `Cos`
+### `Cos`
 
-   Returns the cosine of `n`.
+Returns the cosine of `n`.
 
-- `CosH`
+### `CosH`
 
-   Returns the hyperbolic cosine of `n`.
+Returns the hyperbolic cosine of `n`.
 
-- `Exp`
+### `Exp`
 
-   Returns euler's number raised to the power `n`. Note that you probably want
-   instead the `**` binary operator, as in `a ** b`, since euler's number is
-   generally not a very useful constant when programming games.
+Returns euler's number raised to the power `n`. Note that you probably want
+instead the `**` binary operator, as in `a ** b`, since euler's number is
+generally not a very useful constant when programming games.
 
-- `Floor`
+### `Floor`
 
-   Returns the integral portion of `n`, rounded down.
+Returns the integral portion of `n`, rounded down.
 
-- `Log`
+### `Log`
 
-   Returns the natural (base of euler's number) logarithm of `n`.
+Returns the natural (base of euler's number) logarithm of `n`.
 
-- `Log10`
+### `Log10`
 
-   Returns the common (base 10) logarithm of `n`. Note that this is useful for
-   instance when calculating the number of decimal digits in a number.
+Returns the common (base 10) logarithm of `n`. Note that this is useful for
+instance when calculating the number of decimal digits in a number.
 
-- `Max`
+### `Max`
 
-   Returns `n` if `n` is less than `maximum`, or `maximum`.
+Returns `n` if `n` is less than `maximum`, or `maximum`.
 
-- `Min`
+### `Min`
 
-   Returns `n` if `n` is more than `minimum`, or `minimum`.
+Returns `n` if `n` is more than `minimum`, or `minimum`.
 
-- `Sin`
+### `Sin`
 
-   Returns the sine of `n`.
+Returns the sine of `n`.
 
-- `SinH`
+### `SinH`
 
-   Returns the hyperbolic sine of `n`.
+Returns the hyperbolic sine of `n`.
 
-- `Sqrt`
+### `Sqrt`
 
-   Returns the square root of `n`.
+Returns the square root of `n`.
 
-- `Tan`
+### `Tan`
 
-   Returns the tangent of `n`.
+Returns the tangent of `n`.
 
-- `TanH`
+### `TanH`
 
-   Returns the hyperbolic tangent of `n`.
+Returns the hyperbolic tangent of `n`.
 
-- `VectorAngle`
+### `VectorAngle`
 
-   Same as `ATan2`, but with arguments reversed.
+Same as `ATan2`, but with arguments reversed.
 
 <!-- EOF -->

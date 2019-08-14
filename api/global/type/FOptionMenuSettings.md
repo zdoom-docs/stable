@@ -17,36 +17,36 @@ struct FOptionMenuSettings
 }
 ```
 
-- `mTitleColor`
+### `mTitleColor`
 
-   TODO
+TODO
 
-- `mFontColor`
+### `mFontColor`
 
-   TODO
+TODO
 
-- `mFontColorValue`
+### `mFontColorValue`
 
-   TODO
+TODO
 
-- `mFontColorMore`
+### `mFontColorMore`
 
-   TODO
+TODO
 
-- `mFontColorHeader`
+### `mFontColorHeader`
 
-   TODO
+TODO
 
-- `mFontColorHighlight`
+### `mFontColorHighlight`
 
-   TODO
+TODO
 
-- `mFontColorSelection`
+### `mFontColorSelection`
 
-   TODO
+TODO
 
-- `mLineSpacing`
+### `mLineSpacing`
 
-   The spacing in virtual pixels between two lines in an `OptionMenu`.
+The spacing in virtual pixels between two lines in an `OptionMenu`.
 
 <!-- EOF -->

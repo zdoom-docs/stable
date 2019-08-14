@@ -1,11 +1,11 @@
-Enumeration Definitions
-=======================
-
 <!-- vim-markdown-toc GFM -->
 
-* [Example: Enumeration definitions](#example-enumeration-definitions)
+* [Enumeration Definitions](#enumeration-definitions)
+	* [Example: Enumeration definitions](#example-enumeration-definitions)
 
 <!-- vim-markdown-toc -->
+
+# Enumeration Definitions
 
 An enumeration is a list of named numbers, which by default will be incremental
 from 0. By default they decay to the type `int`, but the default decay type can

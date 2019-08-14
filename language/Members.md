@@ -1,11 +1,12 @@
-# Member Declarations
-
 <!-- vim-markdown-toc GFM -->
 
-   * [Example: Member declarations](#example-member-declarations)
+* [Member Declarations](#member-declarations)
+	* [Example: Member declarations](#example-member-declarations)
 * [Member Declaration Flags](#member-declaration-flags)
 
 <!-- vim-markdown-toc -->
+
+# Member Declarations
 
 Member declarations define data within a structure or class that can be
 accessed directly within methods of the object (or its derived classes,) or

@@ -4,7 +4,7 @@
 
 * [ACS](#acs)
 * [Actors](#actors)
-   * [Examples: Actor Replacement](#examples-actor-replacement)
+	* [Examples: Actor Replacement](#examples-actor-replacement)
 * [Console Commands](#console-commands)
 * [CVARINFO](#cvarinfo)
 * [DECALDEF](#decaldef)
@@ -125,24 +125,24 @@ TODO: this can be used for custom buttons
 In `MAPINFO`, the `GameInfo` block (referred to as `MAPINFO`/GameInfo in this
 document) the following properties interact directly with ZScript:
 
-- `EventHandlers` and `AddEventHandlers` override or add to the list of
+* `EventHandlers` and `AddEventHandlers` override or add to the list of
 `StaticEventHandler` or `EventHandler` classes registered by the game (as
 opposed to event handlers registered per-map.)
-- `MessageBoxClass` sets the `MessageBoxMenu` class to use for message boxes
+* `MessageBoxClass` sets the `MessageBoxMenu` class to use for message boxes
 used by the engine's GUI.
-- `PlayerClasses` and `AddPlayerClasses` override or add to the list of
+* `PlayerClasses` and `AddPlayerClasses` override or add to the list of
 `PlayerPawn` classes the game provides.
-- `PrecacheClasses` will pre-cache all sprites used by an `Actor` class. Note
+* `PrecacheClasses` will pre-cache all sprites used by an `Actor` class. Note
 that this also works for `StateProvider` degenerates like `Weapon`.
-- `StatScreen_CoOp` sets the `StatusScreen` class to use for co-op intermission
+* `StatScreen_CoOp` sets the `StatusScreen` class to use for co-op intermission
 screens.
-- `StatScreen_DM` sets the `StatusScreen` class to use for Deathmatch
+* `StatScreen_DM` sets the `StatusScreen` class to use for Deathmatch
 intermission screens.
-- `StatScreen_Single` sets the `StatusScreen` class to use for single-player
+* `StatScreen_Single` sets the `StatusScreen` class to use for single-player
 intermission screens.
-- `StatusBarClass` sets the status bar class used by the game to the provided
+* `StatusBarClass` sets the status bar class used by the game to the provided
 `BaseStatusBar` class.
-- `WeaponSlot` sets the game's default weapon slots to the provided `Weapon`
+* `WeaponSlot` sets the game's default weapon slots to the provided `Weapon`
 classes.
 
 TODO: there are other things here as well, like map event handlers

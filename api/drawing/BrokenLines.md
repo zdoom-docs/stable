@@ -12,16 +12,16 @@ class BrokenLines : Object
 }
 ```
 
-- `Count`
+### `Count`
 
-   Returns the amount of lines in this container.
+Returns the amount of lines in this container.
 
-- `StringAt`
+### `StringAt`
 
-   Returns the text of line `line`.
+Returns the text of line `line`.
 
-- `StringWidth`
+### `StringWidth`
 
-   Returns the width (in pixels) of line `line`.
+Returns the width (in pixels) of line `line`.
 
 <!-- EOF -->

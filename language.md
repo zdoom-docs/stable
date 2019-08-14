@@ -7,7 +7,7 @@
 * [Versions](#versions)
 * [Top-level](#top-level)
 * [Include directives](#include-directives)
-   * [Example: Include directives](#example-include-directives)
+	* [Example: Include directives](#example-include-directives)
 * [Table of Contents](#table-of-contents)
 
 <!-- vim-markdown-toc -->
@@ -89,11 +89,11 @@ version of ZScript. The minimum version supported by this documentation is 3.0.
 A ZScript file can have one of several things at the top level of the file,
 following a version directive:
 
-- Class definitions
-- Structure definitions
-- Enumeration definitions
-- Constant definitions
-- Include directives
+* Class definitions
+* Structure definitions
+* Enumeration definitions
+* Constant definitions
+* Include directives
 
 
 # Include directives

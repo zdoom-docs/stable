@@ -1,24 +1,25 @@
-# Statements
-
 <!-- vim-markdown-toc GFM -->
 
+* [Statements](#statements)
 * [Compound Statements](#compound-statements)
 * [Expression Statements](#expression-statements)
-   * [Example: Expression statements](#example-expression-statements)
+	* [Example: Expression statements](#example-expression-statements)
 * [Conditional Statements](#conditional-statements)
-   * [Example: Conditional statements](#example-conditional-statements)
+	* [Example: Conditional statements](#example-conditional-statements)
 * [Switch Statements](#switch-statements)
-   * [Example: Switch statements](#example-switch-statements)
+	* [Example: Switch statements](#example-switch-statements)
 * [Loop Statements](#loop-statements)
 * [Control Flow Statements](#control-flow-statements)
-   * [Example: Control flow statements](#example-control-flow-statements)
+	* [Example: Control flow statements](#example-control-flow-statements)
 * [Local Variable Statements](#local-variable-statements)
 * [Multi-assignment Statements](#multi-assignment-statements)
-   * [Example: Multi-assignment statements](#example-multi-assignment-statements)
+	* [Example: Multi-assignment statements](#example-multi-assignment-statements)
 * [Static Array Statements](#static-array-statements)
 * [Null Statements](#null-statements)
 
 <!-- vim-markdown-toc -->
+
+# Statements
 
 All functions are made up of a list of *statements* enclosed with left and
 right braces, which in and of itself is a statement called a *compound

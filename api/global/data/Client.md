@@ -32,109 +32,109 @@ readonly ui bool NetGame;
 int LocalViewPitch;
 ```
 
-- `AutomapBindings`
+### `AutomapBindings`
 
-   TODO
+TODO
 
-- `Bindings`
+### `Bindings`
 
-   TODO
+TODO
 
-- `BigFont`
+### `BigFont`
 
-   The `bigfont` for the current game.
+The `bigfont` for the current game.
 
-- `CleanHeight`
+### `CleanHeight`
 
-   The current screen height divided by `CleanYFac`. **Not deterministic.**
+The current screen height divided by `CleanYFac`. **Not deterministic.**
 
-- `CleanHeight_1`
+### `CleanHeight_1`
 
-   The current screen height divided by `CleanYFac_1`. **Not deterministic.**
+The current screen height divided by `CleanYFac_1`. **Not deterministic.**
 
-- `CleanWidth`
+### `CleanWidth`
 
-   The current screen width divided by `CleanXFac`. **Not deterministic.**
+The current screen width divided by `CleanXFac`. **Not deterministic.**
 
-- `CleanWidth_1`
+### `CleanWidth_1`
 
-   The current screen width divided by `CleanYFac_1`. **Not deterministic.**
+The current screen width divided by `CleanYFac_1`. **Not deterministic.**
 
-- `CleanXFac`
+### `CleanXFac`
 
-   Integral scaling factor for horizontal positions to scale from 320x200 to
-   the current virtual resolution. **Not deterministic.**
+Integral scaling factor for horizontal positions to scale from 320x200 to the
+current virtual resolution. **Not deterministic.**
 
-- `CleanXFac_1`
+### `CleanXFac_1`
 
-   Integral scaling factor for horizontal positions to scale from 320x200 to
-   the current virtual resolution, accounting for aspect ratio differences.
-   **Not deterministic.**
+Integral scaling factor for horizontal positions to scale from 320x200 to the
+current virtual resolution, accounting for aspect ratio differences. **Not
+deterministic.**
 
-- `CleanYFac`
+### `CleanYFac`
 
-   Integral scaling factor for vertical positions to scale from 320x200 to the
-   current virtual resolution. **Not deterministic.**
+Integral scaling factor for vertical positions to scale from 320x200 to the
+current virtual resolution. **Not deterministic.**
 
-- `CleanYFac_1`
+### `CleanYFac_1`
 
-   Integral scaling factor for vertical positions to scale from 320x200 to the
-   current virtual resolution, accounting for aspect ratio differences. **Not
-   deterministic.**
+Integral scaling factor for vertical positions to scale from 320x200 to the
+current virtual resolution, accounting for aspect ratio differences. **Not
+deterministic.**
 
-- `ConFont`
+### `ConFont`
 
-   The console font.
+The console font.
 
-- `IntermissionFont`
+### `IntermissionFont`
 
-   The font used in intermission screens.
+The font used in intermission screens.
 
-- `SmallFont`
+### `SmallFont`
 
-   The `smallfnt` for the current game.
+The `smallfnt` for the current game.
 
-- `SmallFont2`
+### `SmallFont2`
 
-   The alternate `smallfnt`.
+The alternate `smallfnt`.
 
-- `NewConsoleFont`
+### `NewConsoleFont`
 
-   TODO
+TODO
 
-- `NewSmallFont`
+### `NewSmallFont`
 
-   TODO
+TODO
 
-- `BackbuttonAlpha`
+### `BackbuttonAlpha`
 
-   Alpha of the back button in menus.
+Alpha of the back button in menus.
 
-- `BackbuttonTime`
+### `BackbuttonTime`
 
-   The time until the back button starts fading out in menus.
+The time until the back button starts fading out in menus.
 
-- `MenuActive`
+### `MenuActive`
 
-   The current active menu state. One of:
+The current active menu state. One of:
 
-   | Name             | Description                                                    |
-   | ----             | -----------                                                    |
-   | `Menu.Off`       | No active menu.                                                |
-   | `Menu.OnNoPause` | Menu is opened, but the game is not paused.                    |
-   | `Menu.On`        | Menu is open, game is paused.                                  |
-   | `Menu.WaitKey`   | Menu is opened, waiting for a key for a controls menu binding. |
+| Name             | Description                                                    |
+| ----             | -----------                                                    |
+| `Menu.Off`       | No active menu.                                                |
+| `Menu.OnNoPause` | Menu is opened, but the game is not paused.                    |
+| `Menu.On`        | Menu is open, game is paused.                                  |
+| `Menu.WaitKey`   | Menu is opened, waiting for a key for a controls menu binding. |
 
-- `StatusBar`
+### `StatusBar`
 
-   TODO
+TODO
 
-- `NetGame`
+### `NetGame`
 
-   Whether this is a networked game or not.
+Whether this is a networked game or not.
 
-- `LocalViewPitch`
+### `LocalViewPitch`
 
-   The pitch angle (in degrees) of `ConsolePlayer`'s view. **Not deterministic.**
+The pitch angle (in degrees) of `ConsolePlayer`'s view. **Not deterministic.**
 
 <!-- EOF -->

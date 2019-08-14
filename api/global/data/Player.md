@@ -10,24 +10,24 @@ readonly bool       PlayerInGame[MAXPLAYERS];
 play     PlayerInfo Players[MAXPLAYERS];
 ```
 
-- `ConsolePlayer`
+### `ConsolePlayer`
 
-   Number of the player running the client. **Not deterministic.**
+Number of the player running the client. **Not deterministic.**
 
-- `Multiplayer`
+### `Multiplayer`
 
-   Game is networked.
+Game is networked.
 
-- `Net_Arbitrator`
+### `Net_Arbitrator`
 
-   Number of the player who initiated or currently hosts the game.
+Number of the player who initiated or currently hosts the game.
 
-- `PlayerInGame`
+### `PlayerInGame`
 
-   `true` if the player is currently in-game.
+`true` if the player is currently in-game.
 
-- `Players`
+### `Players`
 
-   `PlayerInfo` structures for each player.
+`PlayerInfo` structures for each player.
 
 <!-- EOF -->

@@ -7,12 +7,13 @@ uint MSTime();
 vararg void ThrowAbortException(string format, ...);
 ```
 
-- `MSTime`
+### `MSTime`
 
-   Returns the number of milliseconds since the engine was started. **Not deterministic.**
+Returns the number of milliseconds since the engine was started. **Not
+deterministic.**
 
-- `ThrowAbortException`
+### `ThrowAbortException`
 
-   Kills the VM and ends the game (without exiting) with a formatted error.
+Kills the VM and ends the game (without exiting) with a formatted error.
 
 <!-- EOF -->

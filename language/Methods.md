@@ -1,13 +1,14 @@
-# Method Definitions
-
 <!-- vim-markdown-toc GFM -->
 
+* [Method Definitions](#method-definitions)
 * [Method Argument List](#method-argument-list)
-   * [Example: Method argument lists](#example-method-argument-lists)
+	* [Example: Method argument lists](#example-method-argument-lists)
 * [Method Definition Flags](#method-definition-flags)
-   * [Action functions](#action-functions)
+	* [Action functions](#action-functions)
 
 <!-- vim-markdown-toc -->
+
+# Method Definitions
 
 Method definitions define functions within a structure or class that can be
 accessed directly within other methods of the object (or its derived classes,)

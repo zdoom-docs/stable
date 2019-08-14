@@ -27,59 +27,56 @@ struct CVar
 }
 ```
 
-- `FindCVar`
+### `FindCVar`
 
-   Returns a server CVar by name, or `null` if none is found.
+Returns a server CVar by name, or `null` if none is found.
 
-- `GetCVar`
+### `GetCVar`
 
-   Returns a user or server CVar by name, with `player` as the user if
-   applicable, or `null` if none is found.
+Returns a user or server CVar by name, with `player` as the user if applicable,
+or `null` if none is found.
 
-- `GetBool`
+### `GetBool`
 
-   Returns a boolean representing the value of the CVar, or `false` if it
-   cannot be represented.
+Returns a boolean representing the value of the CVar, or `false` if it
+cannot be represented.
 
-- `GetFloat`
+### `GetFloat`
 
-   Returns a float representing the value of the CVar, or `0.0` if it cannot be
-   represented.
+Returns a float representing the value of the CVar, or `0.0` if it cannot be
+represented.
 
-- `GetInt`
+### `GetInt`
 
-   Returns an integer representing the value of the CVar, or `0` if it cannot
-   be represented.
+Returns an integer representing the value of the CVar, or `0` if it cannot be
+represented.
 
-- `GetString`
+### `GetString`
 
-   Returns a string representing the value of the CVar. CVars can always be
-   represented as strings.
+Returns a string representing the value of the CVar. CVars can always be
+represented as strings.
 
-- `SetBool`
-- `SetFloat`
-- `SetInt`
-- `SetString`
+### `SetBool`, `SetFloat`, `SetInt`, `SetString`
 
-   Sets the representation of the CVar to `v`. May only be used on mod-defined
-   CVars.
+Sets the representation of the CVar to `v`. May only be used on mod-defined
+CVars.
 
-- `GetRealType`
+### `GetRealType`
 
-   Returns the type of the CVar as it was defined, which may be one of the
-   following:
+Returns the type of the CVar as it was defined, which may be one of the
+following:
 
-   | Name               |
-   | ----               |
-   | `CVar.CVAR_BOOL`   |
-   | `CVar.CVAR_COLOR  |
-   | `CVar.CVAR_FLOAT`  |
-   | `CVar.CVAR_INT`    |
-   | `CVar.CVAR_STRING` |
+| Name               |
+| ----               |
+| `CVar.CVAR_BOOL`   |
+| `CVar.CVAR_COLOR`  |
+| `CVar.CVAR_FLOAT`  |
+| `CVar.CVAR_INT`    |
+| `CVar.CVAR_STRING` |
 
-- `ResetToDefault`
+### `ResetToDefault`
 
-   Resets the CVar to its default value and returns 0. The purpose of the
-   return is unknown. May only be used on mod-defined CVars.
+Resets the CVar to its default value and returns 0. The purpose of the
+return is unknown. May only be used on mod-defined CVars.
 
 <!-- EOF -->

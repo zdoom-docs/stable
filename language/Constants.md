@@ -1,11 +1,12 @@
-# Constant Definitions
-
 <!-- vim-markdown-toc GFM -->
 
-   * [Example: Constant definitions](#example-constant-definitions)
+* [Constant Definitions](#constant-definitions)
+	* [Example: Constant definitions](#example-constant-definitions)
 * [Static array definitions](#static-array-definitions)
 
 <!-- vim-markdown-toc -->
+
+# Constant Definitions
 
 Constants are simple named values. They are created with the syntax:
 

@@ -10,12 +10,12 @@ struct GIFont
 }
 ```
 
-- `Color`
+### `Color`
 
-   The color of the font.
+The color of the font.
 
-- `FontName`
+### `FontName`
 
-   The name of the font.
+The name of the font.
 
 <!-- EOF -->

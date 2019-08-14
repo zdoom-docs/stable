@@ -12,21 +12,21 @@ struct FColorMap
 }
 ```
 
-- `BlendFactor`
+### `BlendFactor`
 
-   TODO: "This is for handling Legacy-style color maps which use a different
-   formula to calculate how the color affects lighting."
+TODO: "This is for handling Legacy-style color maps which use a different
+formula to calculate how the color affects lighting."
 
-- `Desaturation`
+### `Desaturation`
 
-   How much to desaturate colors in this sector. Range is 0 to 255, inclusive.
+How much to desaturate colors in this sector. Range is 0 to 255, inclusive.
 
-- `FadeColor`
+### `FadeColor`
 
-   The color of fog in this sector. None if all components are 0.
+The color of fog in this sector. None if all components are 0.
 
-- `LightColor`
+### `LightColor`
 
-   The color of the sector. Default if all components are 0.
+The color of the sector. Default if all components are 0.
 
 <!-- EOF -->

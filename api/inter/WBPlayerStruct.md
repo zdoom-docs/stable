@@ -15,29 +15,29 @@ struct WBPlayerStruct
 }
 ```
 
-- `SItems`
+### `SItems`
 
-   The number of items this player acquired.
+The number of items this player acquired.
 
-- `SKills`
+### `SKills`
 
-   The number of monsters this player killed.
+The number of monsters this player killed.
 
-- `SSecret`
+### `SSecret`
 
-   The number of secrets this player found.
+The number of secrets this player found.
 
-- `STime`
+### `STime`
 
-   The time this player finished the level at, in ticks. (This is the same for
-   all players.)
+The time this player finished the level at, in ticks. (This is the same for all
+players.)
 
-- `FragCount`
+### `FragCount`
 
-   The total amount of frags this player scored against all players.
+The total amount of frags this player scored against all players.
 
-- `Frags`
+### `Frags`
 
-   The number of frags this player scored against each other player.
+The number of frags this player scored against each other player.
 
 <!-- EOF -->

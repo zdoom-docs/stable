@@ -1,7 +1,6 @@
-# Class Definitions
-
 <!-- vim-markdown-toc GFM -->
 
+* [Class Definitions](#class-definitions)
 	* [Example: Class headers](#example-class-headers)
 	* [Example: Class definitions](#example-class-definitions)
 * [Class Flags](#class-flags)
@@ -16,6 +15,8 @@
 * [State Definitions](#state-definitions)
 
 <!-- vim-markdown-toc -->
+
+# Class Definitions
 
 A class defines an object type within ZScript, and is most of what you'll be
 creating within the language.
@@ -148,16 +149,16 @@ inherits `Actor`.
 Class contents are an optional list of various things logically contained
 within the class, including:
 
-- Member declarations
-- Method definitions
-- Property definitions
-- Flag definitions
-- Default blocks
-- State definitions
-- Enumeration definitions
-- Structure definitions
-- Constant definitions
-- Static array definitions
+* Member declarations
+* Method definitions
+* Property definitions
+* Flag definitions
+* Default blocks
+* State definitions
+* Enumeration definitions
+* Structure definitions
+* Constant definitions
+* Static array definitions
 
 # Property Definitions
 

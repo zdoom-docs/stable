@@ -33,90 +33,87 @@ struct State
 }
 ```
 
-- `Frame`
+### `Frame`
 
-   The sprite frame of this state.
+The sprite frame of this state.
 
-- `NextState`
+### `NextState`
 
-   A pointer to the next state in the global state table.
+A pointer to the next state in the global state table.
 
-- `Sprite`
+### `Sprite`
 
-   The sprite ID of this state.
+The sprite ID of this state.
 
-- `Tics`
+### `Tics`
 
-   The number of game ticks this state lasts.
+The number of game ticks this state lasts.
 
-- `Misc1`
-- `Misc2`
+### `Misc1`, `Misc2`
 
-   Primarily used in DeHackEd compatibility. Don't use this.
+Primarily used in DeHackEd compatibility. Don't use this.
 
-- `TicRange`
+### `TicRange`
 
-   The maximum amount of tics to add for random tic durations, or `0` if the
-   duration is not random. For example, `TNT1 A random(5, 7)` would have a
-   `Tics` value of `5` and a `TicRange` of `2`.
+The maximum amount of tics to add for random tic durations, or `0` if the
+duration is not random. For example, `TNT1 A random(5, 7)` would have a `Tics`
+value of `5` and a `TicRange` of `2`.
 
-- `UseFlags`
+### `UseFlags`
 
-   The scope of this state. See *Action Scoping*. Can have any of the
-   `DefaultStateUsage` flags.
+The scope of this state. See *Action Scoping*. Can have any of the
+`DefaultStateUsage` flags.
 
-- `bCanRaise`
+### `bCanRaise`
 
-   State has the `CanRaise` flag, allowing `A_VileChase` to target this actor
-   for healing without entering an infinitely long state.
+State has the `CanRaise` flag, allowing `A_VileChase` to target this actor for
+healing without entering an infinitely long state.
 
-- `bDeHackEd`
+### `bDeHackEd`
 
-   `true` if the state has been modified by DeHackEd.
+`true` if the state has been modified by DeHackEd.
 
-- `bFast`
+### `bFast`
 
-   State has the `Fast` flag, halving the duration when fast monsters is
-   enabled.
+State has the `Fast` flag, halving the duration when fast monsters is enabled.
 
-- `bFullBright`
+### `bFullBright`
 
-   State has the `Bright` flag, making it fully bright regardless of other
-   lighting conditions.
+State has the `Bright` flag, making it fully bright regardless of other
+lighting conditions.
 
-- `bNoDelay`
+### `bNoDelay`
 
-   State has the `NoDelay` flag, forcing the associated action function to be
-   run if the actor is in its first tic.
+State has the `NoDelay` flag, forcing the associated action function to be run
+if the actor is in its first tic.
 
-- `bSameFrame`
+### `bSameFrame`
 
-   `true` if the state's frame is to be kept from the last frame used, i.e., is
-   `#`.
+`true` if the state's frame is to be kept from the last frame used, i.e., is
+`#`.
 
-- `bSlow`
+### `bSlow`
 
-   State has the `Slow` flag, doubling the duration when slow monsters is
-   enabled.
+State has the `Slow` flag, doubling the duration when slow monsters is enabled.
 
-- `DistanceTo`
+### `DistanceTo`
 
-   Returns the offset between this state and `other` in the global frame table.
-   Only works if both states are owned by the same actor.
+Returns the offset between this state and `other` in the global frame table.
+Only works if both states are owned by the same actor.
 
-- `InStateSequence`
+### `InStateSequence`
 
-   Returns `true` if this state is within a contiguous state sequence beginning
-   with `base`.
+Returns `true` if this state is within a contiguous state sequence beginning
+with `base`.
 
-- `ValidateSpriteFrame`
+### `ValidateSpriteFrame`
 
-   Returns `true` if the sprite frame actually exists.
+Returns `true` if the sprite frame actually exists.
 
-- `GetSpriteTexture`
+### `GetSpriteTexture`
 
-   Returns the texture, if the texture should be flipped horizontally, and
-   scaling of this state's sprite. Scaling will return `scale` unless `skin` is
-   nonzero. `skin` determines the player skin used.
+Returns the texture, if the texture should be flipped horizontally, and scaling
+of this state's sprite. Scaling will return `scale` unless `skin` is nonzero.
+`skin` determines the player skin used.
 
 <!-- EOF -->

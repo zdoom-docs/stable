@@ -30,84 +30,82 @@ struct String
 }
 ```
 
-- `Format`
+### `Format`
 
-   Creates a string using a format string and any amount of arguments.
+Creates a string using a format string and any amount of arguments.
 
-- `AppendFormat`
+### `AppendFormat`
 
-   Works like `Format`, but appends the result to the string.
+Works like `Format`, but appends the result to the string.
 
-- `CharAt`
+### `CharAt`
 
-   Returns the character at `pos` as a new string.
+Returns the character at `pos` as a new string.
 
-- `CharCodeAt`
+### `CharCodeAt`
 
-   Returns the character at `pos` as an integer.
+Returns the character at `pos` as an integer.
 
-- `Filter`
+### `Filter`
 
-   Replaces escape sequences in a string with escaped characters as a new
-   string.
+Replaces escape sequences in a string with escaped characters as a new string.
 
-- `IndexOf`
+### `IndexOf`
 
-   Returns the first index of `substr` starting from the left at `start`.
+Returns the first index of `substr` starting from the left at `start`.
 
-- `Left`
+### `Left`
 
-   Returns the first `len` characters as a new string.
+Returns the first `len` characters as a new string.
 
-- `Length`
+### `Length`
 
-   Returns the number of characters in this string.
+Returns the number of characters in this string.
 
-- `Mid`
+### `Mid`
 
-   Returns `len` characters starting at `pos` as a new string.
+Returns `len` characters starting at `pos` as a new string.
 
-- `Remove`
+### `Remove`
 
-   Removes `amount` characters starting at `index` in place.
+Removes `amount` characters starting at `index` in place.
 
-- `Replace`
+### `Replace`
 
-   Replaces all instances of `pattern` with `replacement` in place.
+Replaces all instances of `pattern` with `replacement` in place.
 
-- `RightIndexOf`
+### `RightIndexOf`
 
-   Returns the first index of `substr` starting from the right at `end`.
+Returns the first index of `substr` starting from the right at `end`.
 
-- `Split`
+### `Split`
 
-   Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be
-   either `TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or
-   discard empty strings found while splitting.
+Splits the string by each `delimiter` into `tokens`. `keepEmpty` may be either
+`TOK_SKIPEMPTY` (the default) or `TOK_KEEPEMPTY`, which will keep or discard
+empty strings found while splitting.
 
-- `ToDouble`
+### `ToDouble`
 
-   Interprets the string as a double precision floating point number.
+Interprets the string as a double precision floating point number.
 
-- `ToInt`
+### `ToInt`
 
-   Interprets the string as a base `base` integer, guessing the base if it is
-   `0`.
+Interprets the string as a base `base` integer, guessing the base if it is `0`.
 
-- `ToLower`
+### `ToLower`
 
-   Converts all characters in the string to lowercase in place.
+Converts all characters in the string to lowercase in place.
 
-- `ToUpper`
+### `ToUpper`
 
-   Converts all characters in the string to uppercase in place.
+Converts all characters in the string to uppercase in place.
 
-- `Truncate`
+### `Truncate`
 
-   Truncates the string to `len` characters in place.
+Truncates the string to `len` characters in place.
 
-- `LastIndexOf`
+### `LastIndexOf`
 
-   Broken. Use `RightIndexOf` instead.
+Broken. Use `RightIndexOf` instead.
 
 <!-- EOF -->

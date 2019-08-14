@@ -9,8 +9,8 @@ struct Type[N]
 }
 ```
 
-- `Size`
+### `Size`
 
-   Returns the size of the array. This is a compile-time constant.
+Returns the size of the array. This is a compile-time constant.
 
 <!-- EOF -->

@@ -11,12 +11,12 @@ class SectorEffect : Thinker
 }
 ```
 
-- `m_Sector`
+### `m_Sector`
 
-   The sector this effect is attached to.
+The sector this effect is attached to.
 
-- `GetSector`
+### `GetSector`
 
-   Returns the sector this effect is attached to.
+Returns the sector this effect is attached to.
 
 <!-- EOF -->

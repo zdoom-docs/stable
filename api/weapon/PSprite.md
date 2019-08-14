@@ -47,93 +47,93 @@ class PSprite : Object play
 }
 ```
 
-- `CurState`
+### `CurState`
 
-   TODO
+TODO
 
-- `ID`
+### `ID`
 
-   TODO
+TODO
 
-- `Next`
+### `Next`
 
-   TODO
+TODO
 
-- `Owner`
+### `Owner`
 
-   TODO
+TODO
 
-- `Alpha`
+### `Alpha`
 
-   The amount of translucency of the PSprite, range 0-1 inclusive.
+The amount of translucency of the PSprite, range 0-1 inclusive.
 
-- `Caller`
+### `Caller`
 
-   TODO
+TODO
 
-- `FirstTic`
+### `FirstTic`
 
-   TODO
+TODO
 
-- `Frame`
+### `Frame`
 
-   Frame number of the sprite.
+Frame number of the sprite.
 
-- `OldX`
+### `OldX`
 
-   TODO
+TODO
 
-- `OldY`
+### `OldY`
 
-   TODO
+TODO
 
-- `ProcessPending`
+### `ProcessPending`
 
-   TODO
+TODO
 
-- `Sprite`
+### `Sprite`
 
-   The sprite to display on this layer.
+The sprite to display on this layer.
 
-- `Tics`
+### `Tics`
 
-   The number of game ticks before the next state takes over.
+The number of game ticks before the next state takes over.
 
-- `X`
+### `X`
 
-   The offset from the weapon's normal resting position on the horizontal axis.
+The offset from the weapon's normal resting position on the horizontal axis.
 
-- `Y`
+### `Y`
 
-   The offset from the weapon's normal resting position on the vertical axis.
-   Note that `32` is the real resting position because of `A_Raise`.
+The offset from the weapon's normal resting position on the vertical axis. Note
+that `32` is the real resting position because of `A_Raise`.
 
-- `bAddBob`
+### `bAddBob`
 
-   Adds the weapon's bobbing to this layer's offset.
+Adds the weapon's bobbing to this layer's offset.
 
-- `bAddWeapon`
+### `bAddWeapon`
 
-   Adds the weapon layer's offsets to this layer's offset.
+Adds the weapon layer's offsets to this layer's offset.
 
-- `bCVarFast`
+### `bCVarFast`
 
-   Layer will respect `sv_fastweapons`.
+Layer will respect `sv_fastweapons`.
 
-- `bFlip`
+### `bFlip`
 
-   Flips the weapon visually horizontally.
+Flips the weapon visually horizontally.
 
-- `bPowDouble`
+### `bPowDouble`
 
-   Layer will respect `PowerDoubleFiringSpeed`.
+Layer will respect `PowerDoubleFiringSpeed`.
 
-- `SetState`
+### `SetState`
 
-   TODO
+TODO
 
-- `Tick`
+### `Tick`
 
-   Called by `PlayerPawn::TickPSprites` to advance the frame.
+Called by `PlayerPawn::TickPSprites` to advance the frame.
 
 <!-- EOF -->

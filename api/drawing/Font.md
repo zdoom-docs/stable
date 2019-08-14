@@ -20,42 +20,42 @@ struct Font
 }
 ```
 
-- `FindFont`
+### `FindFont`
 
-   Gets a font as defined in `FONTDEFS`.
+Gets a font as defined in `FONTDEFS`.
 
-- `FindFontColor`
+### `FindFontColor`
 
-   Returns the color range enumeration for a named color.
+Returns the color range enumeration for a named color.
 
-- `GetFont`
+### `GetFont`
 
-   Gets a font either as defined in `FONTDEFS` or a ZDoom/bitmap font.
+Gets a font either as defined in `FONTDEFS` or a ZDoom/bitmap font.
 
-- `GetBottomAlignOffset`
+### `GetBottomAlignOffset`
 
-   Returns the baseline for the character `code`.
+Returns the baseline for the character `code`.
 
-- `GetCharWidth`
+### `GetCharWidth`
 
-   Returns the width in pixels of a character code.
+Returns the width in pixels of a character code.
 
-- `GetCursor`
+### `GetCursor`
 
-   Returns the string used as a blinking cursor graphic for this font.
+Returns the string used as a blinking cursor graphic for this font.
 
-- `GetHeight`
+### `GetHeight`
 
-   Returns the line height of the font.
+Returns the line height of the font.
 
-- `StringWidth`
+### `StringWidth`
 
-   Returns the width in pixels of the string.
+Returns the width in pixels of the string.
 
-- `BreakLines`
+### `BreakLines`
 
-   Breaks `text` up into a `BrokenLines` structure according to the screen and
-   clip region, as well as appropriately accounting for a maximum width in
-   pixels of `maxlen`.
+Breaks `text` up into a `BrokenLines` structure according to the screen and
+clip region, as well as appropriately accounting for a maximum width in pixels
+of `maxlen`.
 
 <!-- EOF -->

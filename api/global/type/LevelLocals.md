@@ -53,7 +53,7 @@ struct LevelLocals
    float SkySpeed2;
 
    // Physics
-   play double AirControl
+   play double AirControl;
    play double AirFriction;
    play int    AirSupply;
    play double Gravity;
@@ -149,12 +149,12 @@ struct LevelLocals
 
 TODO
 
-- `ClusterFlags`
+### `ClusterFlags`
 
-   Flags for this cluster. May contain any of the following bit flags:
+Flags for this cluster. May contain any of the following bit flags:
 
-   | Name                | Description                      |
-   | ----                | -----------                      |
-   | `Level.CLUSTER_HUB` | This cluster uses hub behaviour. |
+| Name                | Description                      |
+| ----                | -----------                      |
+| `Level.CLUSTER_HUB` | This cluster uses hub behaviour. |
 
 <!-- EOF -->

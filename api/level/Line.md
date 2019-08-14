@@ -44,135 +44,135 @@ struct Line play
 }
 ```
 
-- `BackSector`, `FrontSector`
+### `BackSector`, `FrontSector`
 
-   The sector of the front and back sides of this line.
+The sector of the front and back sides of this line.
 
-- `BBox`
+### `BBox`
 
-   The top, bottom, left and right of the line, respective to array index.
+The top, bottom, left and right of the line, respective to array index.
 
-- `Delta`
+### `Delta`
 
-   Equivalent to `V2 - V1`.
+Equivalent to `V2 - V1`.
 
-- `V1`, `V2`
+### `V1`, `V2`
 
-   Returns the start and end points of this line segment, respectively.
+Returns the start and end points of this line segment, respectively.
 
-- `Sidedef`
+### `Sidedef`
 
-   The front and back sides of this line, 0 and 1 respectively. The aliases
-   `Line.Front` and `Line.Back` are provided as well.
+The front and back sides of this line, 0 and 1 respectively. The aliases
+`Line.Front` and `Line.Back` are provided as well.
 
-- `PortalIndex`
+### `PortalIndex`
 
-   TODO
+TODO
 
-- `PortalTransferred`
+### `PortalTransferred`
 
-   TODO
+TODO
 
-- `Health`
+### `Health`
 
-   TODO
+TODO
 
-- `HealthGroup`
+### `HealthGroup`
 
-   TODO
+TODO
 
-- `Alpha`
+### `Alpha`
 
-   Alpha of the middle texture on both sides.
+Alpha of the middle texture on both sides.
 
-- `Flags`
+### `Flags`
 
-   Any combination of the following bit flags:
+Any combination of the following bit flags:
 
-   | Name                     | Description                                                                       |
-   | ----                     | -----------                                                                       |
-   | `ML_3DMIDTEX_IMPASS`     | Middle texture will collide with projectiles and allow them to pass through.      |
-   | `ML_3DMIDTEX`            | Middle texture can be collided with and walked on as if it were a thin sector.    |
-   | `ML_ADDTRANS`            | Middle textures are drawn with additive translucency on both sides.               |
-   | `ML_BLOCKEVERYTHING`     | Line blocks everything.                                                           |
-   | `ML_BLOCKHITSCAN`        | Line blocks hit scan attacks.                                                     |
-   | `ML_BLOCKING`            | Line is solid and blocks everything but projectiles and hit scan attacks.         |
-   | `ML_BLOCKMONSTERS`       | Line blocks non-flying monsters.                                                  |
-   | `ML_BLOCKPROJECTILE`     | Line blocks projectiles.                                                          |
-   | `ML_BLOCKSIGHT`          | Line blocks line of sight.                                                        |
-   | `ML_BLOCKUSE`            | Line blocks use actions.                                                          |
-   | `ML_BLOCK_FLOATERS`      | Line blocks flying monsters.                                                      |
-   | `ML_BLOCK_PLAYERS`       | Line blocks players.                                                              |
-   | `ML_CHECKSWITCHRANGE`    | Checks the activator's vertical position as well as horizontal before activating. |
-   | `ML_CLIP_MIDTEX`         | Applies `WALLF_CLIP_MIDTEX` to both sides.                                        |
-   | `ML_DONTDRAW`            | Never shown on the auto-map.                                                      |
-   | `ML_DONTPEGBOTTOM`       | Lower texture is unpegged on both sides.                                          |
-   | `ML_DONTPEGTOP`          | Upper texture is unpegged on both sides.                                          |
-   | `ML_FIRSTSIDEONLY`       | Special can only be activated from the front side.                                |
-   | `ML_MAPPED`              | Always shown on the auto-map.                                                     |
-   | `ML_MONSTERSCANACTIVATE` | Monsters may activate this line.                                                  |
-   | `ML_RAILING`             | Line is a railing that can be jumped over.                                        |
-   | `ML_REPEAT_SPECIAL`      | Special may be activated multiple times.                                          |
-   | `ML_SECRET`              | Line will be shown as one-sided on the auto-map.                                  |
-   | `ML_SOUNDBLOCK`          | Blocks sound propagation after two lines with this flag.                          |
-   | `ML_TWOSIDED`            | Line has a back side.                                                             |
-   | `ML_WRAP_MIDTEX`         | Applies `WALLF_WRAP_MIDTEX` to both sides.                                        |
-   | `ML_ZONEBOUNDARY`        | Reverb zone boundary.                                                             |
+| Name                     | Description                                                                       |
+| ----                     | -----------                                                                       |
+| `ML_3DMIDTEX_IMPASS`     | Middle texture will collide with projectiles and allow them to pass through.      |
+| `ML_3DMIDTEX`            | Middle texture can be collided with and walked on as if it were a thin sector.    |
+| `ML_ADDTRANS`            | Middle textures are drawn with additive translucency on both sides.               |
+| `ML_BLOCKEVERYTHING`     | Line blocks everything.                                                           |
+| `ML_BLOCKHITSCAN`        | Line blocks hit scan attacks.                                                     |
+| `ML_BLOCKING`            | Line is solid and blocks everything but projectiles and hit scan attacks.         |
+| `ML_BLOCKMONSTERS`       | Line blocks non-flying monsters.                                                  |
+| `ML_BLOCKPROJECTILE`     | Line blocks projectiles.                                                          |
+| `ML_BLOCKSIGHT`          | Line blocks line of sight.                                                        |
+| `ML_BLOCKUSE`            | Line blocks use actions.                                                          |
+| `ML_BLOCK_FLOATERS`      | Line blocks flying monsters.                                                      |
+| `ML_BLOCK_PLAYERS`       | Line blocks players.                                                              |
+| `ML_CHECKSWITCHRANGE`    | Checks the activator's vertical position as well as horizontal before activating. |
+| `ML_CLIP_MIDTEX`         | Applies `WALLF_CLIP_MIDTEX` to both sides.                                        |
+| `ML_DONTDRAW`            | Never shown on the auto-map.                                                      |
+| `ML_DONTPEGBOTTOM`       | Lower texture is unpegged on both sides.                                          |
+| `ML_DONTPEGTOP`          | Upper texture is unpegged on both sides.                                          |
+| `ML_FIRSTSIDEONLY`       | Special can only be activated from the front side.                                |
+| `ML_MAPPED`              | Always shown on the auto-map.                                                     |
+| `ML_MONSTERSCANACTIVATE` | Monsters may activate this line.                                                  |
+| `ML_RAILING`             | Line is a railing that can be jumped over.                                        |
+| `ML_REPEAT_SPECIAL`      | Special may be activated multiple times.                                          |
+| `ML_SECRET`              | Line will be shown as one-sided on the auto-map.                                  |
+| `ML_SOUNDBLOCK`          | Blocks sound propagation after two lines with this flag.                          |
+| `ML_TWOSIDED`            | Line has a back side.                                                             |
+| `ML_WRAP_MIDTEX`         | Applies `WALLF_WRAP_MIDTEX` to both sides.                                        |
+| `ML_ZONEBOUNDARY`        | Reverb zone boundary.                                                             |
 
-- `ValidCount`
+### `ValidCount`
 
-   Don't use this.
+Don't use this.
 
-- `Activation`
+### `Activation`
 
-   TODO
+TODO
 
-- `Args`
+### `Args`
 
-   Arguments of the line's special action.
+Arguments of the line's special action.
 
-- `LockNumber`
+### `LockNumber`
 
-   TODO
+TODO
 
-- `Special`
+### `Special`
 
-   Number of the special action to be executed when this line is activated.
+Number of the special action to be executed when this line is activated.
 
-- `Index`
+### `Index`
 
-   Returns the index of this line.
+Returns the index of this line.
 
-- `Activate`
+### `Activate`
 
-   TODO
+TODO
 
-- `RemoteActivate`
+### `RemoteActivate`
 
-   TODO
+TODO
 
-- `GetPortalDestination`
+### `GetPortalDestination`
 
-   TODO
+TODO
 
-- `IsLinePortal`
+### `IsLinePortal`
 
-   TODO
+TODO
 
-- `IsVisualPortal`
+### `IsVisualPortal`
 
-   TODO
+TODO
 
-- `GetHealth`
+### `GetHealth`
 
-   TODO
+TODO
 
-- `SetHealth`
+### `SetHealth`
 
-   TODO
+TODO
 
-- `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
+### `GetUdmfFloat`, `GetUdmfInt`, `GetUdmfString`
 
-   Gets a named UDMF property attached to this linedef.
+Gets a named UDMF property attached to this linedef.
 
 <!-- EOF -->

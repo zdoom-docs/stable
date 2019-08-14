@@ -14,28 +14,28 @@ struct SecSpecial play
 }
 ```
 
-- `DamageAmount`
+### `DamageAmount`
 
-   TODO
+TODO
 
-- `DamageInterval`
+### `DamageInterval`
 
-   TODO
+TODO
 
-- `DamageType`
+### `DamageType`
 
-   TODO
+TODO
 
-- `Flags`
+### `Flags`
 
-   TODO
+TODO
 
-- `LeakyDamage`
+### `LeakyDamage`
 
-   TODO
+TODO
 
-- `Special`
+### `Special`
 
-   TODO
+TODO
 
 <!-- EOF -->

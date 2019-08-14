@@ -11,12 +11,12 @@ struct Vertex play
 }
 ```
 
-- `P`
+### `P`
 
-   The point this object represents.
+The point this object represents.
 
-- `Index`
+### `Index`
 
-   The index of this vertex in the global vertices array.
+The index of this vertex in the global vertices array.
 
 <!-- EOF -->

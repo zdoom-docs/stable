@@ -1,11 +1,24 @@
-# Types
-
 <!-- vim-markdown-toc GFM -->
 
+* [Types](#types)
 * [Integer Types](#integer-types)
-   * [Symbols](#symbols)
+	* [Symbols](#symbols)
+		* [`Max`](#max)
+		* [`Min`](#min)
 * [Floating-point Types](#floating-point-types)
-   * [Symbols](#symbols-1)
+	* [Symbols](#symbols-1)
+		* [`Dig`](#dig)
+		* [`Epsilon`](#epsilon)
+		* [`Infinity`](#infinity)
+		* [`Mant_Dig`](#mant_dig)
+		* [`Max`](#max-1)
+		* [`Max_Exp`](#max_exp)
+		* [`Max_10_Exp`](#max_10_exp)
+		* [`Min_Denormal`](#min_denormal)
+		* [`Min_Exp`](#min_exp)
+		* [`Min_Normal`](#min_normal)
+		* [`Min_10_Exp`](#min_10_exp)
+		* [`NaN`](#nan)
 * [Strings](#strings)
 * [Names](#names)
 * [Colors](#colors)
@@ -21,6 +34,8 @@
 * [Array Size](#array-size)
 
 <!-- vim-markdown-toc -->
+
+# Types
 
 ZScript has several categories of types: Integer types, floating-point
 (decimal) types, strings, vectors, names, classes, et al. There are a wide
@@ -62,13 +77,13 @@ Some types have aliases as well:
 Integer types have symbols attached which can be accessed by `typename.name`,
 for instance `int.Max`.
 
-- `Max`
+### `Max`
 
-   Maximum value of type.
+Maximum value of type.
 
-- `Min`
+### `Min`
 
-   Minimum value of type.
+Minimum value of type.
 
 # Floating-point Types
 
@@ -87,53 +102,53 @@ numbers. There are two such types available to ZScript:
 Floating-point types have symbols attached which can be accessed by
 `typename.name`, for instance `double.Infinity`.
 
-- `Dig`
+### `Dig`
 
-   Number of decimal digits in type.
+Number of decimal digits in type.
 
-- `Epsilon`
+### `Epsilon`
 
-   ε value of type.
+ε value of type.
 
-- `Infinity`
+### `Infinity`
 
-   ∞ value of type.
+∞ value of type.
 
-- `Mant_Dig`
+### `Mant_Dig`
 
-   Number of mantissa bits in type.
+Number of mantissa bits in type.
 
-- `Max`
+### `Max`
 
-   Maximum value of type.
+Maximum value of type.
 
-- `Max_Exp`
+### `Max_Exp`
 
-   Maximum exponent bits value of type.
+Maximum exponent bits value of type.
 
-- `Max_10_Exp`
+### `Max_10_Exp`
 
-   Maximum exponent of type.
+Maximum exponent of type.
 
-- `Min_Denormal`
+### `Min_Denormal`
 
-   Minimum positive subnormal value of type.
+Minimum positive subnormal value of type.
 
-- `Min_Exp`
+### `Min_Exp`
 
-   Minimum exponent bits value of type.
+Minimum exponent bits value of type.
 
-- `Min_Normal`
+### `Min_Normal`
 
-   Minimum value of type.
+Minimum value of type.
 
-- `Min_10_Exp`
+### `Min_10_Exp`
 
-   Minimum exponent of type.
+Minimum exponent of type.
 
-- `NaN`
+### `NaN`
 
-   Not-a-Number value of type.
+Not-a-Number value of type.
 
 # Strings
 

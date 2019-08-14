@@ -1,12 +1,13 @@
-# Structure Definitions
-
 <!-- vim-markdown-toc GFM -->
 
-   * [Example: Structure definitions](#example-structure-definitions)
+* [Structure Definitions](#structure-definitions)
+	* [Example: Structure definitions](#example-structure-definitions)
 * [Structure Flags](#structure-flags)
 * [Structure Content](#structure-content)
 
 <!-- vim-markdown-toc -->
+
+# Structure Definitions
 
 A structure is an object type that does not inherit from Object and is not
 always (though occasionally is) a reference type, unlike classes. Structures
@@ -59,9 +60,9 @@ struct MyCoolStructure
 Structure contents are an optional list of various things logically contained
 within the structure, including:
 
-- Member declarations
-- Method definitions
-- Enumeration definitions
-- Constant definitions
+* Member declarations
+* Method definitions
+* Enumeration definitions
+* Constant definitions
 
 <!-- EOF -->

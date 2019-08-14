@@ -20,15 +20,15 @@ class EventHandler : StaticEventHandler
 }
 ```
 
-- `Find`
+### `Find`
 
-   Finds and returns the `StaticEventHandler` type `type` if it is registered,
-   or `null` if it does not exist. It should be noted that this is exactly the
-   same as `StaticEventHandler`'s, and does not actually check for
-   `EventHandlers`, although due to inheritance will return them correctly.
+Finds and returns the `StaticEventHandler` type `type` if it is registered, or
+`null` if it does not exist. It should be noted that this is exactly the same
+as `StaticEventHandler`'s, and does not actually check for `EventHandlers`,
+although due to inheritance will return them correctly.
 
-- `SendNetworkEvent`
+### `SendNetworkEvent`
 
-   Sends a network event with no activator.
+Sends a network event with no activator.
 
 <!-- EOF -->

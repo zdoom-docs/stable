@@ -15,31 +15,31 @@ struct TextureID
 }
 ```
 
-- `Exists`
+### `Exists`
 
-   Checks if the texture exists within the texture manager at all.
+Checks if the texture exists within the texture manager at all.
 
-- `IsNull`
+### `IsNull`
 
-   Checks if the texture is the null index (`0`.)
+Checks if the texture is the null index (`0`.)
 
-- `IsValid`
+### `IsValid`
 
-   Checks if the texture index is not the invalid index (`-1`.)
+Checks if the texture index is not the invalid index (`-1`.)
 
-- `SetInvalid`
+### `SetInvalid`
 
-   Sets the texture index to `-1`.
+Sets the texture index to `-1`.
 
-- `SetNull`
+### `SetNull`
 
-   Sets the texture index to `0`.
+Sets the texture index to `0`.
 
-   The proper way to zero-initialize a `textureid` is:
+The proper way to zero-initialize a `textureid` is:
 
-   ```
-   textureid tex;
-   tex.SetNull();
-   ```
+```
+textureid tex;
+tex.SetNull();
+```
 
 <!-- EOF -->

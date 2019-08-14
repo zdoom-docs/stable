@@ -13,23 +13,23 @@ struct PatchInfo play
 }
 ```
 
-- `mColor`
+### `mColor`
 
-   The color of the font, if this is a string.
+The color of the font, if this is a string.
 
-- `mFont`
+### `mFont`
 
-   The font, if this is a string, or `null`.
+The font, if this is a string, or `null`.
 
-- `mPatch`
+### `mPatch`
 
-   The patch, if this is a patch, or an invalid texture.
+The patch, if this is a patch, or an invalid texture.
 
-- `Init`
+### `Init`
 
-   Initializes the structure. If `gifont.Color` is `'Null'`, and
-   `gifont.FontName` is a valid patch, `mPatch` will be set accordingly.
-   Otherwise, if the font has a color or the patch is invalid,
-   `gifont.FontName` is used to set `mFont` (or it is defaulted to `BigFont`.)
+Initializes the structure. If `gifont.Color` is `'Null'`, and `gifont.FontName`
+is a valid patch, `mPatch` will be set accordingly. Otherwise, if the font has
+a color or the patch is invalid, `gifont.FontName` is used to set `mFont` (or
+it is defaulted to `BigFont`.)
 
 <!-- EOF -->

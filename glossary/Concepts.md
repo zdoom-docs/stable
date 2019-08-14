@@ -1,15 +1,16 @@
-# Concepts
-
 <!-- vim-markdown-toc GFM -->
 
-* [Action Scoping](#action-scoping)
-* [Object Scoping](#object-scoping)
-* [Format String](#format-string)
-* [Sprite](#sprite)
-* [Game Tick](#game-tick)
-* [Interpolation](#interpolation)
+* [Concepts](#concepts)
+	* [Action Scoping](#action-scoping)
+	* [Object Scoping](#object-scoping)
+	* [Format String](#format-string)
+	* [Sprite](#sprite)
+	* [Game Tick](#game-tick)
+	* [Interpolation](#interpolation)
 
 <!-- vim-markdown-toc -->
+
+# Concepts
 
 Here is a cursory view of concepts vital to ZScript and ZDoom in general. If
 you can't find something here, it's likely inherited directly from Doom, so you
@@ -72,12 +73,12 @@ arbitrary data to a contiguous character string. A format string contains
 normal characters and *conversion specifiers*. See [this page][2] for more
 information. Differences between C's `printf` and ZScript formats include:
 
-- Since there's no `char` type, `int` is used for `%c`.
-- `%s` also works for `name`.
-- No `%n` specifier.
-- An additional conversion specifier `%B` exists which converts a number to
+* Since there's no `char` type, `int` is used for `%c`.
+* `%s` also works for `name`.
+* No `%n` specifier.
+* An additional conversion specifier `%B` exists which converts a number to
 binary.
-- An additional conversion specifier `%H` exists which works like `%g` but
+* An additional conversion specifier `%H` exists which works like `%g` but
 automatically selects the smallest appropriate precision.
 
 [2]: https://en.cppreference.com/w/c/io/fprintf
@@ -102,23 +103,22 @@ The Doom engine, as long as it has existed and into every faithful-enough port
 of it, no matter how different from the source material, runs the game
 simulation in the same way:
 
-- Input events are processed.
+*Input events are processed.*
 
-   Keyboard, mouse, gamepad, etc. if a local player, the demo file if watching
-   a demo, packets over the internet in networked games.
+Keyboard, mouse, gamepad, etc. if a local player, the demo file if watching a
+demo, packets over the internet in networked games.
 
-- The game is *ticked*.
+*The game is "ticked".*
 
-   Every 1/35th of a second that passes, a new "game tick" takes place, also
-   referred to as *gametic*, *tick* or simply *tic*.
+Every 1/35th of a second that passes, a new "game tick" takes place, also
+referred to as *gametic*, *tick* or simply *tic*.
 
-- The game is rendered.
+*The game is rendered.*
 
-   All information from the *current* game tick is rendered. This usually
-   happens more often than the game is actually ticked. In ZDoom, Eternity
-   Engine, and some other ports, the information is interpolated between the
-   last and current game tick when there is extra time available to give
-   smoother rendering.
+All information from the *current* game tick is rendered. This usually happens
+more often than the game is actually ticked. In ZDoom, Eternity Engine, and
+some other ports, the information is interpolated between the last and current
+game tick when there is extra time available to give smoother rendering.
 
 For more information on ticks, please refer to [the relevant Doom Wiki
 article][4].

@@ -12,19 +12,19 @@ struct ReplaceEvent
 }
 ```
 
-- `Replacee`
+### `Replacee`
 
-   The actor class which is being replaced.
+The actor class which is being replaced.
 
-- `Replacement`
+### `Replacement`
 
-   What to replace it with. This class type is already effected by skill and
-   actor definition replacements, so it may be useful to read it. Modify this
-   to change what the resulting replacement class ends up being.
+What to replace it with. This class type is already effected by skill and actor
+definition replacements, so it may be useful to read it. Modify this to change
+what the resulting replacement class ends up being.
 
-- `IsFinal`
+### `IsFinal`
 
-   If `true`, the engine will not attempt to continue going down the
-   replacement chain, and will directly replace the actor with `Replacement`.
+If `true`, the engine will not attempt to continue going down the replacement
+chain, and will directly replace the actor with `Replacement`.
 
 <!-- EOF -->

@@ -22,12 +22,12 @@ struct Vector3
 }
 ```
 
-- `Length`
+### `Length`
 
-   Returns the length (magnitude) of the vector.
+Returns the length (magnitude) of the vector.
 
-- `Unit`
+### `Unit`
 
-   Returns a normalized vector. Equivalent to `vec / vec.Length()`.
+Returns a normalized vector. Equivalent to `vec / vec.Length()`.
 
 <!-- EOF -->

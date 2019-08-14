@@ -13,30 +13,30 @@ int    RandomPick(int...);
 void   SetRandomSeed(uint num);
 ```
 
-- `FRandom`
+### `FRandom`
 
-   Returns a random float between `min` and `max`.
+Returns a random float between `min` and `max`.
 
-- `FRandomPick`
+### `FRandomPick`
 
-   Same as `RandomPick`, but with floats.
+Same as `RandomPick`, but with floats.
 
-- `Random`
+### `Random`
 
-   Returns a random integer between `min` and `max`.
+Returns a random integer between `min` and `max`.
 
-- `Random2`
+### `Random2`
 
-   Returns a random integer value between `-mask` and `mask`. `mask` is used as
-   a bit mask, so it is recommended to use a value of one less than a power of
-   two (i.e. 3, 7, 15, 31, 63, 127, 255...)
+Returns a random integer value between `-mask` and `mask`. `mask` is used as a
+bit mask, so it is recommended to use a value of one less than a power of two
+(i.e. 3, 7, 15, 31, 63, 127, 255...)
 
-- `RandomPick`
+### `RandomPick`
 
-   Returns one of the provided parameters randomly.
+Returns one of the provided parameters randomly.
 
-- `SetRandomSeed`
+### `SetRandomSeed`
 
-   Sets the seed of the RNG table to `num`.
+Sets the seed of the RNG table to `num`.
 
 <!-- EOF -->

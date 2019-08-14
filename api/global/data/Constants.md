@@ -12,29 +12,29 @@ const PLAYERMISSILERANGE;
 const SAWRANGE;
 ```
 
-- `MAXPLAYERNAME`
+### `MAXPLAYERNAME`
 
-   The maximum length of a player name.
+The maximum length of a player name.
 
-- `MAXPLAYERS`
+### `MAXPLAYERS`
 
-   The maximum amount of players in game.
+The maximum amount of players in game.
 
-- `DEFMELEERANGE`
+### `DEFMELEERANGE`
 
-   The range where melee will be used for monsters, and the range for the
-   player's melee attacks.
+The range where melee will be used for monsters, and the range for the player's
+melee attacks.
 
-- `MISSILERANGE`
+### `MISSILERANGE`
 
-   The maximum range for monster missile/hit-scan attacks.
+The maximum range for monster missile/hit-scan attacks.
 
-- `PLAYERMISSILERANGE`
+### `PLAYERMISSILERANGE`
 
-   The maximum range for player missile/hit-scan attacks.
+The maximum range for player missile/hit-scan attacks.
 
-- `SAWRANGE`
+### `SAWRANGE`
 
-   The range of Doom's Chainsaw weapon.
+The range of Doom's Chainsaw weapon.
 
 <!-- EOF -->

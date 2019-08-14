@@ -18,54 +18,54 @@ struct PlayerSkin
 }
 ```
 
-- `CrouchSprite`
+### `CrouchSprite`
 
-   The crouching sprite ID for this skin.
+The crouching sprite ID for this skin.
 
-- `Face`
+### `Face`
 
-   Prefix for statusbar face graphics.
+Prefix for statusbar face graphics.
 
-- `Gender`
+### `Gender`
 
-   Default gender of the skin. May be one of the following:
+Default gender of the skin. May be one of the following:
 
-   | Name             | Value | Description                 |
-   | ----             | :---: | -----------                 |
-   | `GENDER_FEMALE`  | `1`   | Feminine.                   |
-   | `GENDER_MALE`    | `0`   | Masculine.                  |
-   | `GENDER_NEUTRAL` | `2`   | Neutral.                    |
-   | `GENDER_OTHER`   | `3`   | Other (robot, zombie, etc.) |
+| Name             | Value | Description                 |
+| ----             | :---: | -----------                 |
+| `GENDER_FEMALE`  | `1`   | Feminine.                   |
+| `GENDER_MALE`    | `0`   | Masculine.                  |
+| `GENDER_NEUTRAL` | `2`   | Neutral.                    |
+| `GENDER_OTHER`   | `3`   | Other (robot, zombie, etc.) |
 
-- `NameSpc`
+### `NameSpc`
 
-   If this skin was defined in S_SKIN, this is the lump ID of the marker itself.
+If this skin was defined in S_SKIN, this is the lump ID of the marker itself.
 
-- `OtherGame`
+### `OtherGame`
 
-   The player skin is made for another game and needs to be color remapped
-   differently.
+The player skin is made for another game and needs to be color remapped
+differently.
 
-- `Range0End`
+### `Range0End`
 
-   The end index of the translation range to be used for changing the player
-   sprite's color.
+The end index of the translation range to be used for changing the player
+sprite's color.
 
-- `Range0Start`
+### `Range0Start`
 
-   The beginning index of the translation range to be used for changing the
-   player sprite's color.
+The beginning index of the translation range to be used for changing the player
+sprite's color.
 
-- `Scale`
+### `Scale`
 
-   The scaling factor used for the player sprite.
+The scaling factor used for the player sprite.
 
-- `SkinName`
+### `SkinName`
 
-   Name of the skin.
+Name of the skin.
 
-- `Sprite`
+### `Sprite`
 
-   The sprite ID for this skin.
+The sprite ID for this skin.
 
 <!-- EOF -->

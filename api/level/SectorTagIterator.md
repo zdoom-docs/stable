@@ -12,20 +12,20 @@ class SectorTagIterator : Object
 }
 ```
 
-- `Create`
+### `Create`
 
-   Creates a new iterator over sectors with tag `tag`. TODO: I can't find where
-   `defline` is actually used. It is a mystery.
+Creates a new iterator over sectors with tag `tag`. TODO: I can't find where
+`defline` is actually used. It is a mystery.
 
-- `Next`
+### `Next`
 
-   Returns the index of the current sector and advances the iterator. Returns
-   `-1` when the list is exhausted.
+Returns the index of the current sector and advances the iterator. Returns `-1`
+when the list is exhausted.
 
-- `NextCompat`
+### `NextCompat`
 
-    If `compat` is `false`, acts exactly as `Next`. Otherwise, returns the
-    index of the current sector and advances the iterator in a manner
-    compatible with Doom's stair builders.
+If `compat` is `false`, acts exactly as `Next`. Otherwise, returns the index of
+the current sector and advances the iterator in a manner compatible with Doom's
+stair builders.
 
 <!-- EOF -->

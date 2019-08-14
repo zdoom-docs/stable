@@ -15,36 +15,36 @@ struct DehInfo
 }
 ```
 
-- `BfgCells`
+### `BfgCells`
 
-   The amount of ammunition `A_FireBfg` will deplete. Default is 40.
+The amount of ammunition `A_FireBfg` will deplete. Default is 40.
 
-- `BlueAC`
+### `BlueAC`
 
-   Multiple of 100 for `BlueArmor`'s `Armor.SaveAmount`. Default is 2 for 200
-   armor.
+Multiple of 100 for `BlueArmor`'s `Armor.SaveAmount`. Default is 2 for 200
+armor.
 
-- `ExplosionAlpha`
+### `ExplosionAlpha`
 
-   For actors with the `DEHEXPLOSION` flag, the alpha to set the actor to on
-   explosion.
+For actors with the `DEHEXPLOSION` flag, the alpha to set the actor to on
+explosion.
 
-- `ExplosionStyle`
+### `ExplosionStyle`
 
-   For actors with the `DEHEXPLOSION` flag, the render style to be applied on
-   explosion.
+For actors with the `DEHEXPLOSION` flag, the render style to be applied on
+explosion.
 
-- `MaxHealth`
+### `MaxHealth`
 
-   TODO
+TODO
 
-- `MaxSoulsphere`
+### `MaxSoulsphere`
 
-   The `Inventory.MaxAmount` for `Soulsphere`. Default is 200.
+The `Inventory.MaxAmount` for `Soulsphere`. Default is 200.
 
-- `NoAutofreeze`
+### `NoAutofreeze`
 
-   Overrides generic freezing deaths if not zero, making all actors act as if
-   they had the `NOICEDEATH` flag.
+Overrides generic freezing deaths if not zero, making all actors act as if they
+had the `NOICEDEATH` flag.
 
 <!-- EOF -->

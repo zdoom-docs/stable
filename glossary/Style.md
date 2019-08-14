@@ -1,21 +1,22 @@
-# Style
-
 <!-- vim-markdown-toc GFM -->
 
-* [Capitalization Conventions](#capitalization-conventions)
-	* [Rationale](#rationale)
-* [Word Choice](#word-choice)
-	* [Rationale](#rationale-1)
-* [Naming Type Members](#naming-type-members)
-	* [Rationale](#rationale-2)
-* [Layout Conventions](#layout-conventions)
-	* [Rationale](#rationale-3)
-* [Commenting Conventions](#commenting-conventions)
-	* [Rationale](#rationale-4)
-* [Language Guidelines](#language-guidelines)
-	* [Rationale](#rationale-5)
+* [Style](#style)
+	* [Capitalization Conventions](#capitalization-conventions)
+		* [Rationale](#rationale)
+	* [Word Choice](#word-choice)
+		* [Rationale](#rationale-1)
+	* [Naming Type Members](#naming-type-members)
+		* [Rationale](#rationale-2)
+	* [Layout Conventions](#layout-conventions)
+		* [Rationale](#rationale-3)
+	* [Commenting Conventions](#commenting-conventions)
+		* [Rationale](#rationale-4)
+	* [Language Guidelines](#language-guidelines)
+		* [Rationale](#rationale-5)
 
 <!-- vim-markdown-toc -->
+
+# Style
 
 This is a style guide for the ZScript documentation to encourage best-practice
 coding with it, focused on clarity and consistency of formatting. It is also

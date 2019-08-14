@@ -1,26 +1,29 @@
-# Expressions and Operators
-
 <!-- vim-markdown-toc GFM -->
 
+* [Expressions and Operators](#expressions-and-operators)
 * [Literals](#literals)
-   * [String literals](#string-literals)
-   * [Class type literals](#class-type-literals)
-   * [Name literals](#name-literals)
-   * [Integer literals](#integer-literals)
-   * [Float literals](#float-literals)
-   * [Boolean literals](#boolean-literals)
-   * [Null pointer](#null-pointer)
+	* [String literals](#string-literals)
+	* [Class type literals](#class-type-literals)
+	* [Name literals](#name-literals)
+	* [Integer literals](#integer-literals)
+	* [Float literals](#float-literals)
+	* [Boolean literals](#boolean-literals)
+	* [Null pointer](#null-pointer)
 * [Expressions](#expressions)
-   * [Primary expressions](#primary-expressions)
-      * [Vector literals](#vector-literals)
-   * [Postfix expressions](#postfix-expressions)
-      * [Argument list](#argument-list)
-   * [Unary expressions](#unary-expressions)
-   * [Binary expressions](#binary-expressions)
-      * [Assignment expressions](#assignment-expressions)
-   * [Ternary expression](#ternary-expression)
+	* [Primary expressions](#primary-expressions)
+		* [Vector literals](#vector-literals)
+	* [Postfix expressions](#postfix-expressions)
+		* [Argument list](#argument-list)
+	* [Unary expressions](#unary-expressions)
+	* [Binary expressions](#binary-expressions)
+		* [Assignment expressions](#assignment-expressions)
+	* [Ternary expression](#ternary-expression)
 
 <!-- vim-markdown-toc -->
+
+# Expressions and Operators
+
+TODO
 
 # Literals
 
@@ -166,11 +169,11 @@ arithmetic and various conditions.
 
 Basic expressions, also known as primary expressions, can be one of:
 
-- An identifier for a constant or variable.
-- The `Super` keyword.
-- Any object literal.
-- A vector literal.
-- An expression in parentheses.
+* An identifier for a constant or variable.
+* The `Super` keyword.
+* Any object literal.
+* A vector literal.
+* An expression in parentheses.
 
 Identifiers work as you expect, they reference a variable or constant. The
 `Super` keyword references the parent type or any member within it.

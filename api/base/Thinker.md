@@ -13,8 +13,8 @@ The user-defined stat numbers begin at `Thinker.STAT_USER` and end at
 except as relative to these two.
 
 <!--
-   NOTE: These tables are not alphabetically organized as their ordering is
-         meaningful.
+	NOTE: These tables are not alphabetically organized as their ordering is
+	      meaningful.
 -->
 
 Thinkers which do not think and are elided from many checks:
@@ -65,30 +65,30 @@ class Thinker : Object play
 }
 ```
 
-- `TICRATE`
+### `TICRATE`
 
-   The number of game ticks in a second. This value is always `int(35)`.
+The number of game ticks in a second. This value is always `int(35)`.
 
-- `Level`
+### `Level`
 
-   The level this `Thinker` is in, which may differ from another one's.
+The level this `Thinker` is in, which may differ from another one's.
 
-- `ChangeStatNum`
+### `ChangeStatNum`
 
-   Changes the statnum of this `Thinker`.
+Changes the statnum of this `Thinker`.
 
-- `PostBeginPlay`
+### `PostBeginPlay`
 
-   Called at the very end of this Thinker's initialization.
+Called at the very end of this Thinker's initialization.
 
-- `Tick`
+### `Tick`
 
-   Called every game tick. The order between this thinker's `Tick` and every
-   other thinker in the same statnum is unspecified.
+Called every game tick. The order between this thinker's `Tick` and every other
+thinker in the same statnum is unspecified.
 
-- `Tics2Seconds`
+### `Tics2Seconds`
 
-   Roughly converts a number of tics to an integral amount of seconds.
-   Equivalent to `tics / TICRATE`.
+Roughly converts a number of tics to an integral amount of seconds. Equivalent
+to `tics / TICRATE`.
 
 <!-- EOF -->

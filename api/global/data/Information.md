@@ -16,47 +16,46 @@ readonly textureid           SkyFlatNum;
 readonly Weapon              WP_NOCHANGE;
 ```
 
-- `AllActorClasses`
+### `AllActorClasses`
 
-   An array of every actor class type reference.
+An array of every actor class type reference.
 
-- `AllClasses`
+### `AllClasses`
 
-   An array of every class type reference.
+An array of every class type reference.
 
-- `PlayerClasses`
+### `PlayerClasses`
 
-   An array of all player classes as defined in `MAPINFO`/GameInfo and
-   `KEYCONF`.
+An array of all player classes as defined in `MAPINFO`/GameInfo and `KEYCONF`.
 
-- `PlayerSkins`
+### `PlayerSkins`
 
-   An array of all player skins as defined in `SKININFO` and `S_SKIN`.
+An array of all player skins as defined in `SKININFO` and `S_SKIN`.
 
-- `Teams`
+### `Teams`
 
-   An array of all teams. Maximum index is `Team.Max`.
+An array of all teams. Maximum index is `Team.Max`.
 
-- `Deh`
+### `Deh`
 
-   Static DeHackEd information.
+Static DeHackEd information.
 
-- `GameInfo`
+### `GameInfo`
 
-   Static information from `MAPINFO`/GameInfo.
+Static information from `MAPINFO`/GameInfo.
 
-- `OptionMenuSettings`
+### `OptionMenuSettings`
 
-   Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings`
-   block and `MAPINFO`/GameInfo.
+Defaults for `OptionMenu`s as defined in `MENUDEF`'s `OptionMenuSettings` block
+and `MAPINFO`/GameInfo.
 
-- `SkyFlatNum`
+### `SkyFlatNum`
 
-   The texture ID for sky flats. `F_SKY1` by default in Doom.
+The texture ID for sky flats. `F_SKY1` by default in Doom.
 
-- `WP_NOCHANGE`
+### `WP_NOCHANGE`
 
-   A constant denoting that the weapon the player is currently holding
-   shouldn't be switched from.
+A constant denoting that the weapon the player is currently holding shouldn't
+be switched from.
 
 <!-- EOF -->

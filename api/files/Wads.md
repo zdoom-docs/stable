@@ -22,11 +22,11 @@ Single files can also be loaded as archives, containing only themselves.
 
 In short:
 
-- *Lump* refers to an object from any archive type with an 8 character filename (extension removed.)
-- *File* refers to fully qualified object from a resource archive, which can also be used as a lump through its truncated name.
-- *Archives* are real files or folders which hold *lumps*.
-- *Resource archives* are archives with a folder structure for determining lump namespaces, and also store fully qualified paths for files.
-- *Wad files* are archives which hold only lumps, and use markers for determining lump namespaces.
+* *Lump* refers to an object from any archive type with an 8 character filename (extension removed.)
+* *File* refers to fully qualified object from a resource archive, which can also be used as a lump through its truncated name.
+* *Archives* are real files or folders which hold *lumps*.
+* *Resource archives* are archives with a folder structure for determining lump namespaces, and also store fully qualified paths for files.
+* *Wad files* are archives which hold only lumps, and use markers for determining lump namespaces.
 
 | Name              | Description                                             | Resource path | Wad file marker                          |
 | ----              | -----------                                             | ------------- | ---------------                          |
@@ -61,37 +61,37 @@ struct Wads
 }
 ```
 
-- `CheckNumForFullName`
+### `CheckNumForFullName`
 
-   Returns the handle of the first file named `name`, matching only the full
-   path to it, including the extension, or `-1` if the file was not found. Only
-   works with files defined in resource archives.
+Returns the handle of the first file named `name`, matching only the full path
+to it, including the extension, or `-1` if the file was not found. Only works
+with files defined in resource archives.
 
-- `CheckNumForName`
+### `CheckNumForName`
 
-   Returns the handle of the first lump named `name` within namespace `ns`. If
-   `wadnum` is not `-1`, then it signifies, if `exact` is false, the number of
-   the last archive to search in, or the only archive to search in if `exact`
-   is `true`.
+Returns the handle of the first lump named `name` within namespace `ns`. If
+`wadnum` is not `-1`, then it signifies, if `exact` is false, the number of the
+last archive to search in, or the only archive to search in if `exact` is
+`true`.
 
-   Note there is currently no way to actually *get* the number of an archive,
-   even the current one. The only guarantee is that archive `0` will be the
-   base archive (`gzdoom.pk3`.)
+Note there is currently no way to actually *get* the number of an archive, even
+the current one. The only guarantee is that archive `0` will be the base
+archive (`gzdoom.pk3`.)
 
-- `FindLump`
+### `FindLump`
 
-   Returns the handle of the first lump named `name` starting at `startlump`
-   (zero indicates the first lump) in either the global namespace or any
-   namespace. `ns` can be either `Wads.GLOBALNAMESPACE` or `Wads.ANYNAMESPACE`
-   to specify this. Returns `-1` if there are no lumps with that name left.
+Returns the handle of the first lump named `name` starting at `startlump` (zero
+indicates the first lump) in either the global namespace or any namespace. `ns`
+can be either `Wads.GLOBALNAMESPACE` or `Wads.ANYNAMESPACE` to specify this.
+Returns `-1` if there are no lumps with that name left.
 
-   This function can be used in a loop to find all lumps with a specified name.
+This function can be used in a loop to find all lumps with a specified name.
 
-- `ReadLump`
+### `ReadLump`
 
-   Reads the whole contents of `lump` into a string and returns the result. If
-   `lump` is not valid, returns an empty string. Note that binary lumps can be
-   loaded this way and the string's length will be correct according to the
-   lump's size even if null characters are present in the lump.
+Reads the whole contents of `lump` into a string and returns the result. If
+`lump` is not valid, returns an empty string. Note that binary lumps can be
+loaded this way and the string's length will be correct according to the lump's
+size even if null characters are present in the lump.
 
 <!-- EOF -->

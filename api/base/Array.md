@@ -30,75 +30,75 @@ struct Array<Type>
 }
 ```
 
-- `Max`
+### `Max`
 
-   Returns the amount of allocated objects in the array.
+Returns the amount of allocated objects in the array.
 
-- `Size`
+### `Size`
 
-   Returns the amount of constructed objects in the array.
+Returns the amount of constructed objects in the array.
 
-- `Clear`
+### `Clear`
 
-   Clears out the entire array, possibly destroying all objects in it.
+Clears out the entire array, possibly destroying all objects in it.
 
-- `Delete`
+### `Delete`
 
-   Removes `count` objects starting at `index`, possibly destroying them. Moves
-   objects after `index + count` to the left.
+Removes `count` objects starting at `index`, possibly destroying them. Moves
+objects after `index + count` to the left.
 
-- `Pop`
+### `Pop`
 
-   Removes the last item in the array, possibly destroying it. Returns `false`
-   if there are no items in the array to begin with.
+Removes the last item in the array, possibly destroying it. Returns `false` if
+there are no items in the array to begin with.
 
-- `Append`
+### `Append`
 
-   Value-copies another array's contents and places them into this array at the
-   end.
+Value-copies another array's contents and places them into this array at the
+end.
 
-- `Copy`
+### `Copy`
 
-   Value-copies another array's contents into this array. The contents of
-   `other` are preserved. This operation can be extremely taxing in some cases.
+Value-copies another array's contents into this array. The contents of `other`
+are preserved. This operation can be extremely taxing in some cases.
 
-- `Move`
+### `Move`
 
-   Moves another array's contents into this array. The contents of `other` are
-   left indeterminate and shall not be used. This operation is extremely fast
-   as it only copies pointers but must be used carefully to avoid error.
+Moves another array's contents into this array. The contents of `other` are
+left indeterminate and shall not be used. This operation is extremely fast
+as it only copies pointers but must be used carefully to avoid error.
 
-- `Find`
+### `Find`
 
-   Finds the index of `item` in the array, or `Size` if it couldn't be found.
+Finds the index of `item` in the array, or `Size` if it couldn't be found.
 
-- `Grow`
+### `Grow`
 
-   Ensures the array can hold at least `amount` new members, growing the
-   allocated object amount if necessary.
+Ensures the array can hold at least `amount` new members, growing the allocated
+object amount if necessary.
 
-- `Insert`
+### `Insert`
 
-   Inserts `item` at `index`. Moves objects after `index` to the right.
+Inserts `item` at `index`. Moves objects after `index` to the right.
 
-- `Push`
+### `Push`
 
-   Places `item` at the end of the array, calling `Grow` if necessary.
+Places `item` at the end of the array, calling `Grow` if necessary.
 
-- `Reserve`
+### `Reserve`
 
-   Adds `amount` new empty-constructed objects at the end of the array,
-   increasing `Size` and calling `Grow` if necessary. Value types are
-   initialized to zero and reference types to `null`.
+Adds `amount` new empty-constructed objects at the end of the array, increasing
+`Size` and calling `Grow` if necessary. Value types are initialized to zero and
+reference types to `null`.
 
-- `Resize`
+### `Resize`
 
-   Adds or removes objects based on `amount`. If it is less than `Size` then
-   objects are destroyed, if it is more then objects are empty-constructed. New
-   objects follow the same initialization rules as `Reserve`.
+Adds or removes objects based on `amount`. If it is less than `Size` then
+objects are destroyed, if it is more then objects are empty-constructed. New
+objects follow the same initialization rules as `Reserve`.
 
-- `ShrinkToFit`
+### `ShrinkToFit`
 
-   Shrinks `Max` to `Size`. Does not mutate any objects in the array.
+Shrinks `Max` to `Size`. Does not mutate any objects in the array.
 
 <!-- EOF -->
