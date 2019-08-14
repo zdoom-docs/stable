@@ -127,15 +127,15 @@ Finally, here is a table of contents for each language element:
 
 <!-- inter-toc -->
 
-* [Classes](lang-Classes.md)
-* [Constants](lang-Constants.md)
-* [Enumerations](lang-Enumerations.md)
-* [Expressions](lang-Expressions.md)
-* [Members](lang-Members.md)
-* [Methods](lang-Methods.md)
-* [Statements](lang-Statements.md)
-* [Structures](lang-Structures.md)
-* [Types](lang-Types.md)
+* [Classes](language/Classes.md)
+* [Constants](language/Constants.md)
+* [Enumerations](language/Enumerations.md)
+* [Expressions](language/Expressions.md)
+* [Members](language/Members.md)
+* [Methods](language/Methods.md)
+* [Statements](language/Statements.md)
+* [Structures](language/Structures.md)
+* [Types](language/Types.md)
 
 <!-- end -->
 

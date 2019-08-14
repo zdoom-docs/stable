@@ -26,7 +26,7 @@ modder rather than for the engine.
 
 <!-- inter-toc actor -->
 
-* [State](api-actor-State.md)
+* [State](api/actor/State.md)
 
 <!-- end -->
 
@@ -36,15 +36,15 @@ TODO
 
 <!-- inter-toc base -->
 
-* [Array](api-base-Array.md)
-* [Color](api-base-Color.md)
-* [CVar](api-base-CVar.md)
-* [FixedArray](api-base-FixedArray.md)
-* [Object](api-base-Object.md)
-* [String](api-base-String.md)
-* [StringTable](api-base-StringTable.md)
-* [Thinker](api-base-Thinker.md)
-* [Vector](api-base-Vector.md)
+* [Array](api/base/Array.md)
+* [CVar](api/base/CVar.md)
+* [Color](api/base/Color.md)
+* [FixedArray](api/base/FixedArray.md)
+* [Object](api/base/Object.md)
+* [StringTable](api/base/StringTable.md)
+* [String](api/base/String.md)
+* [Thinker](api/base/Thinker.md)
+* [Vector](api/base/Vector.md)
 
 <!-- end -->
 
@@ -54,14 +54,14 @@ TODO
 
 <!-- inter-toc drawing -->
 
-* [BrokenLines](api-drawing-BrokenLines.md)
-* [Console](api-drawing-Console.md)
-* [Font](api-drawing-Font.md)
-* [GIFont](api-drawing-GIFont.md)
-* [Screen](api-drawing-Screen.md)
-* [Shape2D](api-drawing-Shape2D.md)
-* [TexMan](api-drawing-TexMan.md)
-* [TextureID](api-drawing-TextureID.md)
+* [BrokenLines](api/drawing/BrokenLines.md)
+* [Console](api/drawing/Console.md)
+* [Font](api/drawing/Font.md)
+* [GIFont](api/drawing/GIFont.md)
+* [Screen](api/drawing/Screen.md)
+* [Shape2D](api/drawing/Shape2D.md)
+* [TexMan](api/drawing/TexMan.md)
+* [TextureID](api/drawing/TextureID.md)
 
 <!-- end -->
 
@@ -71,11 +71,11 @@ TODO
 
 <!-- inter-toc events -->
 
-* [ConsoleEvent](api-events-ConsoleEvent.md)
-* [EventHandler](api-events-EventHandler.md)
-* [RenderEvent](api-events-RenderEvent.md)
-* [ReplaceEvent](api-events-ReplaceEvent.md)
-* [StaticEventHandler](api-events-StaticEventHandler.md)
+* [ConsoleEvent](api/events/ConsoleEvent.md)
+* [EventHandler](api/events/EventHandler.md)
+* [RenderEvent](api/events/RenderEvent.md)
+* [ReplaceEvent](api/events/ReplaceEvent.md)
+* [StaticEventHandler](api/events/StaticEventHandler.md)
 
 <!-- end -->
 
@@ -85,7 +85,7 @@ TODO
 
 <!-- inter-toc files -->
 
-* [Wads](api-files-Wads.md)
+* [Wads](api/files/Wads.md)
 
 <!-- end -->
 
@@ -95,11 +95,11 @@ TODO
 
 <!-- inter-toc inter -->
 
-* [InterBackground](api-inter-InterBackground.md)
-* [PatchInfo](api-inter-PatchInfo.md)
-* [StatusScreen](api-inter-StatusScreen.md)
-* [WBPlayerStruct](api-inter-WBPlayerStruct.md)
-* [WBStartStruct](api-inter-WBStartStruct.md)
+* [InterBackground](api/inter/InterBackground.md)
+* [PatchInfo](api/inter/PatchInfo.md)
+* [StatusScreen](api/inter/StatusScreen.md)
+* [WBPlayerStruct](api/inter/WBPlayerStruct.md)
+* [WBStartStruct](api/inter/WBStartStruct.md)
 
 <!-- end -->
 
@@ -115,17 +115,17 @@ for [statistics drivers][1].
 
 <!-- inter-toc level -->
 
-* [F3DFloor](api-level-F3DFloor.md)
-* [FColorMap](api-level-FColorMap.md)
-* [Line](api-level-Line.md)
-* [LineIdIterator](api-level-LineIdIterator.md)
-* [SecPlane](api-level-SecPlane.md)
-* [SecSpecial](api-level-SecSpecial.md)
-* [Sector](api-level-Sector.md)
-* [SectorEffect](api-level-SectorEffect.md)
-* [SectorTagIterator](api-level-SectorTagIterator.md)
-* [Side](api-level-Side.md)
-* [Vertex](api-level-Vertex.md)
+* [F3DFloor](api/level/F3DFloor.md)
+* [FColorMap](api/level/FColorMap.md)
+* [LineIdIterator](api/level/LineIdIterator.md)
+* [Line](api/level/Line.md)
+* [SecPlane](api/level/SecPlane.md)
+* [SecSpecial](api/level/SecSpecial.md)
+* [SectorEffect](api/level/SectorEffect.md)
+* [SectorTagIterator](api/level/SectorTagIterator.md)
+* [Sector](api/level/Sector.md)
+* [Side](api/level/Side.md)
+* [Vertex](api/level/Vertex.md)
 
 <!-- end -->
 
@@ -135,9 +135,9 @@ TODO
 
 <!-- inter-toc player -->
 
-* [PlayerClass](api-player-PlayerClass.md)
-* [PlayerSkin](api-player-PlayerSkin.md)
-* [Team](api-player-Team.md)
+* [PlayerClass](api/player/PlayerClass.md)
+* [PlayerSkin](api/player/PlayerSkin.md)
+* [Team](api/player/Team.md)
 
 <!-- end -->
 
@@ -147,7 +147,7 @@ TODO
 
 <!-- inter-toc sound -->
 
-* [SeqNode](api-sound-SeqNode.md)
+* [SeqNode](api/sound/SeqNode.md)
 
 <!-- end -->
 
@@ -157,7 +157,7 @@ TODO
 
 <!-- inter-toc wep -->
 
-* [PSprite](api-wep-PSprite.md)
+
 
 <!-- end -->
 
@@ -165,39 +165,39 @@ TODO
 
 # Global Objects
 
-<!-- inter-toc global-data -->
+<!-- inter-toc global/data -->
 
-* [Client](api-global-data-Client.md)
-* [Constants](api-global-data-Constants.md)
-* [Game](api-global-data-Game.md)
-* [Information](api-global-data-Information.md)
-* [Player](api-global-data-Player.md)
+* [Client](api/global/data/Client.md)
+* [Constants](api/global/data/Constants.md)
+* [Game](api/global/data/Game.md)
+* [Information](api/global/data/Information.md)
+* [Player](api/global/data/Player.md)
 
 <!-- end -->
 
 These variables are accessible in any context and are not bound by any specific
 object. Generally these mirror global information within the engine itself.
 
-<!-- inter-toc global-func -->
+<!-- inter-toc global/func -->
 
-* [Classes](api-global-func-Classes.md)
-* [Game](api-global-func-Game.md)
-* [Math](api-global-func-Math.md)
-* [Random](api-global-func-Random.md)
-* [Sound](api-global-func-Sound.md)
-* [System](api-global-func-System.md)
+* [Classes](api/global/func/Classes.md)
+* [Game](api/global/func/Game.md)
+* [Math](api/global/func/Math.md)
+* [Random](api/global/func/Random.md)
+* [Sound](api/global/func/Sound.md)
+* [System](api/global/func/System.md)
 
 <!-- end -->
 
 These functions are accessible in any context and are not bound by any specific
 object. Generally these are utility functions.
 
-<!-- inter-toc global-type -->
+<!-- inter-toc global/type -->
 
-* [DehInfo](api-global-type-DehInfo.md)
-* [FOptionMenuSettings](api-global-type-FOptionMenuSettings.md)
-* [GameInfoStruct](api-global-type-GameInfoStruct.md)
-* [LevelLocals](api-global-type-LevelLocals.md)
+* [DehInfo](api/global/type/DehInfo.md)
+* [FOptionMenuSettings](api/global/type/FOptionMenuSettings.md)
+* [GameInfoStruct](api/global/type/GameInfoStruct.md)
+* [LevelLocals](api/global/type/LevelLocals.md)
 
 <!-- end -->
 

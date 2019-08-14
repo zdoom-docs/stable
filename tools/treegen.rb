@@ -4,51 +4,51 @@
 ## <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 ## TreeGen: Generates the glossary files for classes.
 ## Example usage:
-## tools/treegen.rb  \
+## tools/treegen.rb \
 ## '/mnt/g/Archive/gzdoom-g4.1.0/wadsrc/static/zscript/**/*.zs' \
 ## 4.1.0
 
 require "./tools/zsclasstree.rb"
 
-DIR = ARGV.shift
-VER = ARGV.shift
+FILES = ARGV.shift
+VERSION = ARGV.shift
 
-si = ClassSiphon.new DIR
+siphon = ClassSiphon.new FILES
 
-f = open "glossary-Classes.md", "wb"
-f.puts <<_end_
+file = open "glossary-Classes.md", "wb"
+file.puts <<_end_
 # Classes
 
-Here is a full tree of all classes in ZScript as of GZDoom #{VER}. There are
-#{si.classes.count + 1} classes total.
+Here is a full tree of all classes in ZScript as of GZDoom #{VERSION}. There
+are #{siphon.classes.count + 1} classes total.
 
 ```
 Object
 _end_
 
-si.print_classes f
+siphon.print_classes file
 
-f.puts <<_end_
+file.puts <<_end_
 ```
 
 <!-- EOF -->
 _end_
 
-f = open "glossary-Structures.md", "wb"
-f.puts <<_end_
+file = open "glossary-Structures.md", "wb"
+file.puts <<_end_
 # Structures
 
-Here is a full list of all structures in ZScript as of GZDoom #{VER}. There are
-#{si.structs.count} structures total. Note that some of these are merely
-implementation details and should not be used in code.
+Here is a full list of all structures in ZScript as of GZDoom #{VERSION}.
+There are #{siphon.structs.count} structures total. Note that some of these
+are merely implementation details and should not be used in code.
 
 ```
 Struct
 _end_
 
-si.print_structs f
+siphon.print_structs file
 
-f.puts <<_end_
+file.puts <<_end_
 ```
 
 <!-- EOF -->
