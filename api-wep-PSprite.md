@@ -36,11 +36,11 @@ class PSprite : Object play
    double   X;
    double   Y;
 
-   bool bADDBOB;
-   bool bADDWEAPON;
-   bool bCVARFAST;
-   bool bFLIP;
-   bool bPOWDOUBLE;
+   bool bAddBob;
+   bool bAddWeapon;
+   bool bCVarFast;
+   bool bFlip;
+   bool bPowDouble;
 
    void SetState(State newstate, bool pending = false);
    void Tick();
@@ -108,23 +108,23 @@ class PSprite : Object play
    The offset from the weapon's normal resting position on the vertical axis.
    Note that `32` is the real resting position because of `A_Raise`.
 
-- `bADDBOB`
+- `bAddBob`
 
    Adds the weapon's bobbing to this layer's offset.
 
-- `bADDWEAPON`
+- `bAddWeapon`
 
    Adds the weapon layer's offsets to this layer's offset.
 
-- `bCVARFAST`
+- `bCVarFast`
 
    Layer will respect `sv_fastweapons`.
 
-- `bFLIP`
+- `bFlip`
 
    Flips the weapon visually horizontally.
 
-- `bPOWDOUBLE`
+- `bPowDouble`
 
    Layer will respect `PowerDoubleFiringSpeed`.
 

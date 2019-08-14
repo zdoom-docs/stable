@@ -5,7 +5,7 @@ The base class of all `class` types.
 ```
 class Object
 {
-   bool bDESTROYED;
+   bool bDestroyed;
 
    class  GetClass();
    string GetClassName();
@@ -17,7 +17,7 @@ class Object
 }
 ```
 
-- `bDESTROYED`
+- `bDestroyed`
 
    This object wants to be destroyed but has not yet been garbage collected.
 

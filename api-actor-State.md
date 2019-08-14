@@ -17,13 +17,13 @@ struct State
    readonly uint16 TicRange;
    readonly uint8  UseFlags;
 
-   readonly bool bCANRAISE;
-   readonly bool bDEHACKED;
-   readonly bool bFAST;
-   readonly bool bFULLBRIGHT;
-   readonly bool bNODELAY;
-   readonly bool bSAMEFRAME;
-   readonly bool bSLOW;
+   readonly bool bCanRaise;
+   readonly bool bDeHackEd;
+   readonly bool bFast;
+   readonly bool bFullBright;
+   readonly bool bNoDelay;
+   readonly bool bSameFrame;
+   readonly bool bSlow;
 
    int  DistanceTo(State other);
    bool InStateSequence(State base);
@@ -65,38 +65,38 @@ struct State
    The scope of this state. See *Action Scoping*. Can have any of the
    `DefaultStateUsage` flags.
 
-- `bCANRAISE`
+- `bCanRaise`
 
-   State has the `CANRAISE` flag, allowing `A_VileChase` to target this actor
+   State has the `CanRaise` flag, allowing `A_VileChase` to target this actor
    for healing without entering an infinitely long state.
 
-- `bDEHACKED`
+- `bDeHackEd`
 
    `true` if the state has been modified by DeHackEd.
 
-- `bFAST`
+- `bFast`
 
-   State has the `FAST` flag, halving the duration when fast monsters is
+   State has the `Fast` flag, halving the duration when fast monsters is
    enabled.
 
-- `bFULLBRIGHT`
+- `bFullBright`
 
-   State has the `BRIGHT` flag, making it fully bright regardless of other
+   State has the `Bright` flag, making it fully bright regardless of other
    lighting conditions.
 
-- `bNODELAY`
+- `bNoDelay`
 
-   State has the `NODELAY` flag, forcing the associated action function to be
+   State has the `NoDelay` flag, forcing the associated action function to be
    run if the actor is in its first tic.
 
-- `bSAMEFRAME`
+- `bSameFrame`
 
    `true` if the state's frame is to be kept from the last frame used, i.e., is
    `#`.
 
-- `bSLOW`
+- `bSlow`
 
-   State has the `SLOW` flag, doubling the duration when slow monsters is
+   State has the `Slow` flag, doubling the duration when slow monsters is
    enabled.
 
 - `DistanceTo`

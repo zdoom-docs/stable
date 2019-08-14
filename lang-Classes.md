@@ -2,17 +2,17 @@
 
 <!-- vim-markdown-toc GFM -->
 
-   * [Example: Class headers](#example-class-headers)
-   * [Example: Class definitions](#example-class-definitions)
+	* [Example: Class headers](#example-class-headers)
+	* [Example: Class definitions](#example-class-definitions)
 * [Class Flags](#class-flags)
 * [Class Content](#class-content)
 * [Property Definitions](#property-definitions)
-   * [Example: Property definitions](#example-property-definitions)
+	* [Example: Property definitions](#example-property-definitions)
 * [Flag Definitions](#flag-definitions)
-   * [Example: Flag definitions](#example-flag-definitions)
+	* [Example: Flag definitions](#example-flag-definitions)
 * [Default Blocks](#default-blocks)
-   * [Default Flag](#default-flag)
-   * [Default Property](#default-property)
+	* [Default Flag](#default-flag)
+	* [Default Property](#default-property)
 * [State Definitions](#state-definitions)
 
 <!-- vim-markdown-toc -->
@@ -211,7 +211,7 @@ Flag definitions are used within classes to define defaultable boolean flags on
 actors. They are not valid on classes not derived from Actor.
 
 When registered, a flag will be available in the `default` block as
-`CLASSNAME.FLAGNAME`, as well as a member as `bFLAGNAME`.
+`ClassName.FlagName`, as well as a member as `bFlagName`.
 
 Each flag operates on a singular bit of any integer member of the class. The
 integer must be exactly 32 bits, though if it is signed or not does not matter.
@@ -246,23 +246,23 @@ class MyCoolActorWithFlags : Actor
    // Hey, those sentences sounded familiar...
    default
    {
-      +MYCOOLACTORWITHFLAGS.THIS_ONE_IS_ON
-      -MYCOOLACTORWITHFLAGS.THIS_ONE_IS_OFF
+      +MyCoolActorWithFlags.ThisOneIsOn
+      -MyCoolActorWithFlags.ThisOneIsOff
    }
 
    // Declare a flag field for all of the flags. This can hold up to 32 flags.
    int m_Flags;
 
    // Declare the flags, one at a time...
-   flagdef THIS_ONE_IS_ON: m_Flags, 0;
-   flagdef THIS_ONE_IS_OFF: m_Flags, 1;
-   flagdef THIS_ONE_ALIASES_ON: m_Flags, 0;
+   flagdef ThisOneIsOn: m_Flags, 0;
+   flagdef ThisOneIsOff: m_Flags, 1;
+   flagdef ThisOneAliasesOn: m_Flags, 0;
 
    // Unnecessary, since you can just access it directly, but this demonstrates
    // how declared flags can be used in methods.
    bool CheckIfOnIsOn()
    {
-      return bTHIS_ONE_IS_ON;
+      return bThisOneIsOn;
    }
 }
 ```
