@@ -36,7 +36,7 @@ In any case, here we are. This documentation will detail all aspects of
 ZScript, from the language and type system to the API and finer details. This
 document is distributed under the [CC0 public domain license](LICENSE.txt) in
 the hope that it is useful reference and serves as a solid basis for further
-writings. This document was originally written by Alison Sanderson (Marrub.)
+writings. This document was originally written by Alison Watson (Marrub.)
 Attribution is encouraged but not required.
 
 # Reading This Document

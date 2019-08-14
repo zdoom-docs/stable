@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 ## Distributed under the CC0 public domain license.
-## By Alison Sanderson. Attribution is encouraged, though not required.
+## By Alison Watson. Attribution is encouraged, though not required.
 ## <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 ## ZSClassTree: Generates a class tree from ZScript files.
 ## Example usage:
