@@ -155,9 +155,9 @@ TODO
 
 # Weapons
 
-<!-- inter-toc wep -->
+<!-- inter-toc weapon -->
 
-
+* [PSprite](api/weapon/PSprite.md)
 
 <!-- end -->
 
