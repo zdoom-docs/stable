@@ -15,7 +15,7 @@ VERSION = ARGV.shift
 
 siphon = ClassSiphon.new FILES
 
-file = open "glossary-Classes.md", "wb"
+file = open "glossary/Classes.md", "wb"
 file.puts <<_end_
 # Classes
 
@@ -34,7 +34,7 @@ file.puts <<_end_
 <!-- EOF -->
 _end_
 
-file = open "glossary-Structures.md", "wb"
+file = open "glossary/Structures.md", "wb"
 file.puts <<_end_
 # Structures
 

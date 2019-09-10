@@ -41,19 +41,19 @@ protected meta int m_CoolMetaInt;
 
 # Member Declaration Flags
 
-| Flag                   | Description                                                                                                         |
-| ----                   | -----------                                                                                                         |
-| `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`.                      |
-| `internal`             | Member is only writable from the base resource archive (`gzdoom.pk3`.) *Version 3.4.0 and newer.*                   |
-| `latent`               | Does nothing. Purpose unknown.                                                                                      |
-| `meta`                 | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them. |
-| `native`               | Member is from the engine. Only usable internally.                                                                  |
-| `play`                 | Member has Play scope.                                                                                              |
-| `private`              | Member is not visible to any class but this one.                                                                    |
-| `protected`            | Member is not visible to any class but this one and any descendants of it.                                          |
-| `readonly`             | Member is not writable.                                                                                             |
-| `transient`            | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.    |
-| `ui`                   | Member has UI scope.                                                                                                |
-| `version ( "ver" )`    | Restricted to ZScript version `ver` or higher.                                                                      |
+| Flag                                    | Description                                                                                                                                           |
+| ----                                    | -----------                                                                                                                                           |
+| `deprecated ( "ver" $[ , "reason" ]$ )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`, with the reason `reason` specified in the message. |
+| `internal`                              | Member is only writable from the base resource archive (`gzdoom.pk3`.) *Version 3.4.0 and newer.*                                              |
+| `latent`                                | Does nothing. Purpose unknown.                                                                                                                        |
+| `meta`                                  | Member is read-only static class data. Only really useful on actors, since these can be set via properties on them.                               |
+| `native`                                | Member is from the engine. Only usable internally.                                                                                                    |
+| `play`                                  | Member has Play scope.                                                                                                                                |
+| `private`                               | Member is not visible to any class but this one.                                                                                                      |
+| `protected`                             | Member is not visible to any class but this one and any descendants of it.                                                                            |
+| `readonly`                              | Member is not writable.                                                                                                                               |
+| `transient`                             | Member is not saved into save games. Required for unserializable objects and recommended for UI context objects.                                    |
+| `ui`                                    | Member has UI scope.                                                                                                                                  |
+| `version ( "ver" )`                     | Restricted to ZScript version `ver` or higher.                                                                                                        |
 
 <!-- EOF -->

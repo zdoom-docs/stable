@@ -1,9 +1,3 @@
-# Classes
-
-Here is a full tree of all classes in ZScript as of GZDoom 4.2.1. There
-are 1471 classes total.
-
-```
 Object
 ├ ActorIterator
 ├ AltHud
@@ -1475,6 +1469,80 @@ Object
 │     └ MovingFloor
 │       └ Floor
 └ ThinkerIterator
-```
-
-<!-- EOF -->
+Struct
+├ AutoUseHealthInfo
+├ Console
+├ ConsoleEvent
+├ CVar
+├ DamageTypeDefinition
+├ DehInfo
+├ Destructible
+├ DropItem
+├ DynArray_F32
+├ DynArray_F64
+├ DynArray_I16
+├ DynArray_I32
+├ DynArray_I8
+├ DynArray_Obj
+├ DynArray_Ptr
+├ DynArray_String
+├ F3DFloor
+├ FCheckPosition
+├ FColormap
+├ FLineTraceData
+├ Font
+├ FOptionMenuSettings
+├ FRailParams
+├ FStateParamInfo
+├ FTranslatedLineTarget
+├ GameInfoStruct
+├ GIFont
+├ HealthGroup
+├ InputEvent
+├ JoystickConfig
+├ KeyBindings
+├ LevelLocals
+├ Line
+├ LinkContext
+├ LookExParams
+├ MugShot
+├ MusPlayingInfo
+├ OptionValues
+├ PatchInfo
+├ PlayerClass
+├ PlayerEvent
+├ PlayerInfo
+├ PlayerSkin
+├ RenderEvent
+├ ReplacedEvent
+├ ReplaceEvent
+├ SavegameManager
+├ SaveGameNode
+├ SBarInfo
+├ Screen
+├ SecPlane
+├ SecSpecial
+├ Sector
+├ SectorPortal
+├ Shader
+├ Side
+├ State
+├ StrifeDialogueNode
+├ StrifeDialogueReply
+├ StringStruct
+├ StringTable
+├ Team
+├ TerrainDef
+├ TexMan
+├ TraceResults
+├ Translation
+├ UiEvent
+├ UserCmd
+├ Vertex
+├ VisStyle
+├ Wads
+├ WBPlayerStruct
+├ WBStartStruct
+├ WeaponSlots
+├ WorldEvent
+└ _

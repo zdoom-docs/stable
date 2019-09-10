@@ -81,24 +81,24 @@ DoSomething(7, 8, 9, 10);
 
 # Method Definition Flags
 
-| Flag                   | Description                                                                                    |
-| ----                   | -----------                                                                                    |
-| `action ( Scope )`     | Same as `action`, but has a specified action scope. See "Action Scoping" for more information. |
-| `action`               | Method has implicit `invoker` and `stateinfo` parameters. See below for more info.             |
-| `clearscope`           | Method has Data scope.                                                                         |
-| `deprecated ( "ver" )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`. |
-| `final`                | Virtual method cannot be further overridden from derived classes.                              |
-| `native`               | Method is from the engine. Only usable internally.                                             |
-| `override`             | Method is overriding a base class' virtual method.                                             |
-| `play`                 | Method has Play scope.                                                                         |
-| `private`              | Method is not visible to any class but this one.                                               |
-| `protected`            | Method is not visible to any class but this one and any descendants of it.                     |
-| `static`               | Function is not a method, but a global function without a `self` pointer.                      |
-| `ui`                   | Method has UI scope.                                                                           |
-| `vararg`               | Method doesn't type-check arguments after `...`. Only usable internally.                       |
-| `version ( "ver" )`    | Restricted to ZScript version `ver` or higher.                                                 |
-| `virtual`              | Method can be overridden in derived classes.                                                   |
-| `virtualscope`         | Method has scope of the type of the object it's being called on.                               |
+| Flag                                    | Description                                                                                                                                           |
+| ----                                    | -----------                                                                                                                                           |
+| `action ( Scope )`                      | Same as `action`, but has a specified action scope. See "Action Scoping" for more information.                                                      |
+| `action`                                | Method has implicit `invoker` and `stateinfo` parameters. See below for more info.                                                                  |
+| `clearscope`                            | Method has Data scope.                                                                                                                                |
+| `deprecated ( "ver" $[ , "reason" ]$ )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`, with the reason `reason` specified in the message. |
+| `final`                                 | Virtual method cannot be further overridden from derived classes.                                                                                     |
+| `native`                                | Method is from the engine. Only usable internally.                                                                                                    |
+| `override`                              | Method is overriding a base class' virtual method.                                                                                                    |
+| `play`                                  | Method has Play scope.                                                                                                                                |
+| `private`                               | Method is not visible to any class but this one.                                                                                                      |
+| `protected`                             | Method is not visible to any class but this one and any descendants of it.                                                                            |
+| `static`                                | Function is not a method, but a global function without a `self` pointer.                                                                             |
+| `ui`                                    | Method has UI scope.                                                                                                                                  |
+| `vararg`                                | Method doesn't type-check arguments after `...`. Only usable internally.                                                                              |
+| `version ( "ver" )`                     | Restricted to ZScript version `ver` or higher.                                                                                                        |
+| `virtual`                               | Method can be overridden in derived classes.                                                                                                          |
+| `virtualscope`                          | Method has scope of the type of the object it's being called on.                                                                                      |
 
 ## Action functions
 

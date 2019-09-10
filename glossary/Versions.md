@@ -26,6 +26,7 @@
 	* [Version 4.1.2](#version-412)
 	* [Version 4.1.3](#version-413)
 	* [Version 4.2.0](#version-420)
+	* [Version 4.2.1](#version-421)
 
 <!-- vim-markdown-toc -->
 
@@ -851,5 +852,14 @@ No changes.
 - Added `pitch` parameter to `Object::S_Sound`.
 - Added `sound_id` parameter to `PlayerInfo::SetSubtitleNumber`.
 - Added a warning for unknown `DropItem`s.
+
+## Version 4.2.1
+
+- Added `BaseStatusBar::DrawChat`.
+- Added `BaseStatusBar::FlushNotify`.
+- Added `BaseStatusBar::ProcessMidPrint`.
+- Added `BaseStatusBar::ProcessNotify`.
+- Added `EPrintLevel`.
+- Added the ability to specify deprecation messages.
 
 <!-- EOF -->
