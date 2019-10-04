@@ -6,7 +6,7 @@ range 0 to 255, inclusive.
 ```
 struct Color
 {
-	uint8 r, g, b, a;
+	uint8 a, r, g, b;
 }
 ```
 
