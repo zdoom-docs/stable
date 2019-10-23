@@ -83,8 +83,8 @@ DoSomething(7, 8, 9, 10);
 
 | Flag                                    | Description                                                                                                                                           |
 | ----                                    | -----------                                                                                                                                           |
-| `action ( Scope )`                      | Same as `action`, but has a specified action scope. See "Action Scoping" for more information.                                                      |
-| `action`                                | Method has implicit `invoker` and `stateinfo` parameters. See below for more info.                                                                  |
+| `action ( Scope $[ , Scope]$... )`      | Same as `action`, but has specified action scopes. See "Action Scoping" for more information.                                                      |
+| `action`                                | Method may have implicit `invoker` and `stateinfo` parameters. See below for more info.                                                                  |
 | `clearscope`                            | Method has Data scope.                                                                                                                                |
 | `deprecated ( "ver" $[ , "reason" ]$ )` | If accessed, a script warning will occur on load if the archive version is greater than `ver`, with the reason `reason` specified in the message. |
 | `final`                                 | Virtual method cannot be further overridden from derived classes.                                                                                     |
@@ -105,16 +105,23 @@ DoSomething(7, 8, 9, 10);
 ZScript includes an extra method type for descendents of `Actor` called
 *actions*, which are intended to be run from actor states and give extra
 information to the function. Action functions change the meaning of the `self`
-parameter and pass in `invoker` and `stateinfo` parameters as well. `stateinfo`
-refers to the `State` which this action was called from. Here is a chart for
-the meanings of the `self` and `invoker` variables under each scope:
+parameter and may pass in `invoker` and `stateinfo` parameters as well. `stateinfo`
+refers to the `State` which this action was called from.
 
-| Scope     | `self` meaning                                                  | `invoker` meaning |
-| -----     | --------------                                                  | ----------------- |
-| None      | The actor this function operates on, ambiguous in some contexts | State owner       |
-| `actor`   | The actor                                                       | The actor         |
-| `item`    | Item owner                                                      | Item itself       |
-| `overlay` | Weapon owner                                                    | Weapon itself     |
-| `weapon`  | Weapon owner                                                    | Weapon itself     |
+Action scopes are a flag field and as such an action function can have multiple scopes.
+The only scopes that actually set the internal action function flag are `item`, `overlay` and `weapon`,
+so action functions without one of these do not act much like action functions, and they do not get an
+`invoker` or `stateinfo` pointer.
+
+Here is a chart for the meanings of the `self` and `invoker` variables under each scope.
+Scopes lower down on the chart "override" scopes above them, so to speak:
+
+| Scope     | `self` meaning                                                                                                               | `invoker` meaning |
+| -----     | --------------                                                                                                               | ----------------- |
+| None      | The actor this function operates on, ambiguous in some contexts                                                              | N/A               |
+| `actor`   | The actor                                                                                                                    | N/A               |
+| `item`    | Context-dependent. The item itself when it exists in-world, but the owner when used as part of a CustomInventory state chain | Item itself       |
+| `overlay` | Context-dependent. The actor itself when it exists in-world, but the owner of the PSprite when it is being used as one       | Context-dependent. The actor itself when it exists in-world, but the PSprite's `caller` field when it is being used as one. In most cases this field should be set to be the actor defining the action function, but it can be changed by user code so this is not technically guaranteed |
+| `weapon`  | Same as `overlay`, but `self` is allowed to be any subclass of `Actor` rather than just a subclass of the defining class     | Same as `overlay` |
 
 <!-- EOF -->
