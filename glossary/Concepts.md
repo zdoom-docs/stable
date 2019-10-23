@@ -42,6 +42,8 @@ These can be defined either in the `states` block header as-is, or in `Actor`'s
 | `SUF_OVERLAY` | `overlay` |
 | `SUF_WEAPON`  | `weapon`  |
 
+The effect of this is described in the Methods section.
+
 ## Object Scoping
 
 Most objects are subject to object scoping, which restricts the way data can be
